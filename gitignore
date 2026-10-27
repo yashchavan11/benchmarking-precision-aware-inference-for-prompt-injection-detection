@@ -1,0 +1,36 @@
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.cache/
+
+# Python build outputs
+build/
+dist/
+*.egg-info/
+
+# Local secrets (keep the example template)
+.env
+.env.*
+!.env.example
+
+# Local editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Downloaded data, model weights, and generated outputs
+/data/raw/
+/data/processed/
+/model_weights/
+/checkpoints/
+/outputs/
+
+# Runtime and cluster logs
+*.log
+slurm-*.out

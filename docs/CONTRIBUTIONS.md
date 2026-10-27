@@ -1,0 +1,28 @@
+# Team contribution record
+
+Evidence of substantive human design, implementation, execution, analysis, review and
+writing work, supporting the final contribution statement. Version-control changes can be
+linked as evidence; discussions, experiments and reviews may require other records.
+Contribution-recording instructions are in [AGENTS.md](../AGENTS.md).
+
+## Contribution index
+
+| Contributor | Completed work / evidence | Review contribution |
+|---|---|---|
+| Shreyas Shukla | None recorded | None recorded |
+| Viraj Paradkar | None recorded | None recorded |
+| Yash Chavan | None recorded | None recorded |
+| Hareeshwar Muthu Kumaran | None recorded | None recorded |
+
+These entries establish team membership, not completed work or authorship credit. Current
+active task ownership belongs in [STATUS.md](STATUS.md).
+
+## Contribution record schema
+
+- **Contributor(s) / date / phase:** [actual names and values]
+- **Task and role:** [design / implementation / experiment execution / analysis / review / writing]
+- **Work performed:** [specific substantive contribution]
+- **Evidence:** [session, decision, run, validation, result or version-control references]
+- **Review/verification:** [actual review, reviewer and outcome]
+- **Collaborators and shared work:** [who contributed to which part]
+- **Final-report relevance:** [brief contribution statement supported by the linked evidence]
