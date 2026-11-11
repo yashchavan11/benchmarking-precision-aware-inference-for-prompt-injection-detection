@@ -1,5 +1,58 @@
 # Research outputs and course deliverables
 
+## Progress report working text — November 18 checkpoint
+
+The following reflects implementation completed on November 11, 2026, not a claim that
+the later checkpoint or any model experiment has occurred. Replace pending sections with
+verified team outputs before submission; the progress-report rubric has not been supplied.
+
+**Evaluation and integration progress.** We have implemented an offline Python evaluation
+package for saved FP32, FP16 and INT8 predictions. It validates complete example coverage,
+artifact hashes, shared configurations, score ranges and thresholded labels before calculating
+classification metrics. The output includes accuracy, macro-F1, class-specific precision and
+recall, false-positive/false-negative rates, ROC-AUC, confusion counts and calibration summaries.
+Paired comparisons identify errors introduced, corrected or shared relative to FP32, with
+reference labels determining correctness. A single command generates reproducible CSV tables,
+an ID-level error-analysis export and a readable report with provenance.
+
+**Validation completed.** Automated checks use hand-authored synthetic examples and an
+independent pairwise AUC reference. They exercise metric edge cases, threshold ties,
+all four paired correctness outcomes, integrity/coverage failures and CLI reproducibility.
+See V-001 for the executed checks. Synthetic values demonstrate software behavior and do
+not estimate Sentinel v2 performance.
+
+**Pending experimental evidence.** Actual dataset counts and eligible partitions, verified
+model/tokenizer revisions, precision-treatment checks, real pilot predictions and measured
+runtime/memory outputs remain pending. Accordingly, no detection-quality improvement,
+speedup or memory reduction is claimed. The evaluator currently rejects held-out data roles;
+Test-A/Test-B remain subject to the project audit and freeze process.
+
+**Next integration step.** The data owner supplies the audited expected-label manifest;
+the inference owner supplies complete predictions and run metadata using ARCHITECTURE's
+v1 interface. Shreyas's workstream then regenerates the same tables on eligible development
+data and reviews the resulting errors. The profiling owner supplies separately reviewed,
+matched resource measurements. A second contributor reviews scientific validity before
+the report presents real findings. Full benchmark and learned-gate experiments remain later
+milestones, as defined in ROADMAP.
+
+**Contribution disclosure.** This evaluation implementation and its tests/documentation
+were produced by Codex at Shreyas's request; human review and experimental execution remain
+pending. Use actual subsequent work for the final individual contribution statement and
+follow the course's assistance-disclosure policy.
+
+The demonstration can be regenerated using README's command. Never paste its invented
+numbers into the report's empirical-results section. An honest current evidence table is:
+
+| Item | Current evidence |
+|---|---|
+| Evaluation pipeline | Implemented; synthetic validation recorded in V-001. |
+| Real detection quality and prediction changes | Not measured. |
+| Latency, throughput and memory | Not measured. |
+| Dataset audit and model precision verification | Pending upstream work and review. |
+| Main-protocol freeze and learned gate | Pending later roadmap phases. |
+
+## Reporting requirements
+
 This document defines the evidence packages, presentation artifacts and submission requirements.
 The project title, team and scope are defined in the [README](../README.md). Scientific
 procedures are in [RESEARCH_PROTOCOL.md](RESEARCH_PROTOCOL.md); the criteria for learned-gate

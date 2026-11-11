@@ -1,8 +1,8 @@
-# Planned architecture and artifact contracts
+# Architecture and artifact contracts
 
 This document specifies logical components and the information they exchange. The
-components are planned, not implemented. Concrete module names, serialization formats and
-backend choices remain implementation decisions. Scientific rules belong in
+quality-analysis and reporting components now have a development implementation described
+below; other components remain planned. Backend choices remain implementation decisions. Scientific rules belong in
 [RESEARCH_PROTOCOL.md](RESEARCH_PROTOCOL.md) and [EXTENSION.md](EXTENSION.md); phase ordering
 belongs in [ROADMAP.md](ROADMAP.md).
 
@@ -138,3 +138,104 @@ checked assumptions, defects and conditions of validity. Large artifacts need du
 team-accessible locations and hashes referenced by their data/run records. Environment and
 scheduler configuration should be selected for the actual implementation; they do not
 alter these data and component contracts.
+
+## Implemented development evaluation interface v1
+
+`precision_benchmark/evaluation.py` implements pure metrics and paired comparisons;
+`artifacts.py` validates saved data; `report.py` generates analysis artifacts;
+`__main__.py` exposes the CLI. No inference dependency is required. The executable example
+is [tests/fixtures/synthetic/comparison.json](../tests/fixtures/synthetic/comparison.json).
+Its deliberately invented scores are fixtures, not experimental results.
+
+### Data owner handoff
+
+Supply UTF-8 JSONL with one object per nonblank line and unique stable `example_id` values.
+This file is the expected complete population, not a list inferred from successful predictions.
+Reference `label` is integer 0 (benign) or 1 (injection); booleans and strings are rejected.
+
+```json
+{"example_id":"revision:train:42","label":1,"original_tokens":700,"effective_tokens":512,"truncated":true}
+```
+
+The three token/truncation fields may all be omitted for all examples; otherwise supply
+all three for every example. Counts are nonnegative integers under the same token-counting
+definition, with effective <= original and `truncated == (effective < original)`.
+The preprocessing record must define counting before padding, including special-token policy.
+Do not include raw prompt text in evaluation exports. Dataset audit, eligibility, label
+orientation and duplicate isolation remain upstream responsibilities requiring review.
+
+### Inference owner handoff
+
+Export one JSONL file per treatment with all expected IDs exactly once. Row order does not
+matter; analysis joins by ID. Each row must include:
+
+```json
+{"example_id":"revision:train:42","run_id":"R-example-fp32","score":0.73,"prediction":1}
+```
+
+`score` is the finite injection-class score in [0,1], not the top-label confidence.
+`prediction` must equal `int(score >= threshold)`. An optional `label` is checked against
+the separate expected-label file. Other row fields (such as logits) are permitted but not
+used by this evaluator. Failed predictions must not be removed to create a smaller success
+population: retain upstream failure records and leave the run incomplete.
+
+Each run has a JSON manifest; see [fp32.run.json](../tests/fixtures/synthetic/fp32.run.json).
+
+| Field | Required meaning |
+|---|---|
+| `run_id`, `precision`, `status` | Unique ID; exactly one of `fp32`, `fp16`, `int8`; `complete` only after upstream checks. |
+| `data_role`, `population_id` | Same as comparison manifest. Real roles supported now: `eligible_training`, `eligible_validation`; fixtures use `synthetic`. |
+| `threshold`, `threshold_source` | Same numeric threshold and nonempty provenance reference across runs. A provisional pilot threshold must be identified as such; validation-selected thresholds link FP32 validation evidence. |
+| `model_revision`, `tokenizer_revision`, `dataset_revision` | Immutable source identities, equal across all treatments. |
+| `preprocessing_id` | Immutable shared record defining tokenizer configuration, padding, truncation, length and label/score mapping. |
+| `input_schedule_id` | Immutable shared record of input IDs/order and batch composition, regardless of saved row order. |
+| `environment_id` | Shared comparable hardware/software/attention-backend record; different job IDs may be recorded separately. |
+| `score_semantics` | Literal `p_injection`. |
+| `code_revision` | Same inference code revision or source-tree hash across treatments. |
+| `precision_evidence` | Treatment-specific evidence reference covering actual dtype/module conversion, device placement and flags. |
+| `predictions` | Object with `path` and lowercase `sha256` of the exact prediction file bytes. Path is relative to this run manifest. |
+
+Metadata equality prevents accidental incompatible comparisons; it cannot prove that
+someone used the declared configuration or that the source records are correct. A second
+contributor must review the scientific evidence before relying on real results.
+
+### Integration owner handoff
+
+The comparison JSON contains `schema_version: 1`, `data_role`, `population_id`, `threshold`,
+`threshold_source`, an `examples` file reference and a `runs` list of three file references.
+Each file reference is `{ "path": "relative/file", "sha256": "actual-sha256" }`;
+paths are relative to the containing manifest. Compute hashes after writing final bytes:
+
+```sh
+python3 -c 'import hashlib,pathlib,sys; print(hashlib.sha256(pathlib.Path(sys.argv[1]).read_bytes()).hexdigest())' path/to/file
+```
+
+Hash predictions first, then write/hash run manifests, then write the comparison manifest.
+Do not use synthetic metadata or hashes for real runs. Preserve source manifests and
+predictions together; report hashes identify bytes, not a durable storage location.
+
+```sh
+python3 -m precision_benchmark --manifest path/to/comparison.json --output outputs/pilot-comparison-001
+```
+
+The command rejects hash mismatches, incomplete runs, missing/extra/duplicate IDs,
+conflicting supplied labels, nonfinite/out-of-range scores, inconsistent predicted labels,
+incompatible metadata and protected test roles before creating an output directory.
+An existing output directory is never overwritten. Exit status is 0 on success and 2 on
+input/output failure. Interrupted writes may leave a partial new directory; `report.md`
+is written last, and a retry must use a fresh directory or remove only that failed export.
+
+| Output | Contents |
+|---|---|
+| `report.md` | Readable development comparison, provenance and limitations; synthetic data prominently labeled. |
+| `quality.csv` | Supports, confusion counts, accuracy, both classes' precision/recall/F1, macro-F1, FPR/FNR, ROC-AUC, Brier and ECE. |
+| `paired.csv` | Candidate-versus-FP32 correctness combinations, disagreement, score shifts and accuracy difference in percentage points. |
+| `error_analysis.csv` | ID-level introduced/corrected/shared errors with both scores, threshold distances and optional token metadata. |
+| `results.json` | Full-precision results, reliability-bin counts, optional truncation subgroups, run metadata, input and analysis-source hashes. |
+
+CSV string identifiers starting with spreadsheet formula characters are prefixed with an
+apostrophe; exact identifiers remain in JSON. Rates are fractions, not percentages; only
+`accuracy_delta_pp` uses percentage points. No raw prompts are copied to the error report.
+Uncertainty, threshold optimization and measured profiling are not implemented in this
+development command. Resource sections explicitly remain unavailable until the profiler
+handoff. Held-out analysis requires subsequent implementation and the P1-C freeze.

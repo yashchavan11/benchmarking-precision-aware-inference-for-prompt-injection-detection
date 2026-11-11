@@ -54,6 +54,18 @@ Their presence there does not make them user-mandated constants or measured opti
 
 ## Amendment record
 
+### D-007 — Development evaluator interface and metric conventions
+
+- **Date / author / reviewer:** 2026-11-11, America/New_York; Codex implementing Shreyas's authorized evaluation task; second-contributor review pending.
+- **Phase/status:** P1-B/P1-C component preparation on synthetic data; chosen for development, not a main-protocol freeze.
+- **Choice:** Standard-library offline package and CLI using the JSON/JSONL v1 contract in ARCHITECTURE. Keep expected labels separate from inference rows; join by stable IDs; reject incomplete/incompatible runs. This enables independent work before real inference outputs exist.
+- **Metric conventions:** Injection is class 1; score >= shared threshold is positive. Undefined denominators return null, never a fabricated perfect score. F1 is `2TP/(2TP+FP+FN)` (and the corresponding class-0 expression); macro-F1 averages the two only when both are defined. AUC gives ties half credit. Brier is mean squared injection-score error. Development ECE uses ten equal-width bins, lower-inclusive/upper-exclusive except the final bin includes 1; empty bins contribute zero and retain null means/count zero.
+- **Paired interpretation:** Corrected/introduced errors refer to candidate versus FP32; correctness comes from reference labels. Accuracy delta is candidate minus FP32 in percentage points.
+- **Exposure/threshold:** Only synthetic fixtures were used. The fixture's 0.5 threshold is illustrative, not a selected project threshold. No real inputs, source revisions or data partitions were audited or frozen.
+- **Evidence:** V-001 and S-20261111-01. Tests cover hand-computed metrics, all paired outcomes, tied AUC via an independent pairwise calculation, input integrity and CLI integration.
+- **Limits/follow-up:** Keep Test-A/Test-B disabled until the required freeze and uncertainty implementation. No resource-cost claims or automatic threshold selection. Primary endpoint and final calibration/uncertainty choices remain Q-005/Q-006. Review formulas, label orientation and source contracts before real use.
+- **Prior evidence affected:** None; no empirical results existed.
+
 A replacement decision retains the original rationale and states why it changed, what
 final outcomes were already visible, and which downstream evidence remains valid.
 Post-evaluation choices have the exploratory/confirmatory status defined by

@@ -169,8 +169,30 @@ conditions within each reported comparison, regardless of where development occu
 
 ## Project documentation and research records
 
-The project is currently a planned study; this README makes no claim of measured results.
+The development evaluator is implemented and checked against synthetic fixtures; model
+inference and empirical experiments remain pending. This README makes no claim of measured results.
 The evolving state and next task are recorded in [STATUS.md](docs/STATUS.md).
+
+### Run the development evaluator
+
+Python 3.10+ is required; the evaluator uses only the standard library. From the repository root:
+
+```sh
+python3 -m unittest discover -s tests -v
+python3 -m precision_benchmark --manifest tests/fixtures/synthetic/comparison.json --output outputs/synthetic-demo
+```
+
+The output directory must be new; existing reports are never overwritten. The demo uses
+eight invented examples, not Sentinel or PromptShield predictions. It writes `report.md`,
+`quality.csv`, `paired.csv`, `error_analysis.csv`, and `results.json`. The last file preserves
+input/source hashes, run metadata, calibration bins and optional truncation subgroups.
+
+For real development runs, use the exact JSON/JSONL interface in
+[ARCHITECTURE.md](docs/ARCHITECTURE.md#implemented-development-evaluation-interface-v1).
+Replace the demo manifest path with your audited comparison manifest. No model downloads,
+GPU, inference packages or network access are needed to regenerate analyses. Test-A/Test-B
+analysis is intentionally disabled until the later protocol freeze and uncertainty work;
+see [D-007](docs/DECISIONS.md#d-007--development-evaluator-interface-and-metric-conventions).
 
 | Document or record | Contents |
 |---|---|

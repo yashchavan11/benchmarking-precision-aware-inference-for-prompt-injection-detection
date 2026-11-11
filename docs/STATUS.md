@@ -5,26 +5,35 @@ history remains in [SESSION_LOG.md](SESSION_LOG.md); phase completion is establi
 [PHASE_RECORDS.md](PHASE_RECORDS.md). The session procedure is defined in
 [AGENTS.md](../AGENTS.md).
 
-## Current snapshot — planning baseline
+## Current snapshot — evaluation component ready for development integration
 
 | Field | Current value |
 |---|---|
-| Overall state | Research planning baseline; implementation and empirical work pending |
+| Overall state | Offline development evaluation implemented and tested with synthetic fixtures; empirical work pending |
 | Active phase | P1-A — asset, data and evaluation design audit; not started |
 | Latest completed research phase | None |
-| Snapshot provenance | Initial planning state; no completed implementation/research session recorded |
-| Active owner and reserved work | Unassigned; no active task reservation recorded |
-| Latest session / changes since previous handoff | No research session or earlier research handoff recorded |
+| Snapshot provenance | Codex, 2026-11-11, America/New_York; S-20261111-01 |
+| Active owner and reserved work | Shreyas's evaluation/integration workstream implemented by Codex; no active edits/jobs. Real-data/inference/profiling owners must confirm their assignments. |
+| Latest session / changes since previous handoff | S-20261111-01: evaluator, CLI, synthetic fixtures, 18 passing tests, interface and progress-report working text |
 | Current source revisions | Unresolved; asset entries in [DATA_REGISTRY.md](DATA_REGISTRY.md) |
 | Experimental configurations | Not frozen |
 | Experimental findings | None recorded in [RESULTS.md](RESULTS.md) |
 | Evaluation exposure | No model-performance inspection recorded; actual exposure history requires verification at project start |
-| Reusable work | The approved scope and planned methodology; no experimental artifacts recorded |
-| Partial changes / running or interrupted jobs | None recorded; actual workspace and job state have not been audited |
-| Verified blockers | None established; unresolved access or backend questions are not demonstrated failures |
+| Reusable work | precision_benchmark/ and tests/; ARCHITECTURE v1; V-001; outputs/synthetic-demo/ is illustrative and regenerable, not experimental evidence |
+| Partial changes / running or interrupted jobs | No active or interrupted jobs from this session. Repository inventory contains no real inference/data artifacts. Use Git status/history for the current commit and publication state. |
+| Verified blockers | Real evaluation integration awaits audited labels and model predictions, which are absent locally. GPU/access/backend compatibility has not been tested. |
 | Subsequent phase | P1-B after the P1-A completion gate is satisfied |
 
 ## Immediate continuation
+
+**Evaluation handoff:** Read D-007, V-001 and ARCHITECTURE's implemented development interface.
+Run `python3 -m unittest discover -s tests -v` to verify the evaluator. The existing demo is
+`outputs/synthetic-demo/report.md`; use a fresh output directory to regenerate it. It is
+synthetic software evidence only. REPORTING contains accurate progress-report working text.
+The evaluator's next steps are (1) second-contributor review of metric/contract choices,
+(2) receive audited development labels and compatible FP32/FP16/INT8 outputs, and
+(3) generate and review real development tables. No real report result exists yet.
+The following P1-A work remains prerequisite to empirical execution.
 
 **Bounded goal:** establish a verified, versioned asset/data contract and a defensible
 sequential evaluation design before any final-test model performance is inspected.

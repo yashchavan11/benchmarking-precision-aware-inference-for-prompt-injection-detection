@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "data_role": "synthetic",
+  "population_id": "synthetic-eight-cases-v1",
+  "threshold": 0.5,
+  "threshold_source": "synthetic-fixed-0.5-not-validation-selected",
+  "examples": {
+    "path": "examples.jsonl",
+    "sha256": "20e7be5333e2618c819a61fb6593cebbc55cb73d641cad837793196184a2e2aa"
+  },
+  "runs": [
+    {
+      "path": "fp32.run.json",
+      "sha256": "cf32250a565d53120b33259ff2efd6e2ae8f1147e7e8e6a06069ffbf9d3e2a3d"
+    },
+    {
+      "path": "fp16.run.json",
+      "sha256": "ccb374d9a5807aeee6a5c067cb0d18e0512ed65157919ae72a182cf75d14500d"
+    },
+    {
+      "path": "int8.run.json",
+      "sha256": "9f3bbed86ae13d5818ecf79944c5ce025c6e059e57edafaa6663b29337b54fd5"
+    }
+  ]
+}

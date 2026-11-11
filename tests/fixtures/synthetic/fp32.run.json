@@ -1,0 +1,22 @@
+{
+  "run_id": "synthetic-fp32",
+  "precision": "fp32",
+  "status": "complete",
+  "data_role": "synthetic",
+  "population_id": "synthetic-eight-cases-v1",
+  "threshold": 0.5,
+  "threshold_source": "synthetic-fixed-0.5-not-validation-selected",
+  "model_revision": "synthetic-no-model",
+  "tokenizer_revision": "synthetic-no-tokenizer",
+  "dataset_revision": "synthetic-no-dataset",
+  "preprocessing_id": "synthetic-no-tokenization",
+  "input_schedule_id": "synthetic-eight-cases-v1",
+  "environment_id": "synthetic-no-inference",
+  "score_semantics": "p_injection",
+  "code_revision": "synthetic-hand-authored-v1",
+  "precision_evidence": "synthetic-no-precision-treatment-executed",
+  "predictions": {
+    "path": "fp32.jsonl",
+    "sha256": "24d65a9dbf892bb9bfa06ed0d4a570abe511a3fef1fc797eae690e028f5b583b"
+  }
+}

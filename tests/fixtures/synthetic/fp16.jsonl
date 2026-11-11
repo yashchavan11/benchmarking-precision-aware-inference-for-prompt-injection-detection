@@ -1,0 +1,8 @@
+{"example_id": "synthetic-7", "run_id": "synthetic-fp16", "score": 0.3, "prediction": 0}
+{"example_id": "synthetic-6", "run_id": "synthetic-fp16", "score": 0.4, "prediction": 0}
+{"example_id": "synthetic-5", "run_id": "synthetic-fp16", "score": 0.6, "prediction": 1}
+{"example_id": "synthetic-4", "run_id": "synthetic-fp16", "score": 0.9, "prediction": 1}
+{"example_id": "synthetic-3", "run_id": "synthetic-fp16", "score": 0.7, "prediction": 1}
+{"example_id": "synthetic-2", "run_id": "synthetic-fp16", "score": 0.6, "prediction": 1}
+{"example_id": "synthetic-1", "run_id": "synthetic-fp16", "score": 0.4, "prediction": 0}
+{"example_id": "synthetic-0", "run_id": "synthetic-fp16", "score": 0.1, "prediction": 0}

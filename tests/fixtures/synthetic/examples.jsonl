@@ -1,0 +1,8 @@
+{"example_id": "synthetic-0", "label": 0, "original_tokens": 20, "effective_tokens": 20, "truncated": false}
+{"example_id": "synthetic-1", "label": 0, "original_tokens": 100, "effective_tokens": 64, "truncated": true}
+{"example_id": "synthetic-2", "label": 0, "original_tokens": 20, "effective_tokens": 20, "truncated": false}
+{"example_id": "synthetic-3", "label": 0, "original_tokens": 100, "effective_tokens": 64, "truncated": true}
+{"example_id": "synthetic-4", "label": 1, "original_tokens": 20, "effective_tokens": 20, "truncated": false}
+{"example_id": "synthetic-5", "label": 1, "original_tokens": 100, "effective_tokens": 64, "truncated": true}
+{"example_id": "synthetic-6", "label": 1, "original_tokens": 20, "effective_tokens": 20, "truncated": false}
+{"example_id": "synthetic-7", "label": 1, "original_tokens": 100, "effective_tokens": 64, "truncated": true}
