@@ -2,8 +2,8 @@
 
 ## Progress report working text — November 18 checkpoint
 
-The following reflects implementation completed on November 11, 2026, not a claim that
-the later checkpoint or any model experiment has occurred. Replace pending sections with
+The following reflects implementation completed on November 11 and rechecked on November 16,
+2026, not a claim that the later checkpoint or any model experiment has occurred. Replace pending sections with
 verified team outputs before submission; the progress-report rubric has not been supplied.
 
 **Evaluation and integration progress.** We have implemented an offline Python evaluation
@@ -15,10 +15,21 @@ Paired comparisons identify errors introduced, corrected or shared relative to F
 reference labels determining correctness. A single command generates reproducible CSV tables,
 an ID-level error-analysis export and a readable report with provenance.
 
+**Methods.** The evaluator consumes saved predictions for the same expected examples under
+FP32, FP16 and INT8. Each example has a stable ID and a reference label, with 0 representing
+benign text and 1 representing injection. We join runs by ID and require matching model,
+tokenizer, dataset, preprocessing, input schedule, environment, code revision and threshold
+metadata. A score at or above the shared threshold produces an injection prediction.
+Detection quality is calculated against reference labels; FP32 serves as a comparison
+baseline, not ground truth. We compare outcomes per example to distinguish corrected errors
+from introduced errors, and retain score shifts and threshold distances for follow-up analysis.
+The current implementation is descriptive; it does not run models or measure hardware costs.
+
 **Validation completed.** Automated checks use hand-authored synthetic examples and an
 independent pairwise AUC reference. They exercise metric edge cases, threshold ties,
 all four paired correctness outcomes, integrity/coverage failures and CLI reproducibility.
-See V-001 for the executed checks. Synthetic values demonstrate software behavior and do
+All 18 tests passed again on November 16, and the CLI regenerated all five report artifacts;
+see V-001 and V-002 for the executed checks. Synthetic values demonstrate software behavior and do
 not estimate Sentinel v2 performance.
 
 **Pending experimental evidence.** Actual dataset counts and eligible partitions, verified
@@ -26,6 +37,14 @@ model/tokenizer revisions, precision-treatment checks, real pilot predictions an
 runtime/memory outputs remain pending. Accordingly, no detection-quality improvement,
 speedup or memory reduction is claimed. The evaluator currently rejects held-out data roles;
 Test-A/Test-B remain subject to the project audit and freeze process.
+
+**Limitations.** The eight-example fixture is hand-authored and provides no evidence about
+Sentinel v2's real accuracy, quantization behavior or generalization. Artifact consistency
+checks cannot independently establish correct labels, duplicate isolation, asset provenance
+or actual precision execution. The illustrative threshold of 0.5 has not been selected on
+FP32 validation outputs. Confidence intervals, final threshold selection and integrated
+resource analysis remain unfinished. Human scientific review is pending. These limitations
+prevent claims about accuracy retention, statistical significance, speedup or memory savings.
 
 **Next integration step.** The data owner supplies the audited expected-label manifest;
 the inference owner supplies complete predictions and run metadata using ARCHITECTURE's
@@ -50,6 +69,60 @@ numbers into the report's empirical-results section. An honest current evidence 
 | Latency, throughput and memory | Not measured. |
 | Dataset audit and model precision verification | Pending upstream work and review. |
 | Main-protocol freeze and learned gate | Pending later roadmap phases. |
+
+## Demo walkthrough and speaking notes
+
+On November 16 the demo was run with:
+
+```sh
+python3 -m precision_benchmark --manifest tests/fixtures/synthetic/comparison.json --output outputs/synthetic-demo-20261116
+```
+
+Open `outputs/synthetic-demo-20261116/report.md`. Generated outputs are ignored by Git;
+teammates can regenerate them from the tracked fixture. Use a fresh output directory if
+that name already exists. Every number below is synthetic, not a model-performance result.
+
+| Treatment label | Correct / total | TP / TN / FP / FN | Accuracy | Injection precision / recall | Macro-F1 |
+|---|---|---|---|---|---|
+| FP32 fixture | 4 / 8 | 2 / 2 / 2 / 2 | 50% | 50% / 50% | 0.50 |
+| FP16 fixture | 4 / 8 | 2 / 2 / 2 / 2 | 50% | 50% / 50% | 0.50 |
+| INT8 fixture | 6 / 8 | 3 / 3 / 1 / 1 | 75% | 75% / 75% | 0.75 |
+
+TP means correctly flagged injection; TN means correctly accepted benign input. FP is a
+benign input wrongly flagged; FN is an injection missed by the detector.
+
+| Metric | How to explain it |
+|---|---|
+| Accuracy | Fraction of all examples classified correctly: `(TP + TN) / N`. It can conceal class imbalance or changes in which examples are wrong. |
+| Injection precision | Of the examples flagged as injection, how many really are injections: `TP / (TP + FP)`. |
+| Injection recall | Of all actual injections, how many are caught: `TP / (TP + FN)`. |
+| FPR / FNR | False alarms among benign inputs / missed attacks among injections. Their denominators differ. |
+| Macro-F1 | Compute F1 for each class and average them equally. Each F1 balances precision and recall; this is not the F1 of averaged precision/recall. |
+| ROC-AUC | How well scores rank injections above benign examples across thresholds. Ties get half credit; it does not measure accuracy at the chosen threshold. |
+| Brier score | Mean squared difference between injection scores and 0/1 reference labels; lower is better. |
+| ECE | Count-weighted gap between mean score and observed injection frequency in ten score bins. Lower is better under this binning, but tiny samples are unreliable. |
+
+Undefined metrics are N/A, not zero or perfect performance. The machine-readable rates
+are fractions; 0.50 means 50%. An accuracy change from 50% to 75% is **25 percentage points**.
+
+The important paired example is FP16 versus FP32: two examples stay correct, two errors are
+corrected, two new errors appear, and two stay wrong. Accuracy remains 50%, but four of
+eight decisions change. In `error_analysis.csv`, `synthetic-1` is benign: its score changes
+from 0.6 to 0.4 across the 0.5 threshold, correcting a false alarm. `synthetic-2` is also
+benign, but its score changes from 0.2 to 0.6, introducing a false alarm.
+
+The INT8 fixture corrects four FP32 errors and introduces two. Its net gain is
+`(4 - 2) / 8 = 0.25`, or 25 percentage points. These values were deliberately authored to
+exercise the evaluator; they do not imply that INT8 will outperform FP32 on real data.
+
+**Suggested 45-second explanation:** "Our evaluation component takes saved predictions
+from three precision modes and compares them against the same labels. It checks that the
+runs are compatible and complete before calculating metrics. We report both overall quality
+and which individual errors change. For example, our synthetic FP32 and FP16 fixtures have
+the same accuracy, although half their decisions differ. That demonstrates why we need
+paired error analysis. The software passes 18 tests and produces reproducible reports.
+Actual model predictions and hardware measurements are still needed before we can draw
+conclusions about precision tradeoffs."
 
 ## Reporting requirements
 

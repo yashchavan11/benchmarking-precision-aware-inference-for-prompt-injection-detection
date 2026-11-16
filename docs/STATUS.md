@@ -12,9 +12,9 @@ history remains in [SESSION_LOG.md](SESSION_LOG.md); phase completion is establi
 | Overall state | Offline development evaluation implemented and tested with synthetic fixtures; empirical work pending |
 | Active phase | P1-A — asset, data and evaluation design audit; not started |
 | Latest completed research phase | None |
-| Snapshot provenance | Codex, 2026-11-11, America/New_York; S-20261111-01 |
+| Snapshot provenance | Codex, 2026-11-16, America/New_York; S-20261116-01 |
 | Active owner and reserved work | Shreyas's evaluation/integration workstream implemented by Codex; no active edits/jobs. Real-data/inference/profiling owners must confirm their assignments. |
-| Latest session / changes since previous handoff | S-20261111-01: evaluator, CLI, synthetic fixtures, 18 passing tests, interface and progress-report working text |
+| Latest session / changes since previous handoff | S-20261116-01: demo rerun and 18 tests passed (V-002); metric walkthrough, checkpoint methods/limitations and repository-only team handoff/review request prepared |
 | Current source revisions | Unresolved; asset entries in [DATA_REGISTRY.md](DATA_REGISTRY.md) |
 | Experimental configurations | Not frozen |
 | Experimental findings | None recorded in [RESULTS.md](RESULTS.md) |
@@ -27,6 +27,9 @@ history remains in [SESSION_LOG.md](SESSION_LOG.md); phase completion is establi
 ## Immediate continuation
 
 **Evaluation handoff:** Read D-007, V-001 and ARCHITECTURE's implemented development interface.
+The November 16 handoff/review request is in ARCHITECTURE; no messages were sent and no
+reviewer is assigned. REPORTING now includes a metric guide and speaking notes. Latest
+demo: `outputs/synthetic-demo-20261116/report.md`, with verification in V-002.
 Run `python3 -m unittest discover -s tests -v` to verify the evaluator. The existing demo is
 `outputs/synthetic-demo/report.md`; use a fresh output directory to regenerate it. It is
 synthetic software evidence only. REPORTING contains accurate progress-report working text.

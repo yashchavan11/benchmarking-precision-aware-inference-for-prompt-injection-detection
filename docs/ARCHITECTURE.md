@@ -239,3 +239,35 @@ apostrophe; exact identifiers remain in JSON. Rates are fractions, not percentag
 Uncertainty, threshold optimization and measured profiling are not implemented in this
 development command. Resource sections explicitly remain unavailable until the profiler
 handoff. Held-out analysis requires subsequent implementation and the P1-C freeze.
+
+## Team handoff and metric-review request — November 16
+
+Repository-only request prepared at Shreyas's direction; no email, chat message or GitHub
+issue was sent. Assignments below follow the proposed split and need team confirmation.
+
+**Handoff request:** The development evaluator is ready. Please use the v1 interface above
+so the same command can compare all three treatments. For the November 18 checkpoint,
+please aim to hand off complete development artifacts by November 17, noon Eastern, or
+record the specific blocker and expected availability. This is a proposed integration
+cutoff, not a confirmed teammate commitment.
+
+| Proposed owner | Requested handoff | Acceptance check |
+|---|---|---|
+| Viraj — data | Audited eligible development examples JSONL, population identity, labels and optional token lengths; data/eligibility evidence in DATA_REGISTRY. | Unique IDs; verified 0/1 semantics; duplicate and held-out isolation reviewed; expected population includes every intended example. |
+| Yash — inference | FP32/FP16/INT8 prediction JSONL files and complete run manifests with hashes and actual treatment evidence. | Exactly the expected IDs in each run; finite injection scores; shared threshold and compatible metadata. Keep failed/incomplete runs identified. |
+| Hareeshwar — profiling | Raw timing/memory artifacts and a summary identifying hardware, length/batch schedule, repetitions, warm-up, synchronization, loading boundaries and units. | Matched workloads; distinguish per-request from batch latency; include sample counts. Use RESEARCH_PROTOCOL; the evaluator does not yet import profiling files. |
+| Shreyas — integration | Assemble the comparison manifest, run the evaluator, review changed errors and add reviewed resource measurements to the report. | Traceable tables and clearly separated development observations, limitations and next steps. |
+
+**Review request:** One teammate other than Shreyas should review
+`precision_benchmark/evaluation.py`, `tests/test_evaluation.py`, and D-007 in DECISIONS.
+Reviewer is unassigned; review has not occurred. Please check:
+
+- Positive class is injection; threshold equality predicts injection; FPR/FNR use the correct denominators.
+- Per-class and macro-F1, undefined values, tied-score AUC and calibration bins agree with the documented definitions.
+- Paired comparisons join IDs and count corrected/introduced errors relative to reference labels, not presumed FP32 correctness.
+- The hand-calculated tests support the formulas; run `python3 -m unittest discover -s tests -v` and inspect the fixture, rather than relying only on a green test result.
+- No synthetic number is described as empirical performance; real eligibility, label mapping and precision evidence still require upstream review.
+
+Record the reviewer's name, date, reviewed commit, findings and disposition in VALIDATION_LOG
+and the actual review contribution in CONTRIBUTIONS. If changes are required, identify
+affected outputs and rerun the relevant checks before treating the review as complete.

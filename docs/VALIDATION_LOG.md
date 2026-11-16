@@ -28,6 +28,15 @@ establishes; it does not maintain a second copy of those requirements.
 - **Limits:** No real dataset or checkpoint, GPU execution, threshold selection, confidence intervals, or profiling was checked. Python versions other than 3.13.3 were not executed. Consistent metadata is not independent verification of the declarations. This is software evidence, not a completed P1-A/B/C phase or empirical finding.
 - **Review:** A second contributor still needs to review scientific formulas, conventions, eligibility and real-run evidence under AGENTS.md. No human review is claimed.
 
+### V-002 — November 16 demonstration and documentation verification
+
+- **Performed by/date:** Codex at Shreyas's request; 2026-11-16, America/New_York.
+- **Target:** Unchanged evaluator and fixtures from commit `df61690`; documentation preparation for the November 18 checkpoint.
+- **Executed:** `python3 -m unittest discover -s tests -v` — all 18 tests passed. `python3 -m precision_benchmark --manifest tests/fixtures/synthetic/comparison.json --output outputs/synthetic-demo-20261116` — exit 0.
+- **Observed:** Quality CSV reports 4/8 correct for FP32/FP16 fixtures and 6/8 for INT8. FP16 paired counts are two in each correctness category, with four disagreements and zero net accuracy change. INT8 has four corrected and two introduced errors, or +25 percentage points. Error rows confirm the example explanations in REPORTING.
+- **Artifacts:** The five generated outputs are in `outputs/synthetic-demo-20261116/` (ignored, regenerable). `results.json` retains input/source hashes; fixtures remain tracked. These values are synthetic software demonstrations, not empirical model findings.
+- **Scope:** Reconfirmed existing software behavior and prepared explanations. No real data, model execution, human review or hardware measurements. No implementation change or research-phase completion.
+
 IDs have the form `V-[unique number]`. Outcomes are `passed`, `failed` or `inconclusive`.
 A pass applies to the stated property and conditions, not automatically to other data,
 backends, scales or measurement claims.
