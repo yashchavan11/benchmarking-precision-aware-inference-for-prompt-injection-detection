@@ -20,8 +20,9 @@ precision effects or resource benefits are yet measured.
 
 The reproducible metadata/header and partition commands are integrated, with 56 passing
 combined tests and independent automated review (V-022/V-023). This is substantial audited
-preparation, not P1-A completion. Yash authorized committing/pushing properly completed
-milestones; final publication status is recorded in STATUS/SESSION_LOG. The November 18
+preparation, not P1-A completion. Yash authorized publication of completed milestones; the reviewed implementation/audit
+package was committed and pushed to the existing private repository as `e322f3f`.
+STATUS/SESSION_LOG record the verified publication and handoff. The November 18
 progress-report format remains unspecified; nothing has been submitted.
 
 ## Progress update — November 17, 2026

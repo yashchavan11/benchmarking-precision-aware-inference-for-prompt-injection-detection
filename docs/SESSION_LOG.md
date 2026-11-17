@@ -131,3 +131,18 @@ task or research phase is complete.
 - **Exposure:** EXP-004; source/header and administrative identity/label/group data only. A targeted NFC/literal-EOS aggregate probe was motivated by the actual tokenizer file and did not change populations. No official-test prompt or model performance was displayed. Prior external team history remains incompletely declared.
 - **Team handoff:** No missing Viraj implementation is a demonstrated blocker. His own exposure declaration, any unrecorded work and actual data-review findings are needed; other teammates must supply their own histories. Draft message is retained under `outputs/contract-20261117/review/viraj-message.txt`; not sent. No deadlines or new commitments were assigned.
 - **Publication/next:** Source/code/evidence/record integration is being packaged under Yash's new authorization; verify the resulting commit/push in the follow-up below and Git history. Raw source datasets, full tokenizer vocabulary, credential files and weights remain excluded. Next: obtain approved native runtime plus human/exposure review, perform token-length/preprocessing checks, then review the bounded pilot proposal in ARCHITECTURE. No phase has closed.
+
+### S-20261117-05 publication follow-up
+
+Yash's explicit authorization covered committing and pushing properly completed substantial
+milestones. After source/evidence review, 56 passing tests, current-source hash checks,
+local links/JSON/LF checks, and a staged-content scan confirming the actual local token was
+absent, `git commit` created `e322f3fc44627c8dd4c379c63b934b9a639edd4c`. Author and committer both
+resolve to `Yash <chavan.yas@northeastern.edu>`; the message has no co-author trailer.
+`git push origin main` advanced origin from `12fc6be`, and `git ls-remote origin
+refs/heads/main` independently matched the milestone SHA. Working tree was clean and
+synchronized before this small factual handoff update. No force push, other GitHub write,
+message, visibility change, credential/raw-data/tokenizer-vocabulary/weight-payload upload,
+or course submission accompanied publication. The follow-up uses the same configured
+identity and authorization; exact final tip is in Git history and local
+`outputs/contract-20261117/publication.json`. No research job or active reservation remains.
