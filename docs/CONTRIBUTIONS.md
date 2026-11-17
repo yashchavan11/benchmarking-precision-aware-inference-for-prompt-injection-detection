@@ -94,3 +94,10 @@ reviews established the native input evidence and P1-A closeout. Actual job/sour
 records distinguish this assistance from human implementation or review. No new teammate
 contribution or message was inferred; no model/GPU experiment was authorized by these
 CPU-only approvals.
+
+## November 17 - Public documentation direction
+
+Yash identified the README's drift into internal milestone/work notes and requested a
+public-facing project introduction. Codex performed the editorial cleanup and separate
+usage-guide organization, with independent automated review (S-20261117-08). No scientific
+implementation, experiment or human code review is attributed to this documentation work.

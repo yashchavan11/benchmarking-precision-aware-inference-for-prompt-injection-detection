@@ -227,3 +227,11 @@ message, visibility change or submission occurred. The same standing authorizati
 this factual handoff update. Both successful audit jobs and prior failures are complete;
 no active job remains. Latest final publication receipt is retained locally at
 `outputs/runtime-20261117/publication.json` and in Git history.
+
+## S-20261117-08 - Restore README's public project purpose
+
+- **Request/context:** November 17, 2026, America/New_York; Yash requested removal of the README milestone banner and other internal work-note dumps. Starting tree was clean at published `bed57d2`; this is a documentation task, not P1-B model execution.
+- **Changes:** Rewrote README around the public research question, selected assets/treatments, two-part method, evaluation design, scope/deliverables and synthetic quickstart. Removed dated phase/test-count updates, local runtime incidents, validation chronology, pending-choice inventories, one-off retained-run commands/hashes and the long internal record index. Their underlying facts already remain in the authoritative project records. Detailed reusable command guidance is in `docs/USAGE.md`; historical exact invocations remain with experiment/provenance evidence.
+- **Durable instruction:** Updated AGENTS to keep README public-facing and route operational state, milestone history and detailed usage to their appropriate locations. No scientific requirement, selected asset, membership, threshold, method or phase status changed.
+- **Review/checks:** Independent read-only review found the fixed scope, full learned-gate commitment, cost/quality baselines, holdout separation and honest available-software description preserved. Relative file links and code fences were checked; all eight documented CLI help entry points succeeded without network/model/data execution. No unit or research experiments were rerun for this prose-only change. Review notes are under `outputs/readme-review-20261117/`.
+- **Handoff/publication:** P1-B continuation is unchanged. Documentation is included in the reviewed cleanup commit under the standing publication authorization; final Git state is verified after publication, with a local receipt at `outputs/readme-review-20261117/publication.json`. No new research job or teammate message was created.

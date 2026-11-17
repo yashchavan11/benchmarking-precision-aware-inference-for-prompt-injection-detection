@@ -39,7 +39,7 @@ project, or rerun expensive experiments whose preserved outputs are complete and
 
 | Information or event | Authoritative location and update responsibility |
 |---|---|
-| Project purpose, scope, fixed requirements, and acceptance | [README](README.md); amend only when the agreed project changes. |
+| Public project introduction, purpose, scope, fixed requirements, and acceptance | [README](README.md); preserve agreed scientific commitments during editorial changes and keep operational progress in its dedicated records. |
 | Planned phase work, candidate settings, dependencies, and completion conditions | [ROADMAP](docs/ROADMAP.md); keep the plan distinct from evidence that work occurred. |
 | Common experimental procedures | [RESEARCH_PROTOCOL](docs/RESEARCH_PROTOCOL.md); link methodological amendments to a decision. |
 | Gate-specific formulation, investigation, and verification | [EXTENSION](docs/EXTENSION.md); retain the full learned-gate scope. |
@@ -62,6 +62,13 @@ summary, not an alternative result or decision register. Update underlying evide
 summarizing it. Do not copy full protocols, results, or chat transcripts into several files.
 Templates and examples are not factual records; replace placeholders only with known values.
 Use stable IDs and resolve concurrent ID collisions without overwriting another record.
+
+README is the public project introduction: purpose, scope, research design, repository
+orientation and a concise quickstart. Keep milestone banners, phase/test-count updates,
+session or publication history, local-machine incidents and handoff instructions in their
+authoritative records instead. Detailed reusable command guidance belongs in `docs/USAGE.md`;
+run-specific commands, paths and hashes belong in the registered execution/provenance records.
+Link to those documents rather than copying their internal notes into README.
 
 Git history supports attribution but does not capture all design, experiment execution,
 analysis, review, and writing. Record those contributions at meaningful task or phase
