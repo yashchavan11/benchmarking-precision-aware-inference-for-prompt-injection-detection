@@ -1,0 +1,54 @@
+{
+  "outcome": "passed within D-009 development-input scope",
+  "run_id": "R-P1-A-20261117-06",
+  "authorization_sha256": "83dde0502e9aca5cfd000c5f6ec9631602db9f03a334a2f1a42d9ac3adc3e79b",
+  "development_rows_checked": 19909,
+  "populations": {
+    "eligible_training": {
+      "rows": 18909,
+      "class_counts": {
+        "0": 9457,
+        "1": 9452
+      },
+      "source_split": "train",
+      "source_sha256": "aa33c3ffcc27bd07c0a233b52f1b8c3cbdb30606ce2412da06a88b5290cdc7b6",
+      "ordered_id_sha256": "b54e337ac0503ce5948b563f8a79da2191a7fa1e374b2d4f89af1d7bacd0d3d7",
+      "membership_sha256": "f848b3887003704be4bc617b27ce904a0d7eca5f5481e6bcfefb27a166bd7708",
+      "exports_identical_to_approved_population": true,
+      "preflight_sha256": "86743eaf728746ddcb327b04b632801d3ee037e723123646a0b0b76abb6360d5"
+    },
+    "eligible_validation": {
+      "rows": 1000,
+      "class_counts": {
+        "0": 497,
+        "1": 503
+      },
+      "source_split": "validation",
+      "source_sha256": "1d93d90d57d3ef44ed0c546fbc04d66324436c5fcd32e7fcb940ceed270fbe77",
+      "ordered_id_sha256": "4160c508a4347e58730df188aafcc3d15fc6b8755117e409a2d96c8cfefb133b",
+      "membership_sha256": "d8f884224e9b6f3f8b46493b0582295559daf83fef599a80ddb313d04c9d7182",
+      "exports_identical_to_approved_population": true,
+      "preflight_sha256": "30a49eb6d38bfd061a79e7ea1b39008c68c61e2af275233b381451567ee34e69"
+    }
+  },
+  "source_and_test_hashes_checked": 19,
+  "retained_suite": "66 tests passed",
+  "suite_reexecuted_by_reviewer": false,
+  "independent_synthetic_boundary_probes": 14,
+  "old_access_preserved": true,
+  "teammate_attestation_wait_required": false,
+  "human_review_performed": false,
+  "phase_closeout": false,
+  "test_performance_released": false,
+  "raw_source_prompts_read_by_reviewer": false,
+  "official_test_raw_source_opened": false,
+  "native_backends_or_network_used": false,
+  "source_sha256": "b8845c3e05bd413c073f5fdc5e249d849a23f828522c315ce026e25b0dc6b4a8",
+  "execution_receipt_sha256": "e3cd79416a4c5b41bd09dd55ed24742087392b4aca31761a7c18b5dd224159de",
+  "review_script_sha256": "9e5d81fbbfd938cf0ec39591f57c0a74cde903c04d5858f9932660fac0c3e4bc",
+  "limits": [
+    "Actual raw-text checks were performed by the reviewed loader; this independent artifact check reuses audited identities and source hash bindings.",
+    "Tokenization, lengths in tokenizer units, pooling, inference and effective precision remain unverified.",
+    "Unknown external exposure remains a limitation; no human signoff is asserted."
+  ]
+}

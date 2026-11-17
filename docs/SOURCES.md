@@ -75,3 +75,11 @@ hashes are retained separately; no full weight checksum or runtime outcome is in
 ASSET-002 owns the values. Original Elastic License 2.0 terms are copied unchanged in
 `third_party/SENTINEL_LICENSE.md` alongside reproduced configuration metadata; source
 assets and tensor payloads remain excluded from the repository publication candidate.
+
+## Windows runtime diagnostic reference - November 17 follow-up
+
+Microsoft's [App Control event-ID reference](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/operations/event-id-explanations)
+identifies 3077 as an enforced-policy block. The [troubleshooting guide](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/operations/appcontrol-debugging-and-troubleshooting)
+explains using Code Integrity events for diagnosis. V-025 uses these only to interpret
+project-related read-only evidence; no policy/security changes were performed or assumed
+authorized by ordinary implementation instructions.

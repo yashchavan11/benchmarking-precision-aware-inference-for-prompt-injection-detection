@@ -35,6 +35,9 @@ establishes; it does not maintain a second copy of those requirements.
 | V-022 | Authenticated selected assets | Seven files and actual header | Bounded retrieval + independent parsing/hashes | Complete source/header audit; no model execution | p1a-authenticated-contract/asset-contract-review | Independent automated reviewer |
 | V-023 | Integrated commands | Synthetic/mock suite and source identity | 56 tests + focused independent review | Passed within exercised scope | p1a-integrated-software | Independent automated code review |
 | V-024 | NFC/delimiter probe | Administrative normalization collision support | Python UCD14 on pinned sources | No new collisions; not tokenization | p1a-normalization-probe | Coordinating automated probe |
+| V-025 | Windows runtime block | Project Code Integrity/signature evidence | Read-only logs/files | Enforced block confirmed; no policy change | p1a-runtime-diagnosis | Coordinating diagnostic |
+| V-026 | Development input loader | Hash/lineage/text alignment and protected-role denial | 10 new tests; 66 combined; two actual preflights | Complete for 19,909 development rows | p1a-input-preflight-execution | Automated implementation |
+| V-027 | Input contract/preflight | Independent boundaries, identities and source hashes | 14 independent synthetic probes; actual export comparison | Passed within scope | p1a-input-independent/boundary-review | Independent automated reviewer |
 | V-001 | P1-B/P1-C component preparation; source hashes in generated results.json | Metrics, pairing, artifact integrity and report generation | Python 3.13.3; synthetic fixtures; standard-library unittest | Passed: 18 tests | tests/; outputs/synthetic-demo/ (regenerable, ignored); S-20261111-01 | Second-contributor review pending |
 
 ### V-003 — Independent incoming-commit review, failures preserved
@@ -316,3 +319,46 @@ copies; only their outer line endings were normalized, parsed values verified un
 and original ignored outputs/fixtures preserved. Receipt: `outputs/contract-20261117/compact-json-lf-repair.json`.
 Canonical-record review found no scientific overclaim; D-006's current status now links
 to D-008. The unsent Viraj draft was confirmed to reference actual constructed manifests.
+
+### V-025 - Read-only confirmation of the Windows policy block
+
+Project-filtered Code Integrity logs contain event 3077 for the regex native library and
+hf launcher. Microsoft identifies 3077 as the enforced-policy block event. Both retained
+files report Authenticode `NotSigned`; neither has a Zone.Identifier stream. These
+observations support the recorded runtime failure, not a missing-package diagnosis or a
+claim about policy ownership. [Safe diagnostic](evidence/p1a-runtime-diagnosis-20261117.json)
+retains file hashes and source references; full local event details remain ignored under
+`outputs/continuation-20261117/`. No binary was retried, unblocked, renamed or replaced,
+and no policy was changed. Independent stdlib work remains possible.
+
+### V-026 - Development input loader and full source preflight
+
+`precision_benchmark/input_data.py` consumes the D-009 access amendment, the unchanged
+D-008 parents, approved membership and original source. Only training/validation roles
+are allowed; protected/unknown roles fail before any artifact read. Expected hashes,
+fixed filenames, source split/position/ID, counts, label, text hash and character/byte
+lengths are checked before producing a complete preflight. Prompt strings remain verbatim
+internally and are excluded from repr/errors/output; reference labels are separate.
+
+Ten synthetic tests cover denied-role/no-read, relabeled test lineage, broken hash links,
+missing/duplicate/order defects, source mismatch, exact string preservation, safe output
+and non-overwrite. Both actual CLIs verified all 18,909 training and 1,000 validation
+rows. The combined suite passed 66 tests under system Python 3.11.9. Exact commands,
+source/test/output hashes and scope are in [execution evidence](evidence/p1a-input-preflight-execution-20261117.json);
+full logs and text-free exports are under `outputs/continuation-20261117/input-preflight/`.
+No network, native tokenizer, model execution or test-source access occurred. V-027
+provides the separate independent review; this is not a scientific phase closeout.
+
+### V-027 - Independent development-input boundary and artifact review
+
+The independent reviewer verified D-009's exact access hash and parent/source bindings,
+all 19 current source/test hashes against the retained 66-test run, and both text-free
+exports against the complete approved populations. The exports are byte-identical to
+those populations: all 18,909 training and 1,000 validation identities, order, labels and
+hashes are preserved. Fourteen independent synthetic boundary probes passed, including
+protected/unsupported-role denial before any read, invalid decision/source rejection and
+hidden prompt repr/frozen internal record checks. See [actual review](evidence/p1a-input-independent-review-20261117.json)
+and [boundary checks](evidence/p1a-input-boundary-review-20261117.json); script/notes are in
+`outputs/continuation-20261117/input-review/`. No actual raw prompt/test source, network or
+native runtime was used by the reviewer. No defect was found within the reviewed scope;
+this does not establish tokenizer/model behavior or a phase closeout.

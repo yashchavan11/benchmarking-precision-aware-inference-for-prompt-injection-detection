@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "construction_decision": "D-008",
+  "continuation_decision": "D-009",
+  "dataset": "hendzh/PromptShield",
+  "revision": "a5234cb1f5cdb256600cab64b8c961195b5e8404",
+  "parent_population_summary": {
+    "filename": "summary.json",
+    "sha256": "04dc68392ee32bf2066228f88fefada797e37132ba96406449e9dd130c9918bb"
+  },
+  "parent_access_manifest": {
+    "filename": "access-manifest.json",
+    "sha256": "466c656577038b5765e65977bc9e1e340324c6d0581ddf262c1c8797021ae9a9"
+  },
+  "authorization_scope": "Verified development populations may be used for input preflight and permitted development diagnostics without a separate teammate attestation. No test performance, expensive pilot, preprocessing choice or phase closeout is authorized here.",
+  "roles": {
+    "eligible_training": {
+      "population_file": "eligible-training.jsonl",
+      "population_sha256": "b833f40d87ea661a46a9811ddad5dcdfabdffec3762955ac00a73b7c5cf13a33",
+      "source_split": "train",
+      "source_file": "train.json",
+      "source_sha256": "aa33c3ffcc27bd07c0a233b52f1b8c3cbdb30606ce2412da06a88b5290cdc7b6",
+      "row_count": 18909,
+      "ordered_id_sha256": "b54e337ac0503ce5948b563f8a79da2191a7fa1e374b2d4f89af1d7bacd0d3d7",
+      "status": "authorized_for_input_preflight_and_permitted_development",
+      "teammate_attestation_required": false
+    },
+    "eligible_validation": {
+      "population_file": "eligible-validation.jsonl",
+      "population_sha256": "4121a6b01e166925a0b2e983bcdaa7ad6c38e21654133e11077abfc7af9f828f",
+      "source_split": "validation",
+      "source_file": "validation.json",
+      "source_sha256": "1d93d90d57d3ef44ed0c546fbc04d66324436c5fcd32e7fcb940ceed270fbe77",
+      "row_count": 1000,
+      "ordered_id_sha256": "4160c508a4347e58730df188aafcc3d15fc6b8755117e409a2d96c8cfefb133b",
+      "status": "authorized_for_input_preflight_and_permitted_development",
+      "teammate_attestation_required": false
+    }
+  },
+  "protected_roles": [
+    "test_a",
+    "test_b"
+  ],
+  "human_review_performed": false,
+  "prior_external_exposure": "unknown beyond recorded statements; retain limitation; do not assume none"
+}

@@ -33,6 +33,7 @@ completed artifacts are retained instead of overwritten.
 | R-P1-A-20261117-03 | P1-A / authenticated pinned configuration contract | ASSET-002 | Approved browser retrieval; no weights | RESEARCH_PROTOCOL section 1 | incomplete; config retained, tokenizer pending | model-browser/retrieval.json; V-012 | Automated execution/artifact review; runtime checks pending |
 | R-P1-A-20261117-04 | P1-A / authenticated contract | ASSET-002 | Pinned files/header only | RESEARCH_PROTOCOL section 1 | complete within source/header scope | V-022; model-auth/manifest.json | Independent automated review; runtime pending |
 | R-P1-A-20261117-05 | P1-A / D-008 construction | ASSET-001 text-free IDs | Eligibility/A-B administrative | D-008 | complete review-ready construction | V-018?V-021; partitions-v2/summary.json | Independent automated review; human release pending |
+| R-P1-A-20261117-06 | P1-A / development input contract | SPLIT-001/002 under D-009 | Raw-to-identity preflight only | D-008/D-009 | complete bounded preflight | V-026/V-027; input-preflight/execution.json | Independent automated review |
 
 ### R-P1-A-20261117-01 — Administrative PromptShield audit
 
@@ -105,3 +106,11 @@ diagnostic value are separate from whether their outputs qualify for aggregate c
 - **State:** Complete for review-ready construction and automated isolation checks. Initial `partitions/` retained; corrected current `partitions-v2/` has identical population/exclusion/access bytes. V-018–V-021 distinguish initial checks, independent actual-membership review, alternate-revision failure and correction. Human scientific review/release remain pending.
 - **Conditions/output:** Python 3.11.9 / Windows, standard library; exact commands/environment/source hashes in each directory's `execution.json`. SPLIT-001–004 and compact summary retain all population/file/ordered hashes. All intended source IDs are accounted for; no active job or checkpoint.
 - **Exposure/limits:** EXP-004. Exact isolation and class support do not establish unseen external history, near-duplicate independence, statistical power or P1-A completion. No test-performance allocation choice was made after observing results.
+
+### R-P1-A-20261117-06 - Approved development input preflight
+
+- **Purpose/phase:** P1-A input-contract verification and inference component preparation; bind actual development text to the selected identities without model execution.
+- **Inputs/authority:** SPLIT-001/002, pinned ASSET-001 source bytes, D-008 construction and explicit D-009 development-access amendment. Only training/validation; no held-out source or outputs.
+- **Conditions/execution:** System Python 3.11.9 on Windows, standard library. Exact two CLI commands, source hashes and 66-test run are in `outputs/continuation-20261117/input-preflight/execution.json`.
+- **State/output:** Complete bounded input preflight for 18,909 training and 1,000 validation rows. Text-free exports/preflight JSON retained in `training/` and `validation/`; raw text kept verbatim in internal records only. No active job/checkpoint.
+- **Checks/limits:** V-026/V-027, EXP-005. Teammate attestations are not a prerequisite under D-009. Token lengths, tokenizer/pooling execution, precision treatment and model quality/resource outcomes remain unverified; Test-A/Test-B freezes unchanged.

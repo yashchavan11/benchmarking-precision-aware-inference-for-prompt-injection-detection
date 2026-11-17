@@ -12,7 +12,7 @@ evidence is recorded, not that the corresponding work has passed review.
 
 | Phase and authoritative plan | Status | Closeout / evidence reference |
 |---|---|---|
-| [P1-A — Asset and data audit](ROADMAP.md#p1-a--asset-data-and-evaluation-design-audit) | In progress | V-015–V-024 plus prior evidence; full pinned files/header and D-008 memberships checked; native tokenization, exposure declarations and human review pending; no closeout |
+| [P1-A — Asset and data audit](ROADMAP.md#p1-a--asset-data-and-evaluation-design-audit) | In progress | V-015–V-024 plus prior evidence; full pinned files/header and D-008 memberships checked; native tokenizer/runtime requirements outstanding; D-009 removes teammate-attestation waits; V-026/V-027 input preflight checked; no closeout |
 | [P1-B — Components and pilot](ROADMAP.md#p1-b--reusable-components-and-a-small-real-pilot) | Empirical phase not started; independent evaluator preparation | V-001–V-005; no phase closeout |
 | [P1-C — Main-protocol freeze](ROADMAP.md#p1-c--analysis-implementation-and-main-protocol-freeze) | Empirical phase/freeze not started; independent evaluator preparation | V-001–V-005; no phase closeout |
 | [P1-D — Main benchmark](ROADMAP.md#p1-d--main-benchmark-and-analysis) | Not started | None recorded |

@@ -9,8 +9,8 @@ evidence that answered them.
 | ID | Question | Resolution boundary | Current state |
 |---|---|---|---|
 | Q-001 | What exact model, tokenizer and dataset revisions are available, and what are their actual schemas and label mappings? | P1-A, before relying on predictions. | Partly resolved: dataset revision/schema/counts and public model revision verified in ASSET-001/002; Authenticated seven-file/header audit complete (V-022): configured 0=benign/1=jailbreak and actual score.weight header F16 [2,1024]. Runtime tokenization/pooling/effective precision remain Q-004/Q-014/Q-015. |
-| Q-002 | What Test-A/Test-B allocation supplies adequate class support and duplicate isolation while preserving a useful untouched extension holdout? | Before any Part 1 official-test model-performance inspection; see D-006. | D-008 approved 50/50; review-ready memberships verified V-018–V-021. Human review/exposure conditions and performance release remain pending. |
-| Q-003 | What duplicate/conflicting-label issues exist, and which development eligibility manifests remove held-out overlaps and separate gate fitting from validation selection? | Audit in P1-A; resolve exclusions and relevant sensitivity analyses before affected fitting/evaluation. | Exact audit completed (V-008): no cross-split overlaps/conflicts; 71 duplicate groups within test. Projection removes no development rows. D-008 construction now applies exact grouping/eligibility (V-021); human review and residual near-duplicate limits remain. |
+| Q-002 | What Test-A/Test-B allocation supplies adequate class support and duplicate isolation while preserving a useful untouched extension holdout? | Before any Part 1 official-test model-performance inspection; see D-006. | D-008 approved 50/50; review-ready memberships verified V-018–V-021. Independent construction review passed; D-009 removes teammate waits. Performance release remains subject to the protocol freeze. |
+| Q-003 | What duplicate/conflicting-label issues exist, and which development eligibility manifests remove held-out overlaps and separate gate fitting from validation selection? | Audit in P1-A; resolve exclusions and relevant sensitivity analyses before affected fitting/evaluation. | Exact audit completed (V-008): no cross-split overlaps/conflicts; 71 duplicate groups within test. Projection removes no development rows. D-008 construction now applies exact grouping/eligibility (V-021); unperformed human review and residual near-duplicate limits remain documented; D-009 permits independent continuation. |
 | Q-004 | Which preprocessing and common execution conditions produce a valid, feasible three-precision comparison? | Development investigation in P1-B; P1-C freeze. | Open. |
 | Q-005 | Which quality metric is primary, and which shared-threshold selection rule reflects the intended comparison? | Selection from documented candidates before P1-C freeze. | Open. |
 | Q-006 | What profiling and uncertainty budget is adequate for stable, interpretable results? | Pilot in P1-B; main-plan freeze in P1-C. | Open; additional checks may be justified by pilot evidence. |
@@ -39,9 +39,9 @@ tracks whether questions have been resolved; it does not establish a competing m
 
 - **Raised/date/phase:** 2026-11-17, P1-A.
 - **Known:** This session processed all splits administratively and viewed aggregate statistics; an incidental source-page view showed training snippets (EXP-002). No model performance or test prompts were displayed. Exact training/test overlap is zero; near-duplicate relationships and prior team access remain unknown.
-- **Next action:** Obtain each teammate's own prior official-test exposure declaration and review the actual D-008/SPLIT-001?004 construction and access conditions. Record unknowns and any consequences before test-model performance; do not invent a sealed-history claim or silently revise the approved allocation.
+- **Next action under D-009:** Continue from verified D-008 memberships and inspect incoming work/artifacts when pushed. Do not wait for or routinely solicit separate exposure attestations. Preserve unknown history; assess actual leakage if discovered and bound affected claims. No invented sealed-history claim or silent allocation change.
 - **Earlier candidate evidence (now followed by approved D-008):** V-011 and `docs/evidence/p1a-partition-candidates-20261117.json` provide reproducible group-preserving 50/50 and 60/40 support proposals. Automated recommendation is 50/50 for equal support across both committed studies; no selection/freeze or power claim. Final eligibility, ratio/algorithm/seed and exposure controls require the requested team/user decision.
-- **Status:** Yash reports no prior test inspection to his knowledge; this is not an independently verified history for every teammate. Authenticated asset access now succeeds (V-022/Q-012 resolved); runtime execution is the separate Q-015 blocker. D-008 now selects the design and V-021 constructs review-ready memberships; human scientific review/test release and empirical phase advance remain pending.
+- **Status:** Yash reports no prior test inspection to his knowledge; this is not an independently verified history for every teammate. Authenticated asset access now succeeds (V-022/Q-012 resolved); runtime execution is the separate Q-015 blocker. D-008 now selects the design and V-021 constructs review-ready memberships; human review remains unperformed but is not a continuation gate under D-009; test releases and empirical phase prerequisites remain unchanged.
 
 ## Question record schema
 
@@ -81,3 +81,13 @@ needed before token-length and inference checks. Preserve the installed environm
 do not reinstall blindly. Standard-library administrative construction and authenticated
 HTTP/header retrieval have completed independently. CUDA/PyTorch/bitsandbytes feasibility
 is still untested and no expensive experiment is authorized by an environment proposal.
+
+### S-20261117-06 disposition of coordination and runtime dependencies
+
+D-009 supersedes separate teammate review/exposure declarations as automatic wait
+conditions. Q-013 remains an uncertainty to report and assess if new evidence arrives,
+not a request to stop until each teammate answers. Communicate completed overlapping
+work and shared settings to affected teammates; inspect their actual pushed contributions.
+V-025 confirms Q-015 is a real enforced native-library block. It does not prevent the
+standard-library input preflight now completed in V-026. No Viraj-specific missing code
+or artifact is demonstrated to block the current work.

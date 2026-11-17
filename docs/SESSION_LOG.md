@@ -146,3 +146,12 @@ message, visibility change, credential/raw-data/tokenizer-vocabulary/weight-payl
 or course submission accompanied publication. The follow-up uses the same configured
 identity and authorization; exact final tip is in Git history and local
 `outputs/contract-20261117/publication.json`. No research job or active reservation remains.
+
+## S-20261117-06 - Coordination amendment and verified development input handoff
+
+- **Date/context:** November 17, 2026, America/New_York; started clean at `12a6e1c`, continuing the audited source/partition milestone. Yash clarified that teammate work is delivered through GitHub, overlapping choices need communication, and separate interpretations/exposure attestations should not block independent work.
+- **Decision:** D-009 updates coordination and the two development roles' access disposition. Original memberships and v2 access history are preserved; unknown exposure remains a limitation. Automated review is not relabeled human signoff. No model/evaluation design, selected asset, threshold or test-release freeze changed.
+- **Completed work:** R-P1-A-20261117-06 implements/checks the stdlib input loader and validates all approved training/validation inputs, preserving strings verbatim and exporting no raw text. V-026 records 66 passing tests and exact source/output identities. Independent review is V-027.
+- **Runtime diagnosis:** V-025 confirms prior project-specific enforced Code Integrity events and unsigned binaries with no Zone.Identifier streams. No native retry or security-policy change occurred. The actual runtime block remains Q-015; independent source/input work proceeded without a teammate wait.
+- **Exposure/coordination:** EXP-005; training/validation text read only for automated alignment checks, no prompt display or official-test source/model outcomes. Updated unsent message at `outputs/continuation-20261117/viraj-update.txt` communicates completed overlapping data work and tokenization coordination, without asking Viraj to repeat it or supply an attestation.
+- **State/next:** No P1-A closeout or model run. Next native tokenizer work needs an approved executable runtime; current development data/input preparation has no demonstrated Viraj-specific dependency. Completed substantial work may be committed/pushed under the existing authorization after final checks; publication outcome is recorded separately.

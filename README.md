@@ -264,3 +264,20 @@ work. The dependency-free evaluator and partition builder remain usable. One opt
 requests-specific mock test skips when requests is absent; the checked audit environment
 passed all 56 combined tests (V-023). Full sources, population identities and limits are in
 DATA_REGISTRY; no P1-A completion or empirical precision result is claimed.
+
+### Check development inputs before tokenization
+
+The standard-library input loader now verifies original text/label/ID alignment for the
+approved development populations. D-009 permits independent continuation without teammate
+attestations. The CLI exports no prompt text and rejects protected roles before reading
+files. Use a new output directory:
+
+```sh
+python -m precision_benchmark.input_data --role eligible_training --access docs/evidence/p1a-development-access-20261117.json --access-sha256 83dde0502e9aca5cfd000c5f6ec9631602db9f03a334a2f1a42d9ac3adc3e79b --partitions outputs/contract-20261117/partitions-v2 --raw-dir data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404 --output outputs/training-input-preflight-repeat
+```
+
+For validation, select `eligible_validation` and a different fresh output directory.
+Actual preflights verified 18,909 training and 1,000 validation rows; 66 combined tests
+passed (V-026). This prepares input handling without executing tokenization or a model.
+The Windows native-library policy block remains Q-015; no teammate reply is needed for
+independent work. Shared choices and overlapping work should be communicated per D-009.

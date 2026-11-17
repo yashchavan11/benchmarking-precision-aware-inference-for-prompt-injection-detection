@@ -1,5 +1,17 @@
 # Research outputs and course deliverables
 
+## Progress update - development input handoff and coordination
+
+D-009 now permits continuation from verified artifacts without separate teammate
+attestations; unknown exposure and unperformed human review remain accurately described.
+The development input loader verified all 18,909 training and 1,000 validation examples
+against original source bytes and approved identities, preserving raw strings and keeping
+labels separate from internal inference inputs. It denies test roles before file reads and
+exports only text-free records. The combined suite passes 66 tests (V-026), with independent
+review in V-027. Native tokenizer/model execution remains blocked by Windows policy (V-025),
+so no token-length or empirical precision/resource result is claimed. No teammate-specific
+missing implementation is demonstrated to block this completed work.
+
 ## Progress update — November 17, later verified milestone
 
 The earlier update below is historical. D-008 now selects the 50/50 whole-group design.

@@ -1,0 +1,37 @@
+{
+  "scope": "read-only inspection of project-related Windows Code Integrity events and binary signatures; no execution or policy change",
+  "files": [
+    {
+      "File": ".venv/Lib/site-packages/regex/_regex.cp311-win_amd64.pyd",
+      "SignatureStatus": "NotSigned",
+      "SignerPresent": false,
+      "Sha256": "93CCD692828FA23A49A0339FABAC88007F7A94DA75FA2135274692C9148B020F",
+      "ZoneStreamPresent": false
+    },
+    {
+      "File": ".venv/Scripts/hf.exe",
+      "SignatureStatus": "NotSigned",
+      "SignerPresent": false,
+      "Sha256": "9D3D63716CF0E8DF6F72E952B47A7C28A1284FADF434618E34FA67250FF3E956",
+      "ZoneStreamPresent": false
+    }
+  ],
+  "matching_event_ids": [
+    3077
+  ],
+  "matching_event_count": 4,
+  "event_interpretation": "Event 3077 records enforced-policy blocks for the project regex library and hf launcher; exact policy provenance/admin ownership not established.",
+  "regex_execution_retried": false,
+  "security_policy_changed": false,
+  "zone_stream_removed": false,
+  "blocked_file_replaced_or_renamed": false,
+  "sources": [
+    "https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/operations/event-id-explanations",
+    "https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/operations/appcontrol-debugging-and-troubleshooting"
+  ],
+  "raw_evidence": {
+    "binary-signatures.json": "8d17455b449eeb3d3f6f20a85d41ddb102f7dd6e7e60b59aaba0dd6db6548856",
+    "code-integrity-events.json": "a69330eb5d06074c3b64081f5d316189f864948808bdb340bb165ed7f91af3c5"
+  },
+  "next_dependency": "Use an approved executable runtime or have the policy owner authorize required native components; independent stdlib work can continue."
+}

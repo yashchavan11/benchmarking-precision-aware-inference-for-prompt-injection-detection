@@ -4,8 +4,8 @@ This register contains the verified identities, memberships and exposure history
 assets actually used. The [research protocol](RESEARCH_PROTOCOL.md) defines data roles,
 duplicate isolation and permitted access; this file records their implementation and evidence.
 Pinned sources and the approved D-008 population construction are recorded below.
-Review-ready eligibility/A/B memberships now exist; human scientific review and performance
-release remain pending. Authenticated pinned tokenizer files and the classifier tensor header
+Review-ready eligibility/A/B memberships now exist. D-009 authorizes independent development
+continuation without teammate attestations; performance releases still follow the protocol. Authenticated pinned tokenizer files and the classifier tensor header
 are verified (V-022); actual tokenization/model execution remain unverified.
 
 ## Selected sources and verification state
@@ -25,8 +25,8 @@ here; raw prompt collections and credentials do not.
 
 | Partition | Membership record / artifact | Parent revision | Effective row / class / group counts | Freeze and verification | Exposure state |
 |---|---|---|---|---|---|
-| Eligible training | SPLIT-001; `eligible-training.jsonl` in current partition directory | ASSET-001 | 18,909 rows/groups; 9,457 benign / 9,452 injection | D-008; V-021; human review/release pending | Administrative only plus earlier EXP-002 training snippets |
-| Eligible validation | SPLIT-002; `eligible-validation.jsonl` | ASSET-001 | 1,000 rows/groups; 497 benign / 503 injection | D-008; V-021; human review/release pending | Administrative only |
+| Eligible training | SPLIT-001; `eligible-training.jsonl` in current partition directory | ASSET-001 | 18,909 rows/groups; 9,457 benign / 9,452 injection | D-008/V-021; D-009 development-access amendment | Administrative only plus earlier EXP-002 training snippets |
+| Eligible validation | SPLIT-002; `eligible-validation.jsonl` | ASSET-001 | 1,000 rows/groups; 497 benign / 503 injection | D-008/V-021; D-009 development-access amendment | Administrative only |
 | Test-A | SPLIT-003; `test-a.jsonl` | ASSET-001 official test | 11,758 rows; 8,515 benign / 3,243 injection; 11,657 groups | D-008; human review and P1-C release pending | No project model performance; prior team history incompletely declared |
 | Test-B | SPLIT-004; `test-b.jsonl` | ASSET-001 official test | 11,758 rows; 8,515 benign / 3,243 injection; 11,702 groups | D-008; human review and P2-D/P2-E release pending | Administrative only; no claim of cryptographic or universal historical sealing |
 
@@ -174,3 +174,29 @@ independent checks. A targeted Python NFC probe read pinned raw splits solely to
 aggregate collision counts; development-only literal EOS incidence was counted without
 displaying prompts or IDs. No official-test prompts, scores, errors or performance were
 displayed. Membership was not changed by the probe. Human external exposure remains Q-013.
+
+### D-009 development-access amendment and input preflight
+
+The [development-access amendment](evidence/p1a-development-access-20261117.json), SHA-256
+`83dde0502e9aca5cfd000c5f6ec9631602db9f03a334a2f1a42d9ac3adc3e79b`, explicitly authorizes
+the unchanged SPLIT-001/002 memberships for input preflight and permitted development
+without a separate teammate attestation. It binds the original D-008 summary/access and
+population/source hashes. Old v2 access metadata is preserved as history; Test-A/Test-B
+release remains pending under the original freezes. Human review is not falsely claimed.
+
+R-P1-A-20261117-06 validates all 18,909 training and 1,000 validation rows against the
+original text, source position, label, character/UTF-8 length and raw-text hash. See
+[training evidence](evidence/p1a-training-input-preflight-20261117.json) and
+[validation evidence](evidence/p1a-validation-input-preflight-20261117.json).
+Text-free exports remain byte-identical to the approved corresponding population files;
+raw text is retained verbatim only in memory for future inference calls. No tokenizer,
+normalization, model or official-test source was used by these preflights.
+
+### EXP-005 - Development input validation
+
+November 17, 2026; automated implementation and independent review. The loader read
+hash-verified official training/validation source files to verify every approved input;
+prompt text was not displayed/exported or interpreted as instructions. Reference labels
+were kept separate from internal inference inputs. Boundary tests used invented fixtures.
+No official-test raw source or model outcomes were read. Prior external history remains
+unknown beyond existing statements; D-009 removes attestation waits, not that limitation.

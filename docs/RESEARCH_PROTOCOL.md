@@ -288,3 +288,14 @@ Retain completed artifacts under stable identities; an amended configuration or 
 a distinct record. If later evidence invalidates a result, preserve its history and identify
 affected downstream claims. Actual check evidence belongs in [VALIDATION_LOG.md](VALIDATION_LOG.md);
 planned checks and templates do not count as completed validation.
+
+## 9. Coordination clarification - D-009
+
+Separate teammate attestations or human interpretations are not routine prerequisites
+for independent progress. Use actual inspected artifacts and independent checks; report
+automated review accurately. The approved development populations may be used under
+D-009's explicit access amendment while human review remains unperformed. Unknown prior
+external exposure stays a limitation and is not converted to no exposure. Assess any
+actual leakage or failed validity check when discovered before relying on affected claims.
+This clarification changes coordination, not labels, memberships, scientific controls,
+test-performance release freezes or the obligation to report truthful evidence.

@@ -1,0 +1,59 @@
+{
+  "allowed_purpose": "Input preflight and permitted development under the roadmap; no test performance or expensive pilot authorization",
+  "class_counts": {
+    "0": 9457,
+    "1": 9452
+  },
+  "code_sha256": {
+    "precision_benchmark/artifacts.py": "b923f570c00eb3cc538c3f81f8ad67b91db3a763b09fc058eb48dcded40a05bf",
+    "precision_benchmark/input_data.py": "b8845c3e05bd413c073f5fdc5e249d849a23f828522c315ce026e25b0dc6b4a8"
+  },
+  "construction_decision": "D-008",
+  "continuation_decision": "D-009",
+  "data_role": "eligible_training",
+  "dataset": "hendzh/PromptShield",
+  "exact_text_groups": 18909,
+  "examples": {
+    "filename": "examples.jsonl",
+    "sha256": "b833f40d87ea661a46a9811ddad5dcdfabdffec3762955ac00a73b7c5cf13a33"
+  },
+  "expected_rows": 18909,
+  "historical_access_disposition": "D-009 explicitly authorizes development use; unchanged D-008 access record is retained as history",
+  "human_review_performed": false,
+  "inputs": {
+    "development_access": {
+      "path": "docs/evidence/p1a-development-access-20261117.json",
+      "sha256": "83dde0502e9aca5cfd000c5f6ec9631602db9f03a334a2f1a42d9ac3adc3e79b"
+    },
+    "original_source": {
+      "filename": "train.json",
+      "sha256": "aa33c3ffcc27bd07c0a233b52f1b8c3cbdb30606ce2412da06a88b5290cdc7b6"
+    },
+    "parent_access_manifest": {
+      "filename": "access-manifest.json",
+      "sha256": "466c656577038b5765e65977bc9e1e340324c6d0581ddf262c1c8797021ae9a9"
+    },
+    "parent_population_summary": {
+      "filename": "summary.json",
+      "sha256": "04dc68392ee32bf2066228f88fefada797e37132ba96406449e9dd130c9918bb"
+    },
+    "population": {
+      "filename": "eligible-training.jsonl",
+      "sha256": "b833f40d87ea661a46a9811ddad5dcdfabdffec3762955ac00a73b7c5cf13a33"
+    }
+  },
+  "membership_sha256": "f848b3887003704be4bc617b27ce904a0d7eca5f5481e6bcfefb27a166bd7708",
+  "model_inference_performed": false,
+  "ordered_id_sha256": "b54e337ac0503ce5948b563f8a79da2191a7fa1e374b2d4f89af1d7bacd0d3d7",
+  "phase_closeout": false,
+  "preflight_exports_raw_text": false,
+  "prior_external_exposure": "unknown beyond recorded statements; not assumed absent",
+  "revision": "a5234cb1f5cdb256600cab64b8c961195b5e8404",
+  "schema_version": 1,
+  "status": "complete_for_development_input_preflight",
+  "teammate_attestation_required": false,
+  "test_performance_released": false,
+  "text_transformation": "none; original string and UTF-8 hash preserved",
+  "tokenization_performed": false,
+  "validated_rows": 18909
+}

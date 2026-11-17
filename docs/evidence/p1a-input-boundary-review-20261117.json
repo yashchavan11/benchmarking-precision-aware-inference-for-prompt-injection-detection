@@ -1,0 +1,66 @@
+{
+  "outcome": "passed",
+  "checks": [
+    {
+      "property": "unsupported role rejected before any read",
+      "role_type": "str"
+    },
+    {
+      "property": "unsupported role rejected before any read",
+      "role_type": "str"
+    },
+    {
+      "property": "unsupported role rejected before any read",
+      "role_type": "str"
+    },
+    {
+      "property": "unsupported role rejected before any read",
+      "role_type": "str"
+    },
+    {
+      "property": "unsupported role rejected before any read",
+      "role_type": "str"
+    },
+    {
+      "property": "unsupported role rejected before any read",
+      "role_type": "str"
+    },
+    {
+      "property": "unsupported role rejected before any read",
+      "role_type": "str"
+    },
+    {
+      "property": "unsupported role rejected before any read",
+      "role_type": "NoneType"
+    },
+    {
+      "property": "unsupported role rejected before any read",
+      "role_type": "bool"
+    },
+    {
+      "property": "unsupported role rejected before any read",
+      "role_type": "list"
+    },
+    {
+      "property": "invalid authorization rejected before parent/raw reads",
+      "field": "revision"
+    },
+    {
+      "property": "invalid authorization rejected before parent/raw reads",
+      "field": "continuation_decision"
+    },
+    {
+      "property": "invalid authorization rejected before parent/raw reads",
+      "field": "construction_decision"
+    },
+    {
+      "property": "record preserves literal string, suppresses prompt repr and rejects assignment"
+    }
+  ],
+  "synthetic_probe_count": 14,
+  "actual_raw_prompts_read": false,
+  "test_source_opened": false,
+  "native_backends_or_network_used": false,
+  "source_sha256": "b8845c3e05bd413c073f5fdc5e249d849a23f828522c315ce026e25b0dc6b4a8",
+  "review_script_sha256": "73e1419dcb178c75c28516d046eb01b0cfe57d8a77b71c6c501445492758cb35"
+}

@@ -111,6 +111,19 @@ the evidence and assumptions; pending review remains pending. Completion gates a
 requirements, not a requirement to ask for permission after every routine action. Unblocked
 independent work may continue while a review is outstanding.
 
+Yash clarified the coordination workflow on November 17, 2026 (D-009): teammates perform
+their assigned work and push it to GitHub; inspect the actual code, artifacts and checks
+before integration. Do not wait for separate teammate interpretations, exposure declarations
+or human signoff as routine prerequisites to independent progress. An independent automated
+review can support continuation when labeled accurately; it is not human review. Stop a
+dependent task only for a concrete missing deliverable, failed validity check, access/runtime
+blocker or a decision that genuinely requires the user. Preserve unknown exposure as a
+limitation and assess any actual exposure discovered before making affected claims; never
+rewrite unknown history as no exposure. Prepare a concise message for Yash whenever shared
+choices or completed overlapping work affect a teammate, so work is not duplicated. Do not
+send it unless explicitly instructed. Major scientific decisions and actual course rules
+retain their existing authority.
+
 When a check fails, pause the work that depends on it. Preserve the smallest useful
 reproduction, observed failure, suspected or verified cause, corrective action, and affected
 run/result IDs. Do not alter expected answers or weaken tolerances solely to make a check

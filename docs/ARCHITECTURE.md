@@ -325,8 +325,8 @@ Actual tokenizer wrapper behavior and pooling remain runtime requirements under 
 The serialized backend PAD/truncation settings and wrapper settings differ; pin the actual
 wrapper and record explicit arguments. Original raw source text/hashes stay unchanged.
 
-**Proposed next bounded pilot, not yet authorized or executed:** after P1-A human review,
-exposure resolution and a working approved runtime, audit development token lengths and
+**Proposed next bounded pilot, not yet authorized or executed:** after the remaining P1-A
+checks and a working approved runtime, audit development token lengths and
 select 128 eligible training examples with class/length coverage. Start with original
 unpadded batch one, explicit cap chosen from 512/1024/2048 using that audit, no chat template
 or manual EOS. Verify loaded head/frozen weights, finite two-logit scores, actual FP32/FP16/
@@ -335,8 +335,26 @@ empty/all-masked rejection and truncation boundaries. Larger batching needs a se
 reviewed pooling/position policy and agreement tolerance. Retain failures and prediction
 manifests; no final threshold or hardware benefit claim comes from this pilot proposal.
 
-**Human data review needed:** each teammate supplies their own prior-test exposure history
-and any unrecorded preprocessing/artifacts. Viraj is a proposed data reviewer, not a missing
-implementation dependency or an assigned new commitment. Review D-008, SPLIT-001–004,
-V-019/V-021 and the exposure limits without opening test prompts/performance. Construction
-can be reproduced here; actual human scientific findings/signoff must be recorded accurately.
+**Coordination under D-009:** teammates implement their assigned work and push to GitHub.
+Inspect actual contributions before integration. Notify affected teammates of overlapping
+work and shared choices; do not wait for a separate attestation or human interpretation.
+Viraj needs the completed audit/split and preprocessing coordination update, not a request
+to redo the audit. Unperformed human review and unknown history remain accurately recorded.
+Do not open test prompts/performance to prepare this handoff.
+
+## Development input loader - D-009 continuation
+
+`input_data.py` exposes `load_development` for the future inference wrapper and a CLI
+preflight. The caller supplies an expected hash for the D-009 access record plus partition
+and original-source directories. The loader checks both parent hashes, original split/ID
+lineage and the full population before opening the role's fixed raw source filename.
+Only `eligible_training` and `eligible_validation` are accepted; test-role denial precedes
+all reads. It never opens `test.json`.
+
+Returned frozen `InputRecord` objects contain IDs, lineage, hash and unchanged prompt text;
+prompt text is hidden from repr. Reference labels remain in a separate tuple. The CLI
+exports text-free identity JSONL and a preflight receipt, not tokens or predictions. It
+validates full expected coverage instead of constructing a success-only population.
+D-009 overrides the historical teammate-wait condition for the two development roles;
+it neither changes membership nor releases held-out performance. Runtime tokenization
+and chosen pooling/caps still require the next approved executable environment.

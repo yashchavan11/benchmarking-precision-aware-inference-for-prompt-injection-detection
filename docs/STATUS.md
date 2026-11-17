@@ -1,48 +1,42 @@
 # Current project state and handoff
 
-Current snapshot; chronology and authoritative evidence are linked below. No research
-phase has closed. Completed bounded audits do not release test performance.
-
-## Current snapshot — approved populations and authenticated contract audited
+## Current snapshot - D-009 continuation and development inputs verified
 
 | Field | Current value |
 |---|---|
-| Provenance/phase | 2026-11-17, America/New_York; S-20261117-05; P1-A in progress |
-| Owner/reservations | Implementation, asset, partition and final canonical-record reviews complete. No active reservations, research jobs or checkpoints; coordinating agent owns authorized publication. Human scientific review remains pending. |
-| Publication | Reviewed milestone `e322f3fc44627c8dd4c379c63b934b9a639edd4c` committed and pushed to origin/main under Yash <chavan.yas@northeastern.edu>; remote SHA independently verified. This small publication handoff follows that milestone; inspect Git for the latest tip. No co-author trailer, force push, message, visibility change or submission. Preserve prior history/sibling checkout. |
-| Dataset/populations | D-008 approved exact 50/50 method. Current `partitions-v2/` constructs 18,909 training, 1,000 validation, and 11,758 each A/B; all 71 duplicate groups intact; no exclusions/cross-group intersections. SPLIT-001–004 identify hashes/release conditions. Human review/exposure resolution remains pending. |
-| Model/tokenizer | ASSET-002 exact revision `05ff9bfd1f28c5228e53121d5ee4427bb5205212`: seven authenticated files and actual header checked. Injection index1; score.weight F16 [2,1024], no bias. No full weight payload or actual model loading. |
-| Access | Local authenticated retrieval succeeds. Yash privately configured read access through the explicitly authorized Python login path; no credential in repository/chat. Earlier 401/browser failures preserved. Q-012 resolved for asset retrieval. |
-| Contract risk | Serialized tokenizer PAD151643 differs from wrapper PAD/EOS151645. Original model PAD is unset; stock PAD=EOS changes pooling for terminal EOS. Q-014/RES-002 require explicit wrapper/pooling/runtime checks before batching or precision comparisons. |
-| Verified software | V-023: 56 combined tests passed in the audit environment; independent final code/hash review and asset/partition checks complete within their stated scope. Original and corrected failures preserved (including V-020/V-021 decision-revision guard). |
-| Runtime blocker | Q-015/V-017: Windows Application Control blocked regex native DLL import, so tokenizer execution/lengths and subsequent model runtime remain unvalidated. Approved runtime or user/administrator resolution required; no security bypass performed. No CUDA/PyTorch/bitsandbytes treatment was executed. |
-| Exposure/review | EXP-004 administrative source/header/identity/NFC aggregates only; no displayed test prompts or model outcomes. Each teammate's own exposure declaration and human scientific review remain outstanding. Yash's reported history is not a universal team history. |
-| Reporting | Substantial verified preparation is in REPORTING; no model quality, precision/resource result, final threshold, learned gate or phase closeout. November 18 progress-report format still unspecified; nothing submitted. |
+| Provenance/phase | November 17, 2026, America/New_York; S-20261117-06; P1-A remains open for actual tokenizer/runtime requirements |
+| Coordination | D-009: teammates implement their tasks and push to GitHub. Inspect actual contributions; communicate overlapping work/choices. Separate teammate attestations or human interpretations are not continuation gates. Unknown exposure and actual review attribution remain truthful. |
+| Ownership | Implementation and independent review complete; coordinating agent owns final QA/publication. No active reservations or research job/checkpoint to resume. |
+| Publication | Prior clean tip `12a6e1c`; current bounded input milestone is being packaged under Yash's standing authorization for completed substantial tasks. Verify actual publication in session follow-up/Git history. |
+| Reusable data | D-008/SPLIT-001 through SPLIT-004 unchanged; 18,909 training, 1,000 validation, two 11,758-row held-out populations. All duplicate groups preserved. D-009 development-access amendment explicitly replaces the old teammate-wait condition for the two dev roles; old manifests retained. |
+| New verified input handoff | R-P1-A-20261117-06 / V-026: all 19,909 development rows matched original text/ID/label/hash/lengths. Text-free exports match approved population bytes. 66 combined tests and independent V-027 checks passed. No tokenization/model execution or official-test source access in this task. |
+| Model contract | V-022 pinned files/header remain valid: injection index1, score.weight F16 [2,1024], no bias; full weight payload/runtime unverified. Q-014 requires explicit wrapper/pooling/cap checks. |
+| Actual blocker | Q-015/V-025: Windows enforced Code Integrity policy blocks the regex native library. No security change/native bypass or blind reinstall performed. Approved executable runtime or policy-owner resolution is needed for tokenization/inference. |
+| Teammate dependency | No missing Viraj code/artifact currently blocks independent work. Updated unsent coordination message: `outputs/continuation-20261117/viraj-update.txt`. Do not request routine exposure/review attestations as a wait condition. |
+| Scientific boundaries | Test-A/Test-B release freezes unchanged. No final threshold, model precision/resource result, learned gate or phase closeout. Unknown external history remains a reported limitation; actual discovered leakage/failures still require impact assessment. |
+| Reporting | Progress text updated; November 18 format remains unspecified and no submission was made. |
 
-## Reusable artifacts and retention
+## Reusable artifacts
 
-- Original ASSET-001 raw bytes/receipt: `data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/`; verified audit-v3 identities/provenance under `outputs/asset-audit-20261117/dataset/audit-v3/`.
-- Current D-008 populations: `outputs/contract-20261117/partitions-v2/`; original `partitions/`, defect evidence and independent `partition-review/` preserved. Compact summary/access/guard evidence in `docs/evidence/p1a-partitions-20261117.json` and linked V-018–V-021 records.
-- Verified model/tokenizer/header: `outputs/contract-20261117/model-auth/`; source/HTTP/hash receipt mirrored in `docs/evidence/p1a-authenticated-contract-20261117.json`. Full weights not downloaded. Earlier browser files and failed responses retained in previous output directories.
-- Source/pooling analysis: `outputs/contract-20261117/library/`; independent `asset-review/`, `final-code-review/` and integration logs/hashes. Native-blocker/environment/probe evidence is linked by V-017/V-024.
-- Reproducible commands: `precision_benchmark.partition_data`, `precision_benchmark.contract_audit`, and existing `model_audit`/`data_audit`; README gives exact inputs and limits. `requirements-audit.txt` is an audit candidate, not a validated inference environment.
-- Unsent Viraj message: `outputs/contract-20261117/review/viraj-message.txt`. No implementation wait is necessary; human exposure/review input cannot be invented.
-- Prior integration/review evidence and detached sibling checkout remain untouched. Ignored local paths do not imply teammate access; agree transfer or regenerate pinned artifacts with matching hashes.
+- D-009 access: `docs/evidence/p1a-development-access-20261117.json`, SHA-256 `83dde0502e9aca5cfd000c5f6ec9631602db9f03a334a2f1a42d9ac3adc3e79b`.
+- Preflight outputs/logs/source hashes: `outputs/continuation-20261117/input-preflight/`; compact training/validation receipts and execution manifest under `docs/evidence/p1a-*-input-preflight-20261117.json` and `p1a-input-preflight-execution-20261117.json`.
+- Original sources: `data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/`; D-008 populations: `outputs/contract-20261117/partitions-v2/`. No membership/source edits.
+- Model/tokenizer/header assets: `outputs/contract-20261117/model-auth/`; native-library diagnosis under `outputs/continuation-20261117/`, with safe compact V-025 evidence.
+- Prior failures, original/corrected audit versions, independent checks and detached review checkout remain preserved. Ignored paths are local retention, not proof of teammate access; README commands and registered hashes support regeneration.
 
 ## Exact continuation
 
-Read S-20261117-04/05 and publication follow-up, D-008, ASSET-002/SPLIT-001–004,
-V-015–V-024 (with earlier failure/reuse references), RES-002 and Q-012–Q-015.
+Read D-009, S-20261117-06, V-025 through V-027, D-008/SPLIT records and the source/runtime
+contract Q-014/Q-015. Do not restore teammate-attestation waits from historical snapshots.
 
-| Order | Next bounded task | Output/completion condition |
+| Order | Next bounded task | Completion condition |
 |---|---|---|
-| 1 | Obtain an approved executable tokenizer/runtime environment or user/administrator resolution of Q-015. Reuse preserved pinned assets and dependency evidence. | Actual tokenizer loads without weakening security controls; explicit wrapper/token IDs/defaults validated, development length/truncation summaries produced without test-performance exposure. |
-| 2 | Obtain each teammate's exposure statement and an actual human review of D-008/SPLIT-001–004 plus model/data contracts. Convey the prepared Viraj message if desired; it has not been sent. | Findings and reviewer identities recorded honestly; unknown/exposed history assessed, membership/release disposition explicit; remaining P1-A completion gate reviewed. |
-| 3 | Review the concrete 128-training-example, unpadded batch-one three-treatment pilot proposal in ARCHITECTURE after prerequisites. | Agreed input/cap/pooling/score/treatment/environment/check plan before full weights or substantial model execution; then compatible retained logits/predictions and dtype evidence. No final threshold or measured benefit assumed. |
+| 1 | Resolve the actual native-runtime dependency through an approved executable environment or policy-owner action. Reuse pinned assets and verified development loader. | Tokenizer executes with explicit wrapper/defaults; development length/truncation/padding evidence, no test performance. |
+| 2 | Verify Q-014 input/pooling semantics and settle the concrete batch-one pilot proposal using that evidence. | Shared token/score/cap/pooling/treatment/environment plan reviewed before expensive model execution; no silent method change. |
+| 3 | Inspect teammates' actual pushed work when available and share changes affecting their interfaces. Continue independent tasks meanwhile. | Verified integration, documented overlap/choices; stop only the work affected by a concrete missing deliverable, failed check or required decision. |
 
-The previous local context setting 872000 has no verified effective-session-limit claim.
-Preserve Part 1 followed by the full learned-gate investigation. Publication permission
-does not close a scientific gate or authorize unrelated external communication.
+The standing publication authorization covers completed substantial project work, not
+unrelated messages, visibility changes or submission. No effective context-window claim.
 
 ## Continuation fields for subsequent snapshots
 
