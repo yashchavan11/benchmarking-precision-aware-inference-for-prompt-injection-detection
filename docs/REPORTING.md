@@ -1,5 +1,43 @@
 # Research outputs and course deliverables
 
+## Progress update — November 17, 2026
+
+The November 11/16 text below is historical. The current evidence includes authorized local
+integration of both reviewed commits, fixes for Windows fixture integrity and calibration
+bin boundaries, and a combined suite of **26 passing tests** (V-005). S-20261117-03 packages
+the work in a local commit; no GitHub publication was made.
+
+**Substantive data preparation.** A reproducible administrative audit now covers every row
+of the pinned PromptShield revision: 18,909 training, 1,000 validation and 23,516 test rows
+(43,425 total). It validates actual schema/label encoding, stable IDs, source and text hashes,
+class counts, exact duplicates/conflicts, cross-split overlap and character/byte lengths.
+There are no exact cross-split overlaps or conflicting-label groups. Official test contains
+71 duplicate groups that must remain intact during the later A/B allocation. See ASSET-001,
+RES-001 and V-008 for counts, evidence and limitations. This administrative inspection is
+not model-performance evaluation; character lengths are not token lengths.
+
+**Verification.** Independent checks compared all 43,425 identities and aggregates with
+direct-string calculations and exercised 4,096 synthetic exclusion-precedence cases. Review
+also found and fixed a source-cache reuse weakness; altered cached files now fail against
+retained provenance. The original failures and corrected evidence are preserved. Human/team
+scientific signoff remains pending; do not attribute automated execution to a teammate.
+
+**Inference readiness and blocker.** The exact public Sentinel v2 repository revision is
+recorded. Public metadata/card/license are accessible, but four pinned configuration and
+tokenizer requests returned HTTP 401 without authentication. Yash now reports accepting
+access, but the local credential check remains unresolved (V-010). The real head shape,
+output-index mapping and tokenization/pooling behavior therefore remain unverified. Local
+inventory detects an RTX 5070 Ti Laptop GPU with 12,227 MiB VRAM and driver 577.13; no
+PyTorch/Transformers/bitsandbytes runtime was installed or validated in the checked interpreter.
+Hardware presence alone does not establish backend compatibility or a measured benefit.
+
+**Remaining work.** Resolve authorized model access and prior team test exposure; complete
+the model/tokenizer and token-length audit; review and freeze group-preserving evaluation
+partitions and development eligibility. Then run the small matched three-precision pilot
+under the roadmap. No real detection quality, speedup, memory saving, final threshold,
+Test-A/Test-B allocation, learned gate, or completed P1-A phase is claimed. The progress-report
+format is still pending from Yash.
+
 ## Progress report working text — November 18 checkpoint
 
 The following reflects implementation completed on November 11 and rechecked on November 16,

@@ -1,4 +1,5 @@
 import itertools
+import math
 import unittest
 
 from precision_benchmark.evaluation import compare, metrics
@@ -36,6 +37,21 @@ class MetricsTests(unittest.TestCase):
         self.assertEqual(endpoints["brier"], 0)
         self.assertEqual(endpoints["ece_10_equal_width"], 0)
         self.assertAlmostEqual(metrics([0, 1], [.1, .8], .5)["ece_10_equal_width"], .15)
+
+    def test_calibration_internal_boundaries_and_adjacent_scores(self):
+        for index in range(1, 10):
+            edge = index / 10
+            for score, expected_bin in ((math.nextafter(edge, -math.inf), index - 1),
+                                        (edge, index),
+                                        (math.nextafter(edge, math.inf), index)):
+                with self.subTest(edge=edge, score=score):
+                    bins = metrics([1], [score], .5)["calibration_bins"]
+                    self.assertEqual([bucket["count"] for bucket in bins],
+                                     [int(i == expected_bin) for i in range(10)])
+        # These two scores straddle 0.9 and therefore must not share a bin.
+        below = math.nextafter(.9, -math.inf)
+        result = metrics([0, 1], [below, .9], .5)
+        self.assertAlmostEqual(result["ece_10_equal_width"], (below + .1) / 2)
 
     def test_undefined_metrics_are_not_perfect_scores(self):
         result = metrics([0, 0], [.1, .2], .5)

@@ -240,6 +240,27 @@ Uncertainty, threshold optimization and measured profiling are not implemented i
 development command. Resource sections explicitly remain unavailable until the profiler
 handoff. Held-out analysis requires subsequent implementation and the P1-C freeze.
 
+## Administrative audit components added November 17
+
+`precision_benchmark/data_audit.py` processes pinned PromptShield JSON without displaying
+prompt contents. It preserves source bytes, checks cached-file integrity against a retained
+receipt, rejects duplicate JSON keys, and emits aggregate counts plus text-free IDs, exact
+UTF-8 text hashes, exclusions, and overlap-rule projections. IDs retain the original split
+and zero-based source row. Projection files are explicitly not frozen eligibility or A/B
+manifests. Character and byte counts are not tokenizer lengths.
+
+`precision_benchmark/model_audit.py` resolves or accepts an immutable selected-model
+revision, rechecks the pinned API identity, and records bounded public metadata retrievals.
+HTTP failures remain explicit. In the November 17 evidence, retained configuration filenames
+contain 401 response text, not valid configuration JSON; consumers must check the manifest's
+HTTP outcome. Provider dtype/count declarations are separated from verified tensor/runtime
+facts. Neither component executes prompts, downloads weights, or authorizes a phase advance.
+
+The local cache receipt protects against accidental source changes; it is not a signed
+attestation of publisher truth. Preserve the first verified download/provenance and review
+source changes instead of silently regenerating hashes. DATA_REGISTRY and V-006–V-009 link
+the current evidence and limits.
+
 ## Team handoff and metric-review request — November 16
 
 Repository-only request prepared at Shreyas's direction; no email, chat message or GitHub

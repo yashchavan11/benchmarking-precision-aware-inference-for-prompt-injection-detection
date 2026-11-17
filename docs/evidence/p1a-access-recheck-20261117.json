@@ -1,0 +1,12 @@
+{
+  "checked_at_utc": "2026-11-17T17:41:08.930859+00:00",
+  "user_reports_access_terms_accepted": true,
+  "local_hub_credential_found": false,
+  "authenticated_request_sent": false,
+  "url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/config.json",
+  "http_status": 401,
+  "response_path": "outputs/handoff-20261117/config-access-response.txt",
+  "response_sha256": "425542b8fc3065b8efad6dffbb00666b6d27a31fcc134deab069e9f856983550",
+  "account_level_access_independently_verified": false,
+  "interpretation": "Browser/account acceptance does not supply credentials to this Python process; authenticated retrieval remains pending."
+}

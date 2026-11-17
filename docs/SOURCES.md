@@ -14,6 +14,15 @@ Use primary sources to ground asset identities and methodological choices. These
 | [LLM.int8() paper, arXiv:2208.07339v2](https://arxiv.org/abs/2208.07339v2) | Mixed-precision handling of outlier features and quantization-method background. | Findings for other models do not establish benefits for Sentinel v2 or for the learned gate. |
 | [Hugging Face Hub download guide](https://huggingface.co/docs/huggingface_hub/guides/download) | Revision-specific asset identification and cache behavior. | Exact model/tokenizer/dataset versions and hashes retained by the project. |
 
+## Pinned administrative evidence checked November 17, 2026
+
+The initial source table above is historical background. The following source retrievals
+support ASSET-001/002 and V-008/V-009; exact URLs/bytes/hashes are retained in their evidence.
+
+- **PromptShield:** [pinned source card](https://huggingface.co/datasets/hendzh/PromptShield/blob/a5234cb1f5cdb256600cab64b8c961195b5e8404/README.md) and revision-specific `train.json`, `validation.json`, `test.json` plus Hub metadata. Card declares benign/injection 0/1 semantics and Apache-2.0 metadata. Actual counts/schema/duplicate facts come from the project's full-file audit, not the page's approximate size or illustrative row. Access was public and ungated.
+- **Sentinel v2:** [pinned model card](https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/blob/05ff9bfd1f28c5228e53121d5ee4427bb5205212/README.md), [pinned license](https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/blob/05ff9bfd1f28c5228e53121d5ee4427bb5205212/LICENSE.md), and pinned Hub model API metadata. Provider metadata declares Qwen3 sequence classification and F16 parameter storage; retained source license is Elastic License 2.0. Gated configuration/tokenizer retrievals returned 401, leaving actual output index/head semantics unverified.
+- The HTML dataset page incidentally returned training-viewer snippets; EXP-002 records exposure and its exact-overlap check. Future administrative inspection should use pinned API/raw files through aggregate-only scripts. Neither source card establishes the project's test allocation, scientific phase completion or actual precision/runtime behavior.
+
 ## Citation records
 
 Cite the exact model and dataset cards as well as relevant papers. Add versions of software actually used when preparing the final report; do not cite a dependency merely because it was considered.

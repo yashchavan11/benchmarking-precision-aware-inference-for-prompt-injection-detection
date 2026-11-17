@@ -1,6 +1,7 @@
 # Findings and claim register
 
-No measured findings are recorded yet. This register stores conclusions and their evidence;
+Administrative dataset findings are recorded below; no model-performance or resource
+findings are established. This register stores conclusions and their evidence;
 [REPORTING.md](REPORTING.md) defines how they become tables, figures and final deliverables.
 Statistical and measurement definitions belong to [RESEARCH_PROTOCOL.md](RESEARCH_PROTOCOL.md),
 and the gate's separate quality/cost claims belong to [EXTENSION.md](EXTENSION.md).
@@ -9,6 +10,15 @@ and the gate's separate quality/cost claims belong to [EXTENSION.md](EXTENSION.m
 
 | Result ID | Part / phase | Question or claim | Evidence type / population | Supporting runs / validation | Status / reviewer |
 |---|---|---|---|---|---|
+| RES-001 | Part 1 / P1-A | Pinned source supports an exact-duplicate-aware evaluation design | Development observation: administrative source audit, no classifier | R-P1-A-20261117-01; V-006/V-008; ASSET-001 | Observed and independently checked by automated review; human signoff pending |
+
+### RES-001 — Source audit establishes exact-group constraints, not model performance
+
+- **Date/scope:** 2026-11-17; all official rows of ASSET-001. Authoritative counts, labels, group support, lengths and hashes are in DATA_REGISTRY ASSET-001 and its linked machine evidence.
+- **Observation:** No exact-text group crosses official splits and no exact-text conflicting-label group was found. Duplicate groups occur within official test; they must remain intact in any later A/B allocation. Applying the protocol's exact-overlap exclusions removes no training/validation rows.
+- **Interpretation:** The audited exact-group structure permits planning a group-isolated allocation using the recorded class support. This is not proof of sufficient power for an unspecified endpoint, absence of near-duplicates, source annotation truth, or absence of pretrained-model contamination.
+- **Boundary:** A/B proportions, algorithm, seed, final membership, exposure controls, model labels/tokenization and experimental freezes are not selected here. No accuracy, precision effect, latency or memory claim follows from an administrative dataset audit.
+- **Review/reuse:** V-008 independently checks the observed counts/identities and source-cache integrity. Reuse requires the recorded pinned bytes and role restrictions; prior external test exposure remains Q-013. Suitable for the progress report's data/method preparation section, with unfinished work explicit.
 
 IDs have the form `RES-[unique number]`. Evidence types distinguish `development observation`,
 `pilot finding`, `Part 1 Test-A result`, `Part 2 Test-B result`, `measured system profile`,

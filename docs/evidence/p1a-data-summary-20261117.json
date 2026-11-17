@@ -1,0 +1,330 @@
+{
+  "dataset": "hendzh/PromptShield",
+  "revision": "a5234cb1f5cdb256600cab64b8c961195b5e8404",
+  "schema": {
+    "train": {
+      "container": "array",
+      "fields": {
+        "prompt": "string",
+        "label": "integer"
+      },
+      "observed_labels": [
+        0,
+        1
+      ],
+      "empty_text_rows": 0,
+      "whitespace_only_rows": 0
+    },
+    "validation": {
+      "container": "array",
+      "fields": {
+        "prompt": "string",
+        "label": "integer"
+      },
+      "observed_labels": [
+        0,
+        1
+      ],
+      "empty_text_rows": 0,
+      "whitespace_only_rows": 0
+    },
+    "test": {
+      "container": "array",
+      "fields": {
+        "prompt": "string",
+        "label": "integer"
+      },
+      "observed_labels": [
+        0,
+        1
+      ],
+      "empty_text_rows": 0,
+      "whitespace_only_rows": 0
+    }
+  },
+  "splits": {
+    "train": {
+      "rows": 18909,
+      "class_counts": {
+        "0": 9457,
+        "1": 9452
+      },
+      "exact_text_groups": 18909,
+      "ordered_id_sha256": "b54e337ac0503ce5948b563f8a79da2191a7fa1e374b2d4f89af1d7bacd0d3d7",
+      "exact_text_groups_by_label": {
+        "0": 9457,
+        "1": 9452
+      },
+      "largest_exact_text_group_rows": 1,
+      "duplicate_group_size_histogram": {},
+      "within_split_duplicate_groups": 0,
+      "within_split_duplicate_rows": 0,
+      "within_split_excess_duplicate_rows": 0,
+      "rows_in_global_conflicting_label_groups": 0,
+      "characters": {
+        "n": 18909,
+        "min": 18,
+        "median": 315,
+        "mean": 590.187847056957,
+        "p90": 1295,
+        "p95": 2339,
+        "p99": 4337,
+        "max": 31102
+      },
+      "utf8_bytes": {
+        "n": 18909,
+        "min": 18,
+        "median": 318,
+        "mean": 593.0790099952403,
+        "p90": 1301,
+        "p95": 2354,
+        "p99": 4356,
+        "max": 31264
+      }
+    },
+    "validation": {
+      "rows": 1000,
+      "class_counts": {
+        "0": 497,
+        "1": 503
+      },
+      "exact_text_groups": 1000,
+      "ordered_id_sha256": "4160c508a4347e58730df188aafcc3d15fc6b8755117e409a2d96c8cfefb133b",
+      "exact_text_groups_by_label": {
+        "0": 497,
+        "1": 503
+      },
+      "largest_exact_text_group_rows": 1,
+      "duplicate_group_size_histogram": {},
+      "within_split_duplicate_groups": 0,
+      "within_split_duplicate_rows": 0,
+      "within_split_excess_duplicate_rows": 0,
+      "rows_in_global_conflicting_label_groups": 0,
+      "characters": {
+        "n": 1000,
+        "min": 26,
+        "median": 304.0,
+        "mean": 588.673,
+        "p90": 1328,
+        "p95": 2328,
+        "p99": 4604,
+        "max": 11031
+      },
+      "utf8_bytes": {
+        "n": 1000,
+        "min": 26,
+        "median": 304.0,
+        "mean": 591.419,
+        "p90": 1328,
+        "p95": 2328,
+        "p99": 4622,
+        "max": 11077
+      }
+    },
+    "test": {
+      "rows": 23516,
+      "class_counts": {
+        "0": 17030,
+        "1": 6486
+      },
+      "exact_text_groups": 23359,
+      "ordered_id_sha256": "525b0b36cdbc8d5e9e9114213072ca5252ee039f3b8986640200f7ab64228c66",
+      "exact_text_groups_by_label": {
+        "0": 16873,
+        "1": 6486
+      },
+      "largest_exact_text_group_rows": 58,
+      "duplicate_group_size_histogram": {
+        "2": 55,
+        "3": 8,
+        "4": 2,
+        "5": 4,
+        "8": 1,
+        "58": 1
+      },
+      "within_split_duplicate_groups": 71,
+      "within_split_duplicate_rows": 228,
+      "within_split_excess_duplicate_rows": 157,
+      "rows_in_global_conflicting_label_groups": 0,
+      "characters": {
+        "n": 23516,
+        "min": 4,
+        "median": 426.0,
+        "mean": 726.8942847423031,
+        "p90": 1678,
+        "p95": 2561,
+        "p99": 4879,
+        "max": 23558
+      },
+      "utf8_bytes": {
+        "n": 23516,
+        "min": 4,
+        "median": 426.0,
+        "mean": 728.2632250382718,
+        "p90": 1684,
+        "p95": 2561,
+        "p99": 4888,
+        "max": 23601
+      }
+    }
+  },
+  "all_splits": {
+    "rows": 43425,
+    "class_counts": {
+      "0": 26984,
+      "1": 16441
+    },
+    "exact_text_groups": 43268,
+    "duplicate_groups": 71,
+    "rows_in_duplicate_groups": 228,
+    "excess_duplicate_rows": 157,
+    "conflicting_label_groups": 0,
+    "rows_in_conflicting_label_groups": 0
+  },
+  "split_overlaps": {
+    "train__validation": {
+      "shared_exact_text_groups": 0,
+      "left_rows": {
+        "rows": 0,
+        "class_counts": {
+          "0": 0,
+          "1": 0
+        },
+        "exact_text_groups": 0
+      },
+      "right_rows": {
+        "rows": 0,
+        "class_counts": {
+          "0": 0,
+          "1": 0
+        },
+        "exact_text_groups": 0
+      }
+    },
+    "train__test": {
+      "shared_exact_text_groups": 0,
+      "left_rows": {
+        "rows": 0,
+        "class_counts": {
+          "0": 0,
+          "1": 0
+        },
+        "exact_text_groups": 0
+      },
+      "right_rows": {
+        "rows": 0,
+        "class_counts": {
+          "0": 0,
+          "1": 0
+        },
+        "exact_text_groups": 0
+      }
+    },
+    "validation__test": {
+      "shared_exact_text_groups": 0,
+      "left_rows": {
+        "rows": 0,
+        "class_counts": {
+          "0": 0,
+          "1": 0
+        },
+        "exact_text_groups": 0
+      },
+      "right_rows": {
+        "rows": 0,
+        "class_counts": {
+          "0": 0,
+          "1": 0
+        },
+        "exact_text_groups": 0
+      }
+    }
+  },
+  "development_overlap_projection": {
+    "train": {
+      "rows": 18909,
+      "class_counts": {
+        "0": 9457,
+        "1": 9452
+      },
+      "exact_text_groups": 18909,
+      "ordered_id_sha256": "b54e337ac0503ce5948b563f8a79da2191a7fa1e374b2d4f89af1d7bacd0d3d7",
+      "excluded_by_reason": {
+        "exact_text_in_official_test": {
+          "rows": 0,
+          "class_counts": {
+            "0": 0,
+            "1": 0
+          },
+          "exact_text_groups": 0
+        },
+        "exact_text_in_retained_validation": {
+          "rows": 0,
+          "class_counts": {
+            "0": 0,
+            "1": 0
+          },
+          "exact_text_groups": 0
+        }
+      },
+      "remaining_conflicting_label_groups": 0,
+      "remaining_rows_in_conflicting_label_groups": 0
+    },
+    "validation": {
+      "rows": 1000,
+      "class_counts": {
+        "0": 497,
+        "1": 503
+      },
+      "exact_text_groups": 1000,
+      "ordered_id_sha256": "4160c508a4347e58730df188aafcc3d15fc6b8755117e409a2d96c8cfefb133b",
+      "excluded_by_reason": {
+        "exact_text_in_official_test": {
+          "rows": 0,
+          "class_counts": {
+            "0": 0,
+            "1": 0
+          },
+          "exact_text_groups": 0
+        },
+        "exact_text_in_retained_validation": {
+          "rows": 0,
+          "class_counts": {
+            "0": 0,
+            "1": 0
+          },
+          "exact_text_groups": 0
+        }
+      },
+      "remaining_conflicting_label_groups": 0,
+      "remaining_rows_in_conflicting_label_groups": 0
+    }
+  },
+  "projection_isolation_checks": {
+    "projected_train_vs_test": 0,
+    "projected_validation_vs_test": 0,
+    "projected_train_vs_validation": 0
+  },
+  "incidental_viewer_prefix_proxy": {
+    "assumed_first_train_rows": 50,
+    "assumption_not_verified_viewer_row_identity": true,
+    "exact_groups_overlapping_test": 0,
+    "test_rows_in_those_groups": 0,
+    "projected_training_rows_in_those_groups": 50
+  },
+  "methods": {
+    "text_hash": "SHA-256 of original decoded prompt encoded as UTF-8; no whitespace or Unicode normalization",
+    "identity": "dataset-revision:original-split:zero-based-source-array-position",
+    "ordered_id_hash": "SHA-256 of UTF-8 example IDs in original split order, each followed by LF",
+    "lengths": "Unicode code points and UTF-8 bytes, not tokenizer lengths; p90/p95/p99 nearest-rank, median standard median",
+    "eligibility_projection": "test-overlap exclusion first, then exclude training matching retained validation; retain all other rows, including unresolved conflicts"
+  },
+  "limitations": [
+    "Administrative audit only; no model scores, predictions, or performance inspected.",
+    "No Test-A/Test-B assignment, conflict-treatment decision, eligibility freeze, or pilot selection performed.",
+    "Projection applies overlap precedence only; remaining conflicting labels need explicit review before inference.",
+    "Exact-text hashing does not detect paraphrases/shared templates or pretrained-model contamination.",
+    "Source has only prompt and label fields; no source-provided attack-family/group annotation.",
+    "Tokenizer lengths/truncation and content-level truth of reference labels are not verified."
+  ]
+}

@@ -1,0 +1,5 @@
+# These fixtures contain hashes of exact file bytes. Preserve LF on every platform.
+tests/fixtures/synthetic/*.json text eol=lf
+tests/fixtures/synthetic/*.jsonl text eol=lf
+# Retained audit summaries/provenance also identify exact JSON bytes.
+docs/evidence/*.json text eol=lf

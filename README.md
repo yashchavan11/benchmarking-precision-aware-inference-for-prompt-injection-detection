@@ -169,8 +169,11 @@ conditions within each reported comparison, regardless of where development occu
 
 ## Project documentation and research records
 
-The development evaluator is implemented and checked against synthetic fixtures; model
-inference and empirical experiments remain pending. This README makes no claim of measured results.
+The development evaluator is implemented and checked against synthetic fixtures. A pinned
+PromptShield administrative audit and public model-metadata audit are also implemented;
+their evidence and remaining access/label/partition requirements are in
+[DATA_REGISTRY.md](docs/DATA_REGISTRY.md). Model inference and empirical precision experiments
+remain pending. This README makes no claim of measured model-performance results.
 The evolving state and next task are recorded in [STATUS.md](docs/STATUS.md).
 
 ### Run the development evaluator
@@ -193,6 +196,25 @@ Replace the demo manifest path with your audited comparison manifest. No model d
 GPU, inference packages or network access are needed to regenerate analyses. Test-A/Test-B
 analysis is intentionally disabled until the later protocol freeze and uncertainty work;
 see [D-007](docs/DECISIONS.md#d-007--development-evaluator-interface-and-metric-conventions).
+
+### Reproduce the administrative asset audits
+
+These standard-library commands inspect metadata and aggregate dataset properties; they
+do not run a model or choose Test-A/Test-B. Use a new output directory for each run. On
+Windows, use `python` if `python3` is unavailable.
+
+```sh
+python -m precision_benchmark.model_audit --revision 05ff9bfd1f28c5228e53121d5ee4427bb5205212 --output outputs/model-audit-repeat
+python -m precision_benchmark.data_audit --revision a5234cb1f5cdb256600cab64b8c961195b5e8404 --raw-dir data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404 --download --output outputs/data-audit-repeat
+```
+
+The model command records HTTP outcomes; a successful audit command does not mean gated
+configuration files were accessible. Check `summary.json` before using any retained file.
+The dataset command downloads about 31 MB on first use and checks retained source hashes
+on reuse. Do not display raw official-test prompts or treat projected development identities
+as a frozen eligibility decision. Preserve `data/raw/` and `outputs/` locally; compact audit
+evidence is retained in `docs/evidence/`. No model weights or inference dependencies are
+installed by either command. See V-005–V-009 in [VALIDATION_LOG](docs/VALIDATION_LOG.md).
 
 | Document or record | Contents |
 |---|---|

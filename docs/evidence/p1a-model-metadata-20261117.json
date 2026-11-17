@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "model_id": "rogue-security/prompt-injection-jailbreak-sentinel-v2",
+  "revision": "05ff9bfd1f28c5228e53121d5ee4427bb5205212",
+  "audit_scope": "public metadata and lightweight files only; no authentication, weights, or inference",
+  "access": {
+    "private": false,
+    "gated": "auto",
+    "failed_files": {
+      "config.json": 401,
+      "tokenizer_config.json": 401,
+      "special_tokens_map.json": 401,
+      "added_tokens.json": 401
+    }
+  },
+  "hub_declared": {
+    "architectures": [
+      "Qwen3ForSequenceClassification"
+    ],
+    "model_type": "qwen3",
+    "base_model": [
+      "Qwen/Qwen3-0.6B"
+    ],
+    "license_metadata": "other",
+    "safetensors_summary": {
+      "parameters": {
+        "F16": 596051968
+      },
+      "total": 596051968
+    },
+    "tokenizer_special_tokens": {
+      "bos_token": null,
+      "eos_token": "<|im_end|>",
+      "pad_token": "<|im_end|>",
+      "unk_token": null
+    },
+    "chat_template_present": true
+  },
+  "pinned_config": null,
+  "pinned_tokenizer_config": null,
+  "pinned_special_tokens_map": null,
+  "label_mapping_size": null,
+  "label_orientation_verified": false,
+  "classifier_tensor_shape_verified": false,
+  "runtime_dtypes_or_quantization_verified": false,
+  "pooling_or_padding_behavior_verified": false,
+  "source_records": {
+    "resolver": {
+      "url": "https://huggingface.co/api/models/rogue-security/prompt-injection-jailbreak-sentinel-v2",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-11-17T14:55:46.090067+00:00",
+      "byte_count": 6354,
+      "sha256": "23b6484bfc84f209f3d3e43a0b4aab98875ce21a17a871069213e44316b97ece",
+      "path": "resolver.json",
+      "repo_commit_header": null,
+      "etag": "W/\"18d2-LeS+LYTfz9o5EH0ioK2Zrqrb2CM\""
+    },
+    "pinned_model_info": {
+      "url": "https://huggingface.co/api/models/rogue-security/prompt-injection-jailbreak-sentinel-v2/revision/05ff9bfd1f28c5228e53121d5ee4427bb5205212",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-11-17T14:55:46.194586+00:00",
+      "byte_count": 6354,
+      "sha256": "71b59ce8fd1828039bd31dd3f03f93cbfb7a557b0d17d04c9993df14f2a3e848",
+      "path": "model-info.json",
+      "repo_commit_header": null,
+      "etag": "W/\"18d2-b5jWPSe/Z7+MasTJaljJhJixu28\""
+    },
+    "config.json": {
+      "url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/config.json",
+      "http_status": 401,
+      "retrieved_at_utc": "2026-11-17T14:55:46.263048+00:00",
+      "byte_count": 161,
+      "sha256": "425542b8fc3065b8efad6dffbb00666b6d27a31fcc134deab069e9f856983550",
+      "path": "config.json",
+      "repo_commit_header": null,
+      "etag": "W/\"a1-Azh0NhNhy1WJy+BAog2yTjlLfyI\""
+    },
+    "tokenizer_config.json": {
+      "url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/tokenizer_config.json",
+      "http_status": 401,
+      "retrieved_at_utc": "2026-11-17T14:55:46.324422+00:00",
+      "byte_count": 161,
+      "sha256": "425542b8fc3065b8efad6dffbb00666b6d27a31fcc134deab069e9f856983550",
+      "path": "tokenizer_config.json",
+      "repo_commit_header": null,
+      "etag": "W/\"a1-Azh0NhNhy1WJy+BAog2yTjlLfyI\""
+    },
+    "special_tokens_map.json": {
+      "url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/special_tokens_map.json",
+      "http_status": 401,
+      "retrieved_at_utc": "2026-11-17T14:55:46.389481+00:00",
+      "byte_count": 161,
+      "sha256": "425542b8fc3065b8efad6dffbb00666b6d27a31fcc134deab069e9f856983550",
+      "path": "special_tokens_map.json",
+      "repo_commit_header": null,
+      "etag": "W/\"a1-Azh0NhNhy1WJy+BAog2yTjlLfyI\""
+    },
+    "added_tokens.json": {
+      "url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/added_tokens.json",
+      "http_status": 401,
+      "retrieved_at_utc": "2026-11-17T14:55:46.463906+00:00",
+      "byte_count": 161,
+      "sha256": "425542b8fc3065b8efad6dffbb00666b6d27a31fcc134deab069e9f856983550",
+      "path": "added_tokens.json",
+      "repo_commit_header": null,
+      "etag": "W/\"a1-Azh0NhNhy1WJy+BAog2yTjlLfyI\""
+    },
+    "README.md": {
+      "url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/README.md",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-11-17T14:55:46.527563+00:00",
+      "byte_count": 6836,
+      "sha256": "e42203c53611be197f793c1753eb4447874b1929625a1341777ddf09d06369e7",
+      "path": "README.md",
+      "repo_commit_header": "05ff9bfd1f28c5228e53121d5ee4427bb5205212",
+      "etag": "\"a8b6fb1a9432fce29d55c33c9f0736b2c90f9ee6\""
+    },
+    "LICENSE.md": {
+      "url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/LICENSE.md",
+      "http_status": 200,
+      "retrieved_at_utc": "2026-11-17T14:55:46.601375+00:00",
+      "byte_count": 3859,
+      "sha256": "64fc1547bdc18b09b7b0aeaf479e1d8c2ae169188ce1c003db3bce41957c5e2b",
+      "path": "LICENSE.md",
+      "repo_commit_header": "05ff9bfd1f28c5228e53121d5ee4427bb5205212",
+      "etag": "\"92503a721787c771197bdb95016a44a6d5e862bc\""
+    }
+  },
+  "limitations": [
+    "Hub safetensors counts/dtypes are provider metadata, not independently read weight tensors.",
+    "A repository or tokenizer chat template does not establish that classification should apply it.",
+    "The injection output index must be verified from accessible checkpoint evidence; index 1 is not assumed.",
+    "Actual head shape, score conversion, last-token pooling, padding and all three treatments still need runtime checks.",
+    "Source license metadata and retained license text are evidence, not a redistribution approval.",
+    "This audit revision is an observed source identity, not a final experimental freeze."
+  ],
+  "audit_source_sha256": "f367c55651a06cae532c0bdd3ba864f04ee18fcc2b1dffe866f13d979bf83649"
+}

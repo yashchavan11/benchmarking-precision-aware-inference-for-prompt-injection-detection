@@ -1,0 +1,65 @@
+{
+  "files": {
+    "README.md": {
+      "url": "https://huggingface.co/datasets/hendzh/PromptShield/resolve/a5234cb1f5cdb256600cab64b8c961195b5e8404/README.md",
+      "path": "data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/README.md",
+      "bytes": 1792,
+      "sha256": "d5f36dce4f27d40ae8fda54335d382c74e650485cb4a92c6837602ef84a1a662"
+    },
+    "train.json": {
+      "url": "https://huggingface.co/datasets/hendzh/PromptShield/resolve/a5234cb1f5cdb256600cab64b8c961195b5e8404/train.json",
+      "path": "data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/train.json",
+      "bytes": 12239651,
+      "sha256": "aa33c3ffcc27bd07c0a233b52f1b8c3cbdb30606ce2412da06a88b5290cdc7b6"
+    },
+    "validation.json": {
+      "url": "https://huggingface.co/datasets/hendzh/PromptShield/resolve/a5234cb1f5cdb256600cab64b8c961195b5e8404/validation.json",
+      "path": "data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/validation.json",
+      "bytes": 645951,
+      "sha256": "1d93d90d57d3ef44ed0c546fbc04d66324436c5fcd32e7fcb940ceed270fbe77"
+    },
+    "test.json": {
+      "url": "https://huggingface.co/datasets/hendzh/PromptShield/resolve/a5234cb1f5cdb256600cab64b8c961195b5e8404/test.json",
+      "path": "data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/test.json",
+      "bytes": 18288615,
+      "sha256": "526207c2485829d9961407011d7f4cd929569e7f285dc8396b3f385e0608bc70"
+    },
+    "repository-metadata.json": {
+      "url": "https://huggingface.co/api/datasets/hendzh/PromptShield/revision/a5234cb1f5cdb256600cab64b8c961195b5e8404",
+      "path": "data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/repository-metadata.json",
+      "bytes": 1588,
+      "sha256": "ef85c81486c82aec5a262bb8344ea1bbe9a9b8325035c84e05ec6103cfbd14df"
+    }
+  },
+  "source_api": {
+    "id": "hendzh/PromptShield",
+    "sha": "a5234cb1f5cdb256600cab64b8c961195b5e8404",
+    "gated": false,
+    "private": false,
+    "lastModified": "2025-04-07T17:15:28.000Z",
+    "cardData": {
+      "license": "apache-2.0",
+      "task_categories": [
+        "text-classification"
+      ],
+      "language": [
+        "en"
+      ],
+      "tags": [
+        "prompt-injection",
+        "llm-safety",
+        "llm-defense"
+      ],
+      "pretty_name": "PromptShield"
+    }
+  },
+  "retrieved_or_audited_at_utc": "2026-11-17T14:58:30.832776+00:00",
+  "audit_source_sha256": "78abd494a4e4c913e82c68a4a3a7b58a500c467317e044fbb68369a779d4b5c6",
+  "output_files": {
+    "row-identities.jsonl": "f1a9450854c2e618da2a72ff1c6dc0f12c816cfe3d1b1afcc5cfc3b1283a2be6",
+    "development-exclusions.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "projected-train-identities.jsonl": "4cedee016c82cc59a7bb99d5ae3c9228882edd454de586a63fb7e31cd18692d6",
+    "projected-validation-identities.jsonl": "ad76c44ce22f49ca441e13993d84a1ddad7acf688e6223551857c126b2a35015",
+    "summary.json": "91ee7e14826ea73419c7af96ee8ce266482f502b89cc29bec600aad7a760c059"
+  }
+}

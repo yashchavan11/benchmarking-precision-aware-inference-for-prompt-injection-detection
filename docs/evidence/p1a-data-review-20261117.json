@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "revision": "a5234cb1f5cdb256600cab64b8c961195b5e8404",
+  "source_and_output_hashes_verified": true,
+  "identities_verified": 43425,
+  "direct_string_counts_match_summary": true,
+  "direct_string_lengths_match_summary": true,
+  "duplicate_json_keys_found": 0,
+  "exhaustive_synthetic_precedence_cases_passed": 4096,
+  "source_sha256_at_review": "78abd494a4e4c913e82c68a4a3a7b58a500c467317e044fbb68369a779d4b5c6",
+  "limitations": [
+    "Local-byte/provenance consistency checked, not remote server attestation.",
+    "No raw source prompts printed; no model outputs inspected.",
+    "AI independent review, not human/team scientific signoff."
+  ]
+}

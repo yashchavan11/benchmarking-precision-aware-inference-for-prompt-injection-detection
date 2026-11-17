@@ -1,6 +1,7 @@
 # Experiment register
 
-This register is the index of planned and executed experiments. No runs are recorded yet.
+This register is the index of planned and executed experiments and administrative audit runs.
+Administrative runs are recorded below; no model-performance or resource experiment has run.
 Each entry links the machine-readable run manifest and raw outputs described in
 [ARCHITECTURE.md](ARCHITECTURE.md), rather than copying prediction tables or prompts here.
 The [research protocol](RESEARCH_PROTOCOL.md) governs run comparability;
@@ -27,6 +28,23 @@ completed artifacts are retained instead of overwritten.
 
 | Run ID | Phase / question | Input membership ID | Treatment / policy | Protocol / decision IDs | State | Manifest / output integrity | Owner / reviewer |
 |---|---|---|---|---|---|---|---|
+| R-P1-A-20261117-01 | P1-A / source schema, duplicate and overlap audit | ASSET-001 official splits | Administrative processing; no classifier | RESEARCH_PROTOCOL section 3 | complete for bounded audit; no phase closeout | audit-v3 provenance; V-008 | Local automated execution/independent review; human signoff pending |
+| R-P1-A-20261117-02 | P1-A / selected checkpoint metadata and labels | ASSET-002 | Public source retrieval; no weights | RESEARCH_PROTOCOL section 1 | incomplete for full asset/label audit | model/summary.json; V-009 | Local automated execution/review; authorized access pending |
+
+### R-P1-A-20261117-01 — Administrative PromptShield audit
+
+- **Purpose/input/expected output:** Before final inference, establish pinned official schema, class support, duplicates/conflicts, source identities and development-overlap projections. All official splits are eligible only for administrative computation; no model performance is computed or inspected.
+- **Execution:** Windows / Python 3.11.9, standard library, no GPU. `precision_benchmark.data_audit` at source hash in V-008; pinned source and all paths/hashes in ASSET-001 and its retained provenance. Actual invocation/history is `outputs/asset-audit-20261117/dataset/execution.json`.
+- **State/output:** Complete administrative audit-v3, no active job. All 43,425 intended rows covered; source bytes and all identity/output hashes verified. Original audit-v1/v2 retained; V-007's reusable-cache defect was repaired and V-008 revalidated the final version without changing input data.
+- **Evidence/exposure:** V-006–V-008, EXP-002. Full class/group/length summaries, stable text-free identities, empty exclusion list and projected train/validation outputs retained. RESULTS RES-001 scopes the finding. No A/B assignment, eligibility freeze, token-length study, inference result or P1-A completion is implied.
+- **Next:** Resolve model access/labels and prior team exposure; review allocation and final eligibility under Q-001–Q-004/Q-013.
+
+### R-P1-A-20261117-02 — Model metadata and access audit
+
+- **Purpose/input:** Establish exact selected-model/tokenizer identity and configuration evidence without weights or performance inspection. Pinned public metadata acquisition completed; required private configuration remained unavailable.
+- **Execution/output:** Windows / Python 3.11.9, `python -m precision_benchmark.model_audit --output outputs/asset-audit-20261117/model`; source hash and eight HTTP response hashes in `summary.json`, mirrored in `docs/evidence/p1a-model-metadata-20261117.json`.
+- **Incomplete condition:** Four gated requests returned HTTP 401. Script completion/exit zero means the public access audit ran; it does not establish the requested labels/head/tokenizer contract. No process is still running, and there is no checkpoint to resume.
+- **Validation/continuation:** V-009, ASSET-002 and Q-012. Obtain authorized access, retrieve pinned configurations in a new artifact location, then verify full model-label semantics. Keep failed responses; do not overwrite them or infer class orientation.
 
 ## Run record template
 

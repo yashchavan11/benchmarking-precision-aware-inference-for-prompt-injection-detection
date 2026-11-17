@@ -12,9 +12,9 @@ evidence is recorded, not that the corresponding work has passed review.
 
 | Phase and authoritative plan | Status | Closeout / evidence reference |
 |---|---|---|
-| [P1-A — Asset and data audit](ROADMAP.md#p1-a--asset-data-and-evaluation-design-audit) | Not started | None recorded |
-| [P1-B — Components and pilot](ROADMAP.md#p1-b--reusable-components-and-a-small-real-pilot) | Not started | None recorded |
-| [P1-C — Main-protocol freeze](ROADMAP.md#p1-c--analysis-implementation-and-main-protocol-freeze) | Not started | None recorded |
+| [P1-A — Asset and data audit](ROADMAP.md#p1-a--asset-data-and-evaluation-design-audit) | In progress | V-006–V-009; source counts/provenance audited; model labels/access and evaluation allocation pending; no closeout |
+| [P1-B — Components and pilot](ROADMAP.md#p1-b--reusable-components-and-a-small-real-pilot) | Empirical phase not started; independent evaluator preparation | V-001–V-005; no phase closeout |
+| [P1-C — Main-protocol freeze](ROADMAP.md#p1-c--analysis-implementation-and-main-protocol-freeze) | Empirical phase/freeze not started; independent evaluator preparation | V-001–V-005; no phase closeout |
 | [P1-D — Main benchmark](ROADMAP.md#p1-d--main-benchmark-and-analysis) | Not started | None recorded |
 | [P1-E — Part 1 closeout](ROADMAP.md#p1-e--part-1-closeout-and-knowledge-transfer) | Not started | None recorded |
 | [P2-A — Benefit and objective](ROADMAP.md#p2-a--benefit-characterization-and-research-objective) | Not started | None recorded |

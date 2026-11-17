@@ -31,6 +31,35 @@ was reached. Implementation sessions are recorded below; no model experiments ha
 - **Handoff:** Teammates can use ARCHITECTURE's v1 contract and review checklist; Shreyas can rehearse REPORTING's explanation. Await actual reviewed development artifacts for integration. Documentation edits are local; publication state is given by Git status/history.
 - **Records:** REPORTING, ARCHITECTURE, VALIDATION_LOG, STATUS and SESSION_LOG. No new human contribution is asserted.
 
+## S-20261117-01 — Incoming-commit review before integration
+
+- **Date/timezone:** 2026-11-17, America/New_York; requested by Yash, automated local execution and independent automated metric/protocol reviews.
+- **Scope/context:** Read the entire initial project setup at `ebc1f3f`; inspected teammate commits `df61690` and `1d9f9ca` in a detached sibling checkout. Fetched locally but did not merge, commit, push or write on GitHub during this review.
+- **Evidence/outcome:** V-003 found Windows fixture-byte failures and one calibration boundary defect. V-004 repaired/revalidated them in isolation, with independent arithmetic and portability checks. Preserved the exact upstream source, failed checks, patch and corrected evidence. No model/data exposure beyond synthetic fixtures (EXP-001).
+- **Transfer:** Review artifacts archived locally under `outputs/review-20261117/`; original runnable layout and exact upstream snapshot remain in the sibling review checkout. No phase completed. Yash's later integration approval and real administrative audit are S-20261117-02.
+
+## S-20261117-02 — Authorized integration and bounded P1-A audits
+
+- **Date/timezone/request:** 2026-11-17, America/New_York. Yash approved the reviewed local changes and inference-side audit, including dependent data work. Requested no assistant author/co-author attribution or GitHub activity. No new commit or remote write was made.
+- **Integration:** Fast-forwarded main to existing reviewed `1d9f9ca`; applied the three-file repair, refreshed fixture bytes from a fresh Git materialization and verified integration. Added administrative model/data audit commands and meaningful checks. V-005 records 26 passing combined tests with exact source/test hashes.
+- **Data work:** R-P1-A-20261117-01 / ASSET-001 / V-006–V-008 / RES-001. Downloaded pinned public source JSON to ignored storage; processed all official rows without displaying test prompts. Source/class/group/duplicate/conflict/length/overlap evidence and text-free identities retained. No allocation or final eligibility decision made. Independent review found a cache-reuse flaw, reproduced it on synthetic files and verified the repair; all actual original source bytes stayed unchanged.
+- **Model/environment work:** R-P1-A-20261117-02 / ASSET-002 / V-009. Public revision and declarations retained, but private config/tokenizer requests failed with 401; no weights or inference. Recorded GPU/Python/dependency inventory under `outputs/asset-audit-20261117/environment/`; actual backend execution unverified.
+- **Exposure:** EXP-002 includes the incidental 50 training-viewer snippets and the complete train/test exact-overlap check. No model outputs or official-test prompts were displayed. Prior external team exposure is unknown; near duplicates were not ruled out.
+- **Context configuration:** At the user's explicit request, changed only the local Codex `model_context_window` setting to 872000, the maximum advertised by the installed model catalog for configured `gpt-6-astra` (default 272000). Backed up the prior file. This is outside project method/results; active-chat hot reload was not verified. No model/provider change or project credential change was made.
+- **Records:** DATA_REGISTRY, VALIDATION_LOG, EXPERIMENT_REGISTER, RESULTS, SOURCES, OPEN_QUESTIONS, ARCHITECTURE, README, REPORTING, CONTRIBUTIONS, PHASE_RECORDS and STATUS; compact source/validation evidence under `docs/evidence/`. No methodological freeze or scope decision was added.
+- **State/outcome:** Bounded integration and administrative audits complete; full P1-A remains in progress. Changes are local and uncommitted; ignored raw/output artifacts retained. No active/interrupted jobs. Yash subsequently confirmed model access still needs requesting and reported no prior test inspection to his knowledge (Q-012/Q-013); this does not independently establish every teammate's exposure history.
+- **Next action:** Establish authorized access and verify pinned model labels/head/tokenizer, then resolve token-length and group-preserving evaluation-design requirements. Ask before major scientific choices; preserve the selected assets/method and both research parts.
+
+## S-20261117-03 - Local commit and fresh-chat handoff
+
+- **Date/timezone:** 2026-11-17, America/New_York.
+- **User authorization:** Yash requested local commits under his own name only and a prompt for resuming in a fresh chat. No push, external message, assistant author or co-author trailer was authorized. The configured author and committer both resolve to `Yash <chavan.yas@northeastern.edu>`.
+- **Scope:** Package the already-reviewed evaluator fixes, administrative audit components/tests, compact evidence and project records. No further research phase, model execution, dataset partition or scientific choice is performed during handoff. Previous sessions' execution/contribution evidence remains accurately attributed rather than inferred from commit authorship.
+- **Access update:** User reports accepting model access. V-010 independently checks local readiness: no configured credential found and the unauthenticated pinned config request still returned 401. Account approval is not disproved; authenticated retrieval is the next bounded task.
+- **Validation and preservation:** Source/test bytes are checked against the retained manifest for the 26-test passing run; final staging is reviewed for exact fixture/evidence bytes, credentials, raw data, weights and output directories. Original ignored source/output evidence and the detached review checkout are retained. Existing teammate commits/history are preserved; no push is part of this session.
+- **Handoff:** STATUS identifies the next bounded task and current access distinction. The commit containing this entry records the repair/audit milestone; its exact hash is obtained from Git history. No active or interrupted research jobs need monitoring. The fresh chat should read AGENTS/README/STATUS and their references, verify actual workspace state and continue P1-A without restarting completed audits.
+- **Limits:** P1-A remains incomplete. Human/team scientific signoff, actual model/tokenizer semantics, token lengths, final eligibility/A-B design and runtime precision checks remain pending. November 18 report format has not yet been supplied. The earlier local context-window configuration was saved, but the active chat's hot reload was never verified.
+
 ## Entry schema (reference)
 
 Session IDs have the form `S-YYYYMMDD-NN`, unique across the team. The date/time field states

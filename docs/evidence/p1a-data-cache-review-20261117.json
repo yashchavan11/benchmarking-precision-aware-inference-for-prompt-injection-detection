@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "checks": [
+    "unverified cached bytes rejected",
+    "matching explicitly supplied receipt accepted",
+    "README.md tampering rejected and preserved",
+    "train.json tampering rejected and preserved",
+    "validation.json tampering rejected and preserved",
+    "test.json tampering rejected and preserved",
+    "repository-metadata.json tampering rejected and preserved",
+    "wrong receipt revision rejected",
+    "duplicate source JSON keys rejected"
+  ],
+  "network_used": false,
+  "real_data_modified": false,
+  "source_sha256": "78abd494a4e4c913e82c68a4a3a7b58a500c467317e044fbb68369a779d4b5c6",
+  "limitation": "Receipt consistency prevents accidental stale/changed caches; receipt provenance still requires trusted initial retrieval/review."
+}

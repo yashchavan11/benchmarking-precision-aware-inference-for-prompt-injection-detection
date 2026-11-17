@@ -1,6 +1,7 @@
 """Binary metrics; injection is class 1 and score >= threshold is positive."""
 
 import math
+from bisect import bisect_right
 from itertools import groupby
 
 
@@ -50,8 +51,10 @@ def metrics(labels, scores, threshold):
     positive_f1 = ratio(2 * tp, 2 * tp + fp + fn)
     negative_f1 = ratio(2 * tn, 2 * tn + fp + fn)
     bins = [[] for _ in range(10)]
+    bin_edges = [index / 10 for index in range(1, 10)]
     for label, score in zip(labels, scores):
-        bins[min(int(score * 10), 9)].append((label, score))
+        # Compare to the reported edges: multiplication can round a score below 0.9 up.
+        bins[bisect_right(bin_edges, score)].append((label, score))
     calibration = []
     ece = 0.0
     for index, bucket in enumerate(bins):
