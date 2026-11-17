@@ -5,7 +5,8 @@
 The November 11/16 text below is historical. The current evidence includes authorized local
 integration of both reviewed commits, fixes for Windows fixture integrity and calibration
 bin boundaries, and a combined suite of **26 passing tests** (V-005). S-20261117-03 packages
-the work in a local commit; no GitHub publication was made.
+the work in commit `1259a61`; Yash subsequently authorized its push to the existing private
+GitHub repository. This does not establish final public-repository delivery or phase completion.
 
 **Substantive data preparation.** A reproducible administrative audit now covers every row
 of the pinned PromptShield revision: 18,909 training, 1,000 validation and 23,516 test rows

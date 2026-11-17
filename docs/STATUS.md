@@ -10,7 +10,7 @@ is in EXPERIMENT_REGISTER and VALIDATION_LOG. No research phase has closed.
 | Snapshot provenance | 2026-11-17, America/New_York; S-20261117-03, local commit and fresh-chat handoff requested by Yash |
 | Active phase / latest completion | P1-A in progress; no completed research phase |
 | Owner / reservations | Yash's tentative inference/quantization workstream; dependent data audit performed with his authorization. All parallel reviews finished; no active reservations. |
-| Repository state | Main contains teammate commits through 1d9f9ca plus the local repair/audit commit containing S-20261117-03. Use Git log/status for its exact hash and later edits. Author/committer: Yash <chavan.yas@northeastern.edu>; no assistant author/co-author trailer. No push or GitHub comment/review/message. |
+| Repository state | Repair/audit commit 1259a61a693ab5ad87a48035d43bb321619e7ec8 was pushed to origin/main after Yash explicitly requested publication. Remote SHA verified. This handoff update follows that milestone; use Git log/status for the latest tip. Author/committer: Yash <chavan.yas@northeastern.edu>; no assistant author/co-author trailer or GitHub comment/review/message. |
 | Changes since prior handoff | V-003/V-004 repairs integrated (V-005); administrative data audit ASSET-001 and public model audit ASSET-002 implemented and reviewed; RES-001 scopes the data finding |
 | Verified software | 26 tests passed on Python 3.11.9 / Windows. Full logs/source/test hashes: outputs/integration-20261117/. Independent data and calibration review evidence retained. |
 | Dataset identity / state | hendzh/PromptShield at a5234cb1f5cdb256600cab64b8c961195b5e8404. Actual counts/groups/exact-overlap evidence in DATA_REGISTRY ASSET-001; projected development identities only, no final eligibility or A/B assignment. |
@@ -50,7 +50,7 @@ Keep D-001 through D-007, RESEARCH_PROTOCOL and the full learned-gate scope unch
 | 3 | Confirm prior team test exposure and review group-preserving A/B allocation and final development eligibility using ASSET-001 support. | Explicit team decision, deterministic membership/exclusion/access manifests, isolation review and P1-A closeout evidence. No official-test model performance before required freeze. |
 
 Yash authorized the local integration already; do not ask again. Major scientific choices
-and publication remain outside this approval. Yash reports accepting model access and reports no prior test inspection
+remain subject to approval. Yash separately authorized pushing this reviewed milestone, which is now on origin/main. He reports accepting model access and no prior test inspection
 to his knowledge; other teammates' exposure history is not independently verified. The November 18 progress-report format is also
 pending; REPORTING contains truthful working text. Human/team scientific review remains
 pending despite independent automated checks. This snapshot does not declare P1-A complete.
@@ -58,8 +58,9 @@ pending despite independent automated checks. This snapshot does not declare P1-
 The local context-window configuration was saved as 872000 in the previous session;
 active-chat hot reload was not verified. Resume from these records even if the fresh
 chat does not inherit the earlier conversation. Do not reinstall or rerun completed work
-without a concrete compatibility or validation reason. Local commit approval does not
-authorize a push or other external publication.
+without a concrete compatibility or validation reason. The explicit push authorization
+covered this reviewed milestone and its handoff update; do not infer approval for unrelated
+external publication or changes to repository visibility.
 
 ## Continuation fields for subsequent snapshots
 

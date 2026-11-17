@@ -62,6 +62,19 @@ was reached. Implementation sessions are recorded below; no model experiments ha
 
 ## Entry schema (reference)
 
+### S-20261117-03 follow-up - Explicitly authorized GitHub push
+
+Yash subsequently requested pushing the committed work. `git push origin main` published
+`1259a61a693ab5ad87a48035d43bb321619e7ec8`, advancing the remote from `1d9f9ca`.
+`git ls-remote origin refs/heads/main` independently confirmed that SHA and Git status
+showed the local branch synchronized. STATUS and REPORTING were refreshed to remove the
+now-stale unpublished-state summary. No force push, visibility change, comment, review,
+message, raw-data upload, credential upload, or scientific change accompanied the push.
+The small handoff update uses the same confirmed Yash author/committer identity without
+co-author trailers. Earlier no-push statements describe the earlier authorization boundary.
+
+### Entry schema fields
+
 Session IDs have the form `S-YYYYMMDD-NN`, unique across the team. The date/time field states
 the actual timezone; the ID alone does not establish when work occurred. The following is
 an unfilled schema, not a completed session.
