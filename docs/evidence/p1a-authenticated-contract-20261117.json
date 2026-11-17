@@ -1,0 +1,126 @@
+{
+  "model_id": "rogue-security/prompt-injection-jailbreak-sentinel-v2",
+  "revision": "05ff9bfd1f28c5228e53121d5ee4427bb5205212",
+  "status": "complete",
+  "started_at_utc": "2026-11-17T18:48:30.121916+00:00",
+  "files": [
+    {
+      "source_url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/config.json",
+      "http_status": 200,
+      "bytes": 1488,
+      "sha256": "d54521222f0389dbc309f0dd1dc7392ded2e432c9bb9ec48133e2af1ed256728",
+      "redirect_count": 0,
+      "repo_commit_header": "05ff9bfd1f28c5228e53121d5ee4427bb5205212",
+      "filename": "config.json",
+      "source_content_hash_verified": true
+    },
+    {
+      "source_url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/tokenizer_config.json",
+      "http_status": 200,
+      "bytes": 9950,
+      "sha256": "811eceda440f18123499b9cc4ffa1e567497ac8393ed921329e6d18044f38fe8",
+      "redirect_count": 0,
+      "repo_commit_header": "05ff9bfd1f28c5228e53121d5ee4427bb5205212",
+      "filename": "tokenizer_config.json",
+      "source_content_hash_verified": true
+    },
+    {
+      "source_url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/special_tokens_map.json",
+      "http_status": 200,
+      "bytes": 610,
+      "sha256": "c9b84b84227d009b296d633a6a4dc1c8aa318d851cbe308186014121e0cd1a46",
+      "redirect_count": 0,
+      "repo_commit_header": "05ff9bfd1f28c5228e53121d5ee4427bb5205212",
+      "filename": "special_tokens_map.json",
+      "source_content_hash_verified": true
+    },
+    {
+      "source_url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/added_tokens.json",
+      "http_status": 200,
+      "bytes": 707,
+      "sha256": "c0284b582e14987fbd3d5a2cb2bd139084371ed9acbae488829a1c900833c680",
+      "redirect_count": 0,
+      "repo_commit_header": "05ff9bfd1f28c5228e53121d5ee4427bb5205212",
+      "filename": "added_tokens.json",
+      "source_content_hash_verified": true
+    },
+    {
+      "source_url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/tokenizer.json",
+      "http_status": 200,
+      "bytes": 11422920,
+      "sha256": "76b8cfe3366532f669964fa542acfdec07544d0fbc8ceb9a78ba5a35400fd666",
+      "redirect_count": 1,
+      "repo_commit_header": null,
+      "filename": "tokenizer.json",
+      "source_content_hash_verified": true
+    },
+    {
+      "source_url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/vocab.json",
+      "http_status": 200,
+      "bytes": 2776833,
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+      "redirect_count": 0,
+      "repo_commit_header": "05ff9bfd1f28c5228e53121d5ee4427bb5205212",
+      "filename": "vocab.json",
+      "source_content_hash_verified": true
+    },
+    {
+      "source_url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/merges.txt",
+      "http_status": 200,
+      "bytes": 1671853,
+      "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+      "redirect_count": 0,
+      "repo_commit_header": "05ff9bfd1f28c5228e53121d5ee4427bb5205212",
+      "filename": "merges.txt",
+      "source_content_hash_verified": true
+    }
+  ],
+  "scope": "Tokenizer/config bytes and safetensors header only; no tensor payload or inference",
+  "helper_sha256": "ee2d292de4ccb7be6f5a4fce7799b9b7804b9afa3998ded74430be0ad21a1b39",
+  "completed_at_utc": "2026-11-17T18:48:34.996815+00:00",
+  "header_requests": [
+    {
+      "source_url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/model.safetensors",
+      "http_status": 206,
+      "bytes": 8,
+      "sha256": "137592e4ad07ca9fed68a528d5a26278e6784f5b4b141af24b71229b7313e0fc",
+      "redirect_count": 1,
+      "repo_commit_header": null,
+      "content_range": "bytes 0-7/1192138968"
+    },
+    {
+      "source_url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/model.safetensors",
+      "http_status": 206,
+      "bytes": 35024,
+      "sha256": "38c56eac7bc3c2fb0c1c3a212f6e13b7c0453c7d246041562f078fb8ef7f1458",
+      "redirect_count": 1,
+      "repo_commit_header": null,
+      "content_range": "bytes 8-35031/1192138968"
+    }
+  ],
+  "head_summary": {
+    "header_bytes": 35024,
+    "header_sha256": "38c56eac7bc3c2fb0c1c3a212f6e13b7c0453c7d246041562f078fb8ef7f1458",
+    "source_file_bytes": 1192138968,
+    "tensor_count": 311,
+    "parameter_elements": 596051968,
+    "dtype_elements": {
+      "F16": 596051968
+    },
+    "score_weight": {
+      "dtype": "F16",
+      "shape": [
+        2,
+        1024
+      ],
+      "data_offsets": [
+        1192099840,
+        1192103936
+      ]
+    },
+    "score_bias_present": false,
+    "tensor_payload_downloaded": false,
+    "full_weight_sha256_independently_verified": false,
+    "runtime_loading_or_inference_verified": false
+  }
+}

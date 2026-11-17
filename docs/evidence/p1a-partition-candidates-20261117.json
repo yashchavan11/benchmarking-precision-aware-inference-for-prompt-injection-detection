@@ -1,0 +1,81 @@
+{
+  "status": "UNSELECTED CANDIDATE SUPPORT ONLY; not Test-A/Test-B manifests or a freeze",
+  "input_sha256": "f1a9450854c2e618da2a72ff1c6dc0f12c816cfe3d1b1afcc5cfc3b1283a2be6",
+  "namespace_seed_proposal": "precision-aware-inference:p1a-ab-candidate:v1:20261117",
+  "algorithm": "Within each reference class, order exact-text groups by SHA256(namespace + colon + label + colon + raw_text_sha256), then raw_text_sha256 as collision tiebreak. Take the prefix whose row count is closest to the target rational A fraction; equal distance prefers fewer A rows. Whole groups only. B is complement. Source order would be retained when writing actual manifests after approval.",
+  "candidates": [
+    {
+      "A_fraction": "1/2",
+      "A": {
+        "rows": 11758,
+        "groups": 11657,
+        "class_rows": {
+          "1": 3243,
+          "0": 8515
+        },
+        "class_groups": {
+          "1": 3243,
+          "0": 8414
+        },
+        "duplicate_groups": 35,
+        "largest_group": 58
+      },
+      "B": {
+        "rows": 11758,
+        "groups": 11702,
+        "class_rows": {
+          "1": 3243,
+          "0": 8515
+        },
+        "class_groups": {
+          "1": 3243,
+          "0": 8459
+        },
+        "duplicate_groups": 36,
+        "largest_group": 8
+      },
+      "disjoint_group_sets": true,
+      "full_test_coverage": true
+    },
+    {
+      "A_fraction": "3/5",
+      "A": {
+        "rows": 14110,
+        "groups": 14001,
+        "class_rows": {
+          "1": 3892,
+          "0": 10218
+        },
+        "class_groups": {
+          "1": 3892,
+          "0": 10109
+        },
+        "duplicate_groups": 42,
+        "largest_group": 58
+      },
+      "B": {
+        "rows": 9406,
+        "groups": 9358,
+        "class_rows": {
+          "1": 2594,
+          "0": 6812
+        },
+        "class_groups": {
+          "1": 2594,
+          "0": 6764
+        },
+        "duplicate_groups": 29,
+        "largest_group": 8
+      },
+      "disjoint_group_sets": true,
+      "full_test_coverage": true
+    }
+  ],
+  "limitations": [
+    "Administrative labels/group identities only; no model performance.",
+    "No official membership artifacts created or method selected.",
+    "Prior teammate exposure unresolved.",
+    "Class support is not a power calculation for an unspecified endpoint.",
+    "Near-duplicate/template dependence and pretrained contamination unresolved."
+  ]
+}

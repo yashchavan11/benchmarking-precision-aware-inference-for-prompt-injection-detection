@@ -1,0 +1,36 @@
+{
+  "scope": "Static library source plus pure integer synthetic pooling checks; no tokenizer/model execution or scientific freeze",
+  "library_version": "4.57.1",
+  "library_commit": "8cb5963cc22174954e7dca2c0a3320b7dc2f4edc",
+  "source_files": 12,
+  "source_bytes": 561461,
+  "model_config_path": "outputs/resume-20261117/model-browser/config.json",
+  "model_config_sha256": "d54521222f0389dbc309f0dd1dc7392ded2e432c9bb9ec48133e2af1ed256728",
+  "config_semantics": {
+    "num_labels_derived": 2,
+    "label2id_default": null,
+    "pad_token_id_default": null,
+    "expected_constructed_score_weight_shape": [
+      2,
+      1024
+    ],
+    "expected_score_bias": false,
+    "checkpoint_tensor_shape_verified": false
+  },
+  "pooling_risk": "Setting model PAD=EOS changes terminal literal EOS pooling versus the original unpadded single-item path; attention_mask does not determine the stock pool index",
+  "synthetic_pooling_cases_passed": 7,
+  "options_unselected": [
+    "Unpadded batch one with original model PAD setting",
+    "Consistent stock PAD=EOS pooling with explicit rationale",
+    "Explicit last-visible-token mask adapter with unpadded/padded equivalence verification"
+  ],
+  "tokenizer_runtime_verified": false,
+  "model_runtime_verified": false,
+  "reports": {
+    "source-receipt.json": "08b7fc76e8265c11217aa652613db9550124347a77b17427029086507efe9172",
+    "source-slices.json": "2cd21aac81f9921062a2947e63e1a574297e96d8b3c01b17b954c76687de3f22",
+    "static-contract-review.md": "bfd9154e3752892d322d2e3858e4607a3843fe382f9466289a9b2addce68be63",
+    "check_pool_selection.py": "bf37204672d9606ccec83e5cd987acd7640839e0d76f0c14ed62660045fd2c4e",
+    "pool-selection-checks.json": "948c6d7f0cba090facd953020e33d7f8f278a07f7505663db8156682118dc1db"
+  }
+}

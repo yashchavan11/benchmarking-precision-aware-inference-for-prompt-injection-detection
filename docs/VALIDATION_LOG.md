@@ -21,6 +21,20 @@ establishes; it does not maintain a second copy of those requirements.
 | V-008 | Dataset audit-v3 and corrected acquisition | Administrative audit and cache integrity | Full identity/hash checks; 4,096 precedence cases; nine cache/parser checks | Passed within scope | docs/evidence/p1a-data-*.json; record below | Independent automated reviewer plus coordinating review |
 | V-009 | Public pinned Sentinel metadata audit | Source identity/access and label-evidence sufficiency | HTTP outcomes, retained bytes/hashes, conservative parser tests | Inconclusive for full asset/label validity; access blocker verified | docs/evidence/p1a-model-metadata-20261117.json | Coordinating automated review |
 | V-010 | Access recheck after user-reported acceptance | Availability to local Python process | Credential-presence check and pinned config HTTP request | Inconclusive for account access; local unauthenticated request returned 401 | docs/evidence/p1a-access-recheck-20261117.json | Local handoff verification |
+| V-011 | Preserved handoff artifacts | 77 local integrity checks and unselected allocation support | No model execution | Passed within scope | p1a-retained-verification / partition-candidates evidence | Independent automated reviewer |
+| V-012 | Pinned model config via browser | Granted access, retained bytes and configured label orientation | Authenticated Chrome; local hashing | Partial contract verified; tokenizer incomplete | p1a-browser-config evidence | Coordinating plus independent artifact review |
+| V-013 | Initial auth implementation | Mock security/compatibility checks | 34 tests | Tests passed; later redirect-parser defect found | Initial manifest and V-014 failure | Independent automated review |
+| V-014 | Corrected auth implementation | Redirect exception redaction and integration | Failing regression then 35 passing tests | Passed within exercised scope | p1a-auth-revalidation evidence | Focused independent recheck passed |
+| V-015 | Browser tokenizer configs | File hashes and JSON mapping consistency | Passed for retained files | Tokenizer runtime unverified | p1a-tokenizer-configs/consistency evidence | Coordinating review |
+| V-016 | Pinned Transformers source | Head/pooling/default semantics | Static review + seven integer cases | Passed within source scope | p1a-library-contract/sources/pooling-cases | Independent automated reviewer |
+| V-017 | Audit environment | Installation/import readiness | pip check; actual import | Native runtime blocked by Application Control | p1a-runtime-blockers/environment | Coordinating observation |
+| V-018 | Initial D-008 builder | Actual construction and synthetic cases | 41 tests; administrative outputs | Actual memberships complete; later reuse flaw | p1a-partitions-v1 | Automated implementation |
+| V-019 | Initial actual memberships | Full IDs, method, isolation, hashes | Independent checker | Passed for approved source | p1a-partition-review-v1 | Independent automated reviewer |
+| V-020 | Original builder reuse | D-008 revision authority | Synthetic alternate revision | Failed; preserved | p1a-partition-guard-failure | Independent reproduction |
+| V-021 | Corrected builder | Revision rejection and membership compatibility | Failing regression repaired; 42 tests | Passed; population bytes unchanged | p1a-partition-guard-review/revalidation | Independent automated recheck |
+| V-022 | Authenticated selected assets | Seven files and actual header | Bounded retrieval + independent parsing/hashes | Complete source/header audit; no model execution | p1a-authenticated-contract/asset-contract-review | Independent automated reviewer |
+| V-023 | Integrated commands | Synthetic/mock suite and source identity | 56 tests + focused independent review | Passed within exercised scope | p1a-integrated-software | Independent automated code review |
+| V-024 | NFC/delimiter probe | Administrative normalization collision support | Python UCD14 on pinned sources | No new collisions; not tokenization | p1a-normalization-probe | Coordinating automated probe |
 | V-001 | P1-B/P1-C component preparation; source hashes in generated results.json | Metrics, pairing, artifact integrity and report generation | Python 3.13.3; synthetic fixtures; standard-library unittest | Passed: 18 tests | tests/; outputs/synthetic-demo/ (regenerable, ignored); S-20261111-01 | Second-contributor review pending |
 
 ### V-003 — Independent incoming-commit review, failures preserved
@@ -140,3 +154,165 @@ backends, scales or measurement claims.
 
 A corrected implementation receives new validation evidence; the earlier failed record
 remains available so its effect on dependent results can be traced.
+
+### V-011 — Resumed evidence integrity and allocation-support review
+
+- **Date/scope:** 2026-11-17, America/New_York; independent automated review during S-20261117-04, not human scientific signoff.
+- **Observed:** 77 retained-evidence checks passed. Original seven package/five test hashes matched V-005 before this session's authentication edits; all five dataset source hashes, five audit-output hashes, receipt, 43,425 text-free identities/aggregates, eight original model responses, and V-010 response matched preserved evidence. No full dataset download or expensive experiment was repeated.
+- **Evidence:** [retained verification](evidence/p1a-retained-verification-20261117.json); reproducible `outputs/resume-20261117/review/verify_retained.py` and `review.md`. Historical 26 tests were reused, not rerun at this point; new auth code is covered separately by V-013.
+- **Candidate support:** [unselected allocation candidates](evidence/p1a-partition-candidates-20261117.json) evaluates one declared hash ordering at 50/50 and 60/40 using reference labels/groups only. Both keep duplicate groups intact; neither is a selected method, final membership artifact, power calculation or freeze. Script retained as `outputs/resume-20261117/review/partition_support.py`.
+- **Limits:** Local consistency against retained provenance, not fresh remote attestation, annotation truth, near-duplicate independence or human review. No raw prompt/model-output display. Existing empirical evidence is unaffected; no empirical runs exist.
+
+### V-012 — Approved browser access and retained pinned classifier configuration
+
+- **Date/conditions:** 2026-11-17, America/New_York; Yash restored the Chrome window and reported readiness. Native browser UI showed the selected model's granted-access state. No agreement was accepted, credential extracted or new key created.
+- **Observed:** The exact pinned `config.json` resolve URL rendered valid JSON. Browser Save As produced `Downloads/config.json`; an initial check of the intended audit destination failed because it had not been saved there. The actual 1,488-byte download was subsequently located and copied unchanged to `outputs/resume-20261117/model-browser/config.json`; SHA-256 `d54521222f0389dbc309f0dd1dc7392ded2e432c9bb9ec48133e2af1ed256728`.
+- **Configuration evidence:** `Qwen3ForSequenceClassification`, `id2label` 0=`benign`, 1=`jailbreak`, `problem_type=single_label_classification`, declared `dtype=float16`, hidden size 1024, vocab size 151936, BOS 151643, EOS 151645 and maximum positions 40960. `num_labels`, `label2id` and `pad_token_id` are absent. This establishes configured orientation, not inspected head tensor shape or a validated runtime score transformation.
+- **Evidence/provenance limits:** [browser/config receipt](evidence/p1a-browser-config-20261117.json) records the pinned URL, bytes/hash, observations and absent fields. Browser HTTP status, ETag and commit response headers were not captured; no status code is invented. No tokenizer or model weights are validated by this check.
+- **Interruption:** Browser connector unavailable; native UI was used. After a tokenizer download attempt, Computer Use stopped because it could not determine the current browser URL on Windows with enough confidence to enforce policy. Browser interaction ceased. No completed tokenizer download was located. Earlier 401 responses remain unchanged.
+- **Follow-up:** Retrieve/verify tokenizer files; inspect actual head metadata and selected library semantics; resolve padding explicitly and check single/padded execution during the pilot. Local Hub authentication remains absent; approved browser access is now independently observed. No inference or held-out performance was accessed.
+
+### V-013 — Optional credential-safe metadata audit software
+
+- **Date/target:** 2026-11-17; `precision_benchmark/model_audit.py` and `tests/test_model_audit.py`; exact tested hashes and Python version in [software verification](evidence/p1a-auth-software-20261117.json).
+- **Change:** Explicit `--auth local` reads an existing configured Hub credential; `--auth prompt` requires hidden interactive input and does not save it. Default remains unauthenticated. Missing credentials fail before output creation/network requests. The implementation intends to confine requests/redirects to HTTPS `huggingface.co`, suppress credential-bearing error details and reject exact reflected credentials before persistence. Independent review found an exception-path gap despite these initial tests; see the failure below and V-014.
+- **Observed:** All 34 tests passed (26 previous plus eight authentication checks). Initial targeted checks exposed two failures from eager home-directory evaluation with an explicit token path in a stripped Windows environment; the implementation was corrected and revalidated, with prior failure summary retained. Full log is `outputs/resume-20261117/auth-review/all-tests.txt`.
+- **Limits/review:** Mocked transport and synthetic credentials only; no real authenticated CLI retrieval, token installation, tokenizer execution or scientific validity claim. Independent automated review demonstrated a malformed redirect-parser error containing a synthetic credential; this version is not accepted for real credential use. Correction/revalidation is V-014. No human scientific signoff or phase completion is implied. Historical V-005 remains evidence for its old source hashes, not the changed authentication module.
+
+### V-014 — Redirect-parser disclosure regression and corrected authentication checks
+
+- **Failure/affected version:** V-013's original 34-test evidence did not cover inherited urllib redirect parsing. Independent review found that a malformed bracketed-host Location could raise `ValueError` containing an echoed synthetic token before the custom URL validator ran. An invalid-port path had already been corrected concurrently; the inherited-parser path remained. No real secret was used or disclosed.
+- **Preserved evidence:** [synthetic failure](evidence/p1a-auth-review-failure-20261117.json), `outputs/resume-20261117/review/auth-review-note.md`, and `outputs/resume-20261117/auth-review/redirect-regression-before-fix.txt`. The added regression failed before correction; expected redaction was not weakened.
+- **Correction/check:** Sanitize both `OSError` and `ValueError` escaping `opener.open`. The regression invokes the inherited redirect handler through a fake opener and verifies generic failure without retaining a response. All 35 combined tests passed after correction; log `outputs/resume-20261117/auth-review/final-v2-all-tests.txt`, exact final hashes in [revalidation manifest](evidence/p1a-auth-revalidation-20261117.json).
+- **Impact/limits:** V-013 remains historical initial-test evidence; current source is identified by V-014. This corrects credential-output handling, not a scientific metric/result. No real authenticated CLI request, credential installation, network-backed security attestation or model inference has run. Independent focused recheck passed: final source/test hashes match, the synthetic malformed redirect produces a generic error with no marker in message or rendered traceback, and no response file is written. [Independent evidence](evidence/p1a-auth-independent-review-20261117.json). Human scientific review remains pending.
+
+### V-015 — Browser tokenizer configurations retained and checked
+
+Three additional pinned files were saved through the approved browser: tokenizer config,
+special-token map and added-token map. [Receipts](evidence/p1a-tokenizer-configs-20261117.json)
+retain their bytes/hashes; [JSON checks](evidence/p1a-tokenizer-consistency-20261117.json)
+verified all 26 added-token mappings and PAD/EOS ID151645 consistency among these files.
+Browser automation stopped on current-URL confidence while opening the larger backend;
+no further UI interaction occurred. Later authenticated retrieval (V-022) completed the
+assets and matched these bytes. Browser-only evidence did not establish execution behavior.
+
+### V-016 — Pinned library and pooling contract inspected
+
+Transformers 4.57.1's tag resolved to commit `8cb5963cc22174954e7dca2c0a3320b7dc2f4edc`.
+Twelve official files were retained with [source receipts](evidence/p1a-library-sources-20261117.json);
+all installed file bytes [match](evidence/p1a-installed-sources-20261117.json). The release
+is an audit candidate, distinct from the checkpoint's recorded 4.57.0.dev0.
+[Static contract findings](evidence/p1a-library-contract-20261117.json) and seven
+[integer pooling cases](evidence/p1a-pooling-cases-20261117.json) show that original
+unset-PAD batch-one pooling selects the last array position, whereas stock PAD=EOS
+pooling selects the last ID unequal to EOS and can skip genuine terminal EOS. A larger
+batch with unset model PAD raises in this source. These are source/arithmetic checks,
+not model runs. Mask-based pooling is only a candidate; no adapter/policy is selected.
+Full notes/scripts are under `outputs/contract-20261117/library/`.
+
+### V-017 — Audit environment installed; native execution blocked
+
+The isolated `.venv` was created for the current audit, with versions in
+[environment evidence](evidence/p1a-audit-environment-20261117.json). Installation logs
+report success and `pip check` passed; the first PowerShell wrapper returned 1 after a pip
+notice on stderr, so actual installed versions were verified without reinstalling.
+`hf.exe auth login --help` was blocked by Windows Application Control. Yash explicitly
+authorized the Python hidden-login alternative and completed it; its library imports work.
+Importing `transformers.AutoConfig` separately failed at `regex._regex` with an Application
+Control DLL block. [Observed failures](evidence/p1a-runtime-blockers-20261117.json) preserve
+the exact operations and distinction. No security setting was changed or blocked native
+library retried through another path. Dependent tokenizer/model execution remains paused.
+Dependency resolution, installed source files and successful Hub access do not validate
+CUDA, PyTorch, bitsandbytes, tokenization or inference.
+
+### V-018 — Approved partition construction and initial software checks
+
+`precision_benchmark.partition_data` constructs D-008 memberships from hash-bound,
+text-free audit identities/provenance/receipt without reading prompts. Six synthetic tests
+checked whole-group nearest-half ties, exclusion precedence, ordering, invalid identities,
+source tampering, role boundaries and non-overwrite. The combined suite passed 41 tests.
+Actual initial outputs and exact commands/hashes/logs are under
+`outputs/contract-20261117/partitions/`; [original summary](evidence/p1a-partitions-v1-20261117.json).
+The later decision/revision guard flaw is V-020; corrected source/outputs are V-021.
+
+### V-019 — Independent approved-membership verification
+
+[Independent review](evidence/p1a-partition-review-v1-20261117.json) checked all 43,425 IDs,
+original fields/labels/order, complete accounting, zero exclusions, all exact-group
+intersections, preservation of 71 test duplicate groups, hashes and precise D-008 ranked
+prefix/nearest-half/fewer-A tie objective without importing the builder. Pending human
+review/release was verified. This passes for the actual approved source and constructed
+membership; it does not attest arbitrary future revisions or human scientific signoff.
+Script/notes remain in `outputs/contract-20261117/partition-review/`.
+
+### V-020 — Decision authority not initially bound to the approved revision
+
+Coordinating review identified a reuse risk: the original builder accepted any internally
+consistent revision while labeling the result D-008. An independent synthetic
+[alternate-revision reproduction](evidence/p1a-partition-guard-failure-20261117.json)
+confirmed that unapproved `b` repeated 40 times was accepted. No actual data file was
+changed. The original source/tests and newly failing regression are retained under
+`outputs/contract-20261117/partition-fix-evidence/`. Actual approved memberships are
+unaffected; future authority claims required repair. V-021 supplies the correction.
+
+### V-021 — Approved-revision guard repaired without changing membership
+
+The builder now rejects a revision other than D-008's exact approved source before input
+reads or output creation. Seven partition tests plus existing tests passed (42 total).
+New construction `outputs/contract-20261117/partitions-v2/` retains exact commands and
+source/test hashes in `execution.json`. All four population files, exclusions and access
+manifest are byte-identical to v1; only summary code hashes changed. The independent
+[post-fix probe](evidence/p1a-partition-guard-revalidation-20261117.json) and
+[compatibility review](evidence/p1a-partition-guard-review-20261117.json) passed. Earlier
+failure and v1 outputs are preserved. The current final combined integration is V-023.
+
+### V-022 — Authenticated tokenizer assets and actual tensor header verified
+
+After Yash privately configured a read token, a reviewed bounded retrieval helper fetched
+seven pinned files and only two exact 206 header ranges. [Receipt](evidence/p1a-authenticated-contract-20261117.json)
+and [file identities](evidence/p1a-model-file-identities-20261117.json) bind content to the
+pinned revision. The helper's 14 mocked/synthetic checks and source hash are retained in
+`outputs/contract-20261117/retrieval-helper/`. It caps selected files at 32 MiB total,
+validates blob/LFS hashes, forbids full weight requests, strips cross-origin authorization,
+preserves proxy/CA controls, and suppresses credential/provider error details.
+
+Independent [asset review](evidence/p1a-asset-contract-review-20261117.json) recomputed
+all file hashes/source identities, four browser-file comparisons, header length/extents,
+shape/dtype totals and vocab/merge/added-token agreement. ASSET-002 owns the verified
+values. Serialized PAD151643 differs from wrapper PAD/EOS151645; inspected wrapper code
+resolves defaults per call, which must be checked in actual execution. A first wrapper
+launch failed before network access because Windows could not resolve its relative
+executable; an absolute executable path succeeded. No secret, signed URL, tensor payload
+or model output was retained. Full weight integrity and native runtime remain unverified.
+
+### V-023 — Integrated audit commands and publication candidate checked
+
+The successful retrieval helper was integrated byte-for-byte as
+`precision_benchmark/contract_audit.py`; its tests use the package import and allow the one
+requests-specific check to skip when that optional dependency is absent. All 56 combined
+tests passed in the audit `.venv`, with [exact source/test hashes](evidence/p1a-integrated-software-20261117.json)
+and full log under `outputs/contract-20261117/integration/`. Independent code review
+verified all 17 source/test hashes and the retained passing run, then passed 14 focused
+contract tests; simulating unavailable requests passed 13 with the intended one skip.
+No real credentials/network/native tokenization are used by these tests. Review notes are
+`outputs/contract-20261117/final-code-review/review.md`. This is bounded software evidence,
+not proof of defect-free behavior, runtime compatibility or human scientific approval.
+
+### V-024 — Targeted NFC and development delimiter probe
+
+The newly verified NFC tokenizer configuration motivated an administrative check using
+Python Unicode database 14.0.0 on hash-verified original source bytes.
+[Aggregate evidence](evidence/p1a-normalization-probe-20261117.json) found one training and
+three test rows changed under Python NFC, with no new group collapse, cross-split NFC
+overlap or conflicting-label group. Six training rows contain literal EOS; none of the
+training/validation strings end exactly with it. No raw text or IDs were displayed.
+This does not execute the Rust tokenizer, establish token lengths, rule out truncation
+ending at EOS, or exclude other token-identical/near-duplicate inputs. Membership is
+unchanged. Script/source hash: `outputs/contract-20261117/normalization_probe.py`.
+
+Final publication QA for V-023 also checked local Markdown links, JSON parsing/LF, tested
+source hashes and staged contents. An initial check found CRLF in five compact S-04 JSON
+copies; only their outer line endings were normalized, parsed values verified unchanged,
+and original ignored outputs/fixtures preserved. Receipt: `outputs/contract-20261117/compact-json-lf-repair.json`.
+Canonical-record review found no scientific overclaim; D-006's current status now links
+to D-008. The unsent Viraj draft was confirmed to reference actual constructed manifests.

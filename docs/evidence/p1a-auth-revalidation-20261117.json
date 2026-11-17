@@ -1,0 +1,14 @@
+{
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "command": "python -m unittest discover -s tests -v",
+  "exit_code": 0,
+  "files": {
+    "precision_benchmark/model_audit.py": "2768f75ae7ccf1b5e486f74ab655fd39f2cb472e4dac4a398a73495819588a87",
+    "tests/test_model_audit.py": "9aa6caeec2f1c3adccfd6f3977ff6d20cd9aa9c13450ce4621bde75c89bbf4b1"
+  },
+  "correction": "Sanitize ValueError escaping opener.open, including inherited urllib redirect parsing before custom redirect_request.",
+  "failure_evidence": "outputs/resume-20261117/auth-review/redirect-regression-before-fix.txt",
+  "review_reproduction": "outputs/resume-20261117/review/auth-redirect-parser-reproduction.json",
+  "real_credentials_used": false,
+  "network_access": false
+}

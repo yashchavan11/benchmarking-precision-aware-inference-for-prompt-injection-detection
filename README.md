@@ -208,6 +208,14 @@ python -m precision_benchmark.model_audit --revision 05ff9bfd1f28c5228e53121d5ee
 python -m precision_benchmark.data_audit --revision a5234cb1f5cdb256600cab64b8c961195b5e8404 --raw-dir data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404 --download --output outputs/data-audit-repeat
 ```
 
+The model command is unauthenticated by default. To use an existing locally configured
+Hub credential, add `--auth local`; it is read from the standard environment/cache and is
+never printed or copied into audit artifacts. `--auth prompt` instead accepts hidden input
+in a real local terminal without saving it. Never put a token in a command argument or chat.
+Use a fresh output directory. These modes have synthetic software checks and independent regression repair (V-013/V-014); these original small-file authentication modes have only synthetic checks. The full
+authenticated contract retrieval is now V-022 via the integrated `contract_audit` helper.
+All selected tokenizer files are retained; actual tokenization/model runtime remains unverified.
+
 The model command records HTTP outcomes; a successful audit command does not mean gated
 configuration files were accessible. Check `summary.json` before using any retained file.
 The dataset command downloads about 31 MB on first use and checks retained source hashes
@@ -229,3 +237,30 @@ installed by either command. See V-005–V-009 in [VALIDATION_LOG](docs/VALIDATI
 | [VALIDATION_LOG.md](docs/VALIDATION_LOG.md) and [RESULTS.md](docs/RESULTS.md) | Correctness evidence and supported findings with their limitations. |
 | [SESSION_LOG.md](docs/SESSION_LOG.md) and [PHASE_RECORDS.md](docs/PHASE_RECORDS.md) | Chronological research history and phase closeouts, including reusable outputs. |
 | [CONTRIBUTIONS.md](docs/CONTRIBUTIONS.md) | Actual team contributions and reviews for the final contribution statement. |
+
+### Reproduce approved population construction and the model contract audit
+
+D-008 now selects a 50/50 whole-group design. The constructed populations are review-ready;
+human scientific review and performance-release conditions remain pending. Reuse the
+verified local audit inputs, or regenerate them from the earlier pinned data-audit command.
+
+```sh
+python -m precision_benchmark.partition_data --revision a5234cb1f5cdb256600cab64b8c961195b5e8404 --identities outputs/asset-audit-20261117/dataset/audit-v3/row-identities.jsonl --identities-sha256 f1a9450854c2e618da2a72ff1c6dc0f12c816cfe3d1b1afcc5cfc3b1283a2be6 --provenance outputs/asset-audit-20261117/dataset/audit-v3/provenance.json --provenance-sha256 029122b812b22e76b620111f71541e85661a91f8f629982bc3e59fb17ef15af9 --receipt data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/source-integrity.json --receipt-sha256 6e571116cb02f85d477d45f4ed296231a76570103bc6acea0aa72e16232dd12a --output outputs/partitions-repeat
+```
+
+The full pinned tokenizer/configuration and header-only audit is available separately:
+
+```sh
+python -m precision_benchmark.contract_audit --output outputs/contract-audit-repeat
+```
+
+Use an approved Python environment with `huggingface-hub` and `requests` from
+`requirements-audit.txt`, and an existing securely configured Hub credential. No token
+argument is accepted. This downloads about 16 MB of tokenizer/configuration plus a bounded
+header, never the full weights. Retained results establish source/head metadata, not model
+execution. The candidate tokenizer dependencies in that requirements file are installed
+locally but Windows Application Control blocks `regex`; see Q-015 before attempting runtime
+work. The dependency-free evaluator and partition builder remain usable. One optional
+requests-specific mock test skips when requests is absent; the checked audit environment
+passed all 56 combined tests (V-023). Full sources, population identities and limits are in
+DATA_REGISTRY; no P1-A completion or empirical precision result is claimed.

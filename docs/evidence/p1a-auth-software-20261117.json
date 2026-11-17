@@ -1,0 +1,15 @@
+{
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "command": "python -m unittest discover -s tests -v",
+  "exit_code": 0,
+  "files": {
+    "precision_benchmark/model_audit.py": "60eecb395d348bb4560fcde3ad30a66cdbe083d313f158f4ceaa84ac0a31d49f",
+    "tests/test_model_audit.py": "d6c13efb523bf5273e16e8c07524a58f90a221bb687f77ef4272fa285ef9fa97"
+  },
+  "initial_targeted_run": {
+    "tests": 11,
+    "passed": 9,
+    "errors": 2,
+    "cause": "Path.home() eagerly evaluated despite explicit HF_TOKEN_PATH in environment-stripped Windows test. Fixed by resolving configured paths before requiring a default home. No expectations weakened."
+  }
+}

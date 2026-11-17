@@ -1,0 +1,120 @@
+{
+  "scope": "Synthetic integer expressions only; no tokenizer or model run",
+  "source": "modeling_layers.py:141-157 at Transformers 4.57.1",
+  "cases_passed": 7,
+  "cases": [
+    {
+      "case": "plain",
+      "ids": [
+        10,
+        11
+      ],
+      "attention_mask": [
+        1,
+        1
+      ],
+      "pad_eos_id_pool_index": 1,
+      "mask_last_visible_index": 1,
+      "unmodified_unpadded_single_index": 1
+    },
+    {
+      "case": "terminal_literal_eos",
+      "ids": [
+        10,
+        151645
+      ],
+      "attention_mask": [
+        1,
+        1
+      ],
+      "pad_eos_id_pool_index": 0,
+      "mask_last_visible_index": 1,
+      "unmodified_unpadded_single_index": 1
+    },
+    {
+      "case": "interior_literal_eos",
+      "ids": [
+        10,
+        151645,
+        11
+      ],
+      "attention_mask": [
+        1,
+        1,
+        1
+      ],
+      "pad_eos_id_pool_index": 2,
+      "mask_last_visible_index": 2,
+      "unmodified_unpadded_single_index": 2
+    },
+    {
+      "case": "left_pad_plain",
+      "ids": [
+        151645,
+        151645,
+        10,
+        11
+      ],
+      "attention_mask": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "pad_eos_id_pool_index": 3,
+      "mask_last_visible_index": 3,
+      "unmodified_unpadded_single_index": 1
+    },
+    {
+      "case": "left_pad_terminal_literal_eos",
+      "ids": [
+        151645,
+        151645,
+        10,
+        151645
+      ],
+      "attention_mask": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "pad_eos_id_pool_index": 2,
+      "mask_last_visible_index": 3,
+      "unmodified_unpadded_single_index": 1
+    },
+    {
+      "case": "right_pad_terminal_literal_eos",
+      "ids": [
+        10,
+        151645,
+        151645
+      ],
+      "attention_mask": [
+        1,
+        1,
+        0
+      ],
+      "pad_eos_id_pool_index": 0,
+      "mask_last_visible_index": 1,
+      "unmodified_unpadded_single_index": 1
+    },
+    {
+      "case": "only_literal_eos_with_left_padding",
+      "ids": [
+        151645,
+        151645,
+        151645
+      ],
+      "attention_mask": [
+        0,
+        0,
+        1
+      ],
+      "pad_eos_id_pool_index": 0,
+      "mask_last_visible_index": 2,
+      "unmodified_unpadded_single_index": 0
+    }
+  ],
+  "interpretation": "Configured PAD=EOS cannot distinguish literal EOS from padding at pooling. A mask-based adapter is only an unselected candidate."
+}

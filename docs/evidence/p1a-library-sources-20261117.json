@@ -1,0 +1,109 @@
+{
+  "package": "transformers",
+  "requested_version": "4.57.1",
+  "resolved_commit": "8cb5963cc22174954e7dca2c0a3320b7dc2f4edc",
+  "retrieved_at_utc": "2026-11-17T18:31:05.943545+00:00",
+  "reference_records": [
+    {
+      "url": "https://api.github.com/repos/huggingface/transformers/git/ref/tags/v4.57.1",
+      "http_status": 200,
+      "path": "tag-ref.json",
+      "sha256": "63588dfd0c5dcb302a38add409119088fabac9891274a564b3d54aab857b04f4",
+      "bytes": 353
+    },
+    {
+      "url": "https://api.github.com/repos/huggingface/transformers/git/tags/a47e6666f8f9a61e44a5d149c5e3d230e6c8053c",
+      "http_status": 200,
+      "path": "annotated-tag.json",
+      "sha256": "09caaa4bb30022edcbcb75e03b20259a0e4153ac136c65ecc808878e5fa13c12",
+      "bytes": 683
+    }
+  ],
+  "source_records": [
+    {
+      "path": "models/qwen3/modeling_qwen3.py",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/8cb5963cc22174954e7dca2c0a3320b7dc2f4edc/src/transformers/models/qwen3/modeling_qwen3.py",
+      "http_status": 200,
+      "bytes": 23067,
+      "sha256": "4b95c371fd26d40c69083dab36ac1eafd8cf82b415a0bb827275097c5ad2305b"
+    },
+    {
+      "path": "modeling_layers.py",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/8cb5963cc22174954e7dca2c0a3320b7dc2f4edc/src/transformers/modeling_layers.py",
+      "http_status": 200,
+      "bytes": 11566,
+      "sha256": "bd262f364af26b99381db23583ca6e1a9741d8c3894bc3aa08f204fe6a7f68ee"
+    },
+    {
+      "path": "models/qwen3/configuration_qwen3.py",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/8cb5963cc22174954e7dca2c0a3320b7dc2f4edc/src/transformers/models/qwen3/configuration_qwen3.py",
+      "http_status": 200,
+      "bytes": 11810,
+      "sha256": "27863e9718fdbc899f2d0e567621e4d3d36d8dc500c1d54b49dba4242d08d2bd"
+    },
+    {
+      "path": "configuration_utils.py",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/8cb5963cc22174954e7dca2c0a3320b7dc2f4edc/src/transformers/configuration_utils.py",
+      "http_status": 200,
+      "bytes": 65603,
+      "sha256": "08a3889c1b8a73d340a37c93f72346ee0e385e339b7a72a03b5c026d4943baf7"
+    },
+    {
+      "path": "pipelines/text_classification.py",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/8cb5963cc22174954e7dca2c0a3320b7dc2f4edc/src/transformers/pipelines/text_classification.py",
+      "http_status": 200,
+      "bytes": 11272,
+      "sha256": "2eb992d84b6991bfd00958d7a42c5361f0350ecef6b93531492519deb438c87b"
+    },
+    {
+      "path": "models/qwen2/tokenization_qwen2.py",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/8cb5963cc22174954e7dca2c0a3320b7dc2f4edc/src/transformers/models/qwen2/tokenization_qwen2.py",
+      "http_status": 200,
+      "bytes": 13935,
+      "sha256": "23f05697fcaf26fe5e328abaf524f010510a2b9f4ba2e2edc9dca0a4015a09a2"
+    },
+    {
+      "path": "models/qwen2/tokenization_qwen2_fast.py",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/8cb5963cc22174954e7dca2c0a3320b7dc2f4edc/src/transformers/models/qwen2/tokenization_qwen2_fast.py",
+      "http_status": 200,
+      "bytes": 5210,
+      "sha256": "1025a3b86526283bd86a447f0fe2d991d09775b32d3fdcc233c9e447b0611049"
+    },
+    {
+      "path": "tokenization_utils_base.py",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/8cb5963cc22174954e7dca2c0a3320b7dc2f4edc/src/transformers/tokenization_utils_base.py",
+      "http_status": 200,
+      "bytes": 211457,
+      "sha256": "e71871474be2b1aa32f3a147dc31fe0a195fd402a27c37d30d666035fcccd891"
+    },
+    {
+      "path": "tokenization_utils.py",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/8cb5963cc22174954e7dca2c0a3320b7dc2f4edc/src/transformers/tokenization_utils.py",
+      "http_status": 200,
+      "bytes": 47780,
+      "sha256": "dfcc42414037d865d22568259eec12dd10caa7375b2d7a27707b7a502a08ef80"
+    },
+    {
+      "path": "models/auto/tokenization_auto.py",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/8cb5963cc22174954e7dca2c0a3320b7dc2f4edc/src/transformers/models/auto/tokenization_auto.py",
+      "http_status": 200,
+      "bytes": 57863,
+      "sha256": "bd040dfb212fb20f1bef1f8fedfc3b4c100fe3b57e603c738552aebf2521c51d"
+    },
+    {
+      "path": "tokenization_utils_fast.py",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/8cb5963cc22174954e7dca2c0a3320b7dc2f4edc/src/transformers/tokenization_utils_fast.py",
+      "http_status": 200,
+      "bytes": 41383,
+      "sha256": "558e454ee6850e90e8bc5d1782e35878dfda1da9bfdf997ae113fa7ff771a0f3"
+    },
+    {
+      "path": "masking_utils.py",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/8cb5963cc22174954e7dca2c0a3320b7dc2f4edc/src/transformers/masking_utils.py",
+      "http_status": 200,
+      "bytes": 60515,
+      "sha256": "7a963feed8173b8265298dd24350c166222ce6b4719442fce48ab414d0478a6a"
+    }
+  ],
+  "scope": "Static source inspection only; no imports, dependency installation, model weights or inference. Version is an audit candidate, not selected execution environment."
+}

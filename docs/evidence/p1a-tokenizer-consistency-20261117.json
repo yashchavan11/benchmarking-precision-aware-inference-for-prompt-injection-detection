@@ -1,0 +1,17 @@
+{
+  "scope": "standard-library retained JSON consistency only; Transformers import blocked, no tokenizer/model execution",
+  "model_config_sha256": "d54521222f0389dbc309f0dd1dc7392ded2e432c9bb9ec48133e2af1ed256728",
+  "id2label": {
+    "0": "benign",
+    "1": "jailbreak"
+  },
+  "tokenizer_class_declared": "Qwen2Tokenizer",
+  "padding_side_declared": "left",
+  "truncation_side_declared": "right",
+  "eos_pad_token_id_from_mapping": 151645,
+  "tokenizer_model_max_length": 131072,
+  "tokenizer_metadata_max_length": 5000,
+  "model_max_position_embeddings": 40960,
+  "added_token_mapping_entries_checked": 26,
+  "full_tokenizer_or_model_execution_verified": false
+}

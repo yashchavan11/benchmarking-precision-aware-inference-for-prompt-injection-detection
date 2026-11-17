@@ -1,0 +1,88 @@
+{
+  "outcome": "passed within administrative scope",
+  "decision": "D-008",
+  "input_sha256": "f1a9450854c2e618da2a72ff1c6dc0f12c816cfe3d1b1afcc5cfc3b1283a2be6",
+  "source_ids_checked": 43425,
+  "output_directory": "outputs/contract-20261117/partitions",
+  "summary_sha256": "4247249e383bab104842b2a97ea3d0b6d90bbd88cd8a7f1b4009ef696b40625b",
+  "code_sha256": {
+    "precision_benchmark/artifacts.py": "b923f570c00eb3cc538c3f81f8ad67b91db3a763b09fc058eb48dcded40a05bf",
+    "precision_benchmark/partition_data.py": "1b2518b120c944bb698cfd4ba649af9b5efb3188608951d8b3dd19009592497d"
+  },
+  "populations": {
+    "eligible_training": {
+      "rows": 18909,
+      "benign": 9457,
+      "injection": 9452,
+      "groups": 18909,
+      "duplicate_groups": 0,
+      "membership_sha256": "f848b3887003704be4bc617b27ce904a0d7eca5f5481e6bcfefb27a166bd7708",
+      "ordered_id_sha256": "b54e337ac0503ce5948b563f8a79da2191a7fa1e374b2d4f89af1d7bacd0d3d7"
+    },
+    "eligible_validation": {
+      "rows": 1000,
+      "benign": 497,
+      "injection": 503,
+      "groups": 1000,
+      "duplicate_groups": 0,
+      "membership_sha256": "d8f884224e9b6f3f8b46493b0582295559daf83fef599a80ddb313d04c9d7182",
+      "ordered_id_sha256": "4160c508a4347e58730df188aafcc3d15fc6b8755117e409a2d96c8cfefb133b"
+    },
+    "test_a": {
+      "rows": 11758,
+      "benign": 8515,
+      "injection": 3243,
+      "groups": 11657,
+      "duplicate_groups": 35,
+      "membership_sha256": "81e9d0fda8fcaa0426258b5c92c5531bb7ca89446c480235bcaaaa4509e71b54",
+      "ordered_id_sha256": "8c69c7e47432290c145f3780edf1d8fc59939ae2778460e104645ea140fd7003"
+    },
+    "test_b": {
+      "rows": 11758,
+      "benign": 8515,
+      "injection": 3243,
+      "groups": 11702,
+      "duplicate_groups": 36,
+      "membership_sha256": "5f257fbada54ce202d2489756598be1df93414c3b7083e7c5e871e8f5bfb163c",
+      "ordered_id_sha256": "79493426f914bf54bfbedf4eca09c68dddf1b8987dea27193c9042f312bee941"
+    }
+  },
+  "prefix_optimality": {
+    "0": {
+      "total_rows": 17030,
+      "A_rows": 8515,
+      "A_groups": 8414,
+      "objective": [
+        0,
+        8515
+      ],
+      "prefixes_compared": 16874
+    },
+    "1": {
+      "total_rows": 6486,
+      "A_rows": 3243,
+      "A_groups": 3243,
+      "objective": [
+        0,
+        3243
+      ],
+      "prefixes_compared": 6487
+    }
+  },
+  "all_source_ids_accounted_exactly_once": true,
+  "cross_population_exact_group_count": 0,
+  "development_exclusions": 0,
+  "duplicate_test_groups_preserved": 71,
+  "review_and_release_pending": true,
+  "builder_imported": false,
+  "raw_prompts_read": false,
+  "model_performance_read": false,
+  "human_scientific_review": "pending",
+  "limitations": [
+    "Relies on the previously audited identity hash; source prompts not re-read.",
+    "Exact-group isolation does not establish near-duplicate independence or pretrained contamination freedom.",
+    "Prior team exposure and statistical power remain unresolved.",
+    "Role manifests are declarations; future loaders must enforce release conditions."
+  ],
+  "review_script_sha256": "aaa9a68d0d149cfae489443de956378daa3e23e8d4de532d3a6db219355109fa"
+}

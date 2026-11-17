@@ -3,17 +3,18 @@
 This register contains the verified identities, memberships and exposure history of the
 assets actually used. The [research protocol](RESEARCH_PROTOCOL.md) defines data roles,
 duplicate isolation and permitted access; this file records their implementation and evidence.
-Pinned administrative source audits are recorded below. Evaluation partitions and final
-development eligibility are not frozen; the selected checkpoint's private configuration
-and output-label mapping remain unavailable without authorized access.
+Pinned sources and the approved D-008 population construction are recorded below.
+Review-ready eligibility/A/B memberships now exist; human scientific review and performance
+release remain pending. Authenticated pinned tokenizer files and the classifier tensor header
+are verified (V-022); actual tokenization/model execution remain unverified.
 
 ## Selected sources and verification state
 
 | Asset | Selected source | Immutable revision / verified identity | Audit outstanding |
 |---|---|---|---|
-| Classifier | `rogue-security/prompt-injection-jailbreak-sentinel-v2` | Candidate audited revision `05ff9bfd1f28c5228e53121d5ee4427bb5205212`; ASSET-002 | Configuration files gated; head shape, positive-class mapping and runtime precision unverified |
-| Tokenizer | Tokenizer accompanying the selected Sentinel v2 checkpoint | Same candidate repository revision; ASSET-002 | Full files gated; numerical token IDs, padding/truncation and classification pooling unverified |
-| Dataset | `hendzh/PromptShield` | `a5234cb1f5cdb256600cab64b8c961195b5e8404`; ASSET-001 | Source schema/counts/exact duplicates audited; tokenizer lengths and final eligibility/A-B design pending |
+| Classifier | `rogue-security/prompt-injection-jailbreak-sentinel-v2` | Candidate audited revision `05ff9bfd1f28c5228e53121d5ee4427bb5205212`; ASSET-002 | Authenticated config plus header verified: 0=benign/1=jailbreak, score.weight F16 [2,1024], no bias (V-022); runtime loading/effective precision pending |
+| Tokenizer | Tokenizer accompanying the selected Sentinel v2 checkpoint | Same candidate repository revision; ASSET-002 | All selected files authenticated/content-verified (V-022); wrapper PAD151645 differs from serialized PAD151643; actual tokenization/pooling checks blocked by local native-library policy |
+| Dataset | `hendzh/PromptShield` | `a5234cb1f5cdb256600cab64b8c961195b5e8404`; ASSET-001 | D-008 eligibility/A-B construction checked (V-018–V-021); human review/exposure declarations and token-length audit pending |
 
 The recorded revisions identify audited sources, not a complete experimental freeze. Provider descriptions are
 catalogued in [SOURCES.md](SOURCES.md); audit entries below must distinguish provider claims
@@ -24,10 +25,10 @@ here; raw prompt collections and credentials do not.
 
 | Partition | Membership record / artifact | Parent revision | Effective row / class / group counts | Freeze and verification | Exposure state |
 |---|---|---|---|---|---|
-| Eligible training | Overlap-rule projection in ASSET-001; not frozen | ASSET-001 | Projection: 18,909 rows/groups; 9,457 class 0 / 9,452 class 1 | Audit V-008; final eligibility pending | Administrative audit; incidental training snippets, EXP-002 |
-| Eligible validation | Overlap-rule projection in ASSET-001; not frozen | ASSET-001 | Projection: 1,000 rows/groups; 497 class 0 / 503 class 1 | Audit V-008; final eligibility pending | Administrative audit, EXP-002 |
-| Test-A | Not constructed | ASSET-001 official test | No allocation selected | Pending P1-A / Q-002, Q-013 | Source aggregate audit only this session; prior external exposure unknown |
-| Test-B | Not constructed | ASSET-001 official test | No allocation selected | Pending P1-A / Q-002, Q-013 | Source aggregate audit only this session; no sealed-history claim yet |
+| Eligible training | SPLIT-001; `eligible-training.jsonl` in current partition directory | ASSET-001 | 18,909 rows/groups; 9,457 benign / 9,452 injection | D-008; V-021; human review/release pending | Administrative only plus earlier EXP-002 training snippets |
+| Eligible validation | SPLIT-002; `eligible-validation.jsonl` | ASSET-001 | 1,000 rows/groups; 497 benign / 503 injection | D-008; V-021; human review/release pending | Administrative only |
+| Test-A | SPLIT-003; `test-a.jsonl` | ASSET-001 official test | 11,758 rows; 8,515 benign / 3,243 injection; 11,657 groups | D-008; human review and P1-C release pending | No project model performance; prior team history incompletely declared |
+| Test-B | SPLIT-004; `test-b.jsonl` | ASSET-001 official test | 11,758 rows; 8,515 benign / 3,243 injection; 11,702 groups | D-008; human review and P2-D/P2-E release pending | Administrative only; no claim of cryptographic or universal historical sealing |
 
 The index describes recorded state, not proof that an asset has never been inspected.
 Any verified prior access must appear in the exposure log. Pilot, profiling,
@@ -119,3 +120,57 @@ through a shared chat, notebook, report or artifact; identify accidental exposur
 The consequence field records whether a planned evaluation remains eligible and links any
 required redesign or limitation. Permitted exposure and holdout-release rules are defined
 once in [RESEARCH_PROTOCOL.md](RESEARCH_PROTOCOL.md).
+
+### ASSET-002 follow-up — Authenticated browser configuration, S-20261117-04
+
+V-012 verifies account-granted access and retains the pinned classifier config at
+`outputs/resume-20261117/model-browser/config.json`; its source URL, byte hash and complete
+configuration are in [the safe receipt](evidence/p1a-browser-config-20261117.json).
+Configured labels are 0=`benign` and 1=`jailbreak`, with a single-label classification
+task. The config omits `num_labels`, `label2id` and `pad_token_id`; do not fabricate these
+fields or treat omitted padding as an established batching policy. Tensor head dimensions,
+runtime output shape/softmax, tokenizer IDs/defaults, pooling and effective precision still
+require verification. No weights were downloaded. Earlier failures remain historical evidence.
+
+The browser account path works; local Python still has no configured Hub credential.
+V-013/V-014 add and revalidate an optional secure credential-reading path but does not establish a successful
+authenticated CLI request. Browser automation was stopped by its URL-confidence policy;
+tokenizer retrieval remains incomplete. Original model license/access limitations persist.
+
+### EXP-003 — Resume audit and model-source access
+
+2026-11-17; coordinating agent and independent automated reviewer at Yash's request.
+Retained source bytes were hashed, and text-free identities/reference labels were used for
+integrity and unselected allocation-support calculations (V-011). No PromptShield prompt,
+model prediction or performance was displayed. The browser showed the model card, its
+publisher example/results, the access-granted notice and pinned model configuration
+(V-012); publisher results are not project findings. No official-test performance or
+new dataset-example exposure occurred. Team external-history uncertainty remains Q-013.
+
+### ASSET-002 follow-up — Authenticated complete tokenizer assets and tensor header
+
+- **Identity/retrieval:** Same selected immutable model/tokenizer revision. V-022 and [authenticated receipt](evidence/p1a-authenticated-contract-20261117.json) retain seven files (15,884,361 bytes) under `outputs/contract-20261117/model-auth/`. Six Git blob identities and the tokenizer JSON LFS SHA-256 match the pinned [file metadata](evidence/p1a-model-file-identities-20261117.json). All four previously browser-saved configs match byte-for-byte. Original failures remain retained.
+- **Header evidence:** Two exact HTTP 206 ranges retrieved only the eight-byte prefix and 35,024-byte header of the 1,192,138,968-byte checkpoint. The header describes 311 F16 tensor extents totaling 596,051,968 elements, including `score.weight` shape `[2,1024]`, no `score.bias`. Header SHA-256 is `38c56eac7bc3c2fb0c1c3a212f6e13b7c0453c7d246041562f078fb8ef7f1458`. Full tensor payload/LFS checksum, weight values and actual loading remain unverified; F16 storage does not establish effective inference precision.
+- **Configured score contract:** Actual two-row head descriptor plus `id2label`/single-label config support the protocol's two-logit softmax with injection index 1. Retain both logits and compute injection score explicitly; default pipeline top-label confidence is not that score. Actual finite logits/shape and consistent conversion across treatments still require runtime checks.
+- **Tokenizer evidence:** BPE backend has 151,643 vocabulary entries, 151,387 merges and 26 added-token entries, independently matched to external vocab/merges and configuration. Backend and inspected slow-tokenizer source specify NFC normalization. Preserve original dataset text/hashes; do not manually normalize or rewrite source prompts.
+- **Defaults requiring explicit control:** Wrapper config declares PAD/EOS `<|im_end|>` ID 151645, left padding, right truncation and model_max_length 131072. Serialized backend instead stores PAD `<|endoftext|>` ID 151643 and truncation cap 5000. Model positional maximum is 40960 and model PAD remains unset. Pinned wrapper source resolves these defaults per call, but no actual encoding has yet run. A direct backend call cannot silently substitute for the selected wrapper. Q-014 tracks pooling semantics and V-016/V-022 retain source interpretation.
+- **Access/runtime:** Yash configured a read token privately using the explicitly authorized Python login path; successful authenticated file access resolves Q-012. Credential values remain outside project files/Git. Windows Application Control blocks the installed regex native library, so tokenizer lengths and inference remain paused (Q-015/V-017).
+- **Review/terms:** Independent automated asset review is [V-022 evidence](evidence/p1a-asset-contract-review-20261117.json), not human signoff. Original source terms were inspected; the unmodified upstream license accompanies reproduced configuration metadata in `docs/third_party/`. No tokenizer vocabulary, weight payload or dataset prompts are included in the publication candidate. This does not claim review of unknown agreements or approve later larger-asset redistribution.
+
+### SPLIT-001 through SPLIT-004 — D-008 review-ready populations
+
+- **Parent/decision:** ASSET-001 official sources, unchanged; D-008 owns the approved exact allocation method, namespace, eligibility precedence and exposure controls. No model output was available when Yash selected 50/50.
+- **Current artifact directory:** `outputs/contract-20261117/partitions-v2/`. [Summary/provenance](evidence/p1a-partitions-20261117.json) records exact input, source, membership, ordered-ID and output-file hashes, class/group counts and source-code identity. [Access manifest](evidence/p1a-partition-access-20261117.json) binds roles to file hashes and leaves review/release pending.
+- **Coverage:** All 43,425 source IDs are accounted for exactly once. All 18,909 train and 1,000 validation rows remain eligible under approved exact-overlap rules; exclusions are empty. Test-A and Test-B each contain 11,758 rows (8,515 benign/3,243 injection). A/B groups total 11,657/11,702; 35/36 duplicate groups respectively. All 71 test duplicate groups remain intact. Six cross-population exact-group intersections are zero.
+- **Compatibility/review:** V-018/V-019 verified original construction; V-020 found a reusable decision/revision guard defect. V-021 rejects unapproved revisions and reconstructs v2 with every population/exclusion/access file byte-identical to v1. The original memberships remain valid administrative evidence; preserve both versions. Human scientific review, prior exposure declarations and test-performance releases remain pending. No P1-A or main-protocol freeze is implied.
+- **Retention/limits:** Large text-free manifests remain ignored locally, with reproducible code/commands and compact hashes retained. Team access to ignored files is not assumed. Exact grouping and the V-024 NFC probe do not exclude paraphrases, attack-template dependence or pretrained contamination. Counts do not establish power.
+
+### EXP-004 — Authenticated asset and approved partition work
+
+2026-11-17; automated tools/reviewers at Yash's request. Authenticated model-source files
+and header metadata were inspected without weights or model execution. All dataset IDs,
+reference labels and group hashes were used administratively for D-008 construction and
+independent checks. A targeted Python NFC probe read pinned raw splits solely to compute
+aggregate collision counts; development-only literal EOS incidence was counted without
+displaying prompts or IDs. No official-test prompts, scores, errors or performance were
+displayed. Membership was not changed by the probe. Human external exposure remains Q-013.

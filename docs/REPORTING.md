@@ -1,5 +1,29 @@
 # Research outputs and course deliverables
 
+## Progress update — November 17, later verified milestone
+
+The earlier update below is historical. D-008 now selects the 50/50 whole-group design.
+SPLIT-001–004 retain all 18,909 training and 1,000 validation rows and construct two
+11,758-row test subsets, each with 8,515 benign/3,243 injection examples. Independent
+administrative checks cover every source ID, all 71 duplicate groups, ordered membership,
+provenance and zero cross-population exact-group intersections. Human scientific review
+and performance releases remain pending. A review found and repaired an unapproved-revision
+reuse path without changing any actual membership (V-018–V-021).
+
+Authenticated retrieval now verifies all seven pinned tokenizer/configuration files and the
+actual classifier tensor header: F16 score.weight [2,1024], no bias, configured injection
+index 1. No tensor payload or model inference was needed. Source review identified
+different serialized/wrapper PAD settings and EOS-sensitive pooling that must be controlled
+before the pilot. Native tokenization is currently blocked by Windows Application Control
+at regex import (V-017), despite successful Hub access. No token lengths, model quality,
+precision effects or resource benefits are yet measured.
+
+The reproducible metadata/header and partition commands are integrated, with 56 passing
+combined tests and independent automated review (V-022/V-023). This is substantial audited
+preparation, not P1-A completion. Yash authorized committing/pushing properly completed
+milestones; final publication status is recorded in STATUS/SESSION_LOG. The November 18
+progress-report format remains unspecified; nothing has been submitted.
+
 ## Progress update — November 17, 2026
 
 The November 11/16 text below is historical. The current evidence includes authorized local
@@ -23,16 +47,21 @@ also found and fixed a source-cache reuse weakness; altered cached files now fai
 retained provenance. The original failures and corrected evidence are preserved. Human/team
 scientific signoff remains pending; do not attribute automated execution to a teammate.
 
-**Inference readiness and blocker.** The exact public Sentinel v2 repository revision is
-recorded. Public metadata/card/license are accessible, but four pinned configuration and
-tokenizer requests returned HTTP 401 without authentication. Yash now reports accepting
-access, but the local credential check remains unresolved (V-010). The real head shape,
-output-index mapping and tokenization/pooling behavior therefore remain unverified. Local
+**Inference readiness and remaining work.** The pinned Sentinel v2 config was retrieved
+through the approved browser and preserved with a hash (V-012). It declares output 0 as
+benign and output 1 as jailbreak, with single-label classification. Actual tensor head
+shape, tokenizer and pooling behavior remain unverified; the config omits `pad_token_id`.
+Local credentials remain absent. Browser automation stopped during tokenizer retrieval
+because the tool could not confidently determine the current URL; no completed tokenizer
+file was found. Earlier unauthenticated 401 responses remain preserved. Optional secure
+local-authentication support now passes the combined 35-test suite after independent review
+found and corrected a redirect-error disclosure path (V-013/V-014), using mocked
+transport; real authenticated CLI retrieval has not been tested. Local
 inventory detects an RTX 5070 Ti Laptop GPU with 12,227 MiB VRAM and driver 577.13; no
 PyTorch/Transformers/bitsandbytes runtime was installed or validated in the checked interpreter.
 Hardware presence alone does not establish backend compatibility or a measured benefit.
 
-**Remaining work.** Resolve authorized model access and prior team test exposure; complete
+**Remaining work.** Complete authorized tokenizer retrieval and prior team test-exposure review; finish
 the model/tokenizer and token-length audit; review and freeze group-preserving evaluation
 partitions and development eligibility. Then run the small matched three-precision pilot
 under the roadmap. No real detection quality, speedup, memory saving, final threshold,

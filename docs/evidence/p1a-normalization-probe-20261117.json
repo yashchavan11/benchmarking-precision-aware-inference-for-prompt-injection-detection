@@ -1,0 +1,43 @@
+{
+  "purpose": "NFC collision and development literal-EOS administrative probe; no tokenization/inference",
+  "dataset_revision": "a5234cb1f5cdb256600cab64b8c961195b5e8404",
+  "unicode_database_version": "14.0.0",
+  "split_statistics": {
+    "train": {
+      "rows": 18909,
+      "nfc_changed_rows": 1,
+      "raw_exact_groups": 18909,
+      "python_nfc_groups": 18909,
+      "literal_eos_rows": 6,
+      "exact_terminal_literal_eos_rows": 0
+    },
+    "validation": {
+      "rows": 1000,
+      "nfc_changed_rows": 0,
+      "raw_exact_groups": 1000,
+      "python_nfc_groups": 1000,
+      "literal_eos_rows": 0,
+      "exact_terminal_literal_eos_rows": 0
+    },
+    "test": {
+      "rows": 23516,
+      "nfc_changed_rows": 3,
+      "raw_exact_groups": 23359,
+      "python_nfc_groups": 23359
+    }
+  },
+  "nfc_cross_split_group_intersections": {
+    "train__validation": 0,
+    "train__test": 0,
+    "validation__test": 0
+  },
+  "nfc_conflicting_label_groups": 0,
+  "prompt_or_id_displayed": false,
+  "membership_changed": false,
+  "limits": [
+    "Python NFC is a targeted proxy; Rust tokenizer normalizer has not executed.",
+    "Literal-string counts are not tokenizer lengths or model outcomes.",
+    "Zero NFC overlap does not rule out other token-identical or near-duplicate inputs."
+  ],
+  "script_sha256": "b23f8f5a648862bba3824552b4b6c2374ea0ac043d27a5e906c9ef278f4b4e60"
+}

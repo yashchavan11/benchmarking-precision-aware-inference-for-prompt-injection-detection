@@ -49,3 +49,29 @@ Do not delay all development for an unlimited survey. Revisit the literature whe
 4. Track the source/version used when a relevant method or API decision changes. Link the decision to the affected phase and experiments.
 5. Attribute the Test-A/Test-B design to this project's [research protocol](RESEARCH_PROTOCOL.md), not to PromptShield's original benchmark.
 6. Citation does not grant redistribution rights. Access, credentials and publication follow [AGENTS.md](../AGENTS.md); asset-specific terms and their verification belong in [DATA_REGISTRY.md](DATA_REGISTRY.md).
+
+## Authenticated pinned configuration follow-up — November 17
+
+V-012 retains [the pinned model config](https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/blob/05ff9bfd1f28c5228e53121d5ee4427bb5205212/config.json)
+retrieved through the approved browser. Its declarations establish configured label names
+and task type; they do not establish actual tensor shape or runtime precision/pooling.
+ASSET-002 owns the source identity and limitations. For V-013's optional local credential
+lookup, the official [Hub environment-variable guide](https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables)
+and [token guide](https://huggingface.co/docs/hub/security-tokens) were checked on November 17.
+The implementation uses existing credentials only; it creates no account, token or grant.
+
+## Pinned implementation and authenticated artifact follow-up — November 17
+
+Transformers 4.57.1 resolves to commit `8cb5963cc22174954e7dca2c0a3320b7dc2f4edc`;
+[source receipts](evidence/p1a-library-sources-20261117.json) identify all 12 inspected files.
+The [shared classifier implementation](https://github.com/huggingface/transformers/blob/8cb5963cc22174954e7dca2c0a3320b7dc2f4edc/src/transformers/modeling_layers.py)
+establishes the inspected pooling/head behavior, and the pinned tokenizer/pipeline files
+establish wrapper handling and score selection. V-016 distinguishes source interpretation
+from execution and from the checkpoint's recorded development-version provenance.
+
+V-022 retrieved the exact selected repository's full tokenizer files and actual checkpoint
+header through authenticated access. The provider content identities and project-computed
+hashes are retained separately; no full weight checksum or runtime outcome is inferred.
+ASSET-002 owns the values. Original Elastic License 2.0 terms are copied unchanged in
+`third_party/SENTINEL_LICENSE.md` alongside reproduced configuration metadata; source
+assets and tensor payloads remain excluded from the repository publication candidate.

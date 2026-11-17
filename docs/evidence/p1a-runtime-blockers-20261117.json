@@ -1,0 +1,20 @@
+{
+  "recorded_at_utc": "2026-11-17T18:40:44.526664+00:00",
+  "environment": ".venv (new isolated audit environment)",
+  "pip_install_observation": "Log reports successful installation; PowerShell wrapper returned 1 after pip upgrade notice on stderr. pip check subsequently succeeded and installed package versions were read. No reinstall performed.",
+  "blocked_attempts": [
+    {
+      "operation": ".venv/Scripts/hf.exe auth login --help",
+      "result": "An Application Control policy has blocked this file",
+      "alternative_authorized_by_user": "Python library hidden login, explicitly approved 2026-11-17; library import succeeded, user-run login pending"
+    },
+    {
+      "operation": "from transformers import AutoConfig",
+      "result": "ImportError: DLL load failed while importing _regex: An Application Control policy has blocked this file.",
+      "module": "regex._regex",
+      "dependent_work_paused": "Full Transformers tokenizer/config-class runtime and subsequent inference",
+      "workaround_or_security_setting_change_performed": false
+    }
+  ],
+  "scope": "Package installation and dependency resolution do not prove executable native backends. Standard-library JSON and static source audits remain possible."
+}

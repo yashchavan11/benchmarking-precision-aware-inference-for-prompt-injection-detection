@@ -292,3 +292,51 @@ Reviewer is unassigned; review has not occurred. Please check:
 Record the reviewer's name, date, reviewed commit, findings and disposition in VALIDATION_LOG
 and the actual review contribution in CONTRIBUTIONS. If changes are required, identify
 affected outputs and rerun the relevant checks before treating the review as complete.
+
+## Optional metadata authentication — November 17 follow-up
+
+The model audit now accepts explicit `--auth local` or `--auth prompt`, preserving its
+unauthenticated default and lightweight-file scope. Authentication mode/request status and
+successful authenticated file responses are separate from configured label and runtime
+verification. Missing credentials fail before output creation/network access. Credentials
+are never persisted by this command; redirects are restricted to HTTPS `huggingface.co`.
+See V-013/V-014 for synthetic security/compatibility checks and the reviewed redirect-error repair and their limits. This adds no model
+execution or permission to access held-out performance, and changes no prediction contract.
+
+## P1-A implementation and review handoff — November 17 follow-up
+
+`partition_data.py` implements the exact D-008 construction from three expected-hash inputs:
+text-free identities, retained provenance and the source receipt. It rejects unapproved
+source revisions, malformed/conflicting identities, changed inputs and existing output
+directories. Four role-specific JSONL populations, exclusions, access conditions and summary
+retain original lineage and hashes. Current artifacts are SPLIT-001–004; declarative pending
+release conditions are not yet inference-loader enforcement. Human review remains pending.
+
+`contract_audit.py` uses optional Hub/requests dependencies to retrieve only the fixed pinned
+configuration/tokenizer allowlist and two bounded safetensors-header ranges. It validates
+source sizes and Git/LFS content hashes before retention, preserves configured proxy/CA
+settings, strips authorization on origin changes and suppresses sensitive error details.
+It never requests tensor payloads. Complete retrieval is not successful model execution;
+V-022/V-023 give actual checks and limits. Native tokenizer dependencies remain blocked locally.
+
+The reviewed source/head contract yields two logits and injection index 1 under the existing
+protocol. Explicitly derive the injection score from both logits; no top-label shortcut.
+Actual tokenizer wrapper behavior and pooling remain runtime requirements under Q-014.
+The serialized backend PAD/truncation settings and wrapper settings differ; pin the actual
+wrapper and record explicit arguments. Original raw source text/hashes stay unchanged.
+
+**Proposed next bounded pilot, not yet authorized or executed:** after P1-A human review,
+exposure resolution and a working approved runtime, audit development token lengths and
+select 128 eligible training examples with class/length coverage. Start with original
+unpadded batch one, explicit cap chosen from 512/1024/2048 using that audit, no chat template
+or manual EOS. Verify loaded head/frozen weights, finite two-logit scores, actual FP32/FP16/
+LLM.int8 module treatment and matching IDs/tokens/masks. Include synthetic literal-EOS,
+empty/all-masked rejection and truncation boundaries. Larger batching needs a separately
+reviewed pooling/position policy and agreement tolerance. Retain failures and prediction
+manifests; no final threshold or hardware benefit claim comes from this pilot proposal.
+
+**Human data review needed:** each teammate supplies their own prior-test exposure history
+and any unrecorded preprocessing/artifacts. Viraj is a proposed data reviewer, not a missing
+implementation dependency or an assigned new commitment. Review D-008, SPLIT-001–004,
+V-019/V-021 and the exposure limits without opening test prompts/performance. Construction
+can be reproduced here; actual human scientific findings/signoff must be recorded accurately.

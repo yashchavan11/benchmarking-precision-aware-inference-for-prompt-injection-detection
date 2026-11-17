@@ -11,6 +11,7 @@ and the gate's separate quality/cost claims belong to [EXTENSION.md](EXTENSION.m
 | Result ID | Part / phase | Question or claim | Evidence type / population | Supporting runs / validation | Status / reviewer |
 |---|---|---|---|---|---|
 | RES-001 | Part 1 / P1-A | Pinned source supports an exact-duplicate-aware evaluation design | Development observation: administrative source audit, no classifier | R-P1-A-20261117-01; V-006/V-008; ASSET-001 | Observed and independently checked by automated review; human signoff pending |
+| RES-002 | Part 1 / P1-A | Padding/pooling policies require explicit checks | Static source and synthetic index cases | R-P1-A-20261117-04; V-016/V-022 | Source-level observation; human/runtime review pending |
 
 ### RES-001 — Source audit establishes exact-group constraints, not model performance
 
@@ -75,3 +76,10 @@ When a result becomes provisional, invalidated or superseded, retain its origina
 
 An obsolete headline is part of the affected evidence chain; correcting a technical note
 alone does not update the claim presented to readers.
+
+### RES-002 — Source audit identifies padding and pooling choices that require explicit checks
+
+- **Evidence/status:** P1-A development observation from retained source/configuration and synthetic index arithmetic, not a model-performance result. V-016/V-022, ASSET-002 and R-P1-A-20261117-04. Independent automated review complete within source scope; human review pending.
+- **Observation:** The model leaves PAD unset; inspected batch-one source selects the last position. Setting PAD=EOS changes stock pooling to last token unequal to EOS. The retained tokenizer backend and wrapper configuration also disagree on PAD ID. Wrapper code adjusts backend settings per call, so a direct backend invocation cannot silently be assumed equivalent.
+- **Implication:** Apply one explicitly verified input/pooling policy to all precision treatments. Use unpadded batch one as the initial proposed reference; a later batching adapter or PAD policy requires a rationale and numerical equivalence checks. No policy is selected by this finding.
+- **Limits:** No logits, token lengths, precision effects or resource outcomes were measured. V-024's aggregate literal/NFC probe does not remove the need for truncation and synthetic EOS cases. Do not claim a measured detector error or accuracy change from these source observations.

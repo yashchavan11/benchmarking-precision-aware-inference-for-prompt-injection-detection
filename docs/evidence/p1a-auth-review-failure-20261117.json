@@ -1,0 +1,7 @@
+{
+  "kind": "synthetic urllib redirect pre-validator exception",
+  "exception_type": "ValueError",
+  "message": "'hf_synthetic_secret' does not appear to be an IPv4 or IPv6 address",
+  "synthetic_marker_in_exception": true,
+  "real_credentials_used": false
+}

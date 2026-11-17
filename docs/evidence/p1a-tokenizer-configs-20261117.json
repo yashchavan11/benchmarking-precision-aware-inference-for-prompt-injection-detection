@@ -1,0 +1,32 @@
+[
+  {
+    "filename": "tokenizer_config.json",
+    "path": "outputs/contract-20261117/tokenizer/tokenizer_config.json",
+    "bytes": 9950,
+    "sha256": "811eceda440f18123499b9cc4ffa1e567497ac8393ed921329e6d18044f38fe8",
+    "source_url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/tokenizer_config.json",
+    "download_last_write_utc": "2026-11-17T18:29:40.653740+00:00",
+    "method": "approved authenticated browser Save As; unchanged downloaded bytes",
+    "http_status": null
+  },
+  {
+    "filename": "special_tokens_map.json",
+    "path": "outputs/contract-20261117/tokenizer/special_tokens_map.json",
+    "bytes": 610,
+    "sha256": "c9b84b84227d009b296d633a6a4dc1c8aa318d851cbe308186014121e0cd1a46",
+    "source_url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/special_tokens_map.json",
+    "download_last_write_utc": "2026-11-17T18:31:15.483054+00:00",
+    "method": "approved authenticated browser Save As; unchanged downloaded bytes",
+    "http_status": null
+  },
+  {
+    "filename": "added_tokens.json",
+    "path": "outputs/contract-20261117/tokenizer/added_tokens.json",
+    "bytes": 707,
+    "sha256": "c0284b582e14987fbd3d5a2cb2bd139084371ed9acbae488829a1c900833c680",
+    "source_url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/added_tokens.json",
+    "download_last_write_utc": "2026-11-17T18:32:30.289660+00:00",
+    "method": "approved authenticated browser Save As; unchanged downloaded bytes",
+    "http_status": null
+  }
+]

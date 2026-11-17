@@ -1,0 +1,49 @@
+{
+  "model_id": "rogue-security/prompt-injection-jailbreak-sentinel-v2",
+  "revision": "05ff9bfd1f28c5228e53121d5ee4427bb5205212",
+  "source_url": "https://huggingface.co/api/models/rogue-security/prompt-injection-jailbreak-sentinel-v2/revision/05ff9bfd1f28c5228e53121d5ee4427bb5205212",
+  "files": {
+    "added_tokens.json": {
+      "filename": "added_tokens.json",
+      "size": 707,
+      "git_blob_sha1": "b54f9135e44c1e81047e8d05cb027af8bc039eed"
+    },
+    "config.json": {
+      "filename": "config.json",
+      "size": 1488,
+      "git_blob_sha1": "259a30e88a152f678f737d6eb4334b9187624ec2"
+    },
+    "merges.txt": {
+      "filename": "merges.txt",
+      "size": 1671853,
+      "git_blob_sha1": "31349551d90c7606f325fe0f11bbb8bd5fa0d7c7"
+    },
+    "model.safetensors": {
+      "filename": "model.safetensors",
+      "size": 1192138968,
+      "git_blob_sha1": "cf3aa1943a2e6dc85189d82ddceb89e21953f79e",
+      "lfs_sha256": "19701022d11e38d39bd77aed7263d2e9ce3a45ae29305248ef3de585f947511c"
+    },
+    "special_tokens_map.json": {
+      "filename": "special_tokens_map.json",
+      "size": 610,
+      "git_blob_sha1": "afc6dc69990ddae043bf2cb6e5d524a33925e735"
+    },
+    "tokenizer.json": {
+      "filename": "tokenizer.json",
+      "size": 11422920,
+      "git_blob_sha1": "ff792e6abb06c8915e0dcbb6895a77085f5e17a3",
+      "lfs_sha256": "76b8cfe3366532f669964fa542acfdec07544d0fbc8ceb9a78ba5a35400fd666"
+    },
+    "tokenizer_config.json": {
+      "filename": "tokenizer_config.json",
+      "size": 9950,
+      "git_blob_sha1": "fbb9c72fd101ac7b51a62c468d80864f7e363b38"
+    },
+    "vocab.json": {
+      "filename": "vocab.json",
+      "size": 2776833,
+      "git_blob_sha1": "4783fe10ac3adce15ac8f358ef5462739852c569"
+    }
+  }
+}

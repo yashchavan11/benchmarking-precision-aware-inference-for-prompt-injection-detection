@@ -1,0 +1,42 @@
+{
+  "construction_decision": "D-008",
+  "enforcement": "Declarative workflow metadata; future loaders must enforce roles. Public files are not cryptographically sealed.",
+  "phase_closeout": false,
+  "prior_team_exposure": "incompletely_declared; see Q-013 and exposure log",
+  "review_status": "human_review_pending",
+  "roles": {
+    "eligible_training": {
+      "current_access": "administrative identities, reference labels and aggregate support only",
+      "file": "eligible-training.jsonl",
+      "release_condition": "P1-A closeout and human scientific review",
+      "release_status": "pending",
+      "review_status": "human_review_pending",
+      "sha256": "b833f40d87ea661a46a9811ddad5dcdfabdffec3762955ac00a73b7c5cf13a33"
+    },
+    "eligible_validation": {
+      "current_access": "administrative identities, reference labels and aggregate support only",
+      "file": "eligible-validation.jsonl",
+      "release_condition": "P1-A closeout and human scientific review",
+      "release_status": "pending",
+      "review_status": "human_review_pending",
+      "sha256": "4121a6b01e166925a0b2e983bcdaa7ad6c38e21654133e11077abfc7af9f828f"
+    },
+    "test_a": {
+      "current_access": "administrative identities, reference labels and aggregate support only",
+      "file": "test-a.jsonl",
+      "release_condition": "P1-C freeze before P1-D Test-A performance",
+      "release_status": "pending",
+      "review_status": "human_review_pending",
+      "sha256": "8c1a96451239dd4cda4bcd7b51fdfe51ca77dccf1b5851dc6d3a95aacb3ab780"
+    },
+    "test_b": {
+      "current_access": "administrative identities, reference labels and aggregate support only",
+      "file": "test-b.jsonl",
+      "release_condition": "P2-D policy freeze before P2-E; no Test-B predictions earlier by default",
+      "release_status": "pending",
+      "review_status": "human_review_pending",
+      "sha256": "d72d911f004b5088b0a6ddadc39e1e207bc61f4772164b21e98f5de2402fa961"
+    }
+  },
+  "schema_version": 1
+}

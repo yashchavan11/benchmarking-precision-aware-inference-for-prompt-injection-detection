@@ -1,0 +1,350 @@
+{
+  "date_utc": "2026-11-17T18:14:24.608592+00:00",
+  "reviewer": "Independent automated reviewer /root/p1a_review; not human scientific signoff",
+  "scope": "Existing source bytes, text-free identities, integration and access evidence; no network, prompt display, model execution, or allocation",
+  "status": "passed",
+  "checks": [
+    {
+      "check": "SHA256 precision_benchmark/__init__.py",
+      "passed": true
+    },
+    {
+      "check": "SHA256 precision_benchmark/__main__.py",
+      "passed": true
+    },
+    {
+      "check": "SHA256 precision_benchmark/artifacts.py",
+      "passed": true
+    },
+    {
+      "check": "SHA256 precision_benchmark/data_audit.py",
+      "passed": true
+    },
+    {
+      "check": "SHA256 precision_benchmark/evaluation.py",
+      "passed": true
+    },
+    {
+      "check": "SHA256 precision_benchmark/model_audit.py",
+      "passed": true
+    },
+    {
+      "check": "SHA256 precision_benchmark/report.py",
+      "passed": true
+    },
+    {
+      "check": "SHA256 tests/test_artifacts.py",
+      "passed": true
+    },
+    {
+      "check": "SHA256 tests/test_data_audit.py",
+      "passed": true
+    },
+    {
+      "check": "SHA256 tests/test_evaluation.py",
+      "passed": true
+    },
+    {
+      "check": "SHA256 tests/test_model_audit.py",
+      "passed": true
+    },
+    {
+      "check": "SHA256 tests/test_report.py",
+      "passed": true
+    },
+    {
+      "check": "Retained log contains 26 tests and OK",
+      "passed": true
+    },
+    {
+      "check": "Compact provenance equals retained original",
+      "passed": true
+    },
+    {
+      "check": "SHA256 data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/README.md",
+      "passed": true
+    },
+    {
+      "check": "byte count data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/README.md",
+      "passed": true
+    },
+    {
+      "check": "SHA256 data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/train.json",
+      "passed": true
+    },
+    {
+      "check": "byte count data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/train.json",
+      "passed": true
+    },
+    {
+      "check": "SHA256 data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/validation.json",
+      "passed": true
+    },
+    {
+      "check": "byte count data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/validation.json",
+      "passed": true
+    },
+    {
+      "check": "SHA256 data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/test.json",
+      "passed": true
+    },
+    {
+      "check": "byte count data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/test.json",
+      "passed": true
+    },
+    {
+      "check": "SHA256 data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/repository-metadata.json",
+      "passed": true
+    },
+    {
+      "check": "byte count data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/repository-metadata.json",
+      "passed": true
+    },
+    {
+      "check": "SHA256 outputs\\asset-audit-20261117\\dataset\\audit-v3\\row-identities.jsonl",
+      "passed": true
+    },
+    {
+      "check": "SHA256 outputs\\asset-audit-20261117\\dataset\\audit-v3\\development-exclusions.jsonl",
+      "passed": true
+    },
+    {
+      "check": "SHA256 outputs\\asset-audit-20261117\\dataset\\audit-v3\\projected-train-identities.jsonl",
+      "passed": true
+    },
+    {
+      "check": "SHA256 outputs\\asset-audit-20261117\\dataset\\audit-v3\\projected-validation-identities.jsonl",
+      "passed": true
+    },
+    {
+      "check": "SHA256 outputs\\asset-audit-20261117\\dataset\\audit-v3\\summary.json",
+      "passed": true
+    },
+    {
+      "check": "Receipt identity",
+      "passed": true
+    },
+    {
+      "check": "Receipt hashes",
+      "passed": true
+    },
+    {
+      "check": "Compact summary equals retained original",
+      "passed": true
+    },
+    {
+      "check": "Text-free identity schema",
+      "passed": true
+    },
+    {
+      "check": "Unique IDs",
+      "passed": true
+    },
+    {
+      "check": "Zero conflicting group labels",
+      "passed": true
+    },
+    {
+      "check": "Zero cross-split group overlap",
+      "passed": true
+    },
+    {
+      "check": "train stable IDs",
+      "passed": true
+    },
+    {
+      "check": "train count",
+      "passed": true
+    },
+    {
+      "check": "train labels",
+      "passed": true
+    },
+    {
+      "check": "train ordered ID hash",
+      "passed": true
+    },
+    {
+      "check": "train group count",
+      "passed": true
+    },
+    {
+      "check": "train duplicate histogram",
+      "passed": true
+    },
+    {
+      "check": "train projection identical to original identities",
+      "passed": true
+    },
+    {
+      "check": "validation stable IDs",
+      "passed": true
+    },
+    {
+      "check": "validation count",
+      "passed": true
+    },
+    {
+      "check": "validation labels",
+      "passed": true
+    },
+    {
+      "check": "validation ordered ID hash",
+      "passed": true
+    },
+    {
+      "check": "validation group count",
+      "passed": true
+    },
+    {
+      "check": "validation duplicate histogram",
+      "passed": true
+    },
+    {
+      "check": "validation projection identical to original identities",
+      "passed": true
+    },
+    {
+      "check": "test stable IDs",
+      "passed": true
+    },
+    {
+      "check": "test count",
+      "passed": true
+    },
+    {
+      "check": "test labels",
+      "passed": true
+    },
+    {
+      "check": "test ordered ID hash",
+      "passed": true
+    },
+    {
+      "check": "test group count",
+      "passed": true
+    },
+    {
+      "check": "test duplicate histogram",
+      "passed": true
+    },
+    {
+      "check": "Empty projected exclusions",
+      "passed": true
+    },
+    {
+      "check": "Model compact summary equals retained original",
+      "passed": true
+    },
+    {
+      "check": "SHA256 outputs\\asset-audit-20261117\\model\\resolver.json",
+      "passed": true
+    },
+    {
+      "check": "Model response byte count resolver",
+      "passed": true
+    },
+    {
+      "check": "SHA256 outputs\\asset-audit-20261117\\model\\model-info.json",
+      "passed": true
+    },
+    {
+      "check": "Model response byte count pinned_model_info",
+      "passed": true
+    },
+    {
+      "check": "SHA256 outputs\\asset-audit-20261117\\model\\config.json",
+      "passed": true
+    },
+    {
+      "check": "Model response byte count config.json",
+      "passed": true
+    },
+    {
+      "check": "SHA256 outputs\\asset-audit-20261117\\model\\tokenizer_config.json",
+      "passed": true
+    },
+    {
+      "check": "Model response byte count tokenizer_config.json",
+      "passed": true
+    },
+    {
+      "check": "SHA256 outputs\\asset-audit-20261117\\model\\special_tokens_map.json",
+      "passed": true
+    },
+    {
+      "check": "Model response byte count special_tokens_map.json",
+      "passed": true
+    },
+    {
+      "check": "SHA256 outputs\\asset-audit-20261117\\model\\added_tokens.json",
+      "passed": true
+    },
+    {
+      "check": "Model response byte count added_tokens.json",
+      "passed": true
+    },
+    {
+      "check": "SHA256 outputs\\asset-audit-20261117\\model\\README.md",
+      "passed": true
+    },
+    {
+      "check": "Model response byte count README.md",
+      "passed": true
+    },
+    {
+      "check": "SHA256 outputs\\asset-audit-20261117\\model\\LICENSE.md",
+      "passed": true
+    },
+    {
+      "check": "Model response byte count LICENSE.md",
+      "passed": true
+    },
+    {
+      "check": "SHA256 precision_benchmark/model_audit.py",
+      "passed": true
+    },
+    {
+      "check": "SHA256 outputs/handoff-20261117/config-access-response.txt",
+      "passed": true
+    },
+    {
+      "check": "Historical failure does not establish authenticated account rejection",
+      "passed": true
+    }
+  ],
+  "checks_passed": 77,
+  "dataset_counts": {
+    "train": {
+      "rows": 18909,
+      "classes": {
+        "0": 9457,
+        "1": 9452
+      },
+      "groups": 18909
+    },
+    "validation": {
+      "rows": 1000,
+      "classes": {
+        "0": 497,
+        "1": 503
+      },
+      "groups": 1000
+    },
+    "test": {
+      "rows": 23516,
+      "classes": {
+        "0": 17030,
+        "1": 6486
+      },
+      "groups": 23359
+    }
+  },
+  "limits": [
+    "Local consistency with retained provenance, not new remote attestation.",
+    "Historical 26-test run reused based on source/test hashes, not rerun.",
+    "No raw prompt semantic-label audit or near-duplicate inspection.",
+    "No current authenticated model access tested by this reviewer.",
+    "Eligibility and A/B design remain unselected and unfrozen."
+  ]
+}

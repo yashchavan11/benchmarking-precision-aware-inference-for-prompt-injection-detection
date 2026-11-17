@@ -1,0 +1,14 @@
+{
+  "synthetic_only": true,
+  "approved_D008_revision": "a5234cb1f5cdb256600cab64b8c961195b5e8404",
+  "attempted_revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "expected": "Reject before creating D-008 outputs",
+  "source_sha256": "46a66ef3a3fa93502a99be589195bd037eabe41ed50c139c15ca871ca3f995a1",
+  "actual_source_files_modified": false,
+  "network_or_prompts_used": false,
+  "observed": "rejected",
+  "error": "D-008 construction requires its exact approved revision; another revision needs a new decision",
+  "output_created": false,
+  "guard_passed": true,
+  "script_sha256": "b1e679dbb29ebd7d6e25ef960ba07e5b5cb4b199ce950b5b7ea34cfcbd89d5e8"
+}

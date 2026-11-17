@@ -1,0 +1,7 @@
+# Candidate audit environment, not a validated inference runtime.
+# Windows Application Control blocked regex import; see V-017.
+# Full resolved versions: docs/evidence/p1a-audit-environment-20261117.json
+huggingface-hub==0.36.2
+requests==2.34.2
+transformers==4.57.1
+tokenizers==0.22.2

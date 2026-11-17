@@ -1,0 +1,27 @@
+{
+  "outcome": "passed within corrected decision-binding scope",
+  "new_output_directory": "outputs/contract-20261117/partitions-v2",
+  "source_sha256": "46a66ef3a3fa93502a99be589195bd037eabe41ed50c139c15ca871ca3f995a1",
+  "new_summary_sha256": "04dc68392ee32bf2066228f88fefada797e37132ba96406449e9dd130c9918bb",
+  "alternate_revision_rejected_before_output": true,
+  "preserved_before_guard_source_verified": true,
+  "prior_membership_review_remains_compatible": true,
+  "population_exclusion_access_bytes_identical": {
+    "access-manifest.json": true,
+    "development-exclusions.jsonl": true,
+    "eligible-training.jsonl": true,
+    "eligible-validation.jsonl": true,
+    "test-a.jsonl": true,
+    "test-b.jsonl": true
+  },
+  "summary_changes_limited_to_code_hashes": true,
+  "execution_source_test_hashes_checked": 14,
+  "retained_suite_result": "42 tests passed",
+  "suite_reexecuted_by_reviewer": false,
+  "human_review_and_role_release": "pending",
+  "failure_and_correction": [
+    "decision-revision-probe-before.json",
+    "decision-revision-probe-after.json"
+  ],
+  "review_script_sha256": "a55b383205d754f4b963608cbb6c21f4443f9249a12b94a33bada3205099c4c7"
+}

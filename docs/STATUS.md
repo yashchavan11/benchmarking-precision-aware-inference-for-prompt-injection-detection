@@ -1,66 +1,48 @@
 # Current project state and handoff
 
-Current snapshot for the main workspace. Chronology is in SESSION_LOG; run/check evidence
-is in EXPERIMENT_REGISTER and VALIDATION_LOG. No research phase has closed.
+Current snapshot; chronology and authoritative evidence are linked below. No research
+phase has closed. Completed bounded audits do not release test performance.
 
-## Current snapshot - integration complete; P1-A audit in progress
+## Current snapshot — approved populations and authenticated contract audited
 
 | Field | Current value |
 |---|---|
-| Snapshot provenance | 2026-11-17, America/New_York; S-20261117-03, local commit and fresh-chat handoff requested by Yash |
-| Active phase / latest completion | P1-A in progress; no completed research phase |
-| Owner / reservations | Yash's tentative inference/quantization workstream; dependent data audit performed with his authorization. All parallel reviews finished; no active reservations. |
-| Repository state | Repair/audit commit 1259a61a693ab5ad87a48035d43bb321619e7ec8 was pushed to origin/main after Yash explicitly requested publication. Remote SHA verified. This handoff update follows that milestone; use Git log/status for the latest tip. Author/committer: Yash <chavan.yas@northeastern.edu>; no assistant author/co-author trailer or GitHub comment/review/message. |
-| Changes since prior handoff | V-003/V-004 repairs integrated (V-005); administrative data audit ASSET-001 and public model audit ASSET-002 implemented and reviewed; RES-001 scopes the data finding |
-| Verified software | 26 tests passed on Python 3.11.9 / Windows. Full logs/source/test hashes: outputs/integration-20261117/. Independent data and calibration review evidence retained. |
-| Dataset identity / state | hendzh/PromptShield at a5234cb1f5cdb256600cab64b8c961195b5e8404. Actual counts/groups/exact-overlap evidence in DATA_REGISTRY ASSET-001; projected development identities only, no final eligibility or A/B assignment. |
-| Model/tokenizer identity / state | Candidate repository revision 05ff9bfd1f28c5228e53121d5ee4427bb5205212. Public metadata/card/license accessible; private configuration/tokenizer requests returned 401. Output mapping/head/pooling unverified. |
-| Empirical configurations/findings | Not frozen; no model-performance, precision-treatment or resource experiment executed. Administrative RES-001 only. |
-| Exposure | EXP-001 synthetic; EXP-002 administrative source processing and incidental training snippets. No test prompt or model output displayed this session; prior external exposure and near-duplicate relationships remain unknown. |
-| Environment | RTX 5070 Ti Laptop GPU, 12,227 MiB, driver 577.13; Python 3.11.9. Inference dependencies absent from checked interpreter. Hardware presence is not runtime/backend validation. |
-| Verified blockers | Q-012: Yash reports accepting model access; local Hub credentials remain absent and an unauthenticated recheck still returns 401 (V-010). Authenticated access and actual label/tokenizer contract remain unverified. |
-| Open choices / concerns | Q-002/Q-013: prior exposure and group-preserving A/B allocation; Q-004: token lengths/common execution settings; review/freeze pending. |
-| Partial changes/jobs | Research milestone packaged for local handoff; inspect Git status for later edits. No running/interrupted audit or inference job, no model checkpoint downloaded. Nothing to monitor or resume. |
-| Subsequent phase | P1-B empirical pilot only after P1-A requirements and review are met |
+| Provenance/phase | 2026-11-17, America/New_York; S-20261117-05; P1-A in progress |
+| Owner/reservations | Implementation, asset, partition and final canonical-record reviews complete. No active reservations, research jobs or checkpoints; coordinating agent owns authorized publication. Human scientific review remains pending. |
+| Publication | Yash explicitly authorized commit/push after properly completed substantial tasks. Current audited milestone is ready for packaging; actual publication will be recorded after verification. Preserve prior shared history/sibling review checkout. No other external write, message, visibility change or submission is authorized by this instruction. |
+| Dataset/populations | D-008 approved exact 50/50 method. Current `partitions-v2/` constructs 18,909 training, 1,000 validation, and 11,758 each A/B; all 71 duplicate groups intact; no exclusions/cross-group intersections. SPLIT-001–004 identify hashes/release conditions. Human review/exposure resolution remains pending. |
+| Model/tokenizer | ASSET-002 exact revision `05ff9bfd1f28c5228e53121d5ee4427bb5205212`: seven authenticated files and actual header checked. Injection index1; score.weight F16 [2,1024], no bias. No full weight payload or actual model loading. |
+| Access | Local authenticated retrieval succeeds. Yash privately configured read access through the explicitly authorized Python login path; no credential in repository/chat. Earlier 401/browser failures preserved. Q-012 resolved for asset retrieval. |
+| Contract risk | Serialized tokenizer PAD151643 differs from wrapper PAD/EOS151645. Original model PAD is unset; stock PAD=EOS changes pooling for terminal EOS. Q-014/RES-002 require explicit wrapper/pooling/runtime checks before batching or precision comparisons. |
+| Verified software | V-023: 56 combined tests passed in the audit environment; independent final code/hash review and asset/partition checks complete within their stated scope. Original and corrected failures preserved (including V-020/V-021 decision-revision guard). |
+| Runtime blocker | Q-015/V-017: Windows Application Control blocked regex native DLL import, so tokenizer execution/lengths and subsequent model runtime remain unvalidated. Approved runtime or user/administrator resolution required; no security bypass performed. No CUDA/PyTorch/bitsandbytes treatment was executed. |
+| Exposure/review | EXP-004 administrative source/header/identity/NFC aggregates only; no displayed test prompts or model outcomes. Each teammate's own exposure declaration and human scientific review remain outstanding. Yash's reported history is not a universal team history. |
+| Reporting | Substantial verified preparation is in REPORTING; no model quality, precision/resource result, final threshold, learned gate or phase closeout. November 18 progress-report format still unspecified; nothing submitted. |
 
 ## Reusable artifacts and retention
 
-- Compact safe source/data/review summaries: `docs/evidence/`; authoritative registry ASSET-001/002.
-- Original public data and source-integrity receipt: `data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/` (ignored; about 31 MB).
-- Final administrative dataset outputs: `outputs/asset-audit-20261117/dataset/audit-v3/`; prior versions, source snapshots, mutation reproductions, execution manifest and independent reviews retained beside it.
-- Public model bytes/failures: `outputs/asset-audit-20261117/model/`. Four .json-named files contain 401 failure text, not actual configuration. Consult summary HTTP statuses.
-- Environment inventory: `outputs/asset-audit-20261117/environment/`; integration evidence/demo: `outputs/integration-20261117/`.
-- Incoming-review archive: `outputs/review-20261117/`. The detached sibling review checkout preserves the original runnable review layout and exact incoming snapshot. Archived scripts retain their original layout assumptions; see RETENTION.txt.
-- Access recheck: `docs/evidence/p1a-access-recheck-20261117.json`; original failure response under `outputs/handoff-20261117/`. This is not an authenticated test of Yash's approved account.
-
-Preserve ignored artifacts until team storage/transfer is agreed; a project-relative path
-alone does not establish another contributor's access. Public-source audits can be rerun
-from pinned URLs using README commands and fresh output directories. Compare source hashes
-before reuse. Do not treat the projections or provider declarations as frozen scientific facts.
+- Original ASSET-001 raw bytes/receipt: `data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/`; verified audit-v3 identities/provenance under `outputs/asset-audit-20261117/dataset/audit-v3/`.
+- Current D-008 populations: `outputs/contract-20261117/partitions-v2/`; original `partitions/`, defect evidence and independent `partition-review/` preserved. Compact summary/access/guard evidence in `docs/evidence/p1a-partitions-20261117.json` and linked V-018–V-021 records.
+- Verified model/tokenizer/header: `outputs/contract-20261117/model-auth/`; source/HTTP/hash receipt mirrored in `docs/evidence/p1a-authenticated-contract-20261117.json`. Full weights not downloaded. Earlier browser files and failed responses retained in previous output directories.
+- Source/pooling analysis: `outputs/contract-20261117/library/`; independent `asset-review/`, `final-code-review/` and integration logs/hashes. Native-blocker/environment/probe evidence is linked by V-017/V-024.
+- Reproducible commands: `precision_benchmark.partition_data`, `precision_benchmark.contract_audit`, and existing `model_audit`/`data_audit`; README gives exact inputs and limits. `requirements-audit.txt` is an audit candidate, not a validated inference environment.
+- Unsent Viraj message: `outputs/contract-20261117/review/viraj-message.txt`. No implementation wait is necessary; human exposure/review input cannot be invented.
+- Prior integration/review evidence and detached sibling checkout remain untouched. Ignored local paths do not imply teammate access; agree transfer or regenerate pinned artifacts with matching hashes.
 
 ## Exact continuation
 
-Read S-20261117-01/02/03, V-003 through V-010, ASSET-001/002, RES-001, Q-001 through Q-004 and Q-012/Q-013.
-Keep D-001 through D-007, RESEARCH_PROTOCOL and the full learned-gate scope unchanged.
+Read S-20261117-04/05 and publication follow-up, D-008, ASSET-002/SPLIT-001–004,
+V-015–V-024 (with earlier failure/reuse references), RES-002 and Q-012–Q-015.
 
-| Order | Bounded next action | Output and completion condition |
+| Order | Next bounded task | Output/completion condition |
 |---|---|---|
-| 1 | Resolve Q-012 by connecting authenticated local read access to Yash's already-approved account, or using an authorized authenticated browser path. Do not request acceptance again without contrary evidence or put tokens in chat/repo. Retrieve pinned lightweight configs into a new artifact location. | Successful authenticated retrieval and verified label/head/score semantics; failure responses retained. No replacement model or repeated implicit license acceptance. |
-| 2 | Complete tokenization/pooling requirements and environment/backend planning, coordinated with the audited data contract. | Audited token lengths/truncation and concrete common three-treatment pilot proposal; actual execution checks only on eligible development inputs after prerequisites. |
-| 3 | Confirm prior team test exposure and review group-preserving A/B allocation and final development eligibility using ASSET-001 support. | Explicit team decision, deterministic membership/exclusion/access manifests, isolation review and P1-A closeout evidence. No official-test model performance before required freeze. |
+| 1 | Obtain an approved executable tokenizer/runtime environment or user/administrator resolution of Q-015. Reuse preserved pinned assets and dependency evidence. | Actual tokenizer loads without weakening security controls; explicit wrapper/token IDs/defaults validated, development length/truncation summaries produced without test-performance exposure. |
+| 2 | Obtain each teammate's exposure statement and an actual human review of D-008/SPLIT-001–004 plus model/data contracts. Convey the prepared Viraj message if desired; it has not been sent. | Findings and reviewer identities recorded honestly; unknown/exposed history assessed, membership/release disposition explicit; remaining P1-A completion gate reviewed. |
+| 3 | Review the concrete 128-training-example, unpadded batch-one three-treatment pilot proposal in ARCHITECTURE after prerequisites. | Agreed input/cap/pooling/score/treatment/environment/check plan before full weights or substantial model execution; then compatible retained logits/predictions and dtype evidence. No final threshold or measured benefit assumed. |
 
-Yash authorized the local integration already; do not ask again. Major scientific choices
-remain subject to approval. Yash separately authorized pushing this reviewed milestone, which is now on origin/main. He reports accepting model access and no prior test inspection
-to his knowledge; other teammates' exposure history is not independently verified. The November 18 progress-report format is also
-pending; REPORTING contains truthful working text. Human/team scientific review remains
-pending despite independent automated checks. This snapshot does not declare P1-A complete.
-
-The local context-window configuration was saved as 872000 in the previous session;
-active-chat hot reload was not verified. Resume from these records even if the fresh
-chat does not inherit the earlier conversation. Do not reinstall or rerun completed work
-without a concrete compatibility or validation reason. The explicit push authorization
-covered this reviewed milestone and its handoff update; do not infer approval for unrelated
-external publication or changes to repository visibility.
+The previous local context setting 872000 has no verified effective-session-limit claim.
+Preserve Part 1 followed by the full learned-gate investigation. Publication permission
+does not close a scientific gate or authorize unrelated external communication.
 
 ## Continuation fields for subsequent snapshots
 

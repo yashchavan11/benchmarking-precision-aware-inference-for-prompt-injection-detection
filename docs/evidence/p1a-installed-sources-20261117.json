@@ -1,0 +1,67 @@
+{
+  "scope": "file-byte comparison only; no import of blocked native modules",
+  "files_checked": 12,
+  "all_match": true,
+  "checks": [
+    {
+      "path": "models/qwen3/modeling_qwen3.py",
+      "installed_sha256": "4b95c371fd26d40c69083dab36ac1eafd8cf82b415a0bb827275097c5ad2305b",
+      "matches_immutable_source": true
+    },
+    {
+      "path": "modeling_layers.py",
+      "installed_sha256": "bd262f364af26b99381db23583ca6e1a9741d8c3894bc3aa08f204fe6a7f68ee",
+      "matches_immutable_source": true
+    },
+    {
+      "path": "models/qwen3/configuration_qwen3.py",
+      "installed_sha256": "27863e9718fdbc899f2d0e567621e4d3d36d8dc500c1d54b49dba4242d08d2bd",
+      "matches_immutable_source": true
+    },
+    {
+      "path": "configuration_utils.py",
+      "installed_sha256": "08a3889c1b8a73d340a37c93f72346ee0e385e339b7a72a03b5c026d4943baf7",
+      "matches_immutable_source": true
+    },
+    {
+      "path": "pipelines/text_classification.py",
+      "installed_sha256": "2eb992d84b6991bfd00958d7a42c5361f0350ecef6b93531492519deb438c87b",
+      "matches_immutable_source": true
+    },
+    {
+      "path": "models/qwen2/tokenization_qwen2.py",
+      "installed_sha256": "23f05697fcaf26fe5e328abaf524f010510a2b9f4ba2e2edc9dca0a4015a09a2",
+      "matches_immutable_source": true
+    },
+    {
+      "path": "models/qwen2/tokenization_qwen2_fast.py",
+      "installed_sha256": "1025a3b86526283bd86a447f0fe2d991d09775b32d3fdcc233c9e447b0611049",
+      "matches_immutable_source": true
+    },
+    {
+      "path": "tokenization_utils_base.py",
+      "installed_sha256": "e71871474be2b1aa32f3a147dc31fe0a195fd402a27c37d30d666035fcccd891",
+      "matches_immutable_source": true
+    },
+    {
+      "path": "tokenization_utils.py",
+      "installed_sha256": "dfcc42414037d865d22568259eec12dd10caa7375b2d7a27707b7a502a08ef80",
+      "matches_immutable_source": true
+    },
+    {
+      "path": "models/auto/tokenization_auto.py",
+      "installed_sha256": "bd040dfb212fb20f1bef1f8fedfc3b4c100fe3b57e603c738552aebf2521c51d",
+      "matches_immutable_source": true
+    },
+    {
+      "path": "tokenization_utils_fast.py",
+      "installed_sha256": "558e454ee6850e90e8bc5d1782e35878dfda1da9bfdf997ae113fa7ff771a0f3",
+      "matches_immutable_source": true
+    },
+    {
+      "path": "masking_utils.py",
+      "installed_sha256": "7a963feed8173b8265298dd24350c166222ce6b4719442fce48ab414d0478a6a",
+      "matches_immutable_source": true
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "synthetic_only": true,
+  "approved_D008_revision": "a5234cb1f5cdb256600cab64b8c961195b5e8404",
+  "attempted_revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "expected": "Reject before creating D-008 outputs",
+  "source_sha256": "1b2518b120c944bb698cfd4ba649af9b5efb3188608951d8b3dd19009592497d",
+  "actual_source_files_modified": false,
+  "network_or_prompts_used": false,
+  "observed": "accepted alternate revision with D-008 authority",
+  "output_created": true,
+  "guard_passed": false,
+  "output_revision": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "output_decision": "D-008",
+  "script_sha256": "b1e679dbb29ebd7d6e25ef960ba07e5b5cb4b199ce950b5b7ea34cfcbd89d5e8"
+}

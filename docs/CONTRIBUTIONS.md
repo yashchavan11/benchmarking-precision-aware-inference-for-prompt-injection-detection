@@ -48,3 +48,24 @@ were preserved; no assistant author/co-author trailer or push is included.
 - **Review/verification:** [actual review, reviewer and outcome]
 - **Collaborators and shared work:** [who contributed to which part]
 - **Final-report relevance:** [brief contribution statement supported by the linked evidence]
+
+## 2026-11-17 — Resume and approved account access
+
+Yash supplied the committed handoff, clarified completed access acceptance and publication
+boundaries, and restored the signed-in Chrome window when requested. Automated execution
+retrieved/preserved the pinned config and updated records; independent automated review
+verified retained evidence and prepared unselected partition-support candidates (V-011/012).
+Automated implementation/testing added optional secure local authentication (V-013).
+No teammate implementation, exposure declaration, human scientific approval, new commit
+or push is inferred from this work. The earlier push was explicitly authorized separately.
+
+## 2026-11-17 — Approved data design and private local access
+
+Yash requested the next bounded tasks, authorized commit/push after properly completed
+substantial milestones, approved D-008's 50/50 design after comparing its support with
+60/40, and privately configured read access through the explicitly authorized Python login
+alternative. Automated implementation and independent automated reviews produced the
+asset/header audit, partition builder, tests, defect reproductions/repairs and records
+in S-20261117-05/V-015–V-024. Neither design approval nor commit identity is presented as
+human scientific review or human code implementation. A message for Yash to convey to
+Viraj was drafted, not sent; no new teammate commitment or completed Viraj work is claimed.

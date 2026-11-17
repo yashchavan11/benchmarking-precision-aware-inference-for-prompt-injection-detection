@@ -1,0 +1,201 @@
+{
+  "algorithm": "Within class, seeded SHA256 group order then raw hash tie-break; nearest-half prefix by rows, tie fewer A rows; B complement; outputs in original source order.",
+  "all_source_ids_accounted_exactly_once": true,
+  "code_sha256": {
+    "precision_benchmark/artifacts.py": "b923f570c00eb3cc538c3f81f8ad67b91db3a763b09fc058eb48dcded40a05bf",
+    "precision_benchmark/partition_data.py": "46a66ef3a3fa93502a99be589195bd037eabe41ed50c139c15ca871ca3f995a1"
+  },
+  "construction_decision": "D-008",
+  "construction_status": "review_ready",
+  "dataset": "hendzh/PromptShield",
+  "eligibility": "test-overlap first, then retained-validation precedence; no text transformation or relabeling",
+  "exclusions": {
+    "by_reason": {},
+    "class_counts": {
+      "0": 0,
+      "1": 0
+    },
+    "class_groups": {
+      "0": 0,
+      "1": 0
+    },
+    "duplicate_groups": 0,
+    "exact_text_groups": 0,
+    "file": "development-exclusions.jsonl",
+    "largest_group": 0,
+    "membership_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "ordered_id_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rows": 0
+  },
+  "id_hash_method": "SHA256 of UTF-8 IDs each followed by LF; membership uses sorted IDs; ordered uses source order",
+  "inputs": {
+    "identities": {
+      "path": "outputs/asset-audit-20261117/dataset/audit-v3/row-identities.jsonl",
+      "sha256": "f1a9450854c2e618da2a72ff1c6dc0f12c816cfe3d1b1afcc5cfc3b1283a2be6"
+    },
+    "source_provenance": {
+      "path": "outputs/asset-audit-20261117/dataset/audit-v3/provenance.json",
+      "sha256": "029122b812b22e76b620111f71541e85661a91f8f629982bc3e59fb17ef15af9"
+    },
+    "source_receipt": {
+      "path": "data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/source-integrity.json",
+      "sha256": "6e571116cb02f85d477d45f4ed296231a76570103bc6acea0aa72e16232dd12a"
+    }
+  },
+  "isolation_intersections": {
+    "eligible_training__eligible_validation": 0,
+    "eligible_training__test_a": 0,
+    "eligible_training__test_b": 0,
+    "eligible_validation__test_a": 0,
+    "eligible_validation__test_b": 0,
+    "test_a__test_b": 0
+  },
+  "limitations": [
+    "No prompts, model outputs, performance, or new source downloads accessed.",
+    "Local retained provenance is not independent source attestation.",
+    "Human scientific review and prior team exposure declarations remain pending.",
+    "Near-duplicate/template dependence, annotation truth and pretrained contamination remain unresolved.",
+    "Support counts do not establish power; no evaluation release or P1-A closeout."
+  ],
+  "namespace": "precision-aware-inference:p1a-ab-candidate:v1:20261117",
+  "original_source_sha256": {
+    "README.md": "d5f36dce4f27d40ae8fda54335d382c74e650485cb4a92c6837602ef84a1a662",
+    "repository-metadata.json": "ef85c81486c82aec5a262bb8344ea1bbe9a9b8325035c84e05ec6103cfbd14df",
+    "test.json": "526207c2485829d9961407011d7f4cd929569e7f285dc8396b3f385e0608bc70",
+    "train.json": "aa33c3ffcc27bd07c0a233b52f1b8c3cbdb30606ce2412da06a88b5290cdc7b6",
+    "validation.json": "1d93d90d57d3ef44ed0c546fbc04d66324436c5fcd32e7fcb940ceed270fbe77"
+  },
+  "original_splits": {
+    "test": {
+      "class_counts": {
+        "0": 17030,
+        "1": 6486
+      },
+      "class_groups": {
+        "0": 16873,
+        "1": 6486
+      },
+      "duplicate_groups": 71,
+      "exact_text_groups": 23359,
+      "largest_group": 58,
+      "membership_sha256": "118d957d9ecf3e82e337e3aafc5aa672c8f2d139e02d7738bb1d0c47cc698097",
+      "ordered_id_sha256": "525b0b36cdbc8d5e9e9114213072ca5252ee039f3b8986640200f7ab64228c66",
+      "rows": 23516
+    },
+    "train": {
+      "class_counts": {
+        "0": 9457,
+        "1": 9452
+      },
+      "class_groups": {
+        "0": 9457,
+        "1": 9452
+      },
+      "duplicate_groups": 0,
+      "exact_text_groups": 18909,
+      "largest_group": 1,
+      "membership_sha256": "f848b3887003704be4bc617b27ce904a0d7eca5f5481e6bcfefb27a166bd7708",
+      "ordered_id_sha256": "b54e337ac0503ce5948b563f8a79da2191a7fa1e374b2d4f89af1d7bacd0d3d7",
+      "rows": 18909
+    },
+    "validation": {
+      "class_counts": {
+        "0": 497,
+        "1": 503
+      },
+      "class_groups": {
+        "0": 497,
+        "1": 503
+      },
+      "duplicate_groups": 0,
+      "exact_text_groups": 1000,
+      "largest_group": 1,
+      "membership_sha256": "d8f884224e9b6f3f8b46493b0582295559daf83fef599a80ddb313d04c9d7182",
+      "ordered_id_sha256": "4160c508a4347e58730df188aafcc3d15fc6b8755117e409a2d96c8cfefb133b",
+      "rows": 1000
+    }
+  },
+  "output_files": {
+    "access-manifest.json": "466c656577038b5765e65977bc9e1e340324c6d0581ddf262c1c8797021ae9a9",
+    "development-exclusions.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "eligible-training.jsonl": "b833f40d87ea661a46a9811ddad5dcdfabdffec3762955ac00a73b7c5cf13a33",
+    "eligible-validation.jsonl": "4121a6b01e166925a0b2e983bcdaa7ad6c38e21654133e11077abfc7af9f828f",
+    "test-a.jsonl": "8c1a96451239dd4cda4bcd7b51fdfe51ca77dccf1b5851dc6d3a95aacb3ab780",
+    "test-b.jsonl": "d72d911f004b5088b0a6ddadc39e1e207bc61f4772164b21e98f5de2402fa961"
+  },
+  "phase_closeout": false,
+  "populations": {
+    "eligible_training": {
+      "class_counts": {
+        "0": 9457,
+        "1": 9452
+      },
+      "class_groups": {
+        "0": 9457,
+        "1": 9452
+      },
+      "duplicate_groups": 0,
+      "exact_text_groups": 18909,
+      "file": "eligible-training.jsonl",
+      "largest_group": 1,
+      "membership_sha256": "f848b3887003704be4bc617b27ce904a0d7eca5f5481e6bcfefb27a166bd7708",
+      "ordered_id_sha256": "b54e337ac0503ce5948b563f8a79da2191a7fa1e374b2d4f89af1d7bacd0d3d7",
+      "rows": 18909
+    },
+    "eligible_validation": {
+      "class_counts": {
+        "0": 497,
+        "1": 503
+      },
+      "class_groups": {
+        "0": 497,
+        "1": 503
+      },
+      "duplicate_groups": 0,
+      "exact_text_groups": 1000,
+      "file": "eligible-validation.jsonl",
+      "largest_group": 1,
+      "membership_sha256": "d8f884224e9b6f3f8b46493b0582295559daf83fef599a80ddb313d04c9d7182",
+      "ordered_id_sha256": "4160c508a4347e58730df188aafcc3d15fc6b8755117e409a2d96c8cfefb133b",
+      "rows": 1000
+    },
+    "test_a": {
+      "class_counts": {
+        "0": 8515,
+        "1": 3243
+      },
+      "class_groups": {
+        "0": 8414,
+        "1": 3243
+      },
+      "duplicate_groups": 35,
+      "exact_text_groups": 11657,
+      "file": "test-a.jsonl",
+      "largest_group": 58,
+      "membership_sha256": "81e9d0fda8fcaa0426258b5c92c5531bb7ca89446c480235bcaaaa4509e71b54",
+      "ordered_id_sha256": "8c69c7e47432290c145f3780edf1d8fc59939ae2778460e104645ea140fd7003",
+      "rows": 11758
+    },
+    "test_b": {
+      "class_counts": {
+        "0": 8515,
+        "1": 3243
+      },
+      "class_groups": {
+        "0": 8459,
+        "1": 3243
+      },
+      "duplicate_groups": 36,
+      "exact_text_groups": 11702,
+      "file": "test-b.jsonl",
+      "largest_group": 8,
+      "membership_sha256": "5f257fbada54ce202d2489756598be1df93414c3b7083e7c5e871e8f5bfb163c",
+      "ordered_id_sha256": "79493426f914bf54bfbedf4eca09c68dddf1b8987dea27193c9042f312bee941",
+      "rows": 11758
+    }
+  },
+  "review_status": "human_review_pending",
+  "revision": "a5234cb1f5cdb256600cab64b8c961195b5e8404",
+  "schema_version": 1,
+  "target_A_fraction": "1/2"
+}
