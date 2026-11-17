@@ -214,3 +214,16 @@ GPU compatibility and pilot remain unexecuted. The cap 1024 pilot proposal prece
 test token statistics and remains a proposal, with no test-guided revision or final freeze.
 No active audit jobs remain. Source/failed attempts/setup and successful outputs are retained;
 publication follows final source/evidence checks under Yash's standing authorization.
+
+### S-20261117-07 publication follow-up
+
+After actual native output/phase reviews, the 85-test final software evidence, tested-source
+and staged-content checks, JSON/LF/local-link checks, and confirmation that credentials,
+private proxy values and raw assets were excluded, the P1-A milestone was committed as
+`d1cf6bdec204c7e9a5795ad8d65bba2969fd28c3` and pushed to origin/main. A read-only remote check
+matched that SHA, with a clean working tree. Author/committer are Yash
+<chavan.yas@northeastern.edu>; no co-author trailer, force push, other GitHub write,
+message, visibility change or submission occurred. The same standing authorization covers
+this factual handoff update. Both successful audit jobs and prior failures are complete;
+no active job remains. Latest final publication receipt is retained locally at
+`outputs/runtime-20261117/publication.json` and in Git history.

@@ -3,7 +3,8 @@
 ## Current milestone - P1-A complete, November 17
 
 The asset/data/input phase is now complete against the roadmap, with independent evidence
-review and PHASE_RECORDS closeout. All 43,425 source rows have character/byte and actual
+review and PHASE_RECORDS closeout. The reviewed milestone is committed and pushed to the
+existing private repository as `d1cf6bd`; this is not final public-repository delivery. All 43,425 source rows have character/byte and actual
 token-length accounting; the approved group-preserving populations and source contracts
 are verified. Both native CPU jobs passed their checks, including 85 tests on the final
 job. Official-test processing was separately authorized and retained only total length

@@ -6,8 +6,8 @@
 |---|---|
 | Provenance/phase | November 17, 2026, America/New_York; S-20261117-07; P1-A closed against ROADMAP, next P1-B |
 | Completion evidence | PHASE_RECORDS P1-A closeout, V-034 through V-038 and compact p1a-closeout facts. All 43,425 source rows accounted for; no empirical model phase completed. |
-| Ownership/jobs | Implementation, independent output/phase reviews and final record checks complete. No active reservations, audit jobs or checkpoint; coordinating agent owns publication. No teammate-attestation wait. |
-| Repository | Began at published 4d9c0b3. New native-audit code/results/closeout are being packaged under standing substantial-milestone commit/push authorization. Actual publication is recorded after verification. Preserve earlier shared history/worktree/evidence. |
+| Ownership/jobs | Implementation, independent reviews and publication checks complete. No active reservations, audit jobs or checkpoint. No teammate-attestation wait. |
+| Repository | P1-A closeout milestone `d1cf6bdec204c7e9a5795ad8d65bba2969fd28c3` committed and pushed to origin/main; remote SHA independently verified. Author/committer Yash <chavan.yas@northeastern.edu>, no co-author trailer. This factual handoff follows it; inspect Git for latest tip. Shared history/worktree/evidence preserved. |
 | Inputs | ASSET-001/002 pinned revisions unchanged; D-008 populations unchanged. D-009 permits verified development use. D-010/D-011 approved separate CPU scopes. Full checkpoint payload/checksum/loading remains P1-B. |
 | Native evidence | Development job 11955247 verified 19,909 rows; official-test admin job 11956265 verified 23,516 total rows. Explicit wrapper/default checks, full coverage, source hashes and aggregates passed independent review. Final remote suite 85 passed. |
 | Scientific boundaries | No classifier logits/predictions, effective precision, GPU backend, model pooling equivalence, final cap/threshold, main freeze or gate result exists. Test-A/Test-B performance release remains gated. |
