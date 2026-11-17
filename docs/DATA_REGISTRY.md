@@ -5,16 +5,17 @@ assets actually used. The [research protocol](RESEARCH_PROTOCOL.md) defines data
 duplicate isolation and permitted access; this file records their implementation and evidence.
 Pinned sources and the approved D-008 population construction are recorded below.
 Review-ready eligibility/A/B memberships now exist. D-009 authorizes independent development
-continuation without teammate attestations; performance releases still follow the protocol. Authenticated pinned tokenizer files and the classifier tensor header
-are verified (V-022); actual tokenization/model execution remain unverified.
+continuation without teammate attestations; performance releases still follow the protocol. Authenticated pinned tokenizer files and the classifier tensor header are verified;
+native tokenization/configuration and all-source lengths now pass V-034 through V-038.
+Full model/precision execution remains P1-B work.
 
 ## Selected sources and verification state
 
-| Asset | Selected source | Immutable revision / verified identity | Audit outstanding |
+| Asset | Selected source | Immutable revision / verified identity | Verified scope / remaining work |
 |---|---|---|---|
 | Classifier | `rogue-security/prompt-injection-jailbreak-sentinel-v2` | Candidate audited revision `05ff9bfd1f28c5228e53121d5ee4427bb5205212`; ASSET-002 | Authenticated config plus header verified: 0=benign/1=jailbreak, score.weight F16 [2,1024], no bias (V-022); runtime loading/effective precision pending |
-| Tokenizer | Tokenizer accompanying the selected Sentinel v2 checkpoint | Same candidate repository revision; ASSET-002 | All selected files authenticated/content-verified (V-022); wrapper PAD151645 differs from serialized PAD151643; actual tokenization/pooling checks blocked by local native-library policy |
-| Dataset | `hendzh/PromptShield` | `a5234cb1f5cdb256600cab64b8c961195b5e8404`; ASSET-001 | D-008 eligibility/A-B construction checked (V-018–V-021); human review/exposure declarations and token-length audit pending |
+| Tokenizer | Tokenizer accompanying the selected Sentinel v2 checkpoint | Same audited repository revision; ASSET-002 | Native wrapper/configuration and all-source token lengths verified on Explorer (V-034 through V-038); model pooling/precision checks remain P1-B |
+| Dataset | `hendzh/PromptShield` | `a5234cb1f5cdb256600cab64b8c961195b5e8404`; ASSET-001 | D-008 construction and all-source lengths checked; P1-A complete, unknown-history/near-duplicate limitations retained |
 
 The recorded revisions identify audited sources, not a complete experimental freeze. Provider descriptions are
 catalogued in [SOURCES.md](SOURCES.md); audit entries below must distinguish provider claims
@@ -25,10 +26,10 @@ here; raw prompt collections and credentials do not.
 
 | Partition | Membership record / artifact | Parent revision | Effective row / class / group counts | Freeze and verification | Exposure state |
 |---|---|---|---|---|---|
-| Eligible training | SPLIT-001; `eligible-training.jsonl` in current partition directory | ASSET-001 | 18,909 rows/groups; 9,457 benign / 9,452 injection | D-008/V-021; D-009 development-access amendment | Administrative only plus earlier EXP-002 training snippets |
-| Eligible validation | SPLIT-002; `eligible-validation.jsonl` | ASSET-001 | 1,000 rows/groups; 497 benign / 503 injection | D-008/V-021; D-009 development-access amendment | Administrative only |
-| Test-A | SPLIT-003; `test-a.jsonl` | ASSET-001 official test | 11,758 rows; 8,515 benign / 3,243 injection; 11,657 groups | D-008; human review and P1-C release pending | No project model performance; prior team history incompletely declared |
-| Test-B | SPLIT-004; `test-b.jsonl` | ASSET-001 official test | 11,758 rows; 8,515 benign / 3,243 injection; 11,702 groups | D-008; human review and P2-D/P2-E release pending | Administrative only; no claim of cryptographic or universal historical sealing |
+| Eligible training | SPLIT-001; `eligible-training.jsonl` in current partition directory | ASSET-001 | 18,909 rows/groups; 9,457 benign / 9,452 injection | D-008/V-021; D-009 development-access amendment | Native development tokenization, EXP-005/006; earlier training snippets EXP-002; no model outcome |
+| Eligible validation | SPLIT-002; `eligible-validation.jsonl` | ASSET-001 | 1,000 rows/groups; 497 benign / 503 injection | D-008/V-021; D-009 development-access amendment | Native development tokenization, EXP-005/006; no model outcome |
+| Test-A | SPLIT-003; `test-a.jsonl` | ASSET-001 official test | 11,758 rows; 8,515 benign / 3,243 injection; 11,657 groups | D-008; performance release pending P1-C | No project model performance; prior team history incompletely declared |
+| Test-B | SPLIT-004; `test-b.jsonl` | ASSET-001 official test | 11,758 rows; 8,515 benign / 3,243 injection; 11,702 groups | D-008; performance release pending P2-D/P2-E | Administrative only; no claim of cryptographic or universal historical sealing |
 
 The index describes recorded state, not proof that an asset has never been inspected.
 Any verified prior access must appear in the exposure log. Pilot, profiling,
@@ -200,3 +201,55 @@ prompt text was not displayed/exported or interpreted as instructions. Reference
 were kept separate from internal inference inputs. Boundary tests used invented fixtures.
 No official-test raw source or model outcomes were read. Prior external history remains
 unknown beyond existing statements; D-009 removes attestation waits, not that limitation.
+
+### ASSET-002 / SPLIT-001/002 native tokenizer follow-up
+
+V-034/V-035 and R-P1-A-20261117-07 complete actual tokenizer/config execution for both
+development populations. The verified wrapper is Qwen2TokenizerFast (Transformers 4.57.1,
+tokenizers 0.22.2); Python 3.13.5 on Explorer, Unicode database 15.1.0. It applies intrinsic
+NFC while the input loader preserves original text/hashes. Explicit call settings control
+padding/truncation and add no automatic BOS/EOS or chat template. ASSET-002's seven source
+hashes remain unchanged. Actual model-config defaults and source hashes are in the
+[native summary](evidence/p1a-native-tokenizer-summary-20261117.json).
+
+All 18,909 training and 1,000 validation rows have complete original token lengths and
+candidate-cap diagnostics. Raw per-ID counts/hashes (without text/tokens) remain at
+`outputs/runtime-20261117/attempt-04/tokenizer-audit-native/`; summary/manifest/output hashes
+and retrieval receipt bind them. RESULTS RES-003 owns the aggregate observations/proposal.
+This establishes neither held-out token lengths nor model output/precision behavior.
+
+### EXP-006 - Approved native development tokenization
+
+Yash approved the Explorer CPU-only route in D-010. The reviewed package copied only
+development sources, tokenizer/configuration assets, code and provenance to his private
+scratch run directories; no credentials, classifier weights or official-test source/membership
+files were included. The actual successful job tokenized both development populations;
+the reviewer saw text-free IDs/counts and invented synthetic vectors, not real prompts or
+tokens. Four job attempts and their failures are preserved. No test or classifier performance
+was accessed. Unknown external history remains a limitation rather than an attestation wait.
+
+### ASSET-001 official-test token-length completion
+
+D-011 authorized only aggregate original official-test token-length administration after
+the development-only run. V-037/V-038 and R-P1-A-20261117-08 cover all 23,516 rows of source
+SHA-256 `526207c2485829d9961407011d7f4cd929569e7f285dc8396b3f385e0608bc70`. The total histogram
+and summary are [retained evidence](evidence/p1a-official-test-token-lengths-20261117.json);
+independent arithmetic/identity review is linked in V-038. No A/B or class-length breakdown,
+cap comparison, row linkage or model output was produced. These statistics are not a
+development-selection population and did not select the previously proposed pilot cap.
+
+Together with the verified native development run, all 43,425 source rows now have token
+length accounting under the same pinned wrapper/assets and explicit uncapped settings.
+Source bytes, labels and SPLIT-001 through SPLIT-004 memberships are unchanged. P1-A's
+closeout is in PHASE_RECORDS; performance-release freezes remain in force.
+
+### EXP-007 - Separately approved official-test length administration
+
+November 17, 2026; D-011 approval preceded transfer to a fresh private Explorer scratch
+directory. The pinned test source was processed by the fixed administrative tokenizer
+command only. The coordinator/reviewer received total length statistics, a total frequency
+histogram, class-support validation and provenance. No prompts, row identities/hashes,
+real token vectors, cap/A-B comparisons, scores or model performance were displayed/exported.
+The existing inference input guards remain unchanged. The aggregate information must not
+guide development choices; RES-003's pilot proposal preceded this access. Unknown external
+history is still not a claim of universal non-exposure.

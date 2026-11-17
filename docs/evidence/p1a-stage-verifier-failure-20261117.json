@@ -1,0 +1,11 @@
+{
+  "synthetic_only": true,
+  "verifier_sha256": "ccdc660661e186b5c738dac8be10f696b4672007edf6f4411c95ca4daf1295a9",
+  "intentionally_invalid_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "ordinary_exit_code": 1,
+  "optimized_exit_code": 0,
+  "optimized_stdout": "{\"verified_stage_files\": 1, \"verified_bytes\": 1, \"official_test_or_tensor_payload_included\": false}",
+  "integrity_checks_disabled_by_optimization": true,
+  "actual_stage_modified": false,
+  "network_or_native_tokenizer_execution": false
+}

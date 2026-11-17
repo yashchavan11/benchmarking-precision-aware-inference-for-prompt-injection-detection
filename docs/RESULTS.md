@@ -12,6 +12,7 @@ and the gate's separate quality/cost claims belong to [EXTENSION.md](EXTENSION.m
 |---|---|---|---|---|---|
 | RES-001 | Part 1 / P1-A | Pinned source supports an exact-duplicate-aware evaluation design | Development observation: administrative source audit, no classifier | R-P1-A-20261117-01; V-006/V-008; ASSET-001 | Observed and independently checked by automated review; human signoff pending |
 | RES-002 | Part 1 / P1-A | Padding/pooling policies require explicit checks | Static source and synthetic index cases | R-P1-A-20261117-04; V-016/V-022 | Source-level observation; human/runtime review pending |
+| RES-003 | P1-A | Native development lengths and tokenizer controls | Complete administrative development observation | R-P1-A-20261117-07; V-034/V-035 | Independently checked; no model/cap freeze |
 
 ### RES-001 — Source audit establishes exact-group constraints, not model performance
 
@@ -83,3 +84,19 @@ alone does not update the claim presented to readers.
 - **Observation:** The model leaves PAD unset; inspected batch-one source selects the last position. Setting PAD=EOS changes stock pooling to last token unequal to EOS. The retained tokenizer backend and wrapper configuration also disagree on PAD ID. Wrapper code adjusts backend settings per call, so a direct backend invocation cannot silently be assumed equivalent.
 - **Implication:** Apply one explicitly verified input/pooling policy to all precision treatments. Use unpadded batch one as the initial proposed reference; a later batching adapter or PAD policy requires a rationale and numerical equivalence checks. No policy is selected by this finding.
 - **Limits:** No logits, token lengths, precision effects or resource outcomes were measured. V-024's aggregate literal/NFC probe does not remove the need for truncation and synthetic EOS cases. Do not claim a measured detector error or accuracy change from these source observations.
+
+### RES-003 - Native development lengths and explicit tokenizer controls
+
+- **Evidence/status:** Administrative development observation from complete R-P1-A-20261117-07, independently checked by V-034/V-035; not a classifier quality/resource result. Exact versions, input/asset/output hashes are in the native summary and registry.
+- **Original lengths:** Training n=18,909, median 70, p95=523, p99=916, maximum 6412. Validation n=1000, median 68.5, p95=519, p99=894, maximum 2580. p95/p99 use nearest rank; median is conventional. All rows are below the model's declared 40960-position value; this is not a measured runtime capacity limit.
+
+| Candidate cap | Training truncated / 18,909 | Validation truncated / 1,000 |
+|---|---:|---:|
+| 512 | 965 (5.10%) | 52 (5.20%) |
+| 1024 | 124 (0.66%) | 8 (0.80%) |
+| 2048 | 11 (0.06%) | 2 (0.20%) |
+
+- **Tokenizer controls observed:** Initial backend PAD ID 151643 and cap 5000 are overridden/disabled by explicit wrapper calls; wrapper padding uses PAD/EOS ID 151645. All tested added-token flags agree with source; no automatic boundary tokens are appended. Unequal padded synthetic content matches the unpadded token sequences after masking. Every development capped sequence matches its original right prefix.
+- **Pooling limit:** The integer stock PAD=EOS rule disagrees with last-visible-token selection on relevant synthetic EOS cases, but there were zero such index disagreements in these development sequences at the measured caps. This is not model-logit batching equivalence and does not rule out other inputs.
+- **Proposal made before any official-test token-length audit:** Start the later 128-example pilot at cap 1024, original unpadded batch one, based on development retention above. This preserves more development text than512 while leaving2048 as a justified sensitivity/feasibility option. No model quality, speed or memory advantage is inferred, and no cap/pooling/threshold freeze is made by this proposal.
+- **Later completion:** Official-test token lengths were deliberately outside D-010's package, then separately authorized in D-011 and completed in R-P1-A-20261117-08. No held-out cap comparisons or development selection occurred. P1-A is now closed; model loading, logits, effective precision and the pilot belong to P1-B. The development-derived proposal above remains unchanged.

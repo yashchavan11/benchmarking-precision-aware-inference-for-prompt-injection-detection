@@ -18,6 +18,8 @@ experimental validation.
 | D-007 | Development conventions; not a confirmatory freeze | Shared evaluator interface and metric definitions. | Detailed record below; scientific review and real-run validity remain required. |
 | D-008 | User-approved construction; test release pending | Exact 50/50 whole-group split and development eligibility. | Detailed record below; SPLIT-001 through SPLIT-004 / V-021; continuation amended by D-009. |
 | D-009 | User-directed coordination amendment | Continue from verified artifacts without teammate-attestation waits; communicate overlap. | Detailed record below; no test-performance release or fabricated exposure history. |
+| D-010 | User-approved CPU development route; completed | Bounded Explorer tokenizer/config audit with no test source/model/GPU. | R-P1-A-20261117-07 and V-034/V-035. |
+| D-011 | User-approved aggregate official-test administration; completed | Total original token-length statistics/histogram only, no selection or performance release. | R-P1-A-20261117-08 and V-037/V-038. |
 
 At adoption, D-006 proposed the sequential holdout design without a selected allocation.
 D-008 now records Yash's concrete choice and SPLIT-001 through SPLIT-004 retain checked review-ready
@@ -47,6 +49,24 @@ or repartitioning it.
 - **Validity boundary:** Unknown external exposure remains an explicit limitation, not a proven absence of exposure. Any discovered leakage, invalid artifact or failed check pauses the affected dependent claim/work until assessed. Existing test-release freezes, selected assets, precision treatments, frozen detector and sequential learned-gate scope are unchanged.
 - **Records affected:** AGENTS coordination guidance; current STATUS/Q-013 and prior human-review continuation wording. D-008 membership bytes and prior scientific results are not changed or invalidated. Earlier records retain the then-pending human-review description; D-009 supersedes its use as an automatic wait condition.
 - **Review/credit:** Automated review is not relabeled as human scientific signoff. Applicable course disclosure/review requirements are not invented or waived. Commit authorship still does not establish human implementation or review.
+
+## Runtime-route approval
+
+### D-010 - Approved Explorer CPU tokenizer audit route
+
+- **Authority/date:** November 17, 2026, America/New_York; Yash explicitly approved copying the reviewed 8.4 MB package to his existing Explorer account and running the CPU-only audit after the Windows native-library block.
+- **Approved scope:** R-P1-A-20261117-07; CS5130 allocation, courses partition, one task/two CPUs, 8 GiB memory and a 20-minute maximum. Verified tokenizer/configuration files, training/validation data, code and provenance only. No GPU, model tensor payload, official-test source/membership data or credentials in the package.
+- **Execution conditions:** Fresh private scratch run directory, reviewed stage-03 content/hashes, isolated environment on a compute node using the available Python 3.13.5 module and pinned audit dependencies. Local-only/offline tokenizer calls; no Windows policy change. Preserve failed attempts and monitor actual submitted jobs to verified completion.
+- **Limits:** This approves the alternate runtime and bounded audit, not a model pilot, final study cap/pooling rule, threshold, Test-A/Test-B release or a scientific phase closeout. Existing evidence/claim boundaries and D-009 coordination remain unchanged.
+
+## Administrative scope approval
+
+### D-011 - Approved aggregate official-test token-length administration
+
+- **Authority/date:** November 17, 2026, America/New_York; Yash explicitly approved the prepared 6.4 MB official-test source/code package and aggregate-only Explorer audit to finish the all-split source-length requirement.
+- **Scope:** R-P1-A-20261117-08; fixed pinned PromptShield official test, exact verified tokenizer/assets/environment, two CPUs/8 GiB/five-minute maximum, no installation or GPU. Compute only total original token-length statistics and a sparse total histogram, plus source/support/provenance checks. No prompts, row identities/hashes, real token vectors, cap comparisons, A/B breakdowns or classifier results are exported.
+- **Boundary:** This administrative exception does not release Test-A/Test-B to inference or gate development. Existing development/inference test-role guards are unchanged. Test statistics must not select development settings; RES-003's cap 1024 pilot proposal was made from development evidence before any official-test token statistics.
+- **Completion:** Full 23,516-row source/support coverage and independent aggregate/hash/runtime review are required before relying on the result or closing the remaining P1-A audit gate. Model loading/precision/pooling logits and the pilot remain separate P1-B work.
 
 ## Choice status vocabulary
 

@@ -1,0 +1,49 @@
+{
+  "date_utc": "2026-11-17T21:36:20.484107+00:00",
+  "focused_case_sensitive_synthetic_environment": {
+    "tests_run": 1,
+    "failures": 0,
+    "errors": 0,
+    "successful": true,
+    "subtests": [
+      "uppercase",
+      "lowercase",
+      "both_case_precedence"
+    ]
+  },
+  "command": [
+    "C:\\Users\\yashg\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+  ],
+  "combined_exit_code": 0,
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "source_hashes": {
+    "precision_benchmark/__init__.py": "37ca858d66a10a5c95565e985e985b315d216eaee69b0070e77600fc9c5b27a8",
+    "precision_benchmark/__main__.py": "d944c0112a3f435c7e2285f45510c57efb46709ef7c7bbe4d036a143fb5db076",
+    "precision_benchmark/artifacts.py": "b923f570c00eb3cc538c3f81f8ad67b91db3a763b09fc058eb48dcded40a05bf",
+    "precision_benchmark/contract_audit.py": "ee2d292de4ccb7be6f5a4fce7799b9b7804b9afa3998ded74430be0ad21a1b39",
+    "precision_benchmark/data_audit.py": "78abd494a4e4c913e82c68a4a3a7b58a500c467317e044fbb68369a779d4b5c6",
+    "precision_benchmark/evaluation.py": "3491c6e8f8781ab9a0120813ab50b18073a270f8b354b8d23b2b98c0bd40e084",
+    "precision_benchmark/input_data.py": "b8845c3e05bd413c073f5fdc5e249d849a23f828522c315ce026e25b0dc6b4a8",
+    "precision_benchmark/model_audit.py": "2768f75ae7ccf1b5e486f74ab655fd39f2cb472e4dac4a398a73495819588a87",
+    "precision_benchmark/partition_data.py": "46a66ef3a3fa93502a99be589195bd037eabe41ed50c139c15ca871ca3f995a1",
+    "precision_benchmark/report.py": "0890a1cad45887e072b005a097c8935d7f2696a136f3a0681cf1ed0fad76997a",
+    "precision_benchmark/tokenizer_audit.py": "05312568f3cb7bf0b7f6a041401a58f71a7facdd9018cb50db9d358ed9fe9a0d",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/test_artifacts.py": "ef926767472ff0d8d5b048e013cb01096a5139e78073f206f97e1a3b88f34c92",
+    "tests/test_contract_audit.py": "014da03265a6177e1ceb79a8a068d164a866f5e7640a767b1213c1c6f4cb6b42",
+    "tests/test_data_audit.py": "fa4e64c8ccd506e5a28ef8f3369a96e29667214caceefe7f2ecd849edc7231f1",
+    "tests/test_evaluation.py": "3f93ea2668bc9c942e30f2c07ef3706e633187afeed332c1bf28ef32556ee4b3",
+    "tests/test_input_data.py": "1483ba98a93841fbe36540fab6cffc6468371668dd588b2bfcb3b40992622bfd",
+    "tests/test_model_audit.py": "9aa6caeec2f1c3adccfd6f3977ff6d20cd9aa9c13450ce4621bde75c89bbf4b1",
+    "tests/test_partition_data.py": "bd26aeaf47d48d1d640aa07d0b0e55fd09b212d4374a89391072512fb465e085",
+    "tests/test_report.py": "9887cb81c213e24fcf9de17c9fd73bbe16b246774fcb7cfd3dc151ff7acebe83",
+    "tests/test_tokenizer_audit.py": "12357ab5ba4e76ee8411eae826ad59f53c00d7a661c6c36e2629277bd576e7a5"
+  },
+  "scope": "Test fixture only; production proxy/TLS/security behavior unchanged. No real network, native tokenizer, raw dataset, private cluster proxy read or credential use."
+}

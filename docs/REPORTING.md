@@ -1,6 +1,20 @@
 # Research outputs and course deliverables
 
-## Progress update - development input handoff and coordination
+## Current milestone - P1-A complete, November 17
+
+The asset/data/input phase is now complete against the roadmap, with independent evidence
+review and PHASE_RECORDS closeout. All 43,425 source rows have character/byte and actual
+token-length accounting; the approved group-preserving populations and source contracts
+are verified. Both native CPU jobs passed their checks, including 85 tests on the final
+job. Official-test processing was separately authorized and retained only total length
+statistics/histogram/provenance, with no model performance or development selection.
+
+RES-003's development-only truncation table supports the proposed 1024-token pilot starting
+point; no study cap, model accuracy, precision effect, speedup or memory saving is claimed.
+The next phase is P1-B model/precision feasibility and a proposed 128-example training pilot.
+The progress-report format remains unspecified; this working text is not a submission.
+
+## Earlier checkpoint - development input handoff and coordination
 
 D-009 now permits continuation from verified artifacts without separate teammate
 attestations; unknown exposure and unperformed human review remain accurately described.
@@ -309,3 +323,16 @@ report, slides and evidence snapshot, with checks establishing:
 
 The [roadmap](ROADMAP.md) owns the phase sequence; this section defines the submission
 artifacts and verification evidence for that final phase.
+
+## Native development tokenizer result - November 17
+
+R-P1-A-20261117-07 now executes the actual pinned tokenizer/configuration on an approved
+Explorer CPU node. All 18,909 training and 1,000 validation inputs were checked, with no
+model inference or official-test source. At cap 1024, 124 training rows (0.66%) and 8 validation
+rows (0.80%) truncate; at 512 the corresponding counts are 965 (5.10%) and 52 (5.20%), and at 2048
+they are 11 (0.06%) and 2 (0.20%). RES-003/V-034/V-035 retain complete definitions and evidence.
+The wrapper's PAD/special-token/truncation behavior is now executed rather than inferred.
+All 76 tests passed on Explorer; three earlier failed attempts are retained and explained.
+No classifier quality, precision speedup, memory saving or final cap is claimed. The separate
+D-011 official-test length administration subsequently completed with independent review
+and 85 remote tests (V-037/V-038), supporting the P1-A closeout.

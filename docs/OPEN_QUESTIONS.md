@@ -8,10 +8,10 @@ evidence that answered them.
 
 | ID | Question | Resolution boundary | Current state |
 |---|---|---|---|
-| Q-001 | What exact model, tokenizer and dataset revisions are available, and what are their actual schemas and label mappings? | P1-A, before relying on predictions. | Partly resolved: dataset revision/schema/counts and public model revision verified in ASSET-001/002; Authenticated seven-file/header audit complete (V-022): configured 0=benign/1=jailbreak and actual score.weight header F16 [2,1024]. Runtime tokenization/pooling/effective precision remain Q-004/Q-014/Q-015. |
+| Q-001 | What exact model, tokenizer and dataset revisions are available, and what are their actual schemas and label mappings? | P1-A, before relying on predictions. | Resolved for P1-A input scope: ASSET-001/002 and V-034 through V-038 verify exact sources, native tokenizer/configuration, label orientation/head descriptor and all-source lengths. Full model loading/pooling/precision remains P1-B. |
 | Q-002 | What Test-A/Test-B allocation supplies adequate class support and duplicate isolation while preserving a useful untouched extension holdout? | Before any Part 1 official-test model-performance inspection; see D-006. | D-008 approved 50/50; review-ready memberships verified V-018–V-021. Independent construction review passed; D-009 removes teammate waits. Performance release remains subject to the protocol freeze. |
 | Q-003 | What duplicate/conflicting-label issues exist, and which development eligibility manifests remove held-out overlaps and separate gate fitting from validation selection? | Audit in P1-A; resolve exclusions and relevant sensitivity analyses before affected fitting/evaluation. | Exact audit completed (V-008): no cross-split overlaps/conflicts; 71 duplicate groups within test. Projection removes no development rows. D-008 construction now applies exact grouping/eligibility (V-021); unperformed human review and residual near-duplicate limits remain documented; D-009 permits independent continuation. |
-| Q-004 | Which preprocessing and common execution conditions produce a valid, feasible three-precision comparison? | Development investigation in P1-B; P1-C freeze. | Open. |
+| Q-004 | Which preprocessing and common execution conditions produce a valid, feasible three-precision comparison? | Development investigation in P1-B; P1-C freeze. | Native input/tokenizer contract complete; actual model/GPU/three-treatment feasibility and pilot settings remain P1-B. |
 | Q-005 | Which quality metric is primary, and which shared-threshold selection rule reflects the intended comparison? | Selection from documented candidates before P1-C freeze. | Open. |
 | Q-006 | What profiling and uncertainty budget is adequate for stable, interpretable results? | Pilot in P1-B; main-plan freeze in P1-C. | Open; additional checks may be justified by pilot evidence. |
 | Q-007 | Which low/high precision pair offers useful recoverable-error headroom and measured cost differences? | P2-A, using development evidence. | Open. |
@@ -70,7 +70,11 @@ unpadded batch one; standard PAD=EOS or a mask-based adapter are unselected alte
 Do not silently change head pooling, strip delimiters, resize embeddings or substitute a
 base tokenizer. No real outputs exist to invalidate; the pilot proposal must state these checks.
 
-### Q-015 — Windows Application Control blocks required native tokenizer dependency
+### Q-015 - Windows native block; Explorer CPU route verified
+
+Current disposition: the approved Explorer CPU tokenizer/configuration route is verified
+by V-034 through V-038. Windows itself remains blocked; model/GPU execution remains P1-B.
+The following paragraph preserves the earlier local failure and conditions preceding authorization.
 
 V-017 records `regex._regex` DLL import blocked while importing Transformers. The user
 authorized the Python login alternative for the separate blocked hf.exe launcher; that
@@ -91,3 +95,28 @@ work and shared settings to affected teammates; inspect their actual pushed cont
 V-025 confirms Q-015 is a real enforced native-library block. It does not prevent the
 standard-library input preflight now completed in V-026. No Viraj-specific missing code
 or artifact is demonstrated to block the current work.
+
+### Q-016 - Official-test length administration (resolved by D-011 / V-037 / V-038)
+
+The initial native development run deliberately excluded official test, leaving its token
+lengths as an explicit remaining P1-A requirement. Yash separately approved the total-only
+administrative route in D-011. R-P1-A-20261117-08 completed all 23,516 source rows, and V-038
+independently verified source/support, total histogram/statistics and runtime identity.
+The all-split length requirement is complete; no inference guard or test-performance freeze
+changed. The cap 1024 pilot proposal in RES-003 preceded any test-token statistics and remains
+development-derived and unfrozen. No model result or cap choice follows from this audit.
+
+Q-014 is now resolved for actual tokenizer defaults/explicit calls, but model-logit pooling
+equivalence remains P1-B work. Q-015 is resolved for the approved Explorer CPU tokenizer
+route; Windows itself remains blocked and GPU/PyTorch/bitsandbytes execution is still untested.
+
+### P1-A closeout disposition - November 17
+
+Q-001/Q-003 source/schema/label/group/eligibility/input-contract requirements are completed
+within recorded audit limits. Q-002's construction is selected and verified by D-008;
+performance release still awaits the proper freezes. Q-012 access and the approved CPU
+portion of Q-015 are resolved; Windows itself is unchanged. D-011 and V-037/V-038 resolve
+Q-016's all-split length requirement. Q-013 remains a disclosed unknown-history limitation
+under D-009, not an attestation wait. Q-004/Q-014 now concern actual model/GPU/precision
+and pooling checks in P1-B. No model-weight load, pilot configuration approval or final
+threshold selection is inferred from P1-A completion.

@@ -1,0 +1,9 @@
+{
+  "synthetic_only": true,
+  "verifier_sha256": "e85a7a9238a83e28c3a785aec88bd3fdec1219b0f76cc2f50118e59df0db9e01",
+  "ordinary_invalid_hash_exit_code": 1,
+  "optimized_invalid_hash_exit_code": 1,
+  "invalid_hash_rejected_with_optimization": true,
+  "actual_stage_modified": false,
+  "network_or_native_tokenizer_execution": false
+}

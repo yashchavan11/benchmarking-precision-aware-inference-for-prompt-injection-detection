@@ -1,0 +1,233 @@
+{
+  "outcome": "passed within retained tokenizer-audit output scope",
+  "audit_directory": "outputs\\runtime-20261117\\attempt-04\\tokenizer-audit-native",
+  "summary_sha256": "87a6f3271a7e21d7ec75a1affc94270e96cc6a0677f9d283dabdb9b9338452a3",
+  "manifest_sha256": "6748eb74b0e30b1d9a474bd80118b72a7ed591e6ccaf8d18e53ea83307aa3442",
+  "runtime": {
+    "library_source_sha256": {
+      "transformers.configuration_utils": "08a3889c1b8a73d340a37c93f72346ee0e385e339b7a72a03b5c026d4943baf7",
+      "transformers.models.qwen2.tokenization_qwen2_fast": "1025a3b86526283bd86a447f0fe2d991d09775b32d3fdcc233c9e447b0611049",
+      "transformers.models.qwen3.configuration_qwen3": "27863e9718fdbc899f2d0e567621e4d3d36d8dc500c1d54b49dba4242d08d2bd",
+      "transformers.tokenization_utils_base": "e71871474be2b1aa32f3a147dc31fe0a195fd402a27c37d30d666035fcccd891",
+      "transformers.tokenization_utils_fast": "558e454ee6850e90e8bc5d1782e35878dfda1da9bfdf997ae113fa7ff771a0f3"
+    },
+    "model_loaded": false,
+    "resolved_config": {
+      "eos_token_id": 151645,
+      "hidden_size": 1024,
+      "id2label": {
+        "0": "benign",
+        "1": "jailbreak"
+      },
+      "label2id": null,
+      "max_position_embeddings": 40960,
+      "model_type": "qwen3",
+      "num_labels": 2,
+      "pad_token_id": null,
+      "vocab_size": 151936
+    },
+    "tokenizer_class": "Qwen2TokenizerFast",
+    "tokenizer_module": "transformers.models.qwen2.tokenization_qwen2_fast",
+    "versions": {
+      "tokenizers": "0.22.2",
+      "transformers": "4.57.1"
+    }
+  },
+  "python": "3.13.5 (main, Jul 25 2025, 17:25:46) [GCC 11.4.1 20230605 (Red Hat 11.4.1-2)]",
+  "platform": "Linux-5.14.0-362.13.1.el9_3.x86_64-x86_64-with-glibc2.34",
+  "python_unicode_database": "15.1.0",
+  "official_library_source_matches": {
+    "transformers.configuration_utils": true,
+    "transformers.models.qwen3.configuration_qwen3": true,
+    "transformers.models.qwen2.tokenization_qwen2_fast": true,
+    "transformers.tokenization_utils_fast": true,
+    "transformers.tokenization_utils_base": true
+  },
+  "development_ids_checked": 19909,
+  "populations": {
+    "eligible_training": {
+      "rows_checked": 18909,
+      "total_and_two_class_aggregates_recomputed": true,
+      "original_lengths": {
+        "max": 6412,
+        "mean": 127.8501771643133,
+        "median": 70,
+        "min": 4,
+        "n": 18909,
+        "p90": 296,
+        "p95": 523,
+        "p99": 916
+      },
+      "caps": {
+        "1024": {
+          "denominator_rows": 18909,
+          "effective_lengths": {
+            "max": 1024,
+            "mean": 125.46533396795176,
+            "median": 70,
+            "min": 4,
+            "n": 18909,
+            "p90": 296,
+            "p95": 523,
+            "p99": 916
+          },
+          "source_pool_index_disagreement_rows": 0,
+          "terminal_eos_rows": 0,
+          "truncated_fraction": 0.006557723835210747,
+          "truncated_rows": 124
+        },
+        "2048": {
+          "denominator_rows": 18909,
+          "effective_lengths": {
+            "max": 2048,
+            "mean": 127.30223702998572,
+            "median": 70,
+            "min": 4,
+            "n": 18909,
+            "p90": 296,
+            "p95": 523,
+            "p99": 916
+          },
+          "source_pool_index_disagreement_rows": 0,
+          "terminal_eos_rows": 0,
+          "truncated_fraction": 0.0005817335660267597,
+          "truncated_rows": 11
+        },
+        "512": {
+          "denominator_rows": 18909,
+          "effective_lengths": {
+            "max": 512,
+            "mean": 112.92315828441482,
+            "median": 70,
+            "min": 4,
+            "n": 18909,
+            "p90": 296,
+            "p95": 512,
+            "p99": 512
+          },
+          "source_pool_index_disagreement_rows": 0,
+          "terminal_eos_rows": 0,
+          "truncated_fraction": 0.05103389920143847,
+          "truncated_rows": 965
+        }
+      },
+      "terminal_eos_rows": 0,
+      "source_pool_index_disagreement_rows": 0,
+      "python_nfc_changed_rows": 1
+    },
+    "eligible_validation": {
+      "rows_checked": 1000,
+      "total_and_two_class_aggregates_recomputed": true,
+      "original_lengths": {
+        "max": 2580,
+        "mean": 128.576,
+        "median": 68.5,
+        "min": 6,
+        "n": 1000,
+        "p90": 308,
+        "p95": 519,
+        "p99": 894
+      },
+      "caps": {
+        "1024": {
+          "denominator_rows": 1000,
+          "effective_lengths": {
+            "max": 1024,
+            "mean": 124.608,
+            "median": 68.5,
+            "min": 6,
+            "n": 1000,
+            "p90": 308,
+            "p95": 519,
+            "p99": 894
+          },
+          "source_pool_index_disagreement_rows": 0,
+          "terminal_eos_rows": 0,
+          "truncated_fraction": 0.008,
+          "truncated_rows": 8
+        },
+        "2048": {
+          "denominator_rows": 1000,
+          "effective_lengths": {
+            "max": 2048,
+            "mean": 127.56,
+            "median": 68.5,
+            "min": 6,
+            "n": 1000,
+            "p90": 308,
+            "p95": 519,
+            "p99": 894
+          },
+          "source_pool_index_disagreement_rows": 0,
+          "terminal_eos_rows": 0,
+          "truncated_fraction": 0.002,
+          "truncated_rows": 2
+        },
+        "512": {
+          "denominator_rows": 1000,
+          "effective_lengths": {
+            "max": 512,
+            "mean": 112.339,
+            "median": 68.5,
+            "min": 6,
+            "n": 1000,
+            "p90": 308,
+            "p95": 512,
+            "p99": 512
+          },
+          "source_pool_index_disagreement_rows": 0,
+          "terminal_eos_rows": 0,
+          "truncated_fraction": 0.052,
+          "truncated_rows": 52
+        }
+      },
+      "terminal_eos_rows": 0,
+      "source_pool_index_disagreement_rows": 0,
+      "python_nfc_changed_rows": 0
+    }
+  },
+  "synthetic_checks_independently_consistent": true,
+  "initial_backend_state": {
+    "padding": {
+      "direction": "left",
+      "length": null,
+      "pad_id": 151643,
+      "pad_to_multiple_of": null,
+      "pad_token": "<|endoftext|>",
+      "pad_type_id": 0
+    },
+    "truncation": {
+      "direction": "right",
+      "max_length": 5000,
+      "strategy": "longest_first",
+      "stride": 0
+    }
+  },
+  "padded_backend_state": {
+    "padding": {
+      "direction": "left",
+      "length": null,
+      "pad_id": 151645,
+      "pad_to_multiple_of": null,
+      "pad_token": "<|im_end|>",
+      "pad_type_id": 0
+    },
+    "truncation": null
+  },
+  "retained_remote_tests": "76 passed",
+  "real_tokenizer_reexecuted_by_reviewer": false,
+  "environment_reuse_review": {
+    "prior_setup_hashes_match_retained_installation": true,
+    "package_lock_unchanged": true,
+    "packages_reinstalled": false,
+    "old_failed_test_log_read": false
+  },
+  "raw_development_or_test_prompts_read_by_reviewer": false,
+  "remote_calls_by_reviewer": false,
+  "review_script_sha256": "2d1e3237fcdf55e37c276b53809d41b5d1d03600dc2a2c1ee839a8556f8aafe7",
+  "limits": [
+    "Real token vectors are intentionally absent; prefix equality and literal-token counts rely on the hash-bound producer's executed checks, with independent structural and aggregate validation.",
+    "Python NFC flags are reaggregated, not recomputed on raw prompts; the runtime's Unicode database is recorded.",
+    "No model loading, logits, pooling equivalence, precision treatment, study cap selection or test release is established."
+  ]
+}

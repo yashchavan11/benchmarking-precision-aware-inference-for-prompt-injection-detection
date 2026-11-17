@@ -1,0 +1,21 @@
+{
+  "outcome": "passed for preparation-only source/mock evidence",
+  "source_and_test_hashes_checked": 23,
+  "retained_suite": "85 tests passed; nine holdout tests mocked",
+  "suite_rerun_by_reviewer": false,
+  "source_sha256": "fc8bcbf68372253899d5a6822da33d69f082f2396fe81edcc8000a4a7aea27d5",
+  "test_sha256": "4416833e0313720e101a04104dd4636f791408d33ecc5b1ea844fdc2c91b3932",
+  "inference_input_guard_and_wrapper_helpers_unchanged": true,
+  "only_total_length_summary_and_sparse_total_histogram_plus_provenance_exported": true,
+  "source_class_counts_only_schema_support_check": true,
+  "no_row_ids_or_row_hashes_prompts_token_vectors_caps_class_lengths_or_AB_breakdowns": true,
+  "mutation_test_isolated_from_zero_token_failure": true,
+  "actual_official_test_bytes_read": false,
+  "native_network_or_remote_actions": false,
+  "additional_data_scope_approval": "pending",
+  "evidence_sha256": {
+    "software_verification": "65f2cc3f06fdc2386d33e79aabaf00eb5cc2ee6c15104a29f084d0e0fceb5c89",
+    "all_tests": "10415057b16ebf463941c99f4128d60ab8883cc897ecd38d1fd64ef4dfb34195",
+    "independent_boundaries": "5c55587fa55df322f5db3c74db8e80785f67168517a0fd5b2645d0c5eee39b1a"
+  }
+}

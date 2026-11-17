@@ -83,3 +83,18 @@ identifies 3077 as an enforced-policy block. The [troubleshooting guide](https:/
 explains using Code Integrity events for diagnosis. V-025 uses these only to interpret
 project-related read-only evidence; no policy/security changes were performed or assumed
 authorized by ordinary implementation instructions.
+
+## Native environment and next GPU feasibility source
+
+The successful Explorer tokenizer jobs and source-hash checks are V-034 through V-038;
+the actual package lock is retained with their setup evidence. Northeastern's
+[batch-job guidance](https://rc-docs.northeastern.edu/en/latest/runningjobs/interactiveandbatch.html)
+supports compute-node execution, and the [Slurm sbatch reference](https://slurm.schedmd.com/sbatch.html)
+distinguishes test-only validation and submission from completed execution. Neither source
+establishes this project's model performance.
+
+For the next pilot, the official [bitsandbytes installation guide](https://huggingface.co/docs/bitsandbytes/main/en/installation)
+was checked on November 17: its NVIDIA LLM.int8 support requirement is compute capability 7.5+
+(Turing or newer), distinct from the lower requirement for some other 8-bit/4-bit features.
+Select/check a compatible allocated GPU and exact package build before loading treatments;
+the CPU audit does not establish compatibility or authorize an unsupported fallback.

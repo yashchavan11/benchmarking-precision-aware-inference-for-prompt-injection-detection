@@ -1,0 +1,340 @@
+{
+  "added_flags_match": true,
+  "cap_checks": {
+    "1024": {
+      "effective_lengths": [
+        1023,
+        1024,
+        1024
+      ],
+      "original_lengths": [
+        1023,
+        1024,
+        1025
+      ]
+    },
+    "2048": {
+      "effective_lengths": [
+        2047,
+        2048,
+        2048
+      ],
+      "original_lengths": [
+        2047,
+        2048,
+        2049
+      ]
+    },
+    "512": {
+      "effective_lengths": [
+        511,
+        512,
+        512
+      ],
+      "original_lengths": [
+        511,
+        512,
+        513
+      ]
+    }
+  },
+  "cases": [
+    {
+      "attention_mask": [
+        1,
+        1,
+        1
+      ],
+      "input_ids": [
+        26982,
+        1467,
+        13
+      ],
+      "source_pooling": {
+        "ends_in_eos": false,
+        "eos_tokens": 0,
+        "last_visible_index": 2,
+        "pad_eos_source_pool_index": 2,
+        "source_pool_index_disagreement": false
+      },
+      "text": "Plain text."
+    },
+    {
+      "attention_mask": [],
+      "input_ids": [],
+      "source_pooling": "empty observed; not eligible for model execution",
+      "text": ""
+    },
+    {
+      "attention_mask": [
+        1,
+        1
+      ],
+      "input_ids": [
+        924,
+        58858
+      ],
+      "source_pooling": {
+        "ends_in_eos": false,
+        "eos_tokens": 0,
+        "last_visible_index": 1,
+        "pad_eos_source_pool_index": 1,
+        "source_pool_index_disagreement": false
+      },
+      "text": "caf\u00e9"
+    },
+    {
+      "attention_mask": [
+        1,
+        1
+      ],
+      "input_ids": [
+        924,
+        58858
+      ],
+      "source_pooling": {
+        "ends_in_eos": false,
+        "eos_tokens": 0,
+        "last_visible_index": 1,
+        "pad_eos_source_pool_index": 1,
+        "source_pool_index_disagreement": false
+      },
+      "text": "cafe\u0301"
+    },
+    {
+      "attention_mask": [
+        1,
+        1,
+        1
+      ],
+      "input_ids": [
+        220,
+        12621,
+        1572
+      ],
+      "source_pooling": {
+        "ends_in_eos": false,
+        "eos_tokens": 0,
+        "last_visible_index": 2,
+        "pad_eos_source_pool_index": 2,
+        "source_pool_index_disagreement": false
+      },
+      "text": "  spaces\t\n"
+    },
+    {
+      "attention_mask": [
+        1,
+        1,
+        1
+      ],
+      "input_ids": [
+        14801,
+        151645,
+        10694
+      ],
+      "source_pooling": {
+        "ends_in_eos": false,
+        "eos_tokens": 1,
+        "last_visible_index": 2,
+        "pad_eos_source_pool_index": 2,
+        "source_pool_index_disagreement": false
+      },
+      "text": "before<|im_end|>after"
+    },
+    {
+      "attention_mask": [
+        1,
+        1
+      ],
+      "input_ids": [
+        14801,
+        151645
+      ],
+      "source_pooling": {
+        "ends_in_eos": true,
+        "eos_tokens": 1,
+        "last_visible_index": 1,
+        "pad_eos_source_pool_index": 0,
+        "source_pool_index_disagreement": true
+      },
+      "text": "before<|im_end|>"
+    },
+    {
+      "attention_mask": [
+        1
+      ],
+      "input_ids": [
+        151645
+      ],
+      "source_pooling": {
+        "ends_in_eos": true,
+        "eos_tokens": 1,
+        "last_visible_index": 0,
+        "pad_eos_source_pool_index": 0,
+        "source_pool_index_disagreement": false
+      },
+      "text": "<|im_end|>"
+    },
+    {
+      "attention_mask": [
+        1
+      ],
+      "input_ids": [
+        151643
+      ],
+      "source_pooling": {
+        "ends_in_eos": false,
+        "eos_tokens": 0,
+        "last_visible_index": 0,
+        "pad_eos_source_pool_index": 0,
+        "source_pool_index_disagreement": false
+      },
+      "text": "<|endoftext|>"
+    }
+  ],
+  "final_backend_state": {
+    "padding": null,
+    "truncation": null
+  },
+  "initial_backend_state": {
+    "padding": {
+      "direction": "left",
+      "length": null,
+      "pad_id": 151643,
+      "pad_to_multiple_of": null,
+      "pad_token": "<|endoftext|>",
+      "pad_type_id": 0
+    },
+    "truncation": {
+      "direction": "right",
+      "max_length": 5000,
+      "strategy": "longest_first",
+      "stride": 0
+    }
+  },
+  "loaded_added_token_count": 26,
+  "padded_backend_state": {
+    "padding": {
+      "direction": "left",
+      "length": null,
+      "pad_id": 151645,
+      "pad_to_multiple_of": null,
+      "pad_token": "<|im_end|>",
+      "pad_type_id": 0
+    },
+    "truncation": null
+  },
+  "padded_cases": [
+    {
+      "attention_mask": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "input_ids": [
+        151645,
+        151645,
+        151645,
+        151645,
+        151645,
+        87
+      ],
+      "source_pooling": {
+        "ends_in_eos": false,
+        "eos_tokens": 0,
+        "last_visible_index": 5,
+        "pad_eos_source_pool_index": 5,
+        "source_pool_index_disagreement": false
+      },
+      "text": "x"
+    },
+    {
+      "attention_mask": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "input_ids": [
+        32,
+        5021,
+        35492,
+        15089,
+        914,
+        13
+      ],
+      "source_pooling": {
+        "ends_in_eos": false,
+        "eos_tokens": 0,
+        "last_visible_index": 5,
+        "pad_eos_source_pool_index": 5,
+        "source_pool_index_disagreement": false
+      },
+      "text": "A longer invented diagnostic string."
+    },
+    {
+      "attention_mask": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "input_ids": [
+        151645,
+        151645,
+        151645,
+        151645,
+        14801,
+        151645
+      ],
+      "source_pooling": {
+        "ends_in_eos": true,
+        "eos_tokens": 1,
+        "last_visible_index": 5,
+        "pad_eos_source_pool_index": 4,
+        "source_pool_index_disagreement": true
+      },
+      "text": "before<|im_end|>"
+    },
+    {
+      "attention_mask": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "input_ids": [
+        151645,
+        151645,
+        151645,
+        151645,
+        151645,
+        151645
+      ],
+      "source_pooling": {
+        "ends_in_eos": true,
+        "eos_tokens": 1,
+        "last_visible_index": 5,
+        "pad_eos_source_pool_index": 0,
+        "source_pool_index_disagreement": true
+      },
+      "text": "<|im_end|>"
+    }
+  ],
+  "scope": "Invented diagnostic strings; exact vectors are synthetic only",
+  "serialized_5000_diagnostic": {
+    "explicit_5000": 5000,
+    "explicit_untruncated": 5001,
+    "study_cap_selected": false
+  },
+  "status": "passed"
+}

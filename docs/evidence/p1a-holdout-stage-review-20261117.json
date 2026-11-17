@@ -1,0 +1,35 @@
+{
+  "outcome": "passed within local byte-integrity and concrete job-scope review",
+  "archive_sha256": "08604387da19526604e8a05fb108a57c2465374dbe2d3d9821a69df419196d3f",
+  "manifest_sha256": "764a819a3c0dcd0b8f7e3e9cc4215cc86a0cd90b1e35c0bed03f114483025857",
+  "archive_bytes": 6432361,
+  "listed_source_bytes": 18540430,
+  "listed_files": 36,
+  "archive_regular_members": 37,
+  "exact_member_inventory_no_links_or_extras": true,
+  "only_fixed_pinned_official_test_source_present": true,
+  "development_raw_AB_memberships_weights_credentials_and_environments_excluded": true,
+  "code_scripts_tests_match_reviewed_workspace": true,
+  "resource_request": {
+    "cpus": 2,
+    "memory_gib": 8,
+    "time_minutes": 5,
+    "gpus": 0,
+    "account": "cs5130.202710",
+    "partition": "courses"
+  },
+  "reuse": {
+    "environment": "/scratch/chavan.yas/precision-aware-inference/tokenizer-audit-20261117-03/project/runtime-env",
+    "assets": "/scratch/chavan.yas/precision-aware-inference/tokenizer-audit-20261117-04/project/outputs/contract-20261117/model-auth"
+  },
+  "strict_environment_asset_path_guards_and_no_install_branch": true,
+  "source_stage_hash_validation_active_under_optimized_python": true,
+  "offline_credential_controls_and_no_overwrite_guards_preserved": true,
+  "official_test_bytes_hashed": true,
+  "official_test_text_decoded_or_displayed": false,
+  "official_test_native_tokenization": false,
+  "network_remote_staging_or_submission": false,
+  "credential_values_read": false,
+  "approval": "Additional official-test transfer and aggregate-processing scope still pending",
+  "review_script_sha256": "5ffd46e38f17de788c0e374e3a18c6a60e36f4bb5ea4b0e9627652474435de6a"
+}

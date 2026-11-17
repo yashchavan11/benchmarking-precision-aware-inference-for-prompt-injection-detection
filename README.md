@@ -3,6 +3,15 @@
 **Course:** CS5130  
 **Team:** Shreyas Shukla, Viraj Paradkar, Yash Chavan, and Hareeshwar Muthu Kumaran
 
+## Current milestone
+
+**November 17, 2026: P1-A is complete.** Pinned assets, native tokenizer/config behavior,
+all 43,425 source-row lengths and the approved group-preserving development/Test-A/Test-B
+manifests are verified. See [the closeout](docs/PHASE_RECORDS.md#p1-a-closeout---asset-data-and-evaluation-design-audit)
+and [STATUS](docs/STATUS.md) for exact evidence and continuation. The final CPU job passed
+85 tests. Classifier weights have not been fully downloaded/loaded, and no model-quality,
+precision or GPU-resource experiment has run. P1-B is the next phase.
+
 ## Project overview
 
 This project investigates the relationship between numerical precision, classification
@@ -170,8 +179,8 @@ conditions within each reported comparison, regardless of where development occu
 ## Project documentation and research records
 
 The development evaluator is implemented and checked against synthetic fixtures. A pinned
-PromptShield administrative audit and public model-metadata audit are also implemented;
-their evidence and remaining access/label/partition requirements are in
+PromptShield administrative audit, authenticated model/header audit and native tokenizer
+audits complete P1-A. Their source/label/population evidence and reuse limits are in
 [DATA_REGISTRY.md](docs/DATA_REGISTRY.md). Model inference and empirical precision experiments
 remain pending. This README makes no claim of measured model-performance results.
 The evolving state and next task are recorded in [STATUS.md](docs/STATUS.md).
@@ -258,12 +267,11 @@ Use an approved Python environment with `huggingface-hub` and `requests` from
 `requirements-audit.txt`, and an existing securely configured Hub credential. No token
 argument is accepted. This downloads about 16 MB of tokenizer/configuration plus a bounded
 header, never the full weights. Retained results establish source/head metadata, not model
-execution. The candidate tokenizer dependencies in that requirements file are installed
-locally but Windows Application Control blocks `regex`; see Q-015 before attempting runtime
-work. The dependency-free evaluator and partition builder remain usable. One optional
-requests-specific mock test skips when requests is absent; the checked audit environment
-passed all 56 combined tests (V-023). Full sources, population identities and limits are in
-DATA_REGISTRY; no P1-A completion or empirical precision result is claimed.
+execution. The tokenizer dependencies are verified on Explorer; Windows still blocks `regex` locally
+(Q-015). The dependency-free evaluator and partition builder remain usable. One optional
+requests-specific mock test skips when requests is absent. The final combined suite passed
+85 tests locally and on the final Explorer job. DATA_REGISTRY and PHASE_RECORDS link the
+completed P1-A scope; no empirical model-precision result is claimed.
 
 ### Check development inputs before tokenization
 
@@ -281,3 +289,19 @@ Actual preflights verified 18,909 training and 1,000 validation rows; 66 combine
 passed (V-026). This prepares input handling without executing tokenization or a model.
 The Windows native-library policy block remains Q-015; no teammate reply is needed for
 independent work. Shared choices and overlapping work should be communicated per D-009.
+
+### Native tokenizer audit commands
+
+`precision_benchmark.tokenizer_audit` validates both D-009 development roles with explicit
+untruncated/unpadded local-only wrapper calls and the three candidate cap diagnostics.
+`precision_benchmark.holdout_lengths` is a separate administrative command with a fixed
+source/role and total-only outputs; it is not a test-inference entry point. Use their
+`--help` and the reviewed Slurm scripts for exact arguments. Scripts require an approved
+runtime, new output/run directories and preserved asset/input hashes. The original
+development guard still rejects protected roles before reading files.
+
+The recorded commands use exact retained audit receipts/parent artifacts. Reacquisition
+provenance can differ in timestamps/paths; do not silently replace expected hashes. Reuse
+the registered compatible artifacts or explicitly verify/document equivalent source bytes
+and reconstructed populations. Raw data, vocabularies, weights, environments and large
+row outputs remain excluded from Git; coordinate access/regeneration using the registry.

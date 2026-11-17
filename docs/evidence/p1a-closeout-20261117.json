@@ -1,0 +1,29 @@
+{
+  "phase": "P1-A",
+  "status": "complete",
+  "date": "2026-11-17",
+  "timezone": "America/New_York",
+  "source_rows_accounted": 43425,
+  "dataset_revision": "a5234cb1f5cdb256600cab64b8c961195b5e8404",
+  "model_tokenizer_revision": "05ff9bfd1f28c5228e53121d5ee4427bb5205212",
+  "development_rows_tokenized": 19909,
+  "official_test_rows_administratively_tokenized": 23516,
+  "development_run": "R-P1-A-20261117-07",
+  "administrative_test_run": "R-P1-A-20261117-08",
+  "successful_jobs": [
+    "11955247",
+    "11956265"
+  ],
+  "native_model_inference_performed": false,
+  "effective_precision_or_GPU_validated": false,
+  "study_cap_or_final_threshold_selected": false,
+  "test_performance_released": false,
+  "independent_assessment": "outputs/runtime-20261117/phase-review/p1a-final-assessment.md",
+  "next_phase": "P1-B",
+  "limitations": [
+    "Unknown prior external exposure; no pristine-history guarantee.",
+    "Near-duplicate/template dependence, annotation truth and pretrained contamination unresolved.",
+    "Header/configuration and tokenization evidence do not verify full checkpoint loading or model/GPU execution.",
+    "Large source/row artifacts are retained locally and on private scratch; teammate access is not presumed."
+  ]
+}

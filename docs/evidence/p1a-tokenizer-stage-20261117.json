@@ -1,0 +1,11 @@
+{
+  "archive": "outputs/runtime-20261117/stage-03/payload.tar.gz",
+  "archive_sha256": "75a505f56cda4381c346e6cf97291a3604b67d258b4486e085ecab9585da71c8",
+  "archive_bytes": 8415316,
+  "stage_manifest_sha256": "a1f9463f15dbda31bc492ca077282331f29ad7fcce27566a2b8f03d6604cbe53",
+  "source_files": 50,
+  "total_uncompressed_source_bytes": 34894817,
+  "native_execution_or_remote_upload": false,
+  "scope_unchanged": true,
+  "predecessor": "outputs/runtime-20261117/stage-receipt-v2.json"
+}

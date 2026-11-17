@@ -1,0 +1,10 @@
+{
+  "outcome": "passed",
+  "input_evidence_complete_registered_chain_matches": {
+    "eligible_training": true,
+    "eligible_validation": true
+  },
+  "summary_sha256": "87a6f3271a7e21d7ec75a1affc94270e96cc6a0677f9d283dabdb9b9338452a3",
+  "no_raw_prompt_reads": true,
+  "no_network_or_native_execution": true
+}

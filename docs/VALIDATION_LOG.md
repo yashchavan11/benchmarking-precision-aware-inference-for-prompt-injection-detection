@@ -38,6 +38,17 @@ establishes; it does not maintain a second copy of those requirements.
 | V-025 | Windows runtime block | Project Code Integrity/signature evidence | Read-only logs/files | Enforced block confirmed; no policy change | p1a-runtime-diagnosis | Coordinating diagnostic |
 | V-026 | Development input loader | Hash/lineage/text alignment and protected-role denial | 10 new tests; 66 combined; two actual preflights | Complete for 19,909 development rows | p1a-input-preflight-execution | Automated implementation |
 | V-027 | Input contract/preflight | Independent boundaries, identities and source hashes | 14 independent synthetic probes; actual export comparison | Passed within scope | p1a-input-independent/boundary-review | Independent automated reviewer |
+| V-028 | Native tokenizer audit preparation | Mock/software/source checks and read-only runtime inventory | 76 tests; independent arithmetic/guards | Passed for preparation, not execution | p1a-tokenizer-software/code-review | Independent automated review |
+| V-029 | Initial stage verifier | Integrity checks under optimization | Synthetic wrong-hash probe | Failed; preserved | p1a-stage-verifier-failure | Independent automated reviewer |
+| V-030 | Corrected stage/job package | Explicit checks and exact payload | Normal/-O regression, archive inspection | Passed before transfer | p1a-tokenizer-stage-review | Independent automated review |
+| V-031 | First two Slurm attempts | Cluster profile and working directory | Actual startup logs | Failed before setup; repaired without scientific change | execution-01/02 and retry reviews | Coordinating/independent review |
+| V-032 | First installed cluster environment | Mock proxy isolation | Remote suite gate | 1/76 failed; native audit did not run | attempt-03 private logs | Actual failure preserved |
+| V-033 | Proxy fixture and environment reuse | Hermetic mock/CA/proxy checks; no reinstall | Local and remote 76 tests | Passed; successful retry | p1a-proxy-fixture-revalidation | Independent review |
+| V-034 | Actual development tokenizer/config | Full IDs, token controls and cap prefixes | Native Explorer CPU run | Complete for 19,909 rows | p1a-native-tokenizer-summary/checks | Automated execution |
+| V-035 | Native development artifacts | Independent identity/aggregate/runtime checks | Retained outputs, no native rerun | Passed within scope | p1a-native-tokenizer-review/provenance | Independent automated review |
+| V-036 | Aggregate test-length preparation | Fixed role/source and aggregate schema | 85 mock/software tests + package review | Passed for preparation | p1a-holdout-length-software/code-review | Independent automated review |
+| V-037 | Actual official-test administration | Source/support and complete original lengths | Approved CPU job, 85 tests | Complete, no model/per-row output | p1a-official-test-token-lengths/execution | Automated execution |
+| V-038 | Aggregate result and phase evidence | Independent histogram/identity/runtime/criteria | Retained aggregate review | Passed; P1-A closeout supported | p1a-official-test-length-review; PHASE_RECORDS | Independent + coordinating assessment |
 | V-001 | P1-B/P1-C component preparation; source hashes in generated results.json | Metrics, pairing, artifact integrity and report generation | Python 3.13.3; synthetic fixtures; standard-library unittest | Passed: 18 tests | tests/; outputs/synthetic-demo/ (regenerable, ignored); S-20261111-01 | Second-contributor review pending |
 
 ### V-003 — Independent incoming-commit review, failures preserved
@@ -282,7 +293,7 @@ preserves proxy/CA controls, and suppresses credential/provider error details.
 Independent [asset review](evidence/p1a-asset-contract-review-20261117.json) recomputed
 all file hashes/source identities, four browser-file comparisons, header length/extents,
 shape/dtype totals and vocab/merge/added-token agreement. ASSET-002 owns the verified
-values. Serialized PAD151643 differs from wrapper PAD/EOS151645; inspected wrapper code
+values. Serialized PAD ID 151643 differs from wrapper PAD/EOS ID 151645; inspected wrapper code
 resolves defaults per call, which must be checked in actual execution. A first wrapper
 launch failed before network access because Windows could not resolve its relative
 executable; an absolute executable path succeeded. No secret, signed URL, tensor payload
@@ -362,3 +373,146 @@ and [boundary checks](evidence/p1a-input-boundary-review-20261117.json); script/
 `outputs/continuation-20261117/input-review/`. No actual raw prompt/test source, network or
 native runtime was used by the reviewer. No defect was found within the reviewed scope;
 this does not establish tokenizer/model behavior or a phase closeout.
+
+### V-028 - Tokenizer-audit preparation and read-only Explorer inventory
+
+The new offline tokenizer/config audit and ten mock tests pass in the 76-test combined
+suite; [software identity](evidence/p1a-tokenizer-software-20261117.json) retains exact
+source hashes. Native imports were mocked. Independent code/asset review and 3,015
+percentile comparisons plus cap/pooling/role-boundary checks passed; [review evidence](evidence/p1a-tokenizer-code-review-20261117.json).
+These checks do not establish actual tokenizer execution.
+
+Read-only SSH inventory verified existing Explorer and transfer profiles, the CS5130
+allocation, Python 3.13.5 module and relevant scheduler access. The CPU-only batch script
+passed bash syntax inspection and Slurm `--test-only` validation; no job was submitted,
+and the user's queue was empty afterward. [Inventory](evidence/p1a-explorer-inventory-20261117.json)
+records the proposed 2-CPU/8-GiB/20-minute budget and pending route approval. No native
+retry, remote staging or security-policy change occurred.
+
+### V-029 - Optimization disabled the initial staging integrity assertions
+
+Independent review demonstrated that the initial stage verifier rejected a synthetic bad
+hash normally but reported success under Python -O, because its checks used assert.
+[Failure evidence](evidence/p1a-stage-verifier-failure-20261117.json) and the original
+verifier/stage-01 are preserved under `outputs/runtime-20261117/`. This was a reusable
+verification defect, not corruption of actual staged data or a completed experiment.
+No job or transfer had occurred. Corrected evidence is V-030.
+
+### V-030 - Corrected staging verifier and final CPU job package
+
+Explicit checks now remain active under optimized Python; the same bad-hash case fails
+normally and under -O. The job also clears inherited HF token/path and Python optimization
+variables while using an isolated offline HF cache. [Revalidation](evidence/p1a-stage-verifier-revalidation-20261117.json)
+and [final independent package review](evidence/p1a-tokenizer-stage-review-20261117.json)
+passed: 50 manifest-listed files plus the manifest, no links/extras, exact hashes and
+resource limits. [Final receipt](evidence/p1a-tokenizer-stage-20261117.json) identifies
+stage-03, 8,415,316 compressed bytes. Earlier stages remain preserved. The package excludes
+credentials, environments, Git metadata, full weights and official-test raw/membership
+files. Actual native execution remains pending the requested explicit route authorization.
+
+### V-031 - Explorer startup failures preserved and corrected
+
+Approved R-P1-A-20261117-07 initially submitted jobs 11954782 and 11954830 on c3014.
+They failed before environment setup/tokenization: the cluster profile referenced optional
+HISTCONTROL under nounset, then the driver used SLURM_SUBMIT_DIR (submission home) instead
+of the scheduled --chdir directory. Corrections initialize the profile with optional shell
+variables allowed, restore strict checking, bind the actual initial physical cwd and restore
+it after initialization. Fresh directories preserved both attempts. Independent stage
+comparisons confirm only driver/manifest changes; scientific code/data, budgets and input
+validation were unchanged. Logs and execution-01/02 plus retry reviews are retained under
+`outputs/runtime-20261117/`. No tokenizer/model output was produced by those attempts.
+
+### V-032 - Cluster proxy environment exposed a mock-test isolation defect
+
+Job 11954889 on c3014 successfully installed the approved audit environment, passed pip
+dependency checks and saved its package lock, then stopped at the software gate after
+7m57s: 75 of 76 tests passed. The real transport correctly preserved a lowercase cluster
+proxy setting that the mock test had not cleared; the test expected its uppercase fake
+proxy. No tokenization followed the failed gate. Private raw logs remain ignored in
+`outputs/runtime-20261117/attempt-03/runtime-native/`; do not publish the actual proxy value.
+A case-sensitive synthetic environment reproduced the failure; the direct Windows probe
+did not, because Windows environment keys are case-insensitive. Both observations are
+retained under `proxy-test-fix/`. Production proxy/CA handling was not changed.
+
+### V-033 - Hermetic proxy test repaired; installed environment reused
+
+The mock now isolates its environment and tests uppercase, lowercase and combined proxy
+precedence while retaining Authorization, CA, no-netrc/no-cookie and response-close
+assertions. Local focused checks and all 76 tests passed; [source identity](evidence/p1a-proxy-fixture-revalidation-20261117.json).
+Independent review verified the repair and an explicit environment-reuse branch. No
+dependencies were reinstalled. Job 11955247 used the preserved attempt-03 environment with
+a fresh project/output directory and an 11-minute override. It completed in 45s on c0584,
+passed all 76 remote tests and the native audit. Total allocated elapsed time across the
+four attempts was 523 seconds, below the approved 20-minute envelope. These timings describe
+administrative setup/audit jobs, not classifier performance.
+
+### V-034 - Actual native development tokenizer/configuration audit
+
+R-P1-A-20261117-07 completed on Explorer with Python 3.13.5, Transformers 4.57.1 and
+tokenizers 0.22.2. [Native summary](evidence/p1a-native-tokenizer-summary-20261117.json)
+and [synthetic checks](evidence/p1a-native-tokenizer-checks-20261117.json) establish the actual
+Qwen2TokenizerFast wrapper, resolved two-label Qwen3 configuration, all 26 added-token
+identities/flags, NFC canonical equivalence, no automatic boundary-token addition, literal
+EOS recognition, left-padding masks and explicit prefix truncation. A 5001-token invented
+case shows the explicit uncapped call disables the serialized/previous 5000 cap.
+
+The backend initially retains PAD ID 151643/cap 5000; explicit wrapper padding uses PAD/EOS ID 151645,
+and the uncapped/unpadded call clears backend limits. Both eligible development roles were
+fully processed with exact IDs/order/raw hashes preserved, and every actual capped encoding
+equaled the corresponding uncapped right prefix. No real token vectors/prompts were exported.
+Actual config resolves num_labels=2, label2id None and model PAD None. No model object,
+weights, logits, precision treatment or test source was loaded. The 512/1024/2048 values
+remain diagnostic candidates; no study cap is selected.
+
+### V-035 - Independent native-output and environment validation
+
+The independent [result review](evidence/p1a-native-tokenizer-review-20261117.json) checked
+all 19,909 development identities/hashes, output integrity, cap arithmetic and every total/
+class aggregate using separate calculations. Five runtime library-source hashes match the
+previously pinned official files; synthetic token/mask/default observations are consistent.
+[Metadata cross-check](evidence/p1a-native-tokenizer-provenance-20261117.json) confirms all
+D-009/D-008/source bindings. The 76-test remote passing log and unchanged package lock/prior
+setup hashes verify environment reuse. No discrepancy was found and no native tokenization
+was rerun by the reviewer. Real vectors are deliberately absent, so executed prefix checks
+remain tied to the reviewed producer code and its hash, alongside independent aggregate
+validation. Held-out token coverage and model batching/precision behavior are not established.
+
+### V-036 - Aggregate-only official-test audit preparation
+
+The separate `holdout_lengths.py` command fixes the administrative role, source revision,
+source SHA-256, row/class support and exact tokenizer contract. It exports only total
+length statistics, a sparse total histogram and provenance. It leaves the development
+loader's test-role denial unchanged and computes no caps, class-length or A/B breakdowns.
+Nine mock checks, including a duplicate-weighted histogram known answer and isolated
+source-mutation guard, brought the suite to 85 passing tests. [Software identity](evidence/p1a-holdout-length-software-20261117.json),
+[independent code review](evidence/p1a-holdout-length-code-review-20261117.json) and
+[package review](evidence/p1a-holdout-stage-review-20261117.json) establish preparation;
+they did not themselves access or tokenize the real test source.
+
+### V-037 - Authorized native official-test administration
+
+Yash separately approved D-011 before transfer/submission. R-P1-A-20261117-08 job 11956265
+completed exit 0:0 in 25 seconds on c0617, requesting two CPUs/8 GiB/five minutes. It reused
+the verified environment/assets, rechecked dependencies, passed all 85 tests and tokenized
+all 23,516 rows of the exact source without padding/truncation. Original bytes and strings
+were preserved. Only complete manifest and aggregate summary/histogram were exported.
+[Native summary](evidence/p1a-official-test-token-lengths-20261117.json) and
+[execution record](evidence/p1a-official-test-length-execution-20261117.json) retain identity,
+settings, hardware/allocation, source/helper hashes and scope flags. No classifier, weights,
+caps, A/B breakdowns or per-row output occurred. Job elapsed time is not model latency.
+
+### V-038 - Independent aggregate reconstruction and P1-A assessment
+
+[Independent review](evidence/p1a-official-test-length-review-20261117.json) checked the
+exact two-file schema, pinned source/revision/support, manifest linkage, five code/helper
+hashes and runtime/library/package-lock match to the development audit. The 1,184-bin total
+histogram sums to 23,516 rows and 3,983,456 tokens. Independent weighted calculations reproduce
+all reported totals/quantiles exactly within the stated floating representation. The 85-test
+remote pass is retained. No reviewer reopened raw test text or reran native tokenization.
+
+The separate final assessment at `outputs/runtime-20261117/phase-review/p1a-final-assessment.md`
+maps actual evidence to every ROADMAP P1-A requirement and recommends closeout. The
+coordinating review accepts that recommendation in PHASE_RECORDS: all 43,425 source rows
+now have complete source-length accounting; identities, labels/head contract, eligibility,
+partitions, exposure rules and component contracts are established. This closes P1-A only,
+not model loading, any precision treatment, pilot/main freeze, test performance or the gate.

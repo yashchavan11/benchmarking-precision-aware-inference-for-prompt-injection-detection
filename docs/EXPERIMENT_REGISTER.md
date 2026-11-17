@@ -34,6 +34,8 @@ completed artifacts are retained instead of overwritten.
 | R-P1-A-20261117-04 | P1-A / authenticated contract | ASSET-002 | Pinned files/header only | RESEARCH_PROTOCOL section 1 | complete within source/header scope | V-022; model-auth/manifest.json | Independent automated review; runtime pending |
 | R-P1-A-20261117-05 | P1-A / D-008 construction | ASSET-001 text-free IDs | Eligibility/A-B administrative | D-008 | complete review-ready construction | V-018?V-021; partitions-v2/summary.json | Independent automated review; human release pending |
 | R-P1-A-20261117-06 | P1-A / development input contract | SPLIT-001/002 under D-009 | Raw-to-identity preflight only | D-008/D-009 | complete bounded preflight | V-026/V-027; input-preflight/execution.json | Independent automated review |
+| R-P1-A-20261117-07 | P1-A / native development tokenizer | SPLIT-001/002 | CPU configuration/length audit | D-009/D-010 | complete; failures preserved | V-031 through V-035 | Independent native-output review |
+| R-P1-A-20261117-08 | P1-A / official-test length administration | ASSET-001 official test | Aggregate original lengths only | D-011 | complete | V-036 through V-038 | Independent aggregate review |
 
 ### R-P1-A-20261117-01 — Administrative PromptShield audit
 
@@ -51,6 +53,16 @@ completed artifacts are retained instead of overwritten.
 - **Validation/continuation:** V-009, ASSET-002 and Q-012. Obtain authorized access, retrieve pinned configurations in a new artifact location, then verify full model-label semantics. Keep failed responses; do not overwrite them or infer class orientation.
 
 ## Run record template
+
+### R-P1-A-20261117-07 - Original native tokenizer/configuration plan (completed below)
+
+- **Phase/purpose:** P1-A; verify actual local-file tokenizer/config behavior and development token lengths before choosing pilot preprocessing. No classifier, weights, GPU or test performance.
+- **Inputs:** D-009/SPLIT-001/002 training and validation only; pinned ASSET-002 seven-file tokenizer/config bundle. Stage manifest binds 50 files (34,894,817 uncompressed bytes); packaged archive 8,415,316 bytes, SHA-256 `75a505f56cda4381c346e6cf97291a3604b67d258b4486e085ecab9585da71c8`. Credentials, weight payloads and official-test source/membership files are excluded.
+- **Candidate environment/budget:** Existing Explorer SSH/transfer profiles verified read-only; account `cs5130.202710`, courses partition, one task/two CPUs, 8 GiB, 20-minute maximum, zero GPUs. Python module 3.13.5 is available; isolated environment will use pinned audit dependencies. Scheduler test-only validation succeeded and created no job; no native execution has occurred.
+- **Prepared implementation/checks:** Final local stage-03 supersedes two retained packaging attempts; V-029/V-030 record an optimization-sensitive verifier and its repair. `precision_benchmark.tokenizer_audit`, `scripts/tokenizer_audit.sbatch`, and staging verifier. 76 combined local tests passed; native calls were mocked. Independent source/arithmetic/boundary review passed. Local preparation/evidence is under `outputs/runtime-20261117/`.
+- **Expected output/completion:** Complete expected-ID coverage for both development roles, synthetic padding/special-token/truncation checks, explicit untruncated lengths and 512/1024/2048 candidate-cap diagnostics, resolved configuration/library/source identities, retained logs/hashes and independent result review. Real prompts/tokens are not exported; exact synthetic vectors are labeled invented. A successful submission or process exit alone is not completion.
+- **State when planned (superseded by completion follow-up):** Explicit alternate-execution-route approval requested after Windows denied the local native library. No remote files staged and no actual job ID. Candidate run root is `/scratch/chavan.yas/precision-aware-inference/tokenizer-audit-20261117-01`; create it only after approval and preserve any existing directory instead of overwriting it.
+- **Scientific limits:** No study cap, model-pooling adapter, threshold, inference precision treatment or phase closeout is selected here. Model batching equivalence and GPU compatibility remain later checks. Windows protections remain unchanged.
 
 ### R-[phase]-[date]-[sequence] — [question]
 
@@ -114,3 +126,43 @@ diagnostic value are separate from whether their outputs qualify for aggregate c
 - **Conditions/execution:** System Python 3.11.9 on Windows, standard library. Exact two CLI commands, source hashes and 66-test run are in `outputs/continuation-20261117/input-preflight/execution.json`.
 - **State/output:** Complete bounded input preflight for 18,909 training and 1,000 validation rows. Text-free exports/preflight JSON retained in `training/` and `validation/`; raw text kept verbatim in internal records only. No active job/checkpoint.
 - **Checks/limits:** V-026/V-027, EXP-005. Teammate attestations are not a prerequisite under D-009. Token lengths, tokenizer/pooling execution, precision treatment and model quality/resource outcomes remain unverified; Test-A/Test-B freezes unchanged.
+
+### R-P1-A-20261117-07 execution and completion follow-up
+
+D-010 approved the reviewed CPU route. Private scratch roots `tokenizer-audit-20261117-01`
+through `-04` preserve all attempts. Jobs11954782/11954830 failed during initialization,
+before setup; job 11954889 installed the environment then failed a proxy mock-test gate.
+V-031 through V-033 record causes, repairs and compatibility. Fresh job 11955247 reused the
+complete environment, requested two CPUs/8 GiB with an 11-minute limit, and completed with exit 0:0
+in 45 seconds on c0584. All 76 tests and native synthetic/development checks passed. Combined
+allocated elapsed across attempts was 523 seconds; no GPU was requested.
+
+**Current state: complete for native development tokenization.** Local retained outputs,
+logs, package locks and environment-reuse receipt are under
+`outputs/runtime-20261117/attempt-04/`; prior setup is in `attempt-03/`. Execution-01 through
+-04, stage receipts and `retrieval-receipt.json` retain identities and histories. V-035
+independently verified full intended coverage and aggregates before RES-003. No active job
+remains. Model inference, selected preprocessing cap and official-test token lengths are
+not completed by this run.
+
+### R-P1-A-20261117-08 - Prepared aggregate official-test token-length audit
+
+- **Purpose:** Complete the remaining all-source length administration required by the protocol. Fixed pinned official test only, untruncated/unpadded tokenizer call; no classifier, cap comparison, A/B breakdown or development selection.
+- **Prepared output:** Total length summary plus sparse total length histogram for independent reconstruction, source/support/runtime hashes and a completion manifest. No row IDs/hashes, prompts or token vectors exported. Existing inference/development test-role guards are unchanged.
+- **Candidate execution:** Two CPUs, 8 GiB, five-minute maximum on Explorer courses allocation; reuse the verified environment and existing tokenizer assets without installation. Local code/mock checks pass; separate reviewed package in `outputs/holdout-prep-20261117/` contains the pinned test source and no weights/credentials.
+- **State when planned (superseded by completion follow-up):** Additional data-scope approval requested because D-010 explicitly excluded official test. No remote transfer, actual native test processing or submitted job. Completion requires complete 23,516-row support, source/runtime identity checks, internally consistent aggregate histogram/statistics and independent review. Do not claim phase completion from preparation.
+
+### R-P1-A-20261117-08 execution and completion follow-up
+
+D-011 separately authorized the reviewed administrative scope. The 6.4 MB package was
+transferred and all member/hash checks passed before actual job 11956265 submission.
+Private run root: `/scratch/chavan.yas/precision-aware-inference/holdout-length-audit-20261117-01`.
+The job reused the existing environment and tokenizer assets, requested two CPUs/8 GiB/
+five minutes, and completed with exit 0:0 in 25 seconds on c0617. The remote suite passed 85 tests.
+
+**Current state: complete within aggregate-only administrative scope.** All 23,516 expected
+rows and source class support are accounted for. V-038 independently reconstructs total
+statistics from the histogram and verifies all identity/runtime/scope bindings. Local
+outputs/logs are `outputs/holdout-prep-20261117/attempt-01/`; execution/retrieval receipts
+and reviews are retained beside them. No active job remains. No model performance was
+released, no cap selected, and no Test-A/Test-B membership or inference guard changed.

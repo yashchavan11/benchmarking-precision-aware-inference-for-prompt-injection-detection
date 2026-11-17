@@ -93,21 +93,31 @@ def source_info(body=b"{}"):
 class TransportTests(unittest.TestCase):
     @unittest.skipUnless(importlib.util.find_spec("requests"), "optional requests dependency is not installed")
     def test_real_requests_preparation_preserves_environment_without_netrc(self):
-        response = Response(headers={"Content-Length": "2"})
         import requests
-        with patch.dict(os.environ, {"HTTPS_PROXY": "http://configured-proxy.invalid:8888",
-                                     "REQUESTS_CA_BUNDLE": "configured-ca.pem", "NO_PROXY": ""}), \
-                patch("requests.sessions.get_netrc_auth", side_effect=AssertionError("netrc forbidden")), \
-                patch.object(requests.adapters.HTTPAdapter, "send", return_value=response) as send:
-            reader = target.BoundedTransport(TOKEN)
-            try:
-                reader.read("config.json", 2)
-            finally:
-                reader.close()
-            prepared = send.call_args.args[0]
-            self.assertNotIn("Cookie", prepared.headers)
-            self.assertEqual(send.call_args.kwargs["verify"], "configured-ca.pem")
-            self.assertEqual(send.call_args.kwargs["proxies"]["https"], "http://configured-proxy.invalid:8888")
+        upper = "http://configured-proxy.invalid:8888"
+        lower = "http://configured-lowercase-proxy.invalid:8889"
+        cases = [("uppercase", {"HTTPS_PROXY": upper}, upper),
+                 ("lowercase", {"https_proxy": lower}, lower),
+                 ("both_case_precedence", {"HTTPS_PROXY": upper, "https_proxy": lower}, lower)]
+        for case, proxy_settings, expected_proxy in cases:
+            response = Response(headers={"Content-Length": "2"})
+            environment = {"REQUESTS_CA_BUNDLE": "configured-ca.pem", "NO_PROXY": "", **proxy_settings}
+            # Isolate this mock's expectations from a host/cluster's lowercase proxy,
+            # no_proxy, ALL_PROXY or CA settings. Production environment handling stays intact.
+            with self.subTest(case=case), patch.dict(os.environ, environment, clear=True), \
+                    patch("requests.sessions.get_netrc_auth", side_effect=AssertionError("netrc forbidden")), \
+                    patch.object(requests.adapters.HTTPAdapter, "send", return_value=response) as send:
+                reader = target.BoundedTransport(TOKEN)
+                try:
+                    reader.read("config.json", 2)
+                finally:
+                    reader.close()
+                prepared = send.call_args.args[0]
+                self.assertNotIn("Cookie", prepared.headers)
+                self.assertEqual(prepared.headers["Authorization"], "Bearer " + TOKEN)
+                self.assertEqual(send.call_args.kwargs["verify"], "configured-ca.pem")
+                self.assertEqual(send.call_args.kwargs["proxies"]["https"], expected_proxy)
+                self.assertTrue(response.closed)
 
     def test_exact_read_preserves_proxy_ca_and_limits_body(self):
         response = Response(headers={"Content-Length": "2"})

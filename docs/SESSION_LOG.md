@@ -167,3 +167,50 @@ authorization covers this factual handoff update. No message was sent to a teamm
 no security setting changed, and no raw prompts, credentials or weight assets were pushed.
 Exact final publication state is in Git history and ignored local
 `outputs/continuation-20261117/publication.json`.
+
+## S-20261117-07 - Prepared Explorer tokenizer audit; execution-route approval pending
+
+- **Context/user update:** Yash reports sending the Viraj coordination message and requests continuation. No agent communication tool sent it. Work began from clean published tip `4d9c0b3`, preserving all prior assets/records.
+- **Inventory:** An existing Explorer SSH profile authenticated successfully for read-only inventory; the CS5130 allocation, courses CPU partition and Python module are available. Transfer-node access also works. No new credential was created/extracted or copied. CPU setup/execution is planned on a compute node, not a login node.
+- **Prepared work:** R-P1-A-20261117-07, V-028 through V-030. Added a lazy-import offline tokenizer/config audit with explicit untruncated baseline, known synthetic checks, three candidate caps and count-only development outputs. All 76 local tests passed with native calls mocked. Independent review found/reproduced an assert/-O staging weakness; explicit checks repaired it before any remote transfer. Final stage-03 is locally verified and excludes test data/weights/credentials.
+- **Authorization/state:** A concrete 2-CPU, 8-GiB, 20-minute CPU-only Explorer route was presented for explicit approval because Windows had denied the native library. Approval is pending. Slurm test-only output was a scheduling estimate, not a submitted job. No remote files have been staged, no actual job ID exists, and no tokenizer/model execution has occurred. Windows controls remain unchanged.
+- **Preservation/continuation:** Current code/scripts/records are local and uncommitted pending the native run. Final package is `outputs/runtime-20261117/stage-03/payload.tar.gz`; its receipt and review are retained. After approval, create a fresh private scratch run directory, transfer/verify this package via the existing transfer profile, submit the reviewed batch script, retain the real job ID/logs and monitor to verified completion. Retrieve results and independently verify coverage/source/defaults before a P1-A closeout or pilot proposal. Do not rebuild/reinstall locally or treat mock tests as native evidence.
+
+### S-20261117-07 approved execution and verified development result
+
+Yash approved the concrete Explorer CPU route (D-010). The final stage-03 was transferred
+to a fresh mode0700 scratch directory and every member/hash verified before submission.
+A transfer-node Python3.6 containment-method incompatibility was repaired before directory
+creation; no data changed. Two Slurm startup attempts failed before setup (profile nounset,
+then submission-versus-working directory); fresh attempts and independent driver comparisons
+preserve them. Job 11954889 installed a reusable environment but failed one mock proxy test
+because inherited lowercase settings were not isolated. The fixture was made hermetic with
+stronger precedence checks; production network controls stayed unchanged.
+
+Job 11955247 reused that environment with an 11-minute override, completed with exit 0:0 in 45 seconds and passed
+76 remote tests plus the full native development audit. V-034/V-035 establish all 19,909 IDs,
+tokenizer/config defaults and candidate-cap aggregates; RES-003 records the measured lengths
+and a development-only cap 1024 pilot proposal. No study cap/threshold was frozen, classifier
+loaded or test source processed. Actual model/pooling/precision checks remain P1-B work.
+
+The source protocol's remaining official-test token-length coverage was identified explicitly.
+A separate aggregate-only module/package was prepared for scope approval (R-P1-A-20261117-08),
+without weakening inference guards, exporting rows or using test information for selection.
+No approval or execution of that additional scope is inferred. P1-A remains open pending
+that narrow requirement; no teammate attestation wait was reinstated.
+
+### S-20261117-07 administrative completion and P1-A closeout
+
+Yash approved the separate aggregate official-test scope in D-011. The exact reviewed
+package was transferred and verified, and job 11956265 reused the validated environment/
+assets with no installation. It completed with exit 0:0 in 25 seconds on c0617 and passed 85 remote
+tests. V-038 independently recomputed every reported total from the histogram and checked
+source, coverage, runtime and scope identities without reopening raw test data.
+
+All 43,425 source rows now have length accounting. The independent final phase checklist
+found every ROADMAP P1-A criterion met; the coordinating agent records P1-A complete in
+PHASE_RECORDS and hands off to P1-B. The model itself, all three precision treatments,
+GPU compatibility and pilot remain unexecuted. The cap 1024 pilot proposal preceded official-
+test token statistics and remains a proposal, with no test-guided revision or final freeze.
+No active audit jobs remain. Source/failed attempts/setup and successful outputs are retained;
+publication follows final source/evidence checks under Yash's standing authorization.

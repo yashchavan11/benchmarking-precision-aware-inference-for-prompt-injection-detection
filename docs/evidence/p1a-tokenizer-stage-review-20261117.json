@@ -1,0 +1,27 @@
+{
+  "outcome": "passed for exact local payload and reviewed job scope",
+  "archive_path": "outputs/runtime-20261117/stage-03/payload.tar.gz",
+  "archive_sha256": "75a505f56cda4381c346e6cf97291a3604b67d258b4486e085ecab9585da71c8",
+  "archive_bytes": 8415316,
+  "stage_manifest_sha256": "a1f9463f15dbda31bc492ca077282331f29ad7fcce27566a2b8f03d6604cbe53",
+  "manifest_listed_files": 50,
+  "archive_regular_files": 51,
+  "uncompressed_source_bytes": 34894817,
+  "exact_archive_allowlist_no_links_or_extra_files": true,
+  "protected_raw_data_memberships_weights_and_credential_files_absent": true,
+  "staged_code_tests_and_scripts_match_current_workspace": true,
+  "resource_request": {
+    "account": "cs5130.202710",
+    "partition": "courses",
+    "cpus": 2,
+    "memory_gib": 8,
+    "time_minutes": 20,
+    "gpus": 0
+  },
+  "data_contents_decoded_or_displayed": false,
+  "credential_values_read_or_scanned": false,
+  "remote_or_native_execution": false,
+  "job_submission_or_upload": false,
+  "approval_scope": "Execution route still requires user's explicit authorization",
+  "review_script_sha256": "c9af7121193b898c73c570747851ee0a11e691899fd1b5e864c04471ee18293b"
+}

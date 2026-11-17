@@ -358,3 +358,48 @@ validates full expected coverage instead of constructing a success-only populati
 D-009 overrides the historical teammate-wait condition for the two development roles;
 it neither changes membership nor releases held-out performance. Runtime tokenization
 and chosen pooling/caps still require the next approved executable environment.
+
+## Executed tokenizer audit and separate remaining administrative scope
+
+`tokenizer_audit.py` now has a complete native run for both development roles: explicit
+local-only fast tokenizer/config loading, uncapped/unpadded baseline, exact synthetic
+controls and every-row 512/1024/2048 prefix checks. Development outputs retain IDs/hashes,
+lengths and integer diagnostics without real prompts/tokens. Source/model behavior and
+limits are V-034/V-035 and RES-003. The model itself was not loaded.
+
+The separately prepared `holdout_lengths.py` accepts only a fixed administrative official-test
+length role and source hash/support. It computes only total original lengths and a total
+histogram, retaining no row linkage, cap comparison or A/B/class-length breakdown. It reuses
+the exact checked tokenizer functions but leaves `input_data` protected-role denial unchanged.
+This explicit administrative exception needs its own data-scope authorization; it does not
+release test performance or supply gate-fitting data. The prepared five-minute job reuses
+the existing environment/assets, with no installation or model/GPU request.
+
+## P1-B next bounded pilot proposal - not executed or frozen
+
+The completed P1-A closeout supplies inputs. Carry forward the development-derived
+cap 1024/original unpadded batch-one proposal; do not choose settings from the newly completed
+official-test administrative histogram. Proposed size is 128 eligible training examples,
+64 per class, with documented short/mid/long coverage. An example defensible construction
+is 48 per class at original length <=512, eight at 513-1024, and eight above 1024, selected by
+a recorded deterministic ordering before model outputs. This deliberately enriches tails
+for diagnostics and is not a representative quality estimate. Membership is not built or
+frozen here.
+
+Execute the same fully hashed checkpoint in strict FP32, FP16 and bitsandbytes LLM.int8.
+Use one matched compatible GPU/allocation and record exact installed versions, attention
+implementation, device mapping, no-grad/eval state and precision flags. Inspect converted
+linear layers and retained embeddings/norms/head rather than trusting nominal labels.
+Keep model PAD unset for the original unpadded reference. Synthetic EOS/empty/mask cases
+must test actual model behavior; tokenizer agreement alone does not prove logit equivalence.
+The pilot may use a clearly provisional common 0.5 scoring threshold; final threshold
+selection remains FP32 validation-only in P1-C. No classifier fine-tuning is permitted.
+
+Before submission, prepare the checkpoint storage/download (~1.19GB), GPU/dependency
+preflight, exact 128-ID manifest and shared input schedule, three run manifests, dtype/module
+evidence and failure/coverage checks. A proposed bounded execution ceiling is one compatible
+GPU for 20 minutes after environment preparation; actual preparation and job settings must
+be reviewed before execution. Require complete finite two-logit/injection-score outputs for
+all intended IDs in all treatments, then regenerate the development comparison. Preserve
+failures. Resource observations are pilot feasibility evidence, not the final profiling study.
+No GPU allocation or model run has been submitted under this proposal.

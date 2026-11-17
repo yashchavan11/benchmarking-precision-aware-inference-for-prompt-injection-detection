@@ -1,6 +1,6 @@
-# Candidate audit environment, not a validated inference runtime.
-# Windows Application Control blocked regex import; see V-017.
-# Full resolved versions: docs/evidence/p1a-audit-environment-20261117.json
+# Verified CPU tokenizer audit dependencies; not a validated model/GPU runtime.
+# Explorer native audits pass; Windows remains blocked at regex import (V-017).
+# Full successful package lock is retained in the native audit setup evidence.
 huggingface-hub==0.36.2
 requests==2.34.2
 transformers==4.57.1

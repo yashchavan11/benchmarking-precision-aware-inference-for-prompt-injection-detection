@@ -1,0 +1,22 @@
+{
+  "outcome": "passed within code, mock and metadata-only scope",
+  "source_and_test_hashes_verified": 21,
+  "source_sha256": "05312568f3cb7bf0b7f6a041401a58f71a7facdd9018cb50db9d358ed9fe9a0d",
+  "test_sha256": "12357ab5ba4e76ee8411eae826ad59f53c00d7a661c6c36e2629277bd576e7a5",
+  "retained_suite": "76 tests passed; ten tokenizer tests mocked",
+  "full_suite_reexecuted_by_reviewer": false,
+  "real_asset_files_verified_without_tokenization": 7,
+  "asset_manifest_sha256": "fe4ef4fe0609b4465b1e7b8f2550c9c511fa9d1dc48c1fa34af7cb37cbdd1c23",
+  "independent_percentile_comparisons": 3015,
+  "real_tokenizer_or_config_wrapper_executed": false,
+  "real_dataset_prompts_or_tokens_read": false,
+  "native_backend_or_network_used": false,
+  "remote_upload_or_execution": false,
+  "execution_route_approval": "pending; this review does not authorize it",
+  "evidence_hashes": {
+    "verification.json": "0b36f79d99926be8948793d3517a34eb077fd3601f9cfc8a3f5a76b8c7057fa0",
+    "all-tests.txt": "26cb43f713c97066e6fddd887d245f2941e6090a7e7abe66c832a7e198489fc7",
+    "final-arithmetic-and-boundary-results.json": "1762ec604e891da4e476b99d4b1b017c70448d9032e0f612976f68c5e03e0b12"
+  },
+  "review_script_sha256": "7d373606d6c472bcaaf0f09cf05e7309b30e0df7c64a95a5bd521f948e35a4ad"
+}
