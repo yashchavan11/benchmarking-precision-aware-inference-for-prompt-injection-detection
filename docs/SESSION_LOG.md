@@ -155,3 +155,15 @@ identity and authorization; exact final tip is in Git history and local
 - **Runtime diagnosis:** V-025 confirms prior project-specific enforced Code Integrity events and unsigned binaries with no Zone.Identifier streams. No native retry or security-policy change occurred. The actual runtime block remains Q-015; independent source/input work proceeded without a teammate wait.
 - **Exposure/coordination:** EXP-005; training/validation text read only for automated alignment checks, no prompt display or official-test source/model outcomes. Updated unsent message at `outputs/continuation-20261117/viraj-update.txt` communicates completed overlapping data work and tokenization coordination, without asking Viraj to repeat it or supply an attestation.
 - **State/next:** No P1-A closeout or model run. Next native tokenizer work needs an approved executable runtime; current development data/input preparation has no demonstrated Viraj-specific dependency. Completed substantial work may be committed/pushed under the existing authorization after final checks; publication outcome is recorded separately.
+
+### S-20261117-06 publication follow-up
+
+After the 66-test passing run, independent V-027 review, exact tested/staged-source checks,
+Markdown/JSON/LF checks and staged actual-token exclusion check, the completed input and
+coordination milestone was committed as `0096d6a4f30ab3ecfc19b5e8a285a2c31d751f78` and pushed to origin/main.
+A read-only remote check matched that SHA; the working tree was clean. Author/committer
+are both Yash <chavan.yas@northeastern.edu>, with no co-author trailer. The same standing
+authorization covers this factual handoff update. No message was sent to a teammate,
+no security setting changed, and no raw prompts, credentials or weight assets were pushed.
+Exact final publication state is in Git history and ignored local
+`outputs/continuation-20261117/publication.json`.

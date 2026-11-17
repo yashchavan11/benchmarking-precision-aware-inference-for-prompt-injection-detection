@@ -6,8 +6,8 @@
 |---|---|
 | Provenance/phase | November 17, 2026, America/New_York; S-20261117-06; P1-A remains open for actual tokenizer/runtime requirements |
 | Coordination | D-009: teammates implement their tasks and push to GitHub. Inspect actual contributions; communicate overlapping work/choices. Separate teammate attestations or human interpretations are not continuation gates. Unknown exposure and actual review attribution remain truthful. |
-| Ownership | Implementation and independent review complete; coordinating agent owns final QA/publication. No active reservations or research job/checkpoint to resume. |
-| Publication | Prior clean tip `12a6e1c`; current bounded input milestone is being packaged under Yash's standing authorization for completed substantial tasks. Verify actual publication in session follow-up/Git history. |
+| Ownership | Implementation, independent review and publication checks complete. No active reservations or research job/checkpoint to resume. |
+| Publication | Input/coordination milestone `0096d6a4f30ab3ecfc19b5e8a285a2c31d751f78` committed and pushed under Yash's configured identity; remote SHA verified. This factual handoff follows it; inspect Git for latest tip. No co-author trailer, force push, external message or visibility change. |
 | Reusable data | D-008/SPLIT-001 through SPLIT-004 unchanged; 18,909 training, 1,000 validation, two 11,758-row held-out populations. All duplicate groups preserved. D-009 development-access amendment explicitly replaces the old teammate-wait condition for the two dev roles; old manifests retained. |
 | New verified input handoff | R-P1-A-20261117-06 / V-026: all 19,909 development rows matched original text/ID/label/hash/lengths. Text-free exports match approved population bytes. 66 combined tests and independent V-027 checks passed. No tokenization/model execution or official-test source access in this task. |
 | Model contract | V-022 pinned files/header remain valid: injection index1, score.weight F16 [2,1024], no bias; full weight payload/runtime unverified. Q-014 requires explicit wrapper/pooling/cap checks. |
