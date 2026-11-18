@@ -14,3 +14,6 @@ docs/evidence/**/*.txt text eol=lf
 docs/evidence/p1b-pilot-20261117/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Slurm scripts must retain Unix shebang/line endings when prepared on Windows.
 scripts/*.sbatch text eol=lf
+# Regenerated resource evidence: keep text bytes stable across platforms.
+docs/evidence/p1b-resource-20261118/*.md text eol=lf
+docs/evidence/p1b-resource-20261118/*.svg text eol=lf

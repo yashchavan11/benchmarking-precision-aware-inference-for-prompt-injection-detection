@@ -323,6 +323,17 @@ metadata before generating the five analysis files described above. Keep any pil
 values labeled as development diagnostics; these inputs and the provisional threshold do
 not supply a Test-A result or the final threshold freeze.
 
+### Regenerating the resource table
+
+```sh
+python -m precision_benchmark.resource_summary --manifest docs/evidence/p1b-pilot-20261117/comparison.json --output outputs/resource-new
+```
+
+The command verifies the bundle's hash chain and matched workload, recomputes median/p95 from the
+raw samples, and writes `resource.csv`, `resource_by_length.csv`, `resource.md`,
+`resource_summary.json` and an optional figure. The figure needs matplotlib; pass `--no-figure` to
+skip it. The derived forward-only rate is n / sum of forward durations, not measured throughput.
+
 ## Software checks
 
 ```sh

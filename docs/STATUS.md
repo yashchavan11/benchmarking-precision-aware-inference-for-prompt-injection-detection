@@ -21,6 +21,11 @@ PR-1 entry and Git history for publication state. Scientific pilot status below 
 
 ## Required continuation and reusable artifacts
 
+**November 18 resource section (S-20261118-02):** Hareeshwar's runtime/resource section is ready
+in REPORTING's first section, with evidence in `docs/evidence/p1b-resource-20261118/` (V-044,
+RES-006). Shreyas can insert it into the assembled report. Repeated, warmed, order-controlled
+and end-to-end profiling remains P1-C work.
+
 **November 18 report follow-up (S-20261118-01):** Shreyas's fillable PDF sections are prepared
 at `../output/pdf/CS5130_Progress_Report_Shreyas_Filled.pdf`. Three source-checked qualitative
 development cases are now recorded in RES-005/EXP-009; human review remains pending.

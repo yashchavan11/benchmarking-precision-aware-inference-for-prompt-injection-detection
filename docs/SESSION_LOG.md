@@ -1,5 +1,16 @@
 # Session history
 
+## S-20261118-02 - Hareeshwar's runtime/resource report section
+
+Hareeshwar asked for his progress-report part: the runtime/resource section assigned in the team
+plan. Claude Code inspected the repository, course guidelines and assignment screenshots, then
+implemented an offline resource-summary command and seven tests. The command regenerated the
+resource table, length breakdown and figure from the retained raw samples (V-044), and RES-006
+records the interpretation. REPORTING now holds the report-ready section with the trade-off,
+measurement limits, reproduction and contribution text. There was no new GPU run and no
+model/data/threshold change. Nothing was committed, pushed, submitted or sent; Hareeshwar commits
+from VS Code. Repeated, order-controlled and end-to-end profiling remains later work.
+
 ## November 18 - PR #1 review correction
 
 At Shreyas's request, Codex corrected the preparation manifest's omission of the shared

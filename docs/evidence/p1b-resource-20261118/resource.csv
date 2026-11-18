@@ -1,0 +1,4 @@
+treatment,n,median_forward_ms,p95_forward_ms,max_forward_ms,peak_allocated_mib,parameter_storage_mib,derived_forward_only_rate_per_s,loading_s,median_latency_vs_fp32,peak_allocated_vs_fp32
+FP32,128,25.51,59.68,60.14,2482.78,2273.76,31.62,6.7,1.00,1.00
+FP16,128,26.27,27.00,493.05,1321.42,1136.88,31.20,0.9,1.03,0.53
+INT8,128,87.49,93.48,264.10,932.56,716.88,11.18,32.3,3.43,0.38

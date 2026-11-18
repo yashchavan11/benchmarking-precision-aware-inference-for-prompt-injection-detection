@@ -15,6 +15,7 @@ and the gate's separate quality/cost claims belong to [EXTENSION.md](EXTENSION.m
 | RES-002 | Part 1 / P1-A | Padding/pooling policies require explicit checks | Static source and synthetic index cases | R-P1-A-20261117-04; V-016/V-022 | Source-level observation; original batch-one runtime checks later verified by V-041; padded equivalence unsupported |
 | RES-003 | P1-A | Native development lengths and tokenizer controls | Complete administrative development observation | R-P1-A-20261117-07; V-034/V-035 | Independently checked; no model/cap freeze |
 | RES-004 | Part 1 / P1-B | Three precision treatments execute with mixed quality/resource observations | Class/length-enriched 128-row training pilot, provisional threshold | R-P1-B-20261117-01; V-041/V-042 | Native and arithmetic evidence independently checked; no final ranking or gate benefit |
+| RES-006 | Part 1 / P1-B | Pilot memory saving is weight storage; INT8 latency overhead is length-independent | Offline reanalysis of RES-004's retained single-pass samples | R-P1-B-20261117-01; V-044 | Observed; mechanisms are hypotheses; human review pending |
 
 ### RES-001 — Source audit establishes exact-group constraints, not model performance
 
@@ -86,6 +87,35 @@ full measured cost versus each baseline, learned selection versus simple routing
 memory/loading feasibility. Their common policy and evaluation population must be identifiable.
 This permits a useful tradeoff to be described without treating success in one dimension as
 proof of success in the others.
+
+### RES-006 - Pilot resource interpretation: memory follows weight storage, INT8 adds constant latency
+
+November 18, 2026; Hareeshwar's runtime/resource workstream, Claude Code-assisted. Offline
+regeneration from RES-004's retained raw samples (V-044); no new native execution.
+Evidence: [resource summary](evidence/p1b-resource-20261118/resource_summary.json),
+[table](evidence/p1b-resource-20261118/resource.csv),
+[length bands](evidence/p1b-resource-20261118/resource_by_length.csv),
+[figure](evidence/p1b-resource-20261118/latency_vs_tokens.png).
+
+- **Memory:** Peak PyTorch allocated memory relative to FP32 is 0.53 (FP16) and 0.38 (INT8).
+  Parameter storage is 2273.76 / 1136.88 / 716.88 MiB. The post-warm-up workload increment above
+  the resident baseline is similar in each mode (177.0 / 152.5 / 153.8 MiB). Under INT8, 296.75 MiB
+  of parameter storage is the FP16 token-embedding table [151936, 1024], which LLM.int8 does not
+  quantize; the 196 quantized projections hold 420.0 MiB of int8 weights plus 1.31 MiB of float32
+  scale state (SCB).
+- **Latency by effective-token band (median ms, n = 80/16/32 for 1-128/129-512/513-1024):**
+  FP32 25.45/25.26/56.01; FP16 26.26/26.42/26.16; INT8 86.68/88.67/91.92. INT8's median is
+  3.43x FP32's. Its excess over FP16 is roughly constant across bands.
+- **Derived forward-only rate** (n / sum of durations, not measured throughput): 31.62 / 31.20 /
+  11.18 examples per forward-second, which is 0.99x and 0.35x of FP32.
+- **Hypotheses, not established:** fixed per-call overhead dominates batch-one latency for this
+  0.6B model; LLM.int8 activation quantization and outlier decomposition add per-projection
+  overhead; FP32 grows on long inputs because TF32 is disabled (`float32_matmul_precision="highest"`).
+  Kernel-level profiling, warmed shapes and repetitions would be needed to test them.
+- **Limits:** All of RES-004's limits apply (single pass, fixed order, short-only warm-up, batch 1,
+  shared node, enriched sample). Loading times (6.70 / 0.87 / 32.26 s) are order- and cache-confounded
+  and are not compared. No final speed ranking or deployment recommendation beyond this pilot.
+- **Report destination:** November 18 progress-report resource section (REPORTING).
 
 ## Invalidation record
 

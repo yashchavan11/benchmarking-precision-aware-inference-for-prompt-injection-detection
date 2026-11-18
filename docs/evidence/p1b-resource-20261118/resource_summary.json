@@ -1,0 +1,2135 @@
+{
+  "boundaries": {
+    "forward": "Pretokenized device-resident tensors to raw logits, synchronized before/after; excludes transfers/tokenization/score conversion",
+    "loading": "Populated local checkpoint to device; no download/hash verification",
+    "memory": "PyTorch max_memory_allocated/reserved after reset following warm-up; covers resident weights plus the post-warm-up input, forward and score-conversion allocations. Not total device, driver/context or host memory.",
+    "p95": "Nearest rank: sorted[ceil(0.95 * n) - 1]; median is the conventional median.",
+    "rate": "Derived forward-only rate = number of samples / sum of their synchronized forward durations. Not a measured wall-clock, sustained or end-to-end throughput; not 1 / median latency.",
+    "warmup": {
+      "batches": 3,
+      "schedule": "first three planned IDs in order"
+    }
+  },
+  "hardware": {
+    "allocation_id": "11959388",
+    "cuda_runtime": "12.6",
+    "flags": {
+      "attention": "eager",
+      "autocast_enabled_outside_forward": false,
+      "bf16_reduced_precision_reduction": false,
+      "cudnn_benchmark": false,
+      "deterministic_algorithms": false,
+      "float32_matmul_precision": "highest",
+      "fp16_reduced_precision_reduction": false,
+      "tf32_cudnn": false,
+      "tf32_matmul": false
+    },
+    "gpu": "NVIDIA L40S",
+    "versions": {
+      "accelerate": "1.11.0",
+      "bitsandbytes": "0.48.2",
+      "safetensors": "0.8.0",
+      "tokenizers": "0.22.2",
+      "torch": "2.9.1+cu126",
+      "transformers": "4.57.1"
+    }
+  },
+  "ratios_vs_fp32": {
+    "fp16": {
+      "derived_rate_vs_fp32": 0.9866320472505558,
+      "median_latency_vs_fp32": 1.0296226050654327,
+      "peak_allocated_vs_fp32": 0.5322323392080378
+    },
+    "fp32": {
+      "derived_rate_vs_fp32": 1.0,
+      "median_latency_vs_fp32": 1.0,
+      "peak_allocated_vs_fp32": 1.0
+    },
+    "int8": {
+      "derived_rate_vs_fp32": 0.3537335857696446,
+      "median_latency_vs_fp32": 3.429317845739037,
+      "peak_allocated_vs_fp32": 0.3756099134311345
+    }
+  },
+  "samples": {
+    "fp16": [
+      {
+        "effective_tokens": 63,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:106",
+        "forward_ms": 26.320170611143112
+      },
+      {
+        "effective_tokens": 92,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:241",
+        "forward_ms": 26.167456060647964
+      },
+      {
+        "effective_tokens": 12,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:270",
+        "forward_ms": 25.98818764090538
+      },
+      {
+        "effective_tokens": 38,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:321",
+        "forward_ms": 26.51190757751465
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:594",
+        "forward_ms": 27.000486850738525
+      },
+      {
+        "effective_tokens": 10,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:725",
+        "forward_ms": 26.603583246469498
+      },
+      {
+        "effective_tokens": 84,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1196",
+        "forward_ms": 26.19067393243313
+      },
+      {
+        "effective_tokens": 64,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1310",
+        "forward_ms": 26.33504755795002
+      },
+      {
+        "effective_tokens": 51,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1388",
+        "forward_ms": 26.481453329324722
+      },
+      {
+        "effective_tokens": 83,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1557",
+        "forward_ms": 28.120949864387512
+      },
+      {
+        "effective_tokens": 200,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1898",
+        "forward_ms": 26.738563552498817
+      },
+      {
+        "effective_tokens": 712,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1962",
+        "forward_ms": 493.04510094225407
+      },
+      {
+        "effective_tokens": 11,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2020",
+        "forward_ms": 26.504507288336754
+      },
+      {
+        "effective_tokens": 31,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2073",
+        "forward_ms": 26.365242898464203
+      },
+      {
+        "effective_tokens": 65,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2205",
+        "forward_ms": 26.27040445804596
+      },
+      {
+        "effective_tokens": 10,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2360",
+        "forward_ms": 25.9261392056942
+      },
+      {
+        "effective_tokens": 15,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2375",
+        "forward_ms": 26.025617495179176
+      },
+      {
+        "effective_tokens": 9,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2535",
+        "forward_ms": 26.102429255843163
+      },
+      {
+        "effective_tokens": 666,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2656",
+        "forward_ms": 115.96780829131603
+      },
+      {
+        "effective_tokens": 31,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2724",
+        "forward_ms": 26.688067242503166
+      },
+      {
+        "effective_tokens": 105,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2753",
+        "forward_ms": 81.2396127730608
+      },
+      {
+        "effective_tokens": 48,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3061",
+        "forward_ms": 26.743559166789055
+      },
+      {
+        "effective_tokens": 213,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3234",
+        "forward_ms": 153.22952717542648
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3447",
+        "forward_ms": 25.999344885349274
+      },
+      {
+        "effective_tokens": 168,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3596",
+        "forward_ms": 26.51466429233551
+      },
+      {
+        "effective_tokens": 38,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3822",
+        "forward_ms": 26.722680777311325
+      },
+      {
+        "effective_tokens": 491,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3869",
+        "forward_ms": 26.906846091151237
+      },
+      {
+        "effective_tokens": 288,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3949",
+        "forward_ms": 26.401007547974586
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4155",
+        "forward_ms": 25.91586858034134
+      },
+      {
+        "effective_tokens": 365,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4326",
+        "forward_ms": 26.421822607517242
+      },
+      {
+        "effective_tokens": 156,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4503",
+        "forward_ms": 26.42751857638359
+      },
+      {
+        "effective_tokens": 111,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4544",
+        "forward_ms": 26.409480720758438
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4780",
+        "forward_ms": 26.272831484675407
+      },
+      {
+        "effective_tokens": 10,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4919",
+        "forward_ms": 26.042817160487175
+      },
+      {
+        "effective_tokens": 695,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5061",
+        "forward_ms": 26.27382054924965
+      },
+      {
+        "effective_tokens": 220,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5426",
+        "forward_ms": 26.675088331103325
+      },
+      {
+        "effective_tokens": 718,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5448",
+        "forward_ms": 26.43529139459133
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5499",
+        "forward_ms": 25.913788005709648
+      },
+      {
+        "effective_tokens": 72,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5545",
+        "forward_ms": 26.570016518235207
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5621",
+        "forward_ms": 25.946052744984627
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5686",
+        "forward_ms": 26.018818840384483
+      },
+      {
+        "effective_tokens": 15,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5715",
+        "forward_ms": 25.966444984078407
+      },
+      {
+        "effective_tokens": 43,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5762",
+        "forward_ms": 26.227939873933792
+      },
+      {
+        "effective_tokens": 29,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:6002",
+        "forward_ms": 26.284636929631233
+      },
+      {
+        "effective_tokens": 23,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:6071",
+        "forward_ms": 26.311984285712242
+      },
+      {
+        "effective_tokens": 26,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:6136",
+        "forward_ms": 26.53811313211918
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:6562",
+        "forward_ms": 25.74664168059826
+      },
+      {
+        "effective_tokens": 121,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:6663",
+        "forward_ms": 26.359764859080315
+      },
+      {
+        "effective_tokens": 12,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:6894",
+        "forward_ms": 25.91608837246895
+      },
+      {
+        "effective_tokens": 107,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:7012",
+        "forward_ms": 26.305396109819412
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:7244",
+        "forward_ms": 25.99453181028366
+      },
+      {
+        "effective_tokens": 71,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:7250",
+        "forward_ms": 26.28314681351185
+      },
+      {
+        "effective_tokens": 13,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:7461",
+        "forward_ms": 26.40227973461151
+      },
+      {
+        "effective_tokens": 26,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:7559",
+        "forward_ms": 26.212193071842194
+      },
+      {
+        "effective_tokens": 109,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:8197",
+        "forward_ms": 26.321426033973694
+      },
+      {
+        "effective_tokens": 58,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:8452",
+        "forward_ms": 26.394905522465706
+      },
+      {
+        "effective_tokens": 20,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:8562",
+        "forward_ms": 26.234444230794907
+      },
+      {
+        "effective_tokens": 79,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:8696",
+        "forward_ms": 26.14409476518631
+      },
+      {
+        "effective_tokens": 120,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:9014",
+        "forward_ms": 26.264026761054993
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:9194",
+        "forward_ms": 26.655923575162888
+      },
+      {
+        "effective_tokens": 20,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:9612",
+        "forward_ms": 26.054903864860535
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:9829",
+        "forward_ms": 25.947974994778633
+      },
+      {
+        "effective_tokens": 27,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:9932",
+        "forward_ms": 26.13917551934719
+      },
+      {
+        "effective_tokens": 19,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10061",
+        "forward_ms": 26.272984221577644
+      },
+      {
+        "effective_tokens": 217,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10293",
+        "forward_ms": 26.466313749551773
+      },
+      {
+        "effective_tokens": 127,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10349",
+        "forward_ms": 26.405684649944305
+      },
+      {
+        "effective_tokens": 58,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10409",
+        "forward_ms": 26.602383702993393
+      },
+      {
+        "effective_tokens": 853,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10659",
+        "forward_ms": 26.355158537626266
+      },
+      {
+        "effective_tokens": 106,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10741",
+        "forward_ms": 27.619535103440285
+      },
+      {
+        "effective_tokens": 702,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10846",
+        "forward_ms": 26.161599904298782
+      },
+      {
+        "effective_tokens": 44,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10919",
+        "forward_ms": 26.353467255830765
+      },
+      {
+        "effective_tokens": 139,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:11355",
+        "forward_ms": 26.288751512765884
+      },
+      {
+        "effective_tokens": 51,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:11485",
+        "forward_ms": 26.26344934105873
+      },
+      {
+        "effective_tokens": 74,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:11594",
+        "forward_ms": 26.65891870856285
+      },
+      {
+        "effective_tokens": 58,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:11755",
+        "forward_ms": 26.23865194618702
+      },
+      {
+        "effective_tokens": 804,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:11828",
+        "forward_ms": 25.976134464144707
+      },
+      {
+        "effective_tokens": 813,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:12003",
+        "forward_ms": 26.15124173462391
+      },
+      {
+        "effective_tokens": 15,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:12152",
+        "forward_ms": 25.91126412153244
+      },
+      {
+        "effective_tokens": 152,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:12360",
+        "forward_ms": 26.3731237500906
+      },
+      {
+        "effective_tokens": 702,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:12773",
+        "forward_ms": 25.99051594734192
+      },
+      {
+        "effective_tokens": 712,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:13243",
+        "forward_ms": 26.47734060883522
+      },
+      {
+        "effective_tokens": 16,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:13282",
+        "forward_ms": 26.19754709303379
+      },
+      {
+        "effective_tokens": 40,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:13291",
+        "forward_ms": 26.302598416805267
+      },
+      {
+        "effective_tokens": 17,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:13512",
+        "forward_ms": 26.255764067173004
+      },
+      {
+        "effective_tokens": 670,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:13650",
+        "forward_ms": 26.14731155335903
+      },
+      {
+        "effective_tokens": 20,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:13773",
+        "forward_ms": 26.119176298379898
+      },
+      {
+        "effective_tokens": 82,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:14185",
+        "forward_ms": 26.247577741742134
+      },
+      {
+        "effective_tokens": 19,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:14319",
+        "forward_ms": 26.501914486289024
+      },
+      {
+        "effective_tokens": 39,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:14320",
+        "forward_ms": 26.20951645076275
+      },
+      {
+        "effective_tokens": 14,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:14560",
+        "forward_ms": 25.826549157500267
+      },
+      {
+        "effective_tokens": 916,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:14888",
+        "forward_ms": 26.18730627000332
+      },
+      {
+        "effective_tokens": 282,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:14972",
+        "forward_ms": 26.283742859959602
+      },
+      {
+        "effective_tokens": 19,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15039",
+        "forward_ms": 26.0959193110466
+      },
+      {
+        "effective_tokens": 81,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15135",
+        "forward_ms": 26.185236871242523
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15184",
+        "forward_ms": 26.280945166945457
+      },
+      {
+        "effective_tokens": 133,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15304",
+        "forward_ms": 26.247896254062653
+      },
+      {
+        "effective_tokens": 92,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15349",
+        "forward_ms": 26.02773904800415
+      },
+      {
+        "effective_tokens": 88,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15462",
+        "forward_ms": 26.01141855120659
+      },
+      {
+        "effective_tokens": 515,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15601",
+        "forward_ms": 26.224806904792786
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15637",
+        "forward_ms": 25.803109630942345
+      },
+      {
+        "effective_tokens": 97,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15745",
+        "forward_ms": 26.418374851346016
+      },
+      {
+        "effective_tokens": 64,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15973",
+        "forward_ms": 26.429902762174606
+      },
+      {
+        "effective_tokens": 76,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16071",
+        "forward_ms": 26.11606754362583
+      },
+      {
+        "effective_tokens": 32,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16105",
+        "forward_ms": 26.030145585536957
+      },
+      {
+        "effective_tokens": 12,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16135",
+        "forward_ms": 25.84439516067505
+      },
+      {
+        "effective_tokens": 602,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16265",
+        "forward_ms": 26.39191597700119
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16529",
+        "forward_ms": 25.826627388596535
+      },
+      {
+        "effective_tokens": 83,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16570",
+        "forward_ms": 26.169205084443092
+      },
+      {
+        "effective_tokens": 57,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16702",
+        "forward_ms": 26.707693934440613
+      },
+      {
+        "effective_tokens": 13,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16950",
+        "forward_ms": 25.753360241651535
+      },
+      {
+        "effective_tokens": 115,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17061",
+        "forward_ms": 26.3393372297287
+      },
+      {
+        "effective_tokens": 336,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17099",
+        "forward_ms": 26.12307481467724
+      },
+      {
+        "effective_tokens": 47,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17319",
+        "forward_ms": 26.262523606419563
+      },
+      {
+        "effective_tokens": 183,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17452",
+        "forward_ms": 26.465732604265213
+      },
+      {
+        "effective_tokens": 12,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17485",
+        "forward_ms": 26.050996035337448
+      },
+      {
+        "effective_tokens": 591,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17800",
+        "forward_ms": 26.66197530925274
+      },
+      {
+        "effective_tokens": 21,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17818",
+        "forward_ms": 26.792004704475403
+      },
+      {
+        "effective_tokens": 19,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17844",
+        "forward_ms": 26.17037668824196
+      },
+      {
+        "effective_tokens": 165,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17882",
+        "forward_ms": 26.32017433643341
+      },
+      {
+        "effective_tokens": 93,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17934",
+        "forward_ms": 26.215434074401855
+      },
+      {
+        "effective_tokens": 75,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17942",
+        "forward_ms": 26.207463815808296
+      },
+      {
+        "effective_tokens": 22,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18035",
+        "forward_ms": 26.253441348671913
+      },
+      {
+        "effective_tokens": 70,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18065",
+        "forward_ms": 26.459213346242905
+      },
+      {
+        "effective_tokens": 693,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18115",
+        "forward_ms": 26.200227439403534
+      },
+      {
+        "effective_tokens": 60,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18299",
+        "forward_ms": 26.241470128297806
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18494",
+        "forward_ms": 25.860579684376717
+      },
+      {
+        "effective_tokens": 35,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18594",
+        "forward_ms": 26.17347612977028
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18612",
+        "forward_ms": 25.87193064391613
+      }
+    ],
+    "fp32": [
+      {
+        "effective_tokens": 63,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:106",
+        "forward_ms": 25.38720704615116
+      },
+      {
+        "effective_tokens": 92,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:241",
+        "forward_ms": 25.593023747205734
+      },
+      {
+        "effective_tokens": 12,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:270",
+        "forward_ms": 26.69956162571907
+      },
+      {
+        "effective_tokens": 38,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:321",
+        "forward_ms": 25.592567399144173
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:594",
+        "forward_ms": 59.96358022093773
+      },
+      {
+        "effective_tokens": 10,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:725",
+        "forward_ms": 25.926390662789345
+      },
+      {
+        "effective_tokens": 84,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1196",
+        "forward_ms": 25.449659675359726
+      },
+      {
+        "effective_tokens": 64,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1310",
+        "forward_ms": 25.427278131246567
+      },
+      {
+        "effective_tokens": 51,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1388",
+        "forward_ms": 25.425221771001816
+      },
+      {
+        "effective_tokens": 83,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1557",
+        "forward_ms": 25.510273873806
+      },
+      {
+        "effective_tokens": 200,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1898",
+        "forward_ms": 25.68330615758896
+      },
+      {
+        "effective_tokens": 712,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1962",
+        "forward_ms": 40.44323042035103
+      },
+      {
+        "effective_tokens": 11,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2020",
+        "forward_ms": 25.921005755662918
+      },
+      {
+        "effective_tokens": 31,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2073",
+        "forward_ms": 25.455553084611893
+      },
+      {
+        "effective_tokens": 65,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2205",
+        "forward_ms": 25.39895288646221
+      },
+      {
+        "effective_tokens": 10,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2360",
+        "forward_ms": 25.39270557463169
+      },
+      {
+        "effective_tokens": 15,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2375",
+        "forward_ms": 25.56009218096733
+      },
+      {
+        "effective_tokens": 9,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2535",
+        "forward_ms": 25.39214864373207
+      },
+      {
+        "effective_tokens": 666,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2656",
+        "forward_ms": 36.57384030520916
+      },
+      {
+        "effective_tokens": 31,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2724",
+        "forward_ms": 25.25629848241806
+      },
+      {
+        "effective_tokens": 105,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2753",
+        "forward_ms": 25.445451959967613
+      },
+      {
+        "effective_tokens": 48,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3061",
+        "forward_ms": 25.445198640227318
+      },
+      {
+        "effective_tokens": 213,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3234",
+        "forward_ms": 25.2284687012434
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3447",
+        "forward_ms": 59.55104157328606
+      },
+      {
+        "effective_tokens": 168,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3596",
+        "forward_ms": 25.361310690641403
+      },
+      {
+        "effective_tokens": 38,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3822",
+        "forward_ms": 25.807052850723267
+      },
+      {
+        "effective_tokens": 491,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3869",
+        "forward_ms": 27.62327902019024
+      },
+      {
+        "effective_tokens": 288,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3949",
+        "forward_ms": 25.25760605931282
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4155",
+        "forward_ms": 59.6774835139513
+      },
+      {
+        "effective_tokens": 365,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4326",
+        "forward_ms": 25.176560506224632
+      },
+      {
+        "effective_tokens": 156,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4503",
+        "forward_ms": 25.321466848254204
+      },
+      {
+        "effective_tokens": 111,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4544",
+        "forward_ms": 25.84950439631939
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4780",
+        "forward_ms": 60.14340743422508
+      },
+      {
+        "effective_tokens": 10,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4919",
+        "forward_ms": 25.416983291506767
+      },
+      {
+        "effective_tokens": 695,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5061",
+        "forward_ms": 36.75179183483124
+      },
+      {
+        "effective_tokens": 220,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5426",
+        "forward_ms": 25.21558292210102
+      },
+      {
+        "effective_tokens": 718,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5448",
+        "forward_ms": 40.60778580605984
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5499",
+        "forward_ms": 59.65990759432316
+      },
+      {
+        "effective_tokens": 72,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5545",
+        "forward_ms": 25.83681233227253
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5621",
+        "forward_ms": 59.67056006193161
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5686",
+        "forward_ms": 59.7192719578743
+      },
+      {
+        "effective_tokens": 15,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5715",
+        "forward_ms": 25.32944455742836
+      },
+      {
+        "effective_tokens": 43,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5762",
+        "forward_ms": 25.35662055015564
+      },
+      {
+        "effective_tokens": 29,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:6002",
+        "forward_ms": 25.448007509112358
+      },
+      {
+        "effective_tokens": 23,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:6071",
+        "forward_ms": 27.633672580122948
+      },
+      {
+        "effective_tokens": 26,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:6136",
+        "forward_ms": 26.41880139708519
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:6562",
+        "forward_ms": 59.66528318822384
+      },
+      {
+        "effective_tokens": 121,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:6663",
+        "forward_ms": 25.700390338897705
+      },
+      {
+        "effective_tokens": 12,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:6894",
+        "forward_ms": 25.447389110922813
+      },
+      {
+        "effective_tokens": 107,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:7012",
+        "forward_ms": 25.702374055981636
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:7244",
+        "forward_ms": 59.63151529431343
+      },
+      {
+        "effective_tokens": 71,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:7250",
+        "forward_ms": 25.607673451304436
+      },
+      {
+        "effective_tokens": 13,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:7461",
+        "forward_ms": 26.039212942123413
+      },
+      {
+        "effective_tokens": 26,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:7559",
+        "forward_ms": 25.354517623782158
+      },
+      {
+        "effective_tokens": 109,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:8197",
+        "forward_ms": 25.549864396452904
+      },
+      {
+        "effective_tokens": 58,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:8452",
+        "forward_ms": 25.327717885375023
+      },
+      {
+        "effective_tokens": 20,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:8562",
+        "forward_ms": 25.426004081964493
+      },
+      {
+        "effective_tokens": 79,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:8696",
+        "forward_ms": 25.69565176963806
+      },
+      {
+        "effective_tokens": 120,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:9014",
+        "forward_ms": 25.525761768221855
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:9194",
+        "forward_ms": 59.83057804405689
+      },
+      {
+        "effective_tokens": 20,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:9612",
+        "forward_ms": 25.375064462423325
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:9829",
+        "forward_ms": 59.368882328271866
+      },
+      {
+        "effective_tokens": 27,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:9932",
+        "forward_ms": 25.59533528983593
+      },
+      {
+        "effective_tokens": 19,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10061",
+        "forward_ms": 25.440160185098648
+      },
+      {
+        "effective_tokens": 217,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10293",
+        "forward_ms": 25.27751214802265
+      },
+      {
+        "effective_tokens": 127,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10349",
+        "forward_ms": 25.664817541837692
+      },
+      {
+        "effective_tokens": 58,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10409",
+        "forward_ms": 25.572186335921288
+      },
+      {
+        "effective_tokens": 853,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10659",
+        "forward_ms": 47.582004219293594
+      },
+      {
+        "effective_tokens": 106,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10741",
+        "forward_ms": 27.912545949220657
+      },
+      {
+        "effective_tokens": 702,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10846",
+        "forward_ms": 37.13134303689003
+      },
+      {
+        "effective_tokens": 44,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10919",
+        "forward_ms": 25.474082678556442
+      },
+      {
+        "effective_tokens": 139,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:11355",
+        "forward_ms": 25.216329842805862
+      },
+      {
+        "effective_tokens": 51,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:11485",
+        "forward_ms": 25.368642061948776
+      },
+      {
+        "effective_tokens": 74,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:11594",
+        "forward_ms": 26.087628677487373
+      },
+      {
+        "effective_tokens": 58,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:11755",
+        "forward_ms": 25.209756568074226
+      },
+      {
+        "effective_tokens": 804,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:11828",
+        "forward_ms": 46.18607461452484
+      },
+      {
+        "effective_tokens": 813,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:12003",
+        "forward_ms": 46.49565368890762
+      },
+      {
+        "effective_tokens": 15,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:12152",
+        "forward_ms": 25.349389761686325
+      },
+      {
+        "effective_tokens": 152,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:12360",
+        "forward_ms": 25.117723271250725
+      },
+      {
+        "effective_tokens": 702,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:12773",
+        "forward_ms": 37.04115375876427
+      },
+      {
+        "effective_tokens": 712,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:13243",
+        "forward_ms": 40.83932377398014
+      },
+      {
+        "effective_tokens": 16,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:13282",
+        "forward_ms": 25.51272325217724
+      },
+      {
+        "effective_tokens": 40,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:13291",
+        "forward_ms": 25.337304919958115
+      },
+      {
+        "effective_tokens": 17,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:13512",
+        "forward_ms": 25.287209078669548
+      },
+      {
+        "effective_tokens": 670,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:13650",
+        "forward_ms": 36.296043545007706
+      },
+      {
+        "effective_tokens": 20,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:13773",
+        "forward_ms": 25.315525010228157
+      },
+      {
+        "effective_tokens": 82,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:14185",
+        "forward_ms": 25.47849714756012
+      },
+      {
+        "effective_tokens": 19,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:14319",
+        "forward_ms": 25.64084716141224
+      },
+      {
+        "effective_tokens": 39,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:14320",
+        "forward_ms": 25.440379977226257
+      },
+      {
+        "effective_tokens": 14,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:14560",
+        "forward_ms": 25.478394702076912
+      },
+      {
+        "effective_tokens": 916,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:14888",
+        "forward_ms": 52.64429189264774
+      },
+      {
+        "effective_tokens": 282,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:14972",
+        "forward_ms": 24.99302849173546
+      },
+      {
+        "effective_tokens": 19,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15039",
+        "forward_ms": 25.220468640327454
+      },
+      {
+        "effective_tokens": 81,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15135",
+        "forward_ms": 25.67181922495365
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15184",
+        "forward_ms": 59.976935386657715
+      },
+      {
+        "effective_tokens": 133,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15304",
+        "forward_ms": 25.34075640141964
+      },
+      {
+        "effective_tokens": 92,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15349",
+        "forward_ms": 25.40832757949829
+      },
+      {
+        "effective_tokens": 88,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15462",
+        "forward_ms": 25.44352039694786
+      },
+      {
+        "effective_tokens": 515,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15601",
+        "forward_ms": 33.30707177519798
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15637",
+        "forward_ms": 59.714457020163536
+      },
+      {
+        "effective_tokens": 97,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15745",
+        "forward_ms": 26.238663122057915
+      },
+      {
+        "effective_tokens": 64,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15973",
+        "forward_ms": 25.737283751368523
+      },
+      {
+        "effective_tokens": 76,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16071",
+        "forward_ms": 25.383496657013893
+      },
+      {
+        "effective_tokens": 32,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16105",
+        "forward_ms": 25.294139981269836
+      },
+      {
+        "effective_tokens": 12,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16135",
+        "forward_ms": 25.300584733486176
+      },
+      {
+        "effective_tokens": 602,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16265",
+        "forward_ms": 35.78612767159939
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16529",
+        "forward_ms": 59.678755700588226
+      },
+      {
+        "effective_tokens": 83,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16570",
+        "forward_ms": 25.249246507883072
+      },
+      {
+        "effective_tokens": 57,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16702",
+        "forward_ms": 25.80946870148182
+      },
+      {
+        "effective_tokens": 13,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16950",
+        "forward_ms": 25.352220982313156
+      },
+      {
+        "effective_tokens": 115,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17061",
+        "forward_ms": 25.366254150867462
+      },
+      {
+        "effective_tokens": 336,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17099",
+        "forward_ms": 25.28436668217182
+      },
+      {
+        "effective_tokens": 47,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17319",
+        "forward_ms": 25.2918042242527
+      },
+      {
+        "effective_tokens": 183,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17452",
+        "forward_ms": 25.260094553232193
+      },
+      {
+        "effective_tokens": 12,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17485",
+        "forward_ms": 25.3872312605381
+      },
+      {
+        "effective_tokens": 591,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17800",
+        "forward_ms": 35.62232293188572
+      },
+      {
+        "effective_tokens": 21,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17818",
+        "forward_ms": 25.378497317433357
+      },
+      {
+        "effective_tokens": 19,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17844",
+        "forward_ms": 25.38285218179226
+      },
+      {
+        "effective_tokens": 165,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17882",
+        "forward_ms": 25.11017397046089
+      },
+      {
+        "effective_tokens": 93,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17934",
+        "forward_ms": 25.503285229206085
+      },
+      {
+        "effective_tokens": 75,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17942",
+        "forward_ms": 25.4539605230093
+      },
+      {
+        "effective_tokens": 22,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18035",
+        "forward_ms": 25.192003697156906
+      },
+      {
+        "effective_tokens": 70,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18065",
+        "forward_ms": 25.68737417459488
+      },
+      {
+        "effective_tokens": 693,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18115",
+        "forward_ms": 36.74216940999031
+      },
+      {
+        "effective_tokens": 60,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18299",
+        "forward_ms": 25.33402293920517
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18494",
+        "forward_ms": 59.37092751264572
+      },
+      {
+        "effective_tokens": 35,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18594",
+        "forward_ms": 25.312546640634537
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18612",
+        "forward_ms": 59.53636392951012
+      }
+    ],
+    "int8": [
+      {
+        "effective_tokens": 63,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:106",
+        "forward_ms": 86.36257238686085
+      },
+      {
+        "effective_tokens": 92,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:241",
+        "forward_ms": 86.36037819087505
+      },
+      {
+        "effective_tokens": 12,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:270",
+        "forward_ms": 83.0629039555788
+      },
+      {
+        "effective_tokens": 38,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:321",
+        "forward_ms": 87.45005168020725
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:594",
+        "forward_ms": 264.09513130784035
+      },
+      {
+        "effective_tokens": 10,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:725",
+        "forward_ms": 83.94150994718075
+      },
+      {
+        "effective_tokens": 84,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1196",
+        "forward_ms": 87.94743195176125
+      },
+      {
+        "effective_tokens": 64,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1310",
+        "forward_ms": 87.7839382737875
+      },
+      {
+        "effective_tokens": 51,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1388",
+        "forward_ms": 87.8090113401413
+      },
+      {
+        "effective_tokens": 83,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1557",
+        "forward_ms": 91.68536774814129
+      },
+      {
+        "effective_tokens": 200,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1898",
+        "forward_ms": 89.07711133360863
+      },
+      {
+        "effective_tokens": 712,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1962",
+        "forward_ms": 90.43813496828079
+      },
+      {
+        "effective_tokens": 11,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2020",
+        "forward_ms": 84.30271409451962
+      },
+      {
+        "effective_tokens": 31,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2073",
+        "forward_ms": 86.24207228422165
+      },
+      {
+        "effective_tokens": 65,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2205",
+        "forward_ms": 91.029591858387
+      },
+      {
+        "effective_tokens": 10,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2360",
+        "forward_ms": 83.98091048002243
+      },
+      {
+        "effective_tokens": 15,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2375",
+        "forward_ms": 84.74676311016083
+      },
+      {
+        "effective_tokens": 9,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2535",
+        "forward_ms": 83.05881917476654
+      },
+      {
+        "effective_tokens": 666,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2656",
+        "forward_ms": 90.56415408849716
+      },
+      {
+        "effective_tokens": 31,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2724",
+        "forward_ms": 88.47923763096333
+      },
+      {
+        "effective_tokens": 105,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:2753",
+        "forward_ms": 93.00261177122593
+      },
+      {
+        "effective_tokens": 48,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3061",
+        "forward_ms": 87.7092257142067
+      },
+      {
+        "effective_tokens": 213,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3234",
+        "forward_ms": 89.22026492655277
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3447",
+        "forward_ms": 93.89765188097954
+      },
+      {
+        "effective_tokens": 168,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3596",
+        "forward_ms": 88.42249400913715
+      },
+      {
+        "effective_tokens": 38,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3822",
+        "forward_ms": 86.43022924661636
+      },
+      {
+        "effective_tokens": 491,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3869",
+        "forward_ms": 90.16622044146061
+      },
+      {
+        "effective_tokens": 288,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3949",
+        "forward_ms": 88.31596001982689
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4155",
+        "forward_ms": 93.71544234454632
+      },
+      {
+        "effective_tokens": 365,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4326",
+        "forward_ms": 91.14519692957401
+      },
+      {
+        "effective_tokens": 156,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4503",
+        "forward_ms": 90.10972268879414
+      },
+      {
+        "effective_tokens": 111,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4544",
+        "forward_ms": 88.63021247088909
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4780",
+        "forward_ms": 93.73997710645199
+      },
+      {
+        "effective_tokens": 10,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4919",
+        "forward_ms": 83.35557393729687
+      },
+      {
+        "effective_tokens": 695,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5061",
+        "forward_ms": 89.74110521376133
+      },
+      {
+        "effective_tokens": 220,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5426",
+        "forward_ms": 89.56480771303177
+      },
+      {
+        "effective_tokens": 718,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5448",
+        "forward_ms": 90.1687927544117
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5499",
+        "forward_ms": 93.17009150981903
+      },
+      {
+        "effective_tokens": 72,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5545",
+        "forward_ms": 87.74968609213829
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5621",
+        "forward_ms": 92.91655197739601
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5686",
+        "forward_ms": 93.23066473007202
+      },
+      {
+        "effective_tokens": 15,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5715",
+        "forward_ms": 85.26957966387272
+      },
+      {
+        "effective_tokens": 43,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:5762",
+        "forward_ms": 87.19777129590511
+      },
+      {
+        "effective_tokens": 29,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:6002",
+        "forward_ms": 85.47004498541355
+      },
+      {
+        "effective_tokens": 23,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:6071",
+        "forward_ms": 85.436737164855
+      },
+      {
+        "effective_tokens": 26,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:6136",
+        "forward_ms": 86.32216602563858
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:6562",
+        "forward_ms": 93.24188716709614
+      },
+      {
+        "effective_tokens": 121,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:6663",
+        "forward_ms": 89.2395842820406
+      },
+      {
+        "effective_tokens": 12,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:6894",
+        "forward_ms": 85.45969612896442
+      },
+      {
+        "effective_tokens": 107,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:7012",
+        "forward_ms": 87.27109618484974
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:7244",
+        "forward_ms": 92.71912649273872
+      },
+      {
+        "effective_tokens": 71,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:7250",
+        "forward_ms": 88.02867494523525
+      },
+      {
+        "effective_tokens": 13,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:7461",
+        "forward_ms": 84.525803104043
+      },
+      {
+        "effective_tokens": 26,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:7559",
+        "forward_ms": 86.13668009638786
+      },
+      {
+        "effective_tokens": 109,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:8197",
+        "forward_ms": 88.12013082206249
+      },
+      {
+        "effective_tokens": 58,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:8452",
+        "forward_ms": 87.7550970762968
+      },
+      {
+        "effective_tokens": 20,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:8562",
+        "forward_ms": 84.56162549555302
+      },
+      {
+        "effective_tokens": 79,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:8696",
+        "forward_ms": 87.09214068949223
+      },
+      {
+        "effective_tokens": 120,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:9014",
+        "forward_ms": 87.49198168516159
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:9194",
+        "forward_ms": 92.72330813109875
+      },
+      {
+        "effective_tokens": 20,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:9612",
+        "forward_ms": 84.58441309630871
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:9829",
+        "forward_ms": 91.68094769120216
+      },
+      {
+        "effective_tokens": 27,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:9932",
+        "forward_ms": 85.28615720570087
+      },
+      {
+        "effective_tokens": 19,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10061",
+        "forward_ms": 85.11819504201412
+      },
+      {
+        "effective_tokens": 217,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10293",
+        "forward_ms": 88.4962659329176
+      },
+      {
+        "effective_tokens": 127,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10349",
+        "forward_ms": 88.68599496781826
+      },
+      {
+        "effective_tokens": 58,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10409",
+        "forward_ms": 88.56833912432194
+      },
+      {
+        "effective_tokens": 853,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10659",
+        "forward_ms": 93.48041750490665
+      },
+      {
+        "effective_tokens": 106,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10741",
+        "forward_ms": 88.06141279637814
+      },
+      {
+        "effective_tokens": 702,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10846",
+        "forward_ms": 89.2481617629528
+      },
+      {
+        "effective_tokens": 44,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:10919",
+        "forward_ms": 87.98242919147015
+      },
+      {
+        "effective_tokens": 139,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:11355",
+        "forward_ms": 87.48209290206432
+      },
+      {
+        "effective_tokens": 51,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:11485",
+        "forward_ms": 87.27003261446953
+      },
+      {
+        "effective_tokens": 74,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:11594",
+        "forward_ms": 88.1357453763485
+      },
+      {
+        "effective_tokens": 58,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:11755",
+        "forward_ms": 87.15174905955791
+      },
+      {
+        "effective_tokens": 804,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:11828",
+        "forward_ms": 89.14480917155743
+      },
+      {
+        "effective_tokens": 813,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:12003",
+        "forward_ms": 90.82105197012424
+      },
+      {
+        "effective_tokens": 15,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:12152",
+        "forward_ms": 83.85559171438217
+      },
+      {
+        "effective_tokens": 152,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:12360",
+        "forward_ms": 86.47184632718563
+      },
+      {
+        "effective_tokens": 702,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:12773",
+        "forward_ms": 87.85338699817657
+      },
+      {
+        "effective_tokens": 712,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:13243",
+        "forward_ms": 87.72388100624084
+      },
+      {
+        "effective_tokens": 16,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:13282",
+        "forward_ms": 83.40703696012497
+      },
+      {
+        "effective_tokens": 40,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:13291",
+        "forward_ms": 85.49470081925392
+      },
+      {
+        "effective_tokens": 17,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:13512",
+        "forward_ms": 85.17615310847759
+      },
+      {
+        "effective_tokens": 670,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:13650",
+        "forward_ms": 89.00257013738155
+      },
+      {
+        "effective_tokens": 20,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:13773",
+        "forward_ms": 84.2923205345869
+      },
+      {
+        "effective_tokens": 82,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:14185",
+        "forward_ms": 86.89609356224537
+      },
+      {
+        "effective_tokens": 19,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:14319",
+        "forward_ms": 84.72668193280697
+      },
+      {
+        "effective_tokens": 39,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:14320",
+        "forward_ms": 86.07541583478451
+      },
+      {
+        "effective_tokens": 14,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:14560",
+        "forward_ms": 83.7289858609438
+      },
+      {
+        "effective_tokens": 916,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:14888",
+        "forward_ms": 90.89271165430546
+      },
+      {
+        "effective_tokens": 282,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:14972",
+        "forward_ms": 88.86905200779438
+      },
+      {
+        "effective_tokens": 19,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15039",
+        "forward_ms": 84.56346020102501
+      },
+      {
+        "effective_tokens": 81,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15135",
+        "forward_ms": 87.17852272093296
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15184",
+        "forward_ms": 92.2069102525711
+      },
+      {
+        "effective_tokens": 133,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15304",
+        "forward_ms": 86.59525215625763
+      },
+      {
+        "effective_tokens": 92,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15349",
+        "forward_ms": 86.9603380560875
+      },
+      {
+        "effective_tokens": 88,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15462",
+        "forward_ms": 87.06190995872021
+      },
+      {
+        "effective_tokens": 515,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15601",
+        "forward_ms": 117.37839132547379
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15637",
+        "forward_ms": 91.91789478063583
+      },
+      {
+        "effective_tokens": 97,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15745",
+        "forward_ms": 86.73221617937088
+      },
+      {
+        "effective_tokens": 64,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:15973",
+        "forward_ms": 87.14603260159492
+      },
+      {
+        "effective_tokens": 76,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16071",
+        "forward_ms": 86.98791824281216
+      },
+      {
+        "effective_tokens": 32,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16105",
+        "forward_ms": 84.8313495516777
+      },
+      {
+        "effective_tokens": 12,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16135",
+        "forward_ms": 83.1749439239502
+      },
+      {
+        "effective_tokens": 602,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16265",
+        "forward_ms": 89.35079164803028
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16529",
+        "forward_ms": 91.92631207406521
+      },
+      {
+        "effective_tokens": 83,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16570",
+        "forward_ms": 86.77821978926659
+      },
+      {
+        "effective_tokens": 57,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16702",
+        "forward_ms": 86.70155890285969
+      },
+      {
+        "effective_tokens": 13,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:16950",
+        "forward_ms": 82.81482756137848
+      },
+      {
+        "effective_tokens": 115,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17061",
+        "forward_ms": 87.04686723649502
+      },
+      {
+        "effective_tokens": 336,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17099",
+        "forward_ms": 88.85041065514088
+      },
+      {
+        "effective_tokens": 47,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17319",
+        "forward_ms": 86.66736073791981
+      },
+      {
+        "effective_tokens": 183,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17452",
+        "forward_ms": 86.88258938491344
+      },
+      {
+        "effective_tokens": 12,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17485",
+        "forward_ms": 83.08708854019642
+      },
+      {
+        "effective_tokens": 591,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17800",
+        "forward_ms": 88.76541256904602
+      },
+      {
+        "effective_tokens": 21,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17818",
+        "forward_ms": 84.7453661262989
+      },
+      {
+        "effective_tokens": 19,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17844",
+        "forward_ms": 83.84241163730621
+      },
+      {
+        "effective_tokens": 165,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17882",
+        "forward_ms": 87.23127655684948
+      },
+      {
+        "effective_tokens": 93,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17934",
+        "forward_ms": 86.79906278848648
+      },
+      {
+        "effective_tokens": 75,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:17942",
+        "forward_ms": 86.84588968753815
+      },
+      {
+        "effective_tokens": 22,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18035",
+        "forward_ms": 85.18918231129646
+      },
+      {
+        "effective_tokens": 70,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18065",
+        "forward_ms": 86.63672022521496
+      },
+      {
+        "effective_tokens": 693,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18115",
+        "forward_ms": 88.90573680400848
+      },
+      {
+        "effective_tokens": 60,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18299",
+        "forward_ms": 87.54820004105568
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18494",
+        "forward_ms": 93.67083385586739
+      },
+      {
+        "effective_tokens": 35,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18594",
+        "forward_ms": 86.72703802585602
+      },
+      {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:18612",
+        "forward_ms": 92.38551184535027
+      }
+    ]
+  },
+  "schema_version": 1,
+  "scope": "Offline regeneration of single-pass pilot resource observations; no model run. Development feasibility only, not a final or controlled speed/memory benchmark.",
+  "treatments": {
+    "fp16": {
+      "derived_forward_only_rate_per_s": 31.19501263413987,
+      "length_bands": [
+        {
+          "band": "1-128",
+          "max_ms": 81.2396127730608,
+          "median_ms": 26.262986473739147,
+          "n": 80
+        },
+        {
+          "band": "129-512",
+          "max_ms": 153.22952717542648,
+          "median_ms": 26.424670591950417,
+          "n": 16
+        },
+        {
+          "band": "513-1024",
+          "max_ms": 493.04510094225407,
+          "median_ms": 26.156420819461346,
+          "n": 32
+        }
+      ],
+      "loading_seconds": 0.8667927626520395,
+      "max_ms": 493.04510094225407,
+      "max_sample": {
+        "effective_tokens": 712,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1962"
+      },
+      "mean_ms": 32.056406314950436,
+      "median_ms": 26.267215609550476,
+      "min_ms": 25.74664168059826,
+      "n": 128,
+      "p95_ms": 27.000486850738525,
+      "parameter_storage_mib": 1136.87890625,
+      "peak_allocated_mib": 1321.4169921875,
+      "peak_reserved_mib": 1350.0,
+      "post_warmup_baseline_allocated_mib": 1168.89306640625,
+      "quantization_scale_state_mib": 0.0,
+      "samples_longer_than_any_warmup": 59,
+      "sum_forward_seconds": 4.103220008313656,
+      "warmup_tokens": [
+        63,
+        92,
+        12
+      ],
+      "workload_increment_allocated_mib": 152.52392578125
+    },
+    "fp32": {
+      "derived_forward_only_rate_per_s": 31.617676236111436,
+      "length_bands": [
+        {
+          "band": "1-128",
+          "max_ms": 27.912545949220657,
+          "median_ms": 25.446420535445213,
+          "n": 80
+        },
+        {
+          "band": "129-512",
+          "max_ms": 27.62327902019024,
+          "median_ms": 25.258850306272507,
+          "n": 16
+        },
+        {
+          "band": "513-1024",
+          "max_ms": 60.14340743422508,
+          "median_ms": 56.006587110459805,
+          "n": 32
+        }
+      ],
+      "loading_seconds": 6.698511460795999,
+      "max_ms": 60.14340743422508,
+      "max_sample": {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4780"
+      },
+      "mean_ms": 31.62787779001519,
+      "median_ms": 25.51149856299162,
+      "min_ms": 24.99302849173546,
+      "n": 128,
+      "p95_ms": 59.678755700588226,
+      "parameter_storage_mib": 2273.7578125,
+      "peak_allocated_mib": 2482.7822265625,
+      "peak_reserved_mib": 2570.0,
+      "post_warmup_baseline_allocated_mib": 2305.75830078125,
+      "quantization_scale_state_mib": 0.0,
+      "samples_longer_than_any_warmup": 59,
+      "sum_forward_seconds": 4.048368357121944,
+      "warmup_tokens": [
+        63,
+        92,
+        12
+      ],
+      "workload_increment_allocated_mib": 177.02392578125
+    },
+    "int8": {
+      "derived_forward_only_rate_per_s": 11.184233988703378,
+      "length_bands": [
+        {
+          "band": "1-128",
+          "max_ms": 93.00261177122593,
+          "median_ms": 86.68445982038975,
+          "n": 80
+        },
+        {
+          "band": "129-512",
+          "max_ms": 91.14519692957401,
+          "median_ms": 88.67333829402924,
+          "n": 16
+        },
+        {
+          "band": "513-1024",
+          "max_ms": 264.09513130784035,
+          "median_ms": 91.92210342735052,
+          "n": 32
+        }
+      ],
+      "loading_seconds": 32.258570248261094,
+      "max_ms": 264.09513130784035,
+      "max_sample": {
+        "effective_tokens": 1024,
+        "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:594"
+      },
+      "mean_ms": 89.41157713707071,
+      "median_ms": 87.48703729361296,
+      "min_ms": 82.81482756137848,
+      "n": 128,
+      "p95_ms": 93.48041750490665,
+      "parameter_storage_mib": 716.87890625,
+      "peak_allocated_mib": 932.5576171875,
+      "peak_reserved_mib": 960.0,
+      "post_warmup_baseline_allocated_mib": 778.7177734375,
+      "quantization_scale_state_mib": 1.3125,
+      "samples_longer_than_any_warmup": 59,
+      "sum_forward_seconds": 11.44468187354505,
+      "warmup_tokens": [
+        63,
+        92,
+        12
+      ],
+      "workload_increment_allocated_mib": 153.83984375
+    }
+  },
+  "workload": {
+    "batch_size": 1,
+    "effective_tokens_max": 1024,
+    "effective_tokens_median": 83.0,
+    "effective_tokens_min": 9,
+    "examples": 128,
+    "treatment_order": "fp32, fp16, int8 (fixed, separate fresh processes, same allocation)"
+  }
+}

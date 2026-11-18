@@ -1,5 +1,89 @@
 # Research outputs and course deliverables
 
+## November 18 progress report - runtime/resource section (Hareeshwar)
+
+Completed resource section for Shreyas to place in the assembled progress report. The values are
+regenerated from the retained raw samples by `precision_benchmark.resource_summary` (V-044, RES-006),
+not typed by hand. Evidence: [resource table](evidence/p1b-resource-20261118/resource.csv),
+[length breakdown](evidence/p1b-resource-20261118/resource_by_length.csv),
+[figure](evidence/p1b-resource-20261118/latency_vs_tokens.png) and the
+[full summary](evidence/p1b-resource-20261118/resource_summary.json). Text between the rules is
+ready to paste; trim the figure or the length sentence first if space is short.
+
+---
+
+**Runtime and resource measurements (preliminary).** All three treatments ran the same 128
+pretokenized training examples on one NVIDIA L40S (48 GB, CUDA 12.6, PyTorch 2.9.1, Transformers
+4.57.1, bitsandbytes 0.48.2), in fresh processes within one Slurm allocation, in the fixed order
+FP32, FP16, INT8. Inputs were unpadded, batch size 1, capped at 1,024 tokens (9-1,024, median 83).
+The timer wraps one synchronized forward pass from device-resident token tensors to raw logits;
+it excludes tokenization, host-device transfer, score conversion and file output. Peak memory is
+PyTorch's maximum allocated GPU memory after a reset that follows warm-up.
+
+| Treatment | Median forward (ms) | p95 forward (ms) | Peak allocated GPU memory (MiB) | Parameter storage (MiB) | Derived forward-only rate (ex/s)* |
+|---|---:|---:|---:|---:|---:|
+| FP32 | 25.51 | 59.68 | 2,482.78 | 2,273.76 | 31.62 |
+| FP16 | 26.27 | 27.00 | 1,321.42 | 1,136.88 | 31.20 |
+| INT8 (LLM.int8) | 87.49 | 93.48 | 932.56 | 716.88 | 11.18 |
+
+\*128 examples divided by the sum of their 128 forward durations. This is a derived forward-only
+service rate, not a measured wall-clock, sustained or end-to-end throughput, and not 1 / median latency.
+p95 uses the nearest-rank rule.
+
+**Memory versus latency trade-off.** Lower precision reduced memory: peak allocated memory was 53%
+(FP16) and 38% (INT8) of FP32. Almost all of the saving is weight storage; the post-warm-up workload
+on top of the resident model was similar in every mode (about 150-180 MiB). INT8 did not reach a
+quarter of FP32 because LLM.int8 quantizes only the 196 transformer linear projections. The
+151,936 x 1,024 token-embedding table (296.75 MiB) and the classifier head stay in FP16. INT8 was
+**slower**, not faster: its median forward time was 3.4x FP32's and its derived rate about one third.
+FP16 matched FP32's median on short inputs. Above 512 tokens FP32's median rose to 56.0 ms while
+FP16 stayed at 26.2 ms (n=32). INT8 was about 87-92 ms in every length band. The flat FP16/INT8
+curves suggest that per-call fixed costs dominate at batch size 1 for this 0.6B model. LLM.int8's
+extra per-projection quantization and outlier handling are a plausible source of INT8's constant
+overhead, and FP32 with TF32 disabled is a plausible reason for its long-input growth. These are
+hypotheses; we did not profile kernels to confirm them. Lower bit width therefore reduced memory
+but did not reduce latency on this GPU. On this evidence, INT8 is better suited to memory-limited
+deployment than to latency-critical deployment. FP16 showed the most favorable latency/memory
+combination observed in this pilot, with one unexplained 493 ms spike.
+
+**Measurement limits.** (1) Batch size 1 only; no batching or concurrency. (2) Warm-up used only the
+first three inputs (63, 92 and 12 tokens), so 59 of the 128 timed inputs were longer than any
+warm-up shape. (3) One measured pass per example, with a fixed treatment order and no repetitions,
+so we report no variance or confidence intervals. Isolated spikes are kept in the data (FP16:
+493 ms at 712 tokens; INT8: 264 ms at 1,024 tokens), and their causes are unknown. (4) The timer
+excludes tokenization, transfers and score conversion, so these are not end-to-end request latencies.
+(5) Peak memory covers PyTorch allocations only, not the CUDA context, the allocator's
+reserved-but-unused memory or host memory. (6) The recorded loading times (6.7/0.9/32.3 s) depend
+on run order and file-cache state, and INT8's includes on-load quantization, so we do not compare
+them. (7) The 128 examples are a length-enriched development sample on a shared cluster node, so
+the results are feasibility observations, not a final speed ranking.
+
+**Reproduction.** Native run: `scripts/run_precision_pilot.sbatch` on Explorer (job 11959388,
+commands in `docs/USAGE.md`). Offline regeneration of this table and figure, without a GPU:
+`python -m precision_benchmark.resource_summary --manifest docs/evidence/p1b-pilot-20261117/comparison.json --output outputs/resource-new`.
+The command checks the hash chain from the comparison manifest to each run's measurement files.
+It also confirms that all three treatments timed identical examples and token lengths on one
+device, and that the recomputed median and p95 equal the values recorded during the run.
+
+**Next profiling work (final report).** Warm up every measured shape. Repeat measurements under a
+rotated treatment order. Run batch-size and length sweeps. Measure sustained wall-clock and
+end-to-end throughput, including tokenization and transfer. Report model size on disk, loading
+time under a cold cache, and kernel-level profiles to test the INT8 overhead hypothesis.
+
+*Figure (optional):* `docs/evidence/p1b-resource-20261118/latency_vs_tokens.png`. Caption: Per-example
+synchronized forward time against input length (log-log), 128 matched development inputs, batch 1,
+one L40S; dashed lines show medians, and the shaded band marks lengths up to the longest warm-up input.
+
+**Contribution (Hareeshwar Muthu Kumaran).** Verified the retained runtime evidence against the raw
+per-example samples. Implemented and tested the offline resource-summary module
+(`precision_benchmark/resource_summary.py`, 7 tests). Produced the resource table, the length
+breakdown and the figure. Wrote the resource analysis, measurement limits and reproduction
+instructions. The Explorer GPU environment, the timing/memory instrumentation and the native
+pilot run were prepared earlier in the shared pilot (P1-B) and are not claimed here. Claude Code
+(an AI assistant) helped with implementation and drafting.
+
+---
+
 ## November 18 progress report - completed inference contribution
 
 Yash supplied the actual course guidelines: the progress report is **at most four pages**,

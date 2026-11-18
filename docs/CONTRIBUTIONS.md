@@ -12,7 +12,7 @@ Contribution-recording instructions are in [AGENTS.md](../AGENTS.md).
 | Shreyas Shukla | Requested evaluation/integration implementation; Codex-produced deliverables in S-20261111-01, V-001. Human implementation/review not asserted. | Pending |
 | Viraj Paradkar | None recorded | None recorded |
 | Yash Chavan | Requested verification, approved local integration and inference/data audit scope; S-20261117-01/02. Automated execution is distinguished from human implementation. | Human scientific review not yet recorded |
-| Hareeshwar Muthu Kumaran | None recorded | None recorded |
+| Hareeshwar Muthu Kumaran | Runtime/resource report section, offline resource-summary module and tests (S-20261118-02, V-044, RES-006); Claude Code-assisted. | Human review of the section pending |
 
 These entries establish team membership, not completed work or authorship credit. Current
 active task ownership belongs in [STATUS.md](STATUS.md).
@@ -121,3 +121,12 @@ and remaining report work. Automated independent arithmetic and code/measurement
 source checks and report-gap assessment produced V-043 and the S-20261117-10 clarification.
 No new human implementation, experiment or teammate review is inferred. Original pilot
 outputs remain unchanged; this contribution is verification and more precise interpretation.
+
+## November 18 - Hareeshwar's runtime/resource section
+
+Hareeshwar requested completion of his assigned runtime/resource progress-report work. With Claude
+Code assistance, the session produced `precision_benchmark/resource_summary.py`, its seven tests,
+the regenerated resource evidence in `docs/evidence/p1b-resource-20261118/`, RES-006, V-044 and the
+report-ready section in REPORTING. The Explorer environment, timing/memory instrumentation and
+native pilot execution came from the earlier P1-B work (S-20261117-09) and are not credited to
+Hareeshwar here. Hareeshwar's human review of the section and its commit are his to record.

@@ -676,3 +676,27 @@ rubric does not mandate a new GPU experiment, final threshold, Test-A or learned
 November 18. REPORTING and RES-004 now make those distinctions and the memory boundary clear.
 No existing quality result or raw measurement is invalidated; stronger interpretations remain
 unsupported. Full notes/output are preserved under `outputs/recheck-20261117/`.
+
+### V-044 - Offline resource-table regeneration and matched-workload checks
+
+S-20261118-02, November 18, 2026. Hareeshwar's runtime/resource workstream, with Claude Code
+assistance. New module `precision_benchmark/resource_summary.py` reads the retained P1-B bundle
+without GPU, weights or raw text.
+
+Checks performed by the module on every run: comparison.json -> run.json -> feasibility.json,
+environment.json and precision-evidence.json SHA-256 chain; three distinct complete treatments;
+identical example IDs, effective token counts and order across treatments; batch size 1; finite
+positive durations; one GPU UUID and allocation; recomputed median and nearest-rank p95 exactly
+equal to the values recorded natively. On the retained bundle all checks passed. Medians, p95s,
+peak allocated memory and derived rates reproduce RES-004/V-043 (25.51/26.27/87.49 ms;
+59.68/27.00/93.48 ms; 2482.78/1321.42/932.56 MiB; 31.6177/31.1950/11.1842 ex/s), as do the spike
+maxima (FP16 493.0451 ms, INT8 264.0951 ms).
+
+Seven new tests (`tests/test_resource_summary.py`) cover hand-computed synthetic quantiles,
+rate, bands and memory; rate not equal to 1/median; tampered-hash, unmatched-workload,
+recorded-median and different-device rejection; CLI output and output-directory preservation;
+plus a regression against the retained bundle. Full suite: 118 tests ran, all passed (local Windows,
+Python 3.13). Outputs are retained in `docs/evidence/p1b-resource-20261118/`; the figure was
+visually inspected for overlap. Limits: this validates arithmetic and evidence consistency only. It
+does not re-measure hardware or test the RES-006 hypotheses. Automated checks only; human
+review pending.
