@@ -124,6 +124,9 @@ class PilotDataTests(unittest.TestCase):
         self.assertFalse(manifest["main_study_freeze"])
         self.assertFalse(manifest["model_inference_performed"])
         self.assertEqual(manifest["source_evidence"]["full_training_rows_verified"], 140)
+        preprocessing_path = Path(pilot_data.__file__).with_name("preprocessing.py")
+        self.assertEqual(manifest["code_sha256"].get("precision_benchmark/preprocessing.py"),
+                         sha(preprocessing_path.read_bytes()))
 
     def test_each_source_artifact_hash_is_checked_and_no_existing_output_overwritten(self):
         files = [self.popdir / "summary.json", self.popdir / "eligible-training.jsonl",

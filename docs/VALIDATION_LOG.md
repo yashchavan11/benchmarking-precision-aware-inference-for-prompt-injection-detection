@@ -1,5 +1,16 @@
 # Correctness and validity evidence
 
+## PR-1 preparation source-inventory regression - November 18, 2026
+
+Codex reproduced the missing `precision_benchmark/preprocessing.py` hash in the
+preparation manifest using the existing synthetic manifest test: expected the actual
+SHA-256, observed `None`. Added that module to `pilot_data.build`'s source inventory.
+The same assertion now passes. `python3 -m unittest discover -s tests -q` ran 111
+tests: 110 passed, one optional `requests` test skipped. `git diff --check` passed.
+No source selection, tokenization policy, saved prediction or native execution changed.
+The check establishes complete inventory coverage for this newly imported module;
+no new GPU run or human scientific review is claimed.
+
 This log records the evidence supporting implementation correctness and research validity.
 Development evaluator checks are recorded below. Planned checks and their expected outputs
 do not count as performed validation.

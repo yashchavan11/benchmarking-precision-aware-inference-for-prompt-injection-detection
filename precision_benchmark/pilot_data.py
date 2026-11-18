@@ -177,7 +177,7 @@ def build(population_dir, population_summary_sha256, native_dir, native_summary_
                                     "Input schedule fixes IDs/order/batch composition; actual token-vector schedule must be checked by inference.",
                                     "Full checkpoint loading, effective precision, GPU feasibility and complete outputs require separate execution checks."],
                     "code_sha256": {f"precision_benchmark/{name}": digest(Path(__file__).with_name(name).read_bytes()) for name in
-                                    ("pilot_data.py", "input_data.py", "artifacts.py", "tokenizer_audit.py")}}
+                                    ("pilot_data.py", "preprocessing.py", "input_data.py", "artifacts.py", "tokenizer_audit.py")}}
         output.mkdir(parents=True, exist_ok=False)
         (output / "examples.jsonl").write_bytes(raw)
         (output / "manifest.json").write_text(json.dumps(manifest, indent=2, sort_keys=True, allow_nan=False) + "\n", encoding="utf-8", newline="\n")

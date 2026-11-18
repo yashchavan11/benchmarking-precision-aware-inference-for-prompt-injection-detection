@@ -1,5 +1,14 @@
 # Session history
 
+## November 18 - PR #1 review correction
+
+At Shreyas's request, Codex corrected the preparation manifest's omission of the shared
+preprocessing source hash. An added assertion in the existing manifest test failed before
+the one-line inventory fix and passed afterward; see VALIDATION_LOG's PR-1 regression
+entry. Full suite: 110 passed, one optional-dependency skip. Work was isolated from the
+main checkout's uncommitted report edits. No model/data/threshold change or experiment;
+the correction is prepared for publication to `dataset-preprocessing-handoff`.
+
 ## Dataset and preprocessing ownership handoff
 
 Prepared the [dataset and preprocessing handoff](DATASET_PREPROCESSING_HANDOFF.md)
