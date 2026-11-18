@@ -21,6 +21,13 @@ PR-1 entry and Git history for publication state. Scientific pilot status below 
 
 ## Required continuation and reusable artifacts
 
+**November 18 report follow-up (S-20261118-01):** Shreyas's fillable PDF sections are prepared
+at `../output/pdf/CS5130_Progress_Report_Shreyas_Filled.pdf`. Three source-checked qualitative
+development cases are now recorded in RES-005/EXP-009; human review remains pending.
+This completes a bounded investigation, not all possible failure analysis. The prior
+November 17 handoff below is historical where it says no prompt-level investigation exists.
+Team sections and final report assembly remain unfinished. No inference setting changed.
+
 Read the P1-B closeout, D-012, PILOT-001, RES-004 including its recheck follow-up, V-039 through V-043 and REPORTING before
 continuing. The [portable team bundle](evidence/p1b-pilot-20261117/comparison.json) includes
 all 384 predictions, reference IDs/labels/lengths, native precision/pooling evidence, package

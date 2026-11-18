@@ -60,6 +60,25 @@ change the underlying run history.
 
 ## Multi-part finding links
 
+### RES-005 - Three source-checked development error illustrations
+
+November 18, 2026; Codex-assisted report preparation for Shreyas. Descriptive observations
+from PILOT-001 and EXP-009, not a new experiment or human annotation adjudication.
+All IDs below use revision `a5234cb1f5cdb256600cab64b8c961195b5e8404` and split `train`.
+
+| Source row | Source content and reference | Observed FP32 / INT8 behavior | Interpretation and limit |
+|---|---|---|---|
+| 10349 | Book-ranking text followed by recipe instructions; label 1; 127 tokens, untruncated. | Scores 0.000752 / 0.000621; both benign at 0.5. FP16 also misses it. | Shared false negative under dataset labels. Benign-looking tasks may be relevant, but annotation context and causal model explanation are not established. |
+| 3949 | Translation task with repeated output-filtering and secret-key prompts; label 1; 288 tokens, untruncated. | 0.491474 / 0.518653; INT8 crosses the threshold and corrects FP32's miss. | Concrete threshold sensitivity. One correction does not establish general INT8 superiority. |
+| 16105 | Stylized request for a download script with output constraints; label 0; 32 tokens, untruncated. | 0.735995 / 0.781622; both flag injection. FP16 also flags it. | Shared false positive under dataset labels. Suspicious-looking wording is a possible factor, not a proven cause; harmful-looking content is not itself proof of prompt injection. |
+
+Evidence: source SHA/label checks in EXP-009 and portable pilot
+`analysis/error_analysis.csv`, `pilot/examples.jsonl`, and saved predictions. Offline
+regeneration completed with `python3 -m precision_benchmark --manifest
+docs/evidence/p1b-pilot-20261117/comparison.json --output outputs/shreyas-report-20261118`.
+No native run or full software suite was repeated. Review status: assistant analysis;
+human review pending. Use these as bounded examples, not prevalence estimates or causal findings.
+
 A synthesis can link several result records without repeating their measurements. For Part 1,
 link the completed evidence package specified in REPORTING. For Part 2, keep separate
 records or explicitly separated components for quality versus each fixed-model baseline,

@@ -20,6 +20,21 @@ of two Brier scores (approximately 3e-17 and 6e-17). The pinned raw source is
 absent from this checkout, so this session reused the retained audit evidence.
 P1-C remains the next scientific phase.
 
+## S-20261118-01 - Fill Shreyas's progress-report PDF sections
+
+Codex, at Shreyas's request, regenerated the saved pilot evaluation and inspected three
+permitted training cases. Exact training-file and selected text/label identities matched
+retained evidence (EXP-009); RES-005 records observations separately from hypotheses.
+Filled evaluation implementation, reproducibility, quality table, paired interpretation,
+three cases, lessons/risks, next steps and assisted-contribution disclosure in a copy of
+the four-page PDF template. Shared overview, data/inference, resource and other members'
+contribution fields remain blank for team completion. No human contribution is inferred.
+The user artifact is `../output/pdf/CS5130_Progress_Report_Shreyas_Filled.pdf`; the original
+template is preserved. All 43 interactive fields remain; 27 have content. Four rendered
+pages were visually checked after adding explicit line wrapping, and canonical field
+values/appearance streams were verified. No model rerun, test-suite rerun, message,
+submission, commit or push was performed. The PDF is a partial team draft, not a final report.
+
 Chronological record of substantive implementation, investigation, experiments and analysis.
 The latest resumable state is in [STATUS.md](STATUS.md); this file preserves how that state
 was reached. Implementation sessions are recorded below; no model experiments have run.

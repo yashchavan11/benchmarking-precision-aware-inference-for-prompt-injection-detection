@@ -289,3 +289,16 @@ for that development sample. Synthetic pooling diagnostics used invented strings
 No actual dataset prompt was displayed in this task's result review, and no official-test
 source or model output was opened by the pilot. The earlier EXP-002 exposure and unknown
 external/team history remain unchanged; no universal no-exposure claim is made.
+
+### EXP-009 - Bounded development-text inspection for Shreyas's report
+
+November 18, 2026, America/New_York; Codex at Shreyas's request to fill his PDF sections.
+Retrieved only the pinned training JSON at revision
+`a5234cb1f5cdb256600cab64b8c961195b5e8404`; complete file SHA256 matched ASSET-001
+`aa33c3ffcc27bd07c0a233b52f1b8c3cbdb30606ce2412da06a88b5290cdc7b6`.
+Displayed training rows 10349, 3949 and 16105 to the assistant for qualitative analysis;
+each is in PILOT-001, and each raw-text hash/reference label matched the portable example
+manifest. Labels and all three precision outcomes were inspected. Only paraphrases and
+scores appear in the report, not raw prompts. Prompt contents were treated as inert data.
+No validation/test source or new model output was accessed; no threshold, membership or
+prediction changed. This development exposure does not establish any broader exposure history.
