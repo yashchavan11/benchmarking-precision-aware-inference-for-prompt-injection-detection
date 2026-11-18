@@ -621,3 +621,47 @@ while retaining blank-at-EOL, blank-at-EOF and space-before-tab checks. `-text` 
 all inventoried bytes on every checkout. No evidence was normalized to make a hash pass;
 the staged-byte checks and final whitespace check succeed. These are packaging checks,
 not additional model experiments or evidence of universal software correctness.
+
+### V-043 - User-requested fresh result recheck and report-gap correction
+
+S-20261117-10, November 17, 2026. Yash asked why INT8 appeared better, whether substantive
+report work remained, and for a fresh verification. The [compact recheck evidence](evidence/p1b-recheck-20261117.json)
+and [independent standard-library verifier](evidence/p1b-recheck-20261117.py) retain the
+observations and method. Original native/prediction artifacts were not changed.
+
+The fresh independent calculation used no project metric implementation or previous review
+conclusion. All 384 prediction rows, 46 inventoried members plus the inventory, 50 executed
+source payload members and internal hash/compatibility references verify. Confusion counts,
+all quality/calibration metrics, paired outcomes, truncation groups and error CSV/JSON agree;
+metric comparison tolerance is 1e-12 and the separately defined FP32-softmax reference
+comparison uses 1e-7 (maximum observed difference below 5.84e-8). All 111 software tests passed
+again, and offline reanalysis reproduced the numeric result sections exactly.
+
+The coordinating check also matched all 128 reference labels and raw-text hashes against
+the pinned original training source without displaying prompts, recomputed the full
+1,192,138,968-byte checkpoint SHA256, checked the configured benign/jailbreak index mapping,
+compared Git/bundle bytes and current inference source against the executed archive, and
+rechecked Slurm accounting: job 11959388 remains COMPLETED 0:0, 11m59s on d4046. No model was
+rerun, no threshold/membership changed and no official-test source/performance was opened.
+Reference-label identity is verified; semantic annotation truth has not been adjudicated.
+
+The sole INT8 correction is the untruncated 288-token training row 3949 at threshold 0.5.
+Its FP32/INT8 scores are 0.4914744794/0.5186528563. This increases accuracy by 1/128 while
+INT8's AUC decreases: 29 positive-negative rankings are lost and three gained, net 26 of 4096.
+No data/analysis mismatch was found. The observations do not establish global superiority,
+a beneficial-regularization mechanism or learned-gate benefit.
+
+The measurement review clarified two limitations: all three warmups were short (63, 92, 12 tokens), and the forward timer's exclusions must not be applied to the memory window.
+PyTorch peak memory after warmup includes GPU input/forward/score allocations, while the
+forward timer excludes transfers/scoring. Raw spikes, including FP16's 493.0451 ms maximum,
+remain included; their causes and repeatability are unestablished. Median/p95 calculations
+remain valid descriptive values, not a fully warmed repeated performance benchmark.
+
+A derived forward-service rate (N/sum of measured forward durations) is recorded separately
+and explicitly excludes any continuous-window/end-to-end throughput claim. The report-gap
+assessment corrects the previous handoff: qualitative prompt-level failure investigation and
+throughput scope/full profiling remain substantive tasks, although the supplied progress
+rubric does not mandate a new GPU experiment, final threshold, Test-A or learned gate by
+November 18. REPORTING and RES-004 now make those distinctions and the memory boundary clear.
+No existing quality result or raw measurement is invalidated; stronger interpretations remain
+unsupported. Full notes/output are preserved under `outputs/recheck-20261117/`.

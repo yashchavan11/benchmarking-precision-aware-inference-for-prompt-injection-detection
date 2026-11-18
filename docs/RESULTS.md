@@ -171,3 +171,31 @@ The main comparison requires P1-C decisions and FP32 validation threshold select
 Test-A. Complete Part 1 before substantive learned-gate development and eventual frozen
 Test-B comparison. Existing P1-A inputs/partitions remain unchanged and valid within their
 recorded limits.
+
+
+### RES-004 follow-up - Fresh recheck and narrower resource interpretation
+
+S-20261117-10 / V-043 independently rechecks the unchanged retained pilot. The accuracy
+advantage is exactly one reference-labelled injection: training row 3949 has scores
+FP32=0.4914744794, FP16=0.4914864302, INT8=0.5186528563 at threshold 0.5. The corresponding
+logit margins are -0.0341053754, -0.0340576172, +0.0746459961. Numerical changes can move a
+borderline prediction in either direction; greater arithmetic precision does not guarantee
+agreement with the reference label. No mechanism such as beneficial regularization has
+been established. INT8's AUC is 0.926025390625 versus FP32's 0.932373046875, so the small
+thresholded-accuracy gain is not an across-metric improvement.
+
+A timing recheck identifies the exact three warmup lengths: 63, 92, 12 tokens in every mode.
+The longer shapes were not explicitly warmed. All raw samples are retained, including an
+FP16 maximum of 493.0451 ms at 712 tokens and an INT8 maximum of 264.0951 ms at 1024 tokens.
+Their causes and repeatability are unknown. The existing medians/p95 remain correct
+single-pass descriptions; they do not establish a fully warmed stable benchmark. Memory
+peaks span the post-warm-up GPU workload including input/score allocations, while the
+forward timer excludes transfers and score conversion. These are different boundaries.
+
+For completeness, a derived forward-only service rate can be calculated as 128 divided
+by the sum of the 128 recorded forward durations: 31.6177 FP32, 31.1950 FP16 and 11.1842 INT8
+examples per forward-second. This is not a measured continuous wall-window or end-to-end
+pipeline throughput. The calculation uses the sum of durations, not the median; it adds
+no new native execution or proof of a sustained rate. The compact recheck evidence retains
+source hashes and the formula. Qualitative prompt-level failure investigation and fuller
+profiling remain unfinished; final threshold and protected evaluations remain unchanged.

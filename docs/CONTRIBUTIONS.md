@@ -113,3 +113,11 @@ Configured Git authorship is Yash's required project identity, not proof that he
 implemented or independently reviewed every line. No new implementation/review by Viraj,
 Shreyas or Hareeshwar is inferred; earlier verified contributions remain credited. The final
 coordination text is a draft for Yash to convey, not an agent-sent teammate message.
+
+## November 17 - Requested result recheck
+
+Yash requested a fresh verification and challenged the interpretation of the INT8 result
+and remaining report work. Automated independent arithmetic and code/measurement reviews,
+source checks and report-gap assessment produced V-043 and the S-20261117-10 clarification.
+No new human implementation, experiment or teammate review is inferred. Original pilot
+outputs remain unchanged; this contribution is verification and more precise interpretation.

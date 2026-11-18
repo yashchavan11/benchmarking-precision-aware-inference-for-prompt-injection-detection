@@ -4,20 +4,20 @@
 
 | Field | Current value |
 |---|---|
-| Provenance/phase | November 17, 2026, America/New_York; S-20261117-09. P1-A and bounded batch-one P1-B closed; next P1-C. |
+| Provenance/phase | November 17, 2026, America/New_York; S-20261117-10 recheck. P1-A and bounded batch-one P1-B remain closed; next P1-C. |
 | Completion evidence | PHASE_RECORDS P1-B closeout; D-012; PILOT-001; V-039 through V-042; RES-004. Complete finite FP32/FP16/INT8 predictions for the same 128 training IDs. |
-| Ownership/jobs | S-20261117-09 complete. All implementation/data/native/arithmetic/publication reviews complete; no active reservations or CPU/GPU jobs. No teammate artifact blocks the completed contribution. |
+| Ownership/jobs | S-20261117-10 complete. Fresh arithmetic, source/code/measurement and report-gap assessments are incorporated in V-043. No active reservations, new GPU job, data selection, threshold change or teammate dependency. |
 | Repository | Reviewed P1-B milestone `3f20b824aec92d60cf43a28aa9446a9830f48872` was pushed to origin/main and its remote SHA verified, using configured Yash author/committer identity. See Git history for the latest handoff tip and `outputs/pilot-20261117/publication.json` for the final local receipt. No comments, PRs, issues, teammate messages, submissions or visibility changes were made. |
 | Inputs | Pinned dataset/model revisions and D-008 populations unchanged. Full checkpoint now retrieved and hashed. D-012 uses original unpadded batch 1, cap 1024, provisional threshold 0.5; these are not a main-study freeze. |
 | Native evidence | CPU setup 11959175 completed 0:0 in 10m24s. GPU 11959388 completed 0:0 in 11m59s on one L40S/d4046. 107 software tests passed on the GPU node before execution; 111 final local tests include four later offline-only assembly checks. |
-| Observed findings | FP32/FP16 each 97/128 correct; INT8 98/128 with one corrected error and none introduced. Shared false negatives remain. INT8 used less measured allocated memory and had a slower pilot median forward time. See RES-004 for denominators and limits. |
+| Observed findings | FP32/FP16 each 97/128 correct; INT8 98/128 with one corrected error and none introduced. Shared false negatives remain; INT8 AUC is lower despite its one-example accuracy gain. INT8 used less measured allocated memory and had a slower pilot median forward time. V-043 confirms the values and identifies short-only warmups/spikes; see RES-004 for scope. |
 | Scientific boundaries | Training-only enriched pilot, provisional operating point and single-pass resource observations. No representative/generalization, statistical superiority, final speedup or learned-gate benefit claim. No Test-A/Test-B predictions or performance release. |
 | Runtime | Verified Explorer CUDA environment and full checkpoint are reusable; preserve the separate audit environment and Windows security policy. Exact package lock, source archive and hardware evidence are retained. |
 | Reporting | Actual guideline screenshot recorded in REPORTING: November 18 progress report <=4 pages; implementation, pipeline/baseline, preliminary evaluation, lessons/risks. Ready-to-use inference prose/tables and remaining team actions are linked there. No submission made. |
 
 ## Required continuation and reusable artifacts
 
-Read the P1-B closeout, D-012, PILOT-001, RES-004, V-039 through V-042 and REPORTING before
+Read the P1-B closeout, D-012, PILOT-001, RES-004 including its recheck follow-up, V-039 through V-043 and REPORTING before
 continuing. The [portable team bundle](evidence/p1b-pilot-20261117/comparison.json) includes
 all 384 predictions, reference IDs/labels/lengths, native precision/pooling evidence, package
 provenance, raw feasibility samples, complete analysis and the exact executed code package.
@@ -42,9 +42,17 @@ Reusable Explorer references (not the sole durable evidence):
 
 | Order | Next bounded task | Recognizable completion condition |
 |---|---|---|
-| 1 | Team progress-report assembly using REPORTING and verified bundle; convey overlapping choices/completed work through Yash. | At most four pages covering the actual rubric, truthful tables/limits and actual contributions. Shreyas/Viraj/Hareeshwar inspect and use shared artifacts; no duplicated audit or assumed completed teammate work. Submission still needs explicit instruction. |
+| 1 | Use the corrected report-gap assessment: add bounded qualitative development-error investigation and explicitly scoped resource reporting, then assemble the progress report. | At most four pages covering the rubric and actual contributions. Existing samples permit a narrow derived forward-service rate; sustained/end-to-end throughput and shape-aware repeated profiling require additional approved measurements. No new GPU experiment is mandated merely by the progress-report wording. Submission still needs explicit instruction. |
 | 2 | Prepare P1-C main-study decision packet. | Concrete endpoint, validation-threshold objective/search/tie rule, preprocessing/batch/quantization policy, paired uncertainty, profiling matrix/repetitions and budget for Yash's approval before substantive execution. |
 | 3 | After those choices, implement/check analysis and perform approved validation selection; freeze the Part 1 plan before Test-A. | Full traceable freeze and compatible development evidence. Complete Part 1 before the committed learned-gate study and final Test-B release. |
+
+The fresh recheck is [V-043 evidence](evidence/p1b-recheck-20261117.json), with an independent
+verifier retained beside it. Original bundle bytes and predictions remain unchanged; no
+arithmetic/hash mismatch was found. The prior handoff understated throughput scope and
+prompt-level qualitative analysis: these are substantive unfinished tasks, not only table
+assembly. Forward timer exclusions do not define the wider post-warm-up memory window.
+The final threshold, Test-A study and learned gate remain later work, not automatically
+required to finish the November 18 preliminary report.
 
 No further scientific experiment is silently authorized by completing the report pilot.
 Unknown prior external exposure, annotation truth, near-duplicates and pretrained

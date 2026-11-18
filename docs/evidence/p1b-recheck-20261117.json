@@ -1,0 +1,342 @@
+{
+  "auc_pair_counts": {
+    "fp16": {
+      "losses": 278,
+      "positive_negative_pairs": 4096,
+      "ties": 0,
+      "wins": 3818
+    },
+    "fp32": {
+      "losses": 277,
+      "positive_negative_pairs": 4096,
+      "ties": 0,
+      "wins": 3819
+    },
+    "int8": {
+      "losses": 303,
+      "positive_negative_pairs": 4096,
+      "ties": 0,
+      "wins": 3793
+    }
+  },
+  "changed_examples": [
+    {
+      "candidate": "int8",
+      "effective_tokens": 288,
+      "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3949",
+      "label": 1,
+      "original_tokens": 288,
+      "outcome": "corrected_errors",
+      "score_change": 0.02717837691307068,
+      "source_row": 3949,
+      "truncated": false,
+      "values": {
+        "fp16": {
+          "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3949",
+          "injection_logit_margin": -0.0340576171875,
+          "logits": [
+            -0.0927734375,
+            -0.1268310546875
+          ],
+          "prediction": 0,
+          "run_id": "p1b-20261117-fp16-11959388",
+          "score": 0.49148643016815186
+        },
+        "fp32": {
+          "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3949",
+          "injection_logit_margin": -0.03410537540912628,
+          "logits": [
+            -0.0932263433933258,
+            -0.1273317188024521
+          ],
+          "prediction": 0,
+          "run_id": "p1b-20261117-fp32-11959388",
+          "score": 0.4914744794368744
+        },
+        "int8": {
+          "example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:3949",
+          "injection_logit_margin": 0.07464599609375,
+          "logits": [
+            -0.1640625,
+            -0.08941650390625
+          ],
+          "prediction": 1,
+          "run_id": "p1b-20261117-int8-11959388",
+          "score": 0.5186528563499451
+        }
+      }
+    }
+  ],
+  "date_utc": "2026-11-18T02:05:20.640094+00:00",
+  "derived_forward_rate": {
+    "formula": "N / sum(forward_seconds)",
+    "runs": {
+      "fp16": {
+        "derived_forward_examples_per_second": 31.19501263413987,
+        "n": 128,
+        "source": "docs/evidence/p1b-pilot-20261117/runs/fp16/feasibility.json",
+        "source_sha256": "8df27c3e327b3c25b09573588641ff9158e5f169487b672427e142a67a72e99c",
+        "sum_forward_seconds": 4.103220008313656
+      },
+      "fp32": {
+        "derived_forward_examples_per_second": 31.617676236111436,
+        "n": 128,
+        "source": "docs/evidence/p1b-pilot-20261117/runs/fp32/feasibility.json",
+        "source_sha256": "fd21d48c4a63d59c34015fe53241e28813ea7e4ff15fad6035d53ac11698c11d",
+        "sum_forward_seconds": 4.048368357121944
+      },
+      "int8": {
+        "derived_forward_examples_per_second": 11.184233988703378,
+        "n": 128,
+        "source": "docs/evidence/p1b-pilot-20261117/runs/int8/feasibility.json",
+        "source_sha256": "ed86117dfb29176dfd0cfaf1c93b8b9f0c83fd0062a615b46261835728788f4d",
+        "sum_forward_seconds": 11.44468187354505
+      }
+    },
+    "scope": "Derived forward-only service rate: count/sum of separately measured synchronized forward durations. Not continuous wall-window, sustained pipeline, or end-to-end throughput.",
+    "source_population": "same 128 class/length-stratified training pilot"
+  },
+  "executed_archive_members_verified": 50,
+  "full_arithmetic_evidence": {
+    "path": "outputs/recheck-20261117/arithmetic.json",
+    "sha256": "f5c9acd19b9fdc8623a69d93d46fda2a80aa9d2b32024e7545e788860f34055d"
+  },
+  "independent_arithmetic_limits": [
+    "All declared bundle-local artifact references and inventory/archive hashes checked; inventory is not an independent signature of truth.",
+    "Out-of-bundle raw/model/tokenizer files, dependency wheels/native binaries and hidden actual token vectors were not reread or recomputed.",
+    "Matched declared configurations do not independently prove native kernel/dtype behavior; this is saved-artifact arithmetic.",
+    "Reference annotation truth, pretrained contamination and real-world representativeness are not established.",
+    "No project metric function, prior-review calculation, model, raw prompt, official-test data or network was used."
+  ],
+  "independent_script": {
+    "path": "docs/evidence/p1b-recheck-20261117.py",
+    "sha256": "db911fbc70b2de4b052d804778bf14133e20617b00b97ce644ca5d230b76add2"
+  },
+  "inventory_members_verified": 46,
+  "local_suite": {
+    "log_sha256": "4c394f8dcfc32047e7bdb6f40a74d644798cd2c99e6ef0144b46c3d754b1b304",
+    "result": "passed",
+    "tests": 111
+  },
+  "matched_fields": [
+    "data_role",
+    "population_id",
+    "dataset_revision",
+    "model_revision",
+    "tokenizer_revision",
+    "preprocessing_id",
+    "input_schedule_id",
+    "planned_input_schedule_id",
+    "token_schedule_sha256",
+    "environment_id",
+    "code_revision",
+    "threshold",
+    "threshold_source",
+    "score_semantics",
+    "checkpoint",
+    "source_sha256",
+    "tokenizer_runtime"
+  ],
+  "max_softmax_absolute_errors": {
+    "fp16": 5.160425575745364e-08,
+    "fp32": 5.572396122310863e-08,
+    "int8": 5.835332439474428e-08
+  },
+  "metric_absolute_tolerance": 1e-12,
+  "new_model_execution": false,
+  "paired_vs_fp32": {
+    "fp16": {
+      "accuracy_delta_pp": 0.0,
+      "both_correct": 97,
+      "both_wrong": 31,
+      "corrected_errors": 0,
+      "disagreement_rate": 0.0,
+      "disagreements": 0,
+      "introduced_errors": 0,
+      "max_absolute_score_delta": 0.006274044513702393,
+      "mean_absolute_score_delta": 0.0003386659122375235,
+      "mean_score_delta": -1.0171812779624645e-05,
+      "n": 128
+    },
+    "int8": {
+      "accuracy_delta_pp": 0.78125,
+      "both_correct": 97,
+      "both_wrong": 30,
+      "corrected_errors": 1,
+      "disagreement_rate": 0.0078125,
+      "disagreements": 1,
+      "introduced_errors": 0,
+      "max_absolute_score_delta": 0.09225231409072876,
+      "mean_absolute_score_delta": 0.008990857822311682,
+      "mean_score_delta": 0.0031274967273589027,
+      "n": 128
+    }
+  },
+  "prediction_rows_checked": 384,
+  "quality": {
+    "fp16": {
+      "accuracy": 0.7578125,
+      "benign_f1": 0.802547770700637,
+      "benign_precision": 0.6774193548387096,
+      "benign_recall": 0.984375,
+      "benign_support": 64,
+      "brier": 0.17525809594979547,
+      "ece_10_equal_width": 0.22487254820739896,
+      "fn": 30,
+      "fnr": 0.46875,
+      "fp": 1,
+      "fpr": 0.015625,
+      "injection_f1": 0.6868686868686869,
+      "injection_precision": 0.9714285714285714,
+      "injection_recall": 0.53125,
+      "injection_support": 64,
+      "macro_f1": 0.7447082287846619,
+      "n": 128,
+      "roc_auc": 0.93212890625,
+      "tn": 63,
+      "tp": 34
+    },
+    "fp32": {
+      "accuracy": 0.7578125,
+      "benign_f1": 0.802547770700637,
+      "benign_precision": 0.6774193548387096,
+      "benign_recall": 0.984375,
+      "benign_support": 64,
+      "brier": 0.17521042666124867,
+      "ece_10_equal_width": 0.22486237639461937,
+      "fn": 30,
+      "fnr": 0.46875,
+      "fp": 1,
+      "fpr": 0.015625,
+      "injection_f1": 0.6868686868686869,
+      "injection_precision": 0.9714285714285714,
+      "injection_recall": 0.53125,
+      "injection_support": 64,
+      "macro_f1": 0.7447082287846619,
+      "n": 128,
+      "roc_auc": 0.932373046875,
+      "tn": 63,
+      "tp": 34
+    },
+    "int8": {
+      "accuracy": 0.765625,
+      "benign_f1": 0.8076923076923077,
+      "benign_precision": 0.6847826086956522,
+      "benign_recall": 0.984375,
+      "benign_support": 64,
+      "brier": 0.17400218288601815,
+      "ece_10_equal_width": 0.22173487966726046,
+      "fn": 29,
+      "fnr": 0.453125,
+      "fp": 1,
+      "fpr": 0.015625,
+      "injection_f1": 0.7,
+      "injection_precision": 0.9722222222222222,
+      "injection_recall": 0.546875,
+      "injection_support": 64,
+      "macro_f1": 0.7538461538461538,
+      "n": 128,
+      "roc_auc": 0.926025390625,
+      "tn": 63,
+      "tp": 35
+    }
+  },
+  "ranking_changes_vs_fp32": {
+    "fp16": {
+      "auc_delta": -0.000244140625,
+      "gained_pair_credit": 0.0,
+      "lost_pair_credit": 1.0,
+      "net_pair_credit": -1.0,
+      "pair_count": 4096,
+      "pairs_with_changed_credit": 1
+    },
+    "int8": {
+      "auc_delta": -0.00634765625,
+      "gained_pair_credit": 3.0,
+      "lost_pair_credit": 29.0,
+      "net_pair_credit": -26.0,
+      "pair_count": 4096,
+      "pairs_with_changed_credit": 32
+    }
+  },
+  "reviews": {
+    "native-and-measurement": {
+      "path": "docs/evidence/p1b-recheck-20261117-native-and-measurement.md",
+      "review_type": "independent automated review",
+      "sha256": "d2b630d14cbd457c4919eb32f536492ee78b4c22dfcc1421c94446246c5162b0"
+    },
+    "report-gaps": {
+      "path": "docs/evidence/p1b-recheck-20261117-report-gaps.md",
+      "review_type": "independent automated review",
+      "sha256": "1725e9f5826306b171130cf3c9501254ed38012738175f92c919b71f6be4703e"
+    }
+  },
+  "scope_limits": [
+    "Fresh artifact/source/arithmetic/code audit, not an independent repeated GPU experiment.",
+    "Reference-label encoding and identity checked; annotation truth not adjudicated.",
+    "Sustained/end-to-end throughput and run-to-run timing stability remain unmeasured."
+  ],
+  "session_id": "S-20261117-10",
+  "softmax_absolute_tolerance": 1e-07,
+  "source_reference_check": {
+    "full_checkpoint_sha256": "19701022d11e38d39bd77aed7263d2e9ce3a45ae29305248ef3de585f947511c",
+    "model_label_mapping": {
+      "0": "benign",
+      "1": "jailbreak"
+    },
+    "raw_prompts_displayed": false,
+    "selected_reference_labels_and_raw_text_hashes_match_original": 128,
+    "test_source_read": false,
+    "training_source_rows": 18909
+  },
+  "status": "passed",
+  "threshold_or_population_changed": false,
+  "timing_diagnostics": {
+    "interpretation": "Only short inputs were warmed. Longer shapes lack explicit warmup coverage, and isolated spikes have not been diagnosed or replicated. Published medians/p95 are correct descriptive values, not stable production latency estimates. Do not drop spikes or infer their cause.",
+    "scope": "Descriptive timing diagnostics from existing retained samples; no new model run or changed output",
+    "timing_ranges_ms": {
+      "fp16": {
+        "max_effective_tokens": 712,
+        "max_example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:1962",
+        "maximum": 493.04510094225407,
+        "minimum": 25.74664168059826
+      },
+      "fp32": {
+        "max_effective_tokens": 1024,
+        "max_example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:4780",
+        "maximum": 60.14340743422508,
+        "minimum": 24.99302849173546
+      },
+      "int8": {
+        "max_effective_tokens": 1024,
+        "max_example_id": "a5234cb1f5cdb256600cab64b8c961195b5e8404:train:594",
+        "maximum": 264.09513130784035,
+        "minimum": 82.81482756137848
+      }
+    },
+    "warmup_effective_tokens": {
+      "fp16": [
+        63,
+        92,
+        12
+      ],
+      "fp32": [
+        63,
+        92,
+        12
+      ],
+      "int8": [
+        63,
+        92,
+        12
+      ]
+    }
+  },
+  "validation_id": "V-043",
+  "verification_scope_by_role": {
+    "arithmetic": "Bundle/source-archive/metric verification; no raw asset reads.",
+    "coordinator": "Original training references and full checkpoint rehashed; native source and Git bytes verified; no prompt display.",
+    "native_reviewer": "Executed code, preparation and native evidence reviewed; no new native run.",
+    "report_reviewer": "Actual course/weekly scope mapped to existing artifacts and unfinished work."
+  }
+}

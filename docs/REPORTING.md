@@ -39,8 +39,11 @@ benefit. No official-test predictions were produced.
 Observed median forward times were 25.51/26.27/87.49 ms for FP32/FP16/INT8, with peak
 PyTorch allocated memory 2482.78/1321.42/932.56 MiB. INT8 used less measured memory but
 was slower by this pilot timing measure. These are single-pass, fixed-order feasibility
-observations after three warm-up inputs, excluding tokenization/transfers/score conversion;
-repeated controlled profiling and end-to-end costs remain to be established.
+observations. The three warm-up inputs had only 63, 92 and 12 tokens, leaving longer
+shapes without explicit warmup coverage. The forward timer excludes tokenization, transfers
+and score conversion. The post-warm-up PyTorch memory window includes GPU input, forward
+and score-conversion allocations; it does not measure total device or host memory. Repeated,
+shape-aware profiling and end-to-end costs remain to be established.
 
 For a compact report, use the [quality table](evidence/p1b-pilot-20261117/analysis/quality.csv)
 and RES-004's resource table with their denominators and scope. The complete results include
@@ -60,15 +63,43 @@ on the actual GPU job and 111 local tests after adding the offline comparison co
   held-out data or describe raw scores as calibrated probabilities.
 - Keep source contamination/near-duplicate uncertainty, limited pilot support and unknown
   external exposure explicit. Detection is one control, not a guarantee against injection.
-- Shreyas's report assembly/integration, Viraj's dataset/preprocessing presentation and
-  coordination, and Hareeshwar's resource-method review/presentation remain team actions.
-  Reuse the completed evidence; do not infer that they implemented or reviewed this work.
-  No missing teammate artifact blocks the completed inference deliverable.
+- Shreyas's remaining work includes source-based qualitative investigation of permitted
+  development failures, in addition to report assembly/integration. Descriptive error counts,
+  truncation groups and the single threshold-crossing case already exist; prompt-level
+  explanations and annotation interpretation have not been performed.
+- Hareeshwar can use the newly recorded, explicitly scoped derived forward-only rate.
+  Sustained wall-window/end-to-end throughput is still unmeasured. Fully warmed, repeated and order-controlled profiling remains substantive
+  technical work before strong performance claims; it is not merely formatting a table.
+- Viraj can reuse the verified data/manifests and coordinate/document preprocessing. No
+  missing Viraj implementation blocks the current pilot. Actual contribution/review must
+  be credited from evidence, rather than inferred from the responsibility assignment.
 
 The full project still needs the main protocol freeze, validation threshold selection,
 Test-A benchmark/error analysis and Part 1 closeout, followed by the substantive learned-gate
 investigation, final Test-B comparison and final reporting. The weekly responsibility image
 covers the near-term report allocation, not the full remaining research/project deliverable.
+
+## Recheck: report readiness versus unfinished technical work
+
+S-20261117-10 / V-043 rechecked the stored results and the supplied requirements. The core
+implementation, data pipeline, baseline predictions and preliminary comparison exist.
+The November 18 deliverable does not prescribe a minimum sample size, a final validation
+threshold, a held-out benchmark, repeated profiling or a trained gate by that date. An
+honest preliminary report can use the current evidence and disclose unfinished work; this
+is not a guarantee of a grade or a claim that every weekly item is complete.
+
+The earlier handoff understated the remaining throughput definition/measurement and
+qualitative error investigation. These are substantive analysis/measurement tasks. A new
+GPU experiment is not automatically required by the progress-report wording: the existing
+samples can yield a narrowly labeled forward-service rate. A claim about continuous-window
+or end-to-end throughput, stable hardware performance, or warmed long-input latency needs
+new instrumentation/controlled measurements and its approved scope. Do not substitute the
+inverse median latency for measured throughput.
+
+The recheck also separates accuracy at the provisional threshold from ranking quality.
+INT8 classified one additional reference-labelled example correctly, while its ROC-AUC
+was lower (0.9260 versus FP32's 0.9324). Keep that distinction and the large shared false-
+negative count when describing the result. No model, data, threshold or prediction changed.
 
 ## Earlier P1-A report-preparation checklist
 

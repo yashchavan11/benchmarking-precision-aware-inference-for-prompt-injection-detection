@@ -3,6 +3,8 @@ tests/fixtures/synthetic/*.json text eol=lf
 tests/fixtures/synthetic/*.jsonl text eol=lf
 # Retained audit summaries/provenance also identify exact JSON bytes.
 docs/evidence/*.json text eol=lf
+docs/evidence/*.py text eol=lf
+docs/evidence/p1b-recheck-20261117-*.md text eol=lf
 # Nested retained predictions/manifests are also bound by exact file hashes.
 docs/evidence/**/*.json text eol=lf
 docs/evidence/**/*.jsonl text eol=lf

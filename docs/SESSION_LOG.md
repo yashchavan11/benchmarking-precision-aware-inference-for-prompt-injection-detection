@@ -297,3 +297,28 @@ and team report assembly are the next actions; no active job or teammate blocker
 The final response supplies a message for Yash to send. No message/report submission or
 other GitHub activity was performed. Final handoff commit/push identity and clean remote
 state are retained in the local publication receipt after verification.
+
+## S-20261117-10 - Recheck INT8 result and clarify report gaps
+
+Yash questioned the one-example INT8 accuracy improvement and whether the previous handoff
+understated unfinished technical work. Starting Git state was clean/synchronized at e623f1c.
+The bounded task rechecked existing source/evidence and report coverage, without another
+GPU experiment, model/data/threshold change or protected-data access.
+
+Fresh independent arithmetic, artifact/source/label checks, 111 repeated software tests and
+offline reanalysis found no incorrect quality value. V-043 records the exact near-threshold
+correction and the lower INT8 AUC; arithmetic precision is not reference-label correctness.
+Resource review identified the actual short warmup lengths and clarified the distinct timer
+and memory windows. All original measurements, including spikes, remain preserved.
+
+The earlier teammate handoff understated source-based qualitative error investigation and
+throughput/full profiling work. REPORTING now separates those technical gaps from ordinary
+assembly and from later main-study/gate requirements. A narrow forward-service rate was
+derived from retained durations, without relabeling it as end-to-end throughput or silently
+launching new experiments. The existing pilot still supports an honest preliminary report;
+no new course requirement or grading guarantee was invented.
+
+The compact independent recheck record/verifier, reporting clarification and updated handoff
+are retained under the standing commit/push authorization. No teammate message, submission,
+GitHub comment/issue/PR or visibility change was made. Publication identity and remote state
+are recorded in the local receipt after verification.
