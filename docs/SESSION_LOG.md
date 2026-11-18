@@ -1,5 +1,25 @@
 # Session history
 
+## November 18 - PR #1 review correction
+
+At Shreyas's request, Codex corrected the preparation manifest's omission of the shared
+preprocessing source hash. An added assertion in the existing manifest test failed before
+the one-line inventory fix and passed afterward; see VALIDATION_LOG's PR-1 regression
+entry. Full suite: 110 passed, one optional-dependency skip. Work was isolated from the
+main checkout's uncommitted report edits. No model/data/threshold change or experiment;
+the correction is prepared for publication to `dataset-preprocessing-handoff`.
+
+## Dataset and preprocessing ownership handoff
+
+Prepared the [dataset and preprocessing handoff](DATASET_PREPROCESSING_HANDOFF.md)
+at the user's request, linking completed P1-A and P1-B evidence to the ownership
+deliverables. Ran 55 focused software tests successfully and regenerated the
+portable pilot analysis. Paired and error tables matched after newline
+normalization. The quality table differed only in the last floating-point digit
+of two Brier scores (approximately 3e-17 and 6e-17). The pinned raw source is
+absent from this checkout, so this session reused the retained audit evidence.
+P1-C remains the next scientific phase.
+
 Chronological record of substantive implementation, investigation, experiments and analysis.
 The latest resumable state is in [STATUS.md](STATUS.md); this file preserves how that state
 was reached. Implementation sessions are recorded below; no model experiments have run.

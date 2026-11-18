@@ -1,5 +1,9 @@
 # Current project state and handoff
 
+PR #1 follow-up (November 18): preparation source inventory now includes the shared
+preprocessing module, with a fail-before/pass-after regression check. See VALIDATION_LOG's
+PR-1 entry and Git history for publication state. Scientific pilot status below is unchanged.
+
 ## Current snapshot - P1-B complete; progress-report inference deliverable ready
 
 | Field | Current value |
