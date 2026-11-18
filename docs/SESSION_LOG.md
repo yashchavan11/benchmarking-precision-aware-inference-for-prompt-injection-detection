@@ -1,5 +1,16 @@
 # Session history
 
+## Dataset and preprocessing ownership handoff
+
+Prepared the [dataset and preprocessing handoff](DATASET_PREPROCESSING_HANDOFF.md)
+at the user's request, linking completed P1-A and P1-B evidence to the ownership
+deliverables. Ran 55 focused software tests successfully and regenerated the
+portable pilot analysis. Paired and error tables matched after newline
+normalization. The quality table differed only in the last floating-point digit
+of two Brier scores (approximately 3e-17 and 6e-17). The pinned raw source is
+absent from this checkout, so this session reused the retained audit evidence.
+P1-C remains the next scientific phase.
+
 Chronological record of substantive implementation, investigation, experiments and analysis.
 The latest resumable state is in [STATUS.md](STATUS.md); this file preserves how that state
 was reached. Implementation sessions are recorded below; no model experiments have run.

@@ -11,23 +11,15 @@ from pathlib import Path
 import sys
 
 from . import input_data, tokenizer_audit
+from .preprocessing import CAP, PREPROCESSING_OPTIONS
 
 ROLE = "eligible_training"
 DECISION = "D-012"
 NAMESPACE = "precision-aware-inference:p1b-pilot:v1:20261117"
 QUOTAS = {"le512": 48, "513to1024": 8, "gt1024": 8}
-CAP = 1024
 THRESHOLD_SOURCE = "provisional-p1b-fixed-0.5-not-validation-selected"
 LENGTH_FIELDS = {"caps", "data_role", "example_id", "original_source_pooling", "original_tokens",
                  "python_nfc_changes_raw_string", "raw_text_sha256"}
-PREPROCESSING_OPTIONS = {
-    "tokenizer_class": "Qwen2TokenizerFast", "use_fast": True,
-    "add_special_tokens": True, "split_special_tokens": False,
-    "padding": False, "truncation": True, "max_length": CAP,
-    "truncation_side": "right", "padding_side": "left",
-    "chat_template": False, "manual_eos": False,
-    "model_pad_token_id": None, "model_pooling": "original_unpadded_batch_one",
-}
 
 
 class PilotDataError(ValueError):

@@ -21,20 +21,16 @@ import sys
 import time
 
 from . import input_data, tokenizer_audit
+from .preprocessing import CAP, PREPROCESSING_OPTIONS as PREPROCESSING
+from .preprocessing import PreprocessingError, encode_prompt
+from .preprocessing import validate_vectors as validate_preprocessed_vectors
 
 PRECISIONS = ("fp32", "fp16", "int8")
 ROLE = "eligible_training"
-CAP = 1024
 SIZE = 128
 WEIGHT_BYTES = 1192138968
 WEIGHT_SHA256 = "19701022d11e38d39bd77aed7263d2e9ce3a45ae29305248ef3de585f947511c"
 THRESHOLD_SOURCE = "provisional-p1b-fixed-0.5-not-validation-selected"
-PREPROCESSING = {"tokenizer_class": "Qwen2TokenizerFast", "use_fast": True,
-                 "add_special_tokens": True, "split_special_tokens": False,
-                 "padding": False, "truncation": True, "max_length": CAP,
-                 "truncation_side": "right", "padding_side": "left",
-                 "chat_template": False, "manual_eos": False, "model_pad_token_id": None,
-                 "model_pooling": "original_unpadded_batch_one"}
 EXAMPLE_FIELDS = {"example_id", "label", "raw_text_sha256", "source_split", "source_row",
                   "original_tokens", "effective_tokens", "truncated", "data_role"}
 
@@ -136,26 +132,24 @@ def select_records(population, examples):
 
 
 def validate_vectors(ids, mask):
-    require(isinstance(ids, list) and 1 <= len(ids) <= CAP
-            and isinstance(mask, list) and len(mask) == len(ids)
-            and all(type(value) is int and 0 <= value < tokenizer_audit.VOCAB_LIMIT for value in ids)
-            and all(type(value) is int and value == 1 for value in mask),
-            "Inference requires a nonempty unpadded token vector and all-one attention mask")
+    try:
+        validate_preprocessed_vectors(ids, mask)
+    except PreprocessingError as exc:
+        raise PilotError(str(exc)) from None
 
 
 def prepare_inputs(tokenizer, records, examples):
+    require(len(records) == len(examples) == SIZE, "Pilot tokenization coverage differs")
     prepared, schedule = [], hashlib.sha256()
     for record, expected in zip(records, examples):
-        require(digest(record.prompt.encode("utf-8")) == record.raw_text_sha256, "Original prompt changed before tokenization")
-        original, _ = tokenizer_audit.encode(tokenizer, [record.prompt])
-        capped, masks = tokenizer_audit.encode(tokenizer, [record.prompt], cap=CAP)
-        ids, mask = capped[0], masks[0]
-        validate_vectors(ids, mask)
-        require(ids == original[0][:CAP] and len(original[0]) == expected["original_tokens"]
+        try:
+            ids, mask, original_length = encode_prompt(tokenizer, record.prompt, record.raw_text_sha256)
+        except PreprocessingError as exc:
+            raise PilotError(str(exc)) from None
+        require(original_length == expected["original_tokens"]
                 and len(ids) == expected["effective_tokens"], "Tokenization disagrees with reviewed pilot length/prefix evidence")
         schedule.update(canonical({"example_id": record.example_id, "input_ids": ids, "attention_mask": mask}) + b"\n")
         prepared.append((record.example_id, ids, mask))
-    require(len(prepared) == len(examples) == SIZE, "Pilot tokenization coverage differs")
     return prepared, schedule.hexdigest()
 
 
@@ -171,7 +165,7 @@ def verify_checkpoint(path, assets):
 
 
 def source_identity():
-    names = ("pilot_inference.py", "input_data.py", "tokenizer_audit.py", "contract_audit.py", "artifacts.py")
+    names = ("pilot_inference.py", "preprocessing.py", "input_data.py", "tokenizer_audit.py", "contract_audit.py", "artifacts.py")
     sources = {"precision_benchmark/" + name: file_hash(Path(__file__).with_name(name)) for name in names}
     return sources, "sha256:" + digest(canonical(sources))
 
