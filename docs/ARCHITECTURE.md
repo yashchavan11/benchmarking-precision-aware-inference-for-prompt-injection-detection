@@ -403,3 +403,36 @@ be reviewed before execution. Require complete finite two-logit/injection-score 
 all intended IDs in all treatments, then regenerate the development comparison. Preserve
 failures. Resource observations are pilot feasibility evidence, not the final profiling study.
 No GPU allocation or model run has been submitted under this proposal.
+
+## Implemented D-012 pilot interface
+
+The preceding P1-B proposal is now concretized in D-012 and PILOT-001. `pilot_data.py`
+constructs the fixed text-free training sample from full hash-bound eligible training and
+native length evidence. It checks complete source coverage, original lineage and deterministic
+class/length quotas before emitting `manifest.json` and evaluator-compatible `examples.jsonl`.
+No raw prompt or model outcome participates in selection. `pilot_inference.py` accepts only
+that development role/configuration and validates all original source identities again.
+
+Each treatment executes in its own process/output directory on the same allocated GPU.
+The runner verifies the full pinned safetensors checksum, config, complete parameter/head
+inventory, loading diagnostics and effective parameter/module/device evidence. Synthetic
+forward hooks verify final-token pooling (including terminal/interior/EOS-only inputs),
+observed projection/embedding/norm dtypes and actual use of all 196 INT8 projections. Original
+PAD=None rejects a padded batch of two; this diagnostic does not claim padded equivalence
+or authorize a new pooling policy. Invalid/empty masked input is rejected before normal
+inference. Common float32 softmax supplies injection-index 1 scores and the provisional 0.5
+threshold is never described as validation-selected.
+
+Ordered token/mask vectors remain internal. Their hash is combined with the declared ID/cap
+schedule so the evaluator rejects incompatible actual token schedules. The environment ID
+includes the actual GPU/runtime/precision flags/allocation, and code identity uses executed
+source-file hashes. `run.json` is written last only after all 128 finite outputs and final
+coverage/identity/precision checks pass. `execution.json` and partial predictions preserve
+failed progress; fixed internal failure reasons may be retained but external/provider
+messages are suppressed. Standard output never displays real prompt/token contents.
+
+The feasibility artifact retains synchronized forward-only timings, loading and PyTorch
+memory observations with explicit warmup/boundaries. One pass and fixed treatment order
+are insufficient for the final profiling comparison; there is no end-to-end throughput,
+repeated-trial uncertainty, total device-memory or speedup claim. Larger batching, the
+final threshold/configuration/analysis freeze and held-out execution remain later work.

@@ -1,0 +1,36 @@
+{
+  "decision": "D-012",
+  "data_role": "eligible_training",
+  "rows_per_precision": 128,
+  "class_counts": {
+    "0": 64,
+    "1": 64
+  },
+  "gpu_job": {
+    "job_id": "11959388",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "elapsed": "00:11:59",
+    "node": "d4046",
+    "partition": "sharing",
+    "gpu": "NVIDIA L40S",
+    "requested_gpus": 1,
+    "cpus": 4,
+    "memory": "32G",
+    "time_limit": "00:20:00"
+  },
+  "cpu_setup_job": {
+    "job_id": "11959175",
+    "state": "COMPLETED",
+    "exit_code": "0:0",
+    "elapsed": "00:10:24",
+    "node": "c0584"
+  },
+  "software_checks": {
+    "native_job": 107,
+    "final_local_with_offline_assembler": 111
+  },
+  "official_test_model_use": false,
+  "full_checkpoint_sha256": "19701022d11e38d39bd77aed7263d2e9ce3a45ae29305248ef3de585f947511c",
+  "artifact_retention": "This repository bundle contains complete text-free predictions, manifests, numerical evidence and the exact executed code package. Raw data, weights, credentials and private provider logs remain excluded."
+}

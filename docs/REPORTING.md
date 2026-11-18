@@ -1,19 +1,114 @@
 # Research outputs and course deliverables
 
-## Current milestone - P1-A complete, November 17
+## November 18 progress report - completed inference contribution
 
-The asset/data/input phase is now complete against the roadmap, with independent evidence
-review and PHASE_RECORDS closeout. The reviewed milestone is committed and pushed to the
-existing private repository as `d1cf6bd`; this is not final public-repository delivery. All 43,425 source rows have character/byte and actual
-token-length accounting; the approved group-preserving populations and source contracts
-are verified. Both native CPU jobs passed their checks, including 85 tests on the final
-job. Official-test processing was separately authorized and retained only total length
-statistics/histogram/provenance, with no model performance or development selection.
+Yash supplied the actual course guidelines: the progress report is **at most four pages**,
+due November 18, covering implementation status, the data pipeline and baseline results,
+preliminary evaluation, and lessons learned/remaining risks. Verified requirement/source
+identity is below. This record supplies evidence and reusable prose; no report was submitted.
 
-RES-003's development-only truncation table supports the proposed 1024-token pilot starting
-point; no study cap, model accuracy, precision effect, speedup or memory saving is claimed.
-The next phase is P1-B model/precision feasibility and a proposed 128-example training pilot.
-The progress-report format remains unspecified; this working text is not a submission.
+The inference contribution is complete for the agreed progress-report pilot: a working
+FP32/FP16/LLM.int8 command, verified checkpoint/label/pooling/precision treatment, 384 saved
+ID-aligned predictions, environment/setup guidance and regenerated preliminary tables.
+See [RES-004](RESULTS.md#res-004---three-treatment-development-feasibility-not-a-held-out-ranking),
+the [portable bundle](evidence/p1b-pilot-20261117/comparison.json),
+[usage instructions](USAGE.md#preparing-and-running-the-development-precision-pilot)
+and the P1-B closeout in PHASE_RECORDS. The exact executed source package is retained with
+the predictions, so teammates can inspect the code and reanalyse without GPU/model access.
+
+### Suggested inference/results text for the team report
+
+We implemented reproducible inference for the same frozen Sentinel v2 checkpoint in FP32,
+FP16 and bitsandbytes LLM.int8. A deterministic development pilot used 128 training examples
+(64 per class), with additional long inputs for diagnostic coverage. All modes processed
+identical token/mask sequences on one NVIDIA L40S, using unpadded batch size 1, a 1,024-token
+cap and a provisional shared 0.5 threshold. Actual model checks verified the two-logit
+label mapping, final-token/EOS pooling, frozen parameters and effective precision. INT8
+converted 196 transformer projections while retaining the head/residual parameters in FP16;
+some internal operations and buffers remain FP32. The released checkpoint itself is F16,
+so the FP32 condition is an upcast representation.
+
+FP32 and FP16 each classified 97/128 examples correctly (75.78%, macro-F1=0.7447). INT8
+classified 98/128 correctly (76.56%, macro-F1=0.7538), correcting one near-threshold false
+negative relative to FP32. FP32/FP16 missed 30/64 injections; INT8 missed 29/64. Most errors
+were shared across precisions, and higher precision did not correct a lower-precision
+error in this small pilot. The balanced, length-enriched training sample and provisional
+threshold do not establish held-out performance, statistical superiority or learned-gate
+benefit. No official-test predictions were produced.
+
+Observed median forward times were 25.51/26.27/87.49 ms for FP32/FP16/INT8, with peak
+PyTorch allocated memory 2482.78/1321.42/932.56 MiB. INT8 used less measured memory but
+was slower by this pilot timing measure. These are single-pass, fixed-order feasibility
+observations after three warm-up inputs, excluding tokenization/transfers/score conversion;
+repeated controlled profiling and end-to-end costs remain to be established.
+
+For a compact report, use the [quality table](evidence/p1b-pilot-20261117/analysis/quality.csv)
+and RES-004's resource table with their denominators and scope. The complete results include
+AUC, calibration, score shifts and truncation groups; select only what fits the four-page
+progress format without hiding unfavorable outcomes. Software evidence is 107 tests passed
+on the actual GPU job and 111 local tests after adding the offline comparison command.
+
+### Lessons, remaining risks and team assembly
+
+- Exact input/pooling controls matter: blindly assigning PAD=EOS can change the selected
+  classification token. The pilot preserves original batch-one pooling; larger batching
+  needs a separately checked policy if selected.
+- Lower bit width did not imply faster inference in the observed pilot. Explain memory
+  and latency separately, with the raw measurement boundaries and limitations.
+- The provisional operating point missed many injection examples. Select the final common
+  threshold from FP32 validation predictions under a predeclared rule; do not tune it on
+  held-out data or describe raw scores as calibrated probabilities.
+- Keep source contamination/near-duplicate uncertainty, limited pilot support and unknown
+  external exposure explicit. Detection is one control, not a guarantee against injection.
+- Shreyas's report assembly/integration, Viraj's dataset/preprocessing presentation and
+  coordination, and Hareeshwar's resource-method review/presentation remain team actions.
+  Reuse the completed evidence; do not infer that they implemented or reviewed this work.
+  No missing teammate artifact blocks the completed inference deliverable.
+
+The full project still needs the main protocol freeze, validation threshold selection,
+Test-A benchmark/error analysis and Part 1 closeout, followed by the substantive learned-gate
+investigation, final Test-B comparison and final reporting. The weekly responsibility image
+covers the near-term report allocation, not the full remaining research/project deliverable.
+
+## Earlier P1-A report-preparation checklist
+
+The evidence checkpoint below preserves the P1-A closeout, before the completed P1-B pilot above. Its missing-evidence column is historical.
+The older progress text and demo farther below preserve earlier checkpoints; they must
+not be copied as current state or as empirical model results.
+
+| Required progress-report content | Verified evidence available | Evidence still needed for the report |
+|---|---|---|
+| Implementation status | Reusable input/audit components, offline evaluator and 85 passing tests at P1-A closeout; actual tokenizer/configuration execution on Explorer. See PHASE_RECORDS and V-034–V-038. | Describe the inference component and effective precision checks only to the extent actually implemented and executed. Distinguish passing software checks from completed experiments. |
+| Data pipeline and baseline results | Pinned sources, complete 43,425-row audit, eligible development memberships, protected Test-A/Test-B allocation, raw-input preservation and actual token lengths. See DATA_REGISTRY and RES-001/RES-003. | Real frozen-classifier baseline predictions on a reproducible eligible development pilot; population support, preprocessing, threshold and run provenance. Synthetic fixture values do not fill this requirement. |
+| Preliminary evaluation | A checked evaluator can calculate quality, paired disagreements and error changes from complete matched predictions. | Actual FP32/FP16/INT8 outputs and a regenerated comparison table; a bounded qualitative discussion of observed errors or edge cases. Include resources only when matched measurement evidence exists. |
+| Lessons learned and remaining risks | Preserved Windows native-library failure and successful CPU-cluster route; explicit tokenizer/PAD/pooling concerns; protected evaluation roles and known provenance limits. | Explain what the pilot verifies or fails to verify, the remaining GPU/precision/pooling issues, and the next controlled benchmark and learned-gate work. Link failures and corrective actions to their records. |
+
+The pilot is preliminary development evidence. A class/length-stratified training sample
+does not estimate performance at the source population's prevalence or establish held-out
+generalization. Any provisional 0.5 threshold, 1024-token cap or quantization configuration
+must be identified as a pilot setting; it does not replace the main-protocol freeze or
+FP32-validation threshold selection. The final benchmark and substantive learned-gate
+investigation remain agreed project deliverables after this progress milestone.
+
+Within four pages, prioritize a concise task/input/output example, the architecture and
+implementation status, one source/population table, one real preliminary comparison table,
+and lessons/risks with next actions. This is a suggested organization, not an additional
+course template or a guarantee of a grade. If a real result is unavailable, describe its
+actual blocker and incomplete requirement rather than substituting synthetic evidence.
+
+The report should identify at least one relevant ethical risk and mitigation. For this
+project, missed injections and over-reliance on a detector can expose a downstream system;
+mitigations include reporting false negatives and limitations, treating detection as one
+control, and keeping dataset instructions inert during experiments. Data leakage risk is
+addressed by recorded source identities, protected evaluation roles and explicit exposure
+limits. These are engineering safeguards and limitations, not a claim that deployment risk
+or all contamination has been eliminated.
+
+Individual contributions must reflect actual technical work and communication. Use
+[CONTRIBUTIONS](CONTRIBUTIONS.md) and retained evidence; a planned responsibility does not
+establish that its named owner performed completed work. The four-person weekly
+responsibilities image is a near-term report work allocation, not the complete allocation
+for the benchmark, learned gate and final submission.
 
 ## Earlier checkpoint - development input handoff and coordination
 
@@ -294,12 +389,44 @@ the repository when page or slide limits require a shorter presentation.
 
 ## Course submission requirements
 
-| Deliverable | Required contents or constraint |
-|---|---|
-| Proposal | At most one page, following the course proposal requirements. |
-| Final repository | Public and owned by a team member; README with purpose, organization and usage; implemented Python package with initialization, functional modules and tests. |
-| Final report | At most two pages; exact project title and full author list, actual public repository URL, purpose, data and achieved results, implemented architecture/method, actual contribution statement and references. |
-| Presentation | 5–10 slides covering the problem, precision comparison, architecture/method, findings, learned gate, measured quality/cost tradeoffs and limitations. |
+**Requirement source, verified November 17, 2026:** Yash supplied a screenshot titled
+*CS 5130 Project Guidelines — Fall 2026*, filename
+`Screenshot 2026-11-17 194815.png`, SHA-256
+`df15c40f042f20f3064a0e4d00aedfb4f487925c05cd2959ac644fb89768c354`.
+The image was visually inspected; the table and requirement summary below retain its
+substantive requirements without depending on a private absolute file path. No public URL
+or separate grading rubric was supplied. These verified limits supersede this document's
+earlier unsupported one-page proposal, two-page final report, and 5–10-slide requirement.
+
+| Deliverable | Due date in 2026 | Required contents or constraint |
+|---|---|---|
+| Team formation and topic selection | October 7 | One page: abstract and team members. |
+| Proposal | October 21 | At most two pages: task/problem definition with business value, dataset description, and proposed system architecture and methodology. |
+| Progress report | November 18 | At most four pages: implementation status; data pipeline and baseline results; preliminary evaluation; lessons learned and remaining risks. |
+| Final submission | December 9 | Presentation of at most ten slides, report of at most five pages, code and references. |
+
+The course emphasizes an engineering-focused AI/ML system: programming quality, data
+processing, system design and evaluation. Describe the task's inputs/outputs with concrete
+examples and its real-world relevance; dataset size, format and preprocessing; architecture,
+data flow, modules and dependencies; representation and algorithm choices; and design
+tradeoffs. Clean abstractions, readable modular code and reproducible pipelines support
+that account. Evaluate both the baseline and proposed approach quantitatively and
+qualitatively, including failure/edge cases, limitations and performance versus complexity.
+Identify at least one ethical risk and a mitigation. Teams have two to four members, and
+each member contributes both technically and in communication.
+
+The supplied guidelines require code but do **not** state that the repository must be
+public or owned by a particular team member. Public hosting must not be attributed to this
+course source. Existing project commitments to a usable repository, README, implemented
+Python modules, meaningful tests and reproducible evidence remain in force; any separately
+agreed publication requirement is distinct from the verified course requirements. Report
+the actual repository reference and access state without inventing a public URL.
+
+The project's final report and presentation cover the exact project title and authors,
+purpose, data, achieved benchmark and learned-gate results, implemented architecture and
+method, measured quality/cost tradeoffs, limitations, actual contributions and references.
+These content commitments derive from the agreed project scope and evidence packages
+above; the course screenshot supplies the deadlines and maximum page/slide counts.
 
 The final report can use a compact sequence: research question and method, core benchmark
 results, learned-gate formulation and principal tradeoff, limitations, contributions and

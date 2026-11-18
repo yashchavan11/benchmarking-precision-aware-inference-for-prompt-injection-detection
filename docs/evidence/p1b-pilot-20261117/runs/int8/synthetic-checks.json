@@ -1,0 +1,87 @@
+{
+  "cases": [
+    {
+      "attention_mask": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "final_token_head_exactly_matches_returned_logits": true,
+      "input_ids": [
+        26982,
+        15089,
+        1467,
+        13
+      ],
+      "last_token_is_eos": false,
+      "logits": [
+        -0.76904296875,
+        -0.73583984375
+      ],
+      "selected_pool_index": 3,
+      "text": "Plain diagnostic text."
+    },
+    {
+      "attention_mask": [
+        1,
+        1,
+        1
+      ],
+      "final_token_head_exactly_matches_returned_logits": true,
+      "input_ids": [
+        14801,
+        151645,
+        10694
+      ],
+      "last_token_is_eos": false,
+      "logits": [
+        0.338134765625,
+        -0.57470703125
+      ],
+      "selected_pool_index": 2,
+      "text": "before<|im_end|>after"
+    },
+    {
+      "attention_mask": [
+        1,
+        1
+      ],
+      "final_token_head_exactly_matches_returned_logits": true,
+      "input_ids": [
+        14801,
+        151645
+      ],
+      "last_token_is_eos": true,
+      "logits": [
+        2.16796875,
+        -2.658203125
+      ],
+      "selected_pool_index": 1,
+      "text": "before<|im_end|>"
+    },
+    {
+      "attention_mask": [
+        1
+      ],
+      "final_token_head_exactly_matches_returned_logits": true,
+      "input_ids": [
+        151645
+      ],
+      "last_token_is_eos": true,
+      "logits": [
+        5.18359375,
+        -3.03125
+      ],
+      "selected_pool_index": 0,
+      "text": "<|im_end|>"
+    }
+  ],
+  "empty_model_call_performed": false,
+  "invalid_input_guards_passed": 4,
+  "model_pad_token_id": null,
+  "padded_batch_equivalence_tested": false,
+  "padded_batch_two_rejected_as_expected": true,
+  "scope": "Actual model forward/head-hook on synthetic inputs; no padding-policy modification",
+  "status": "passed"
+}

@@ -1,42 +1,55 @@
 # Current project state and handoff
 
-## Current snapshot - P1-A complete; P1-B ready to start
+## Current snapshot - P1-B complete; progress-report inference deliverable ready
 
 | Field | Current value |
 |---|---|
-| Provenance/phase | November 17, 2026, America/New_York; S-20261117-07; P1-A closed against ROADMAP, next P1-B |
-| Completion evidence | PHASE_RECORDS P1-A closeout, V-034 through V-038 and compact p1a-closeout facts. All 43,425 source rows accounted for; no empirical model phase completed. |
-| Ownership/jobs | S-20261117-08 README/usage cleanup complete and independently reviewed. No active reservations, research jobs or scientific changes; P1-B continuation remains unchanged. |
-| Repository | P1-A scientific milestone `d1cf6bdec204c7e9a5795ad8d65bba2969fd28c3` remains valid. Subsequent documentation cleanup makes README public-facing and routes detailed commands to USAGE; see S-20261117-08 and Git for the latest tip. Standing publication authorization and configured Yash identity apply; no research evidence or shared history was changed. |
-| Inputs | ASSET-001/002 pinned revisions unchanged; D-008 populations unchanged. D-009 permits verified development use. D-010/D-011 approved separate CPU scopes. Full checkpoint payload/checksum/loading remains P1-B. |
-| Native evidence | Development job 11955247 verified 19,909 rows; official-test admin job 11956265 verified 23,516 total rows. Explicit wrapper/default checks, full coverage, source hashes and aggregates passed independent review. Final remote suite 85 passed. |
-| Scientific boundaries | No classifier logits/predictions, effective precision, GPU backend, model pooling equivalence, final cap/threshold, main freeze or gate result exists. Test-A/Test-B performance release remains gated. |
-| Runtime | Explorer CPU route and preserved environment work. Windows native policy remains unchanged. Reuse the environment/assets; do not reinstall or repeat complete audits without a validation reason. GPU/PyTorch/bitsandbytes checks are upcoming, not a demonstrated teammate blocker. |
-| Coordination | Yash reports sending the Viraj overlap update. Communicate completion/shared choices as needed; inspect teammates' actual pushed work. No separate interpretation/exposure attestation is required to continue. |
-| Limits | Prior external exposure, source annotation truth, near-duplicate/template dependence and pretrained contamination remain disclosed. Administrative processing is not a never-accessed-file claim or model-performance release. |
-| Reporting | REPORTING has truthful P1-A progress. November 18 format remains unspecified; no submission or repository visibility change made. |
+| Provenance/phase | November 17, 2026, America/New_York; S-20261117-09. P1-A and bounded batch-one P1-B closed; next P1-C. |
+| Completion evidence | PHASE_RECORDS P1-B closeout; D-012; PILOT-001; V-039 through V-042; RES-004. Complete finite FP32/FP16/INT8 predictions for the same 128 training IDs. |
+| Ownership/jobs | Coordinating agent finalizing records/publication. All implementation/data/native/arithmetic reviews complete; no active CPU/GPU job. No teammate artifact blocks the completed contribution. |
+| Repository | Last prior published tip 56cfcc3; this completed milestone is undergoing final publication checks under Yash's standing commit/push authorization. Final publication state must be verified from Git/receipt. No new comments, PRs, issues, messages, submissions or visibility changes authorized. |
+| Inputs | Pinned dataset/model revisions and D-008 populations unchanged. Full checkpoint now retrieved and hashed. D-012 uses original unpadded batch 1, cap 1024, provisional threshold 0.5; these are not a main-study freeze. |
+| Native evidence | CPU setup 11959175 completed 0:0 in 10m24s. GPU 11959388 completed 0:0 in 11m59s on one L40S/d4046. 107 software tests passed on the GPU node before execution; 111 final local tests include four later offline-only assembly checks. |
+| Observed findings | FP32/FP16 each 97/128 correct; INT8 98/128 with one corrected error and none introduced. Shared false negatives remain. INT8 used less measured allocated memory and had a slower pilot median forward time. See RES-004 for denominators and limits. |
+| Scientific boundaries | Training-only enriched pilot, provisional operating point and single-pass resource observations. No representative/generalization, statistical superiority, final speedup or learned-gate benefit claim. No Test-A/Test-B predictions or performance release. |
+| Runtime | Verified Explorer CUDA environment and full checkpoint are reusable; preserve the separate audit environment and Windows security policy. Exact package lock, source archive and hardware evidence are retained. |
+| Reporting | Actual guideline screenshot recorded in REPORTING: November 18 progress report <=4 pages; implementation, pipeline/baseline, preliminary evaluation, lessons/risks. Ready-to-use inference prose/tables and remaining team actions are linked there. No submission made. |
 
 ## Required continuation and reusable artifacts
 
-Read the P1-A closeout in PHASE_RECORDS, D-008 through D-011, ASSET/SPLIT records,
-RES-003, V-031 through V-038 and the explicit P1-B proposal in ARCHITECTURE.
+Read the P1-B closeout, D-012, PILOT-001, RES-004, V-039 through V-042 and REPORTING before
+continuing. The [portable team bundle](evidence/p1b-pilot-20261117/comparison.json) includes
+all 384 predictions, reference IDs/labels/lengths, native precision/pooling evidence, package
+provenance, raw feasibility samples, complete analysis and the exact executed code package.
+It supports offline reanalysis without weights, raw data, credentials or GPU access. USAGE
+contains reproducible inference and analysis commands. Bundle integrity must survive Git
+checkout; its exact bytes are protected by .gitattributes and the bundle inventory.
 
-- Raw sources/receipts remain under `data/raw/promptshield/a5234cb1f5cdb256600cab64b8c961195b5e8404/`; populations under `outputs/contract-20261117/partitions-v2/`; D-009 access hash remains 83dde0502e9aca5cfd000c5f6ec9631602db9f03a334a2f1a42d9ac3adc3e79b.
-- Verified tokenizer/config/header assets: `outputs/contract-20261117/model-auth/`. Native development outputs: `outputs/runtime-20261117/attempt-04/`; independent review under `outputs/runtime-20261117/review/`.
-- Total-only official-test lengths: `outputs/holdout-prep-20261117/attempt-01/`; independent review, execution and retrieval receipts beside it. No row/prompt/token/cap/A-B output in that administrative result.
-- Reusable Explorer environment: `/scratch/chavan.yas/precision-aware-inference/tokenizer-audit-20261117-03/project/runtime-env`; assets in runroot04. Locks/setup/source hashes retained locally. Verify access/completeness before reuse; scratch is not the durable sole copy.
-- All failed startup/mock-test attempts, original packages and corrected versions are retained. No need to rerun complete tokenization to regenerate aggregate tables. Ignored paths do not imply teammate access; use registered identities and an explicit transfer/regeneration process.
+Ignored original artifacts remain under `outputs/pilot-20261117/`: preparation-01,
+checkpoint-01, environment-01, stages 01/02, attempt-01, analysis-01 and review. Earlier audit
+failures, superseded packages and the detached sibling review checkout remain preserved.
+No native pilot attempt failed; pre-execution hardening and the unused first stage are
+retained without implying they generated model results.
+
+Reusable Explorer references (not the sole durable evidence):
+- Inference environment: `/scratch/chavan.yas/precision-aware-inference/pilot-env-20261117-01/inference-env`.
+- Full checkpoint/config: `/scratch/chavan.yas/precision-aware-inference/pilot-checkpoint-20261117-01/`.
+- Completed run: `/scratch/chavan.yas/precision-aware-inference/pilot-run-20261117-01/project/`.
+- Tokenizer and eligible training sources/partitions remain in tokenizer-audit runroot04;
+  prior complete CPU audit environment remains in runroot03. Exact identities are registered
+  in DATA_REGISTRY and the execution record. Verify access/hash compatibility before reuse;
+  do not reinstall/redownload merely because the conversation or checkout changes.
 
 | Order | Next bounded task | Recognizable completion condition |
 |---|---|---|
-| 1 | Make the proposed 128-training-example, cap 1024, unpadded batch-one three-treatment pilot concrete; verify a compatible GPU/runtime and full checkpoint identity. | Exact membership/schedule/configuration/budget and reviewed implementation/job package; obtain required model/GPU execution approval before submission. |
-| 2 | Execute approved P1-B loading/scoring/precision checks and pilot on matched inputs, preserving any failures. | All three treatments produce finite complete outputs with actual dtype/module/device evidence and reproducible development comparison; no assumed benefit. |
-| 3 | Share overlapping choices/completed work and inspect incoming teammate artifacts. | Compatible verified integration; continue independent work and stop only dependencies affected by genuine missing inputs/failures/decisions. |
+| 1 | Team progress-report assembly using REPORTING and verified bundle; convey overlapping choices/completed work through Yash. | At most four pages covering the actual rubric, truthful tables/limits and actual contributions. Shreyas/Viraj/Hareeshwar inspect and use shared artifacts; no duplicated audit or assumed completed teammate work. Submission still needs explicit instruction. |
+| 2 | Prepare P1-C main-study decision packet. | Concrete endpoint, validation-threshold objective/search/tie rule, preprocessing/batch/quantization policy, paired uncertainty, profiling matrix/repetitions and budget for Yash's approval before substantive execution. |
+| 3 | After those choices, implement/check analysis and perform approved validation selection; freeze the Part 1 plan before Test-A. | Full traceable freeze and compatible development evidence. Complete Part 1 before the committed learned-gate study and final Test-B release. |
 
-The pilot cap is a development-derived proposal made before official-test token statistics,
-not a selected main-study setting. Complete Part 1 before the full learned-gate investigation.
-Standing publication approval does not authorize unrelated messages, visibility changes,
-submissions or new scientific scope. No effective context-window claim.
+No further scientific experiment is silently authorized by completing the report pilot.
+Unknown prior external exposure, annotation truth, near-duplicates and pretrained
+contamination remain disclosed limits. Automated reviews are not human signoff. No effective
+context-window claim is made.
 
 ## Continuation fields for subsequent snapshots
 

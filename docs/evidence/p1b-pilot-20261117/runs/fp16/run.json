@@ -1,0 +1,83 @@
+{
+  "artifact_sha256": {
+    "environment.json": "21588aa005f89d797c9d1662ba91e097aa24a79dd69865ef5b39a3c8545da448",
+    "feasibility.json": "8df27c3e327b3c25b09573588641ff9158e5f169487b672427e142a67a72e99c",
+    "precision-evidence.json": "6900839672a61d8c3cce99d362213ba877024eb8c1e5c1381088a7dc84f220bc",
+    "synthetic-checks.json": "c29755b408098b5f7bf79e802da428585185875445e79c39b5e78f2a63ea29c5"
+  },
+  "checkpoint": {
+    "bytes": 1192138968,
+    "filename": "model.safetensors",
+    "full_payload_hash_verified": true,
+    "sha256": "19701022d11e38d39bd77aed7263d2e9ce3a45ae29305248ef3de585f947511c"
+  },
+  "code_revision": "sha256:cf30977d3e3698c73f133088195c14235a839c193d0eae93865cf72b6538c8de",
+  "data_role": "eligible_training",
+  "dataset_revision": "a5234cb1f5cdb256600cab64b8c961195b5e8404",
+  "environment_id": "sha256:a89ef2e9bdc5c92487a885febaadfdf7a2f902bdf514ce360d3d2d3efa1dbd6c",
+  "expected_rows": 128,
+  "input_schedule_id": "sha256:bf0ebf195d997d5a992a2703070d6e30d5491cc73e540fcd7c323bfc6f89a848",
+  "limitations": [
+    "Deliberately balanced/tail-enriched training pilot, not representative or held-out quality.",
+    "Threshold 0.5 is provisional, not selected on validation.",
+    "Original unpadded batch-one pooling only; padded equivalence untested.",
+    "Resource samples establish feasibility, not final controlled profiling or statistical benefit."
+  ],
+  "model_revision": "05ff9bfd1f28c5228e53121d5ee4427bb5205212",
+  "observed_rows": 128,
+  "pilot_manifest_sha256": "405f6ccac8c923abf33d951e2ac4e31c7d2bae6e87fc5441912b8e0cd3c906e4",
+  "planned_input_schedule_id": "sha256:2958a7a37e949b14f10cd6522fcdd4da66cc656013cf350c03c923780db30802",
+  "population_id": "pilot-128:sha256:29c3acc60ec3ab635668ba80b1607e77c31ad1d20e3ae04068f13b044d9d4bfe",
+  "precision": "fp16",
+  "precision_evidence": "precision-evidence.json#sha256=6900839672a61d8c3cce99d362213ba877024eb8c1e5c1381088a7dc84f220bc",
+  "predictions": {
+    "path": "predictions.jsonl",
+    "sha256": "c12f89a2d19e8244b68cc18f8dd7e4f513bcb95dff8d13a175eef916f939b8da"
+  },
+  "preprocessing_id": "sha256:a9826109d5475df7011cbe6e91b27e8d4b1da0cf3621d5fa83f997112ee4026e",
+  "run_id": "p1b-20261117-fp16-11959388",
+  "score_semantics": "p_injection",
+  "source_sha256": {
+    "precision_benchmark/artifacts.py": "b923f570c00eb3cc538c3f81f8ad67b91db3a763b09fc058eb48dcded40a05bf",
+    "precision_benchmark/contract_audit.py": "ee2d292de4ccb7be6f5a4fce7799b9b7804b9afa3998ded74430be0ad21a1b39",
+    "precision_benchmark/input_data.py": "b8845c3e05bd413c073f5fdc5e249d849a23f828522c315ce026e25b0dc6b4a8",
+    "precision_benchmark/pilot_inference.py": "2b82e32e4ccaae83e5079523bf076873ec38ceb723070072e74b8145165b179d",
+    "precision_benchmark/tokenizer_audit.py": "05312568f3cb7bf0b7f6a041401a58f71a7facdd9018cb50db9d358ed9fe9a0d"
+  },
+  "status": "complete",
+  "test_performance_released": false,
+  "threshold": 0.5,
+  "threshold_source": "provisional-p1b-fixed-0.5-not-validation-selected",
+  "token_schedule_sha256": "6801a8fc3226b9fc632b1e93a50be9cab327623230b130a9dc6ed861c0d2ba57",
+  "tokenizer_revision": "05ff9bfd1f28c5228e53121d5ee4427bb5205212",
+  "tokenizer_runtime": {
+    "library_source_sha256": {
+      "transformers.configuration_utils": "08a3889c1b8a73d340a37c93f72346ee0e385e339b7a72a03b5c026d4943baf7",
+      "transformers.models.qwen2.tokenization_qwen2_fast": "1025a3b86526283bd86a447f0fe2d991d09775b32d3fdcc233c9e447b0611049",
+      "transformers.models.qwen3.configuration_qwen3": "27863e9718fdbc899f2d0e567621e4d3d36d8dc500c1d54b49dba4242d08d2bd",
+      "transformers.tokenization_utils_base": "e71871474be2b1aa32f3a147dc31fe0a195fd402a27c37d30d666035fcccd891",
+      "transformers.tokenization_utils_fast": "558e454ee6850e90e8bc5d1782e35878dfda1da9bfdf997ae113fa7ff771a0f3"
+    },
+    "model_loaded": false,
+    "resolved_config": {
+      "eos_token_id": 151645,
+      "hidden_size": 1024,
+      "id2label": {
+        "0": "benign",
+        "1": "jailbreak"
+      },
+      "label2id": null,
+      "max_position_embeddings": 40960,
+      "model_type": "qwen3",
+      "num_labels": 2,
+      "pad_token_id": null,
+      "vocab_size": 151936
+    },
+    "tokenizer_class": "Qwen2TokenizerFast",
+    "tokenizer_module": "transformers.models.qwen2.tokenization_qwen2_fast",
+    "versions": {
+      "tokenizers": "0.22.2",
+      "transformers": "4.57.1"
+    }
+  }
+}

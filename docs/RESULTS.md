@@ -1,7 +1,8 @@
 # Findings and claim register
 
-Administrative dataset findings are recorded below; no model-performance or resource
-findings are established. This register stores conclusions and their evidence;
+Administrative findings and the completed training-only P1-B precision/resource pilot
+are recorded below. Confirmatory quality, repeated profiling and gate findings remain
+pending. This register stores conclusions and their evidence;
 [REPORTING.md](REPORTING.md) defines how they become tables, figures and final deliverables.
 Statistical and measurement definitions belong to [RESEARCH_PROTOCOL.md](RESEARCH_PROTOCOL.md),
 and the gate's separate quality/cost claims belong to [EXTENSION.md](EXTENSION.md).
@@ -11,8 +12,9 @@ and the gate's separate quality/cost claims belong to [EXTENSION.md](EXTENSION.m
 | Result ID | Part / phase | Question or claim | Evidence type / population | Supporting runs / validation | Status / reviewer |
 |---|---|---|---|---|---|
 | RES-001 | Part 1 / P1-A | Pinned source supports an exact-duplicate-aware evaluation design | Development observation: administrative source audit, no classifier | R-P1-A-20261117-01; V-006/V-008; ASSET-001 | Observed and independently checked by automated review; human signoff pending |
-| RES-002 | Part 1 / P1-A | Padding/pooling policies require explicit checks | Static source and synthetic index cases | R-P1-A-20261117-04; V-016/V-022 | Source-level observation; human/runtime review pending |
+| RES-002 | Part 1 / P1-A | Padding/pooling policies require explicit checks | Static source and synthetic index cases | R-P1-A-20261117-04; V-016/V-022 | Source-level observation; original batch-one runtime checks later verified by V-041; padded equivalence unsupported |
 | RES-003 | P1-A | Native development lengths and tokenizer controls | Complete administrative development observation | R-P1-A-20261117-07; V-034/V-035 | Independently checked; no model/cap freeze |
+| RES-004 | Part 1 / P1-B | Three precision treatments execute with mixed quality/resource observations | Class/length-enriched 128-row training pilot, provisional threshold | R-P1-B-20261117-01; V-041/V-042 | Native and arithmetic evidence independently checked; no final ranking or gate benefit |
 
 ### RES-001 — Source audit establishes exact-group constraints, not model performance
 
@@ -100,3 +102,72 @@ alone does not update the claim presented to readers.
 - **Pooling limit:** The integer stock PAD=EOS rule disagrees with last-visible-token selection on relevant synthetic EOS cases, but there were zero such index disagreements in these development sequences at the measured caps. This is not model-logit batching equivalence and does not rule out other inputs.
 - **Proposal made before any official-test token-length audit:** Start the later 128-example pilot at cap 1024, original unpadded batch one, based on development retention above. This preserves more development text than512 while leaving2048 as a justified sensitivity/feasibility option. No model quality, speed or memory advantage is inferred, and no cap/pooling/threshold freeze is made by this proposal.
 - **Later completion:** Official-test token lengths were deliberately outside D-010's package, then separately authorized in D-011 and completed in R-P1-A-20261117-08. No held-out cap comparisons or development selection occurred. P1-A is now closed; model loading, logits, effective precision and the pilot belong to P1-B. The development-derived proposal above remains unchanged.
+
+### RES-004 - Three-treatment development feasibility, not a held-out ranking
+
+**Evidence:** D-012 / PILOT-001, R-P1-B-20261117-01 and V-040 through V-042.
+The [portable evidence bundle](evidence/p1b-pilot-20261117/comparison.json) retains all
+384 predictions, two-logit scores, actual precision/environment checks and a regenerated
+[quality table](evidence/p1b-pilot-20261117/analysis/quality.csv),
+[paired table](evidence/p1b-pilot-20261117/analysis/paired.csv) and
+[error analysis](evidence/p1b-pilot-20261117/analysis/error_analysis.csv).
+
+All three treatments completed the same 128 training examples on one NVIDIA L40S:
+64 benign/64 injection, deliberately enriched for longer inputs, with 16 truncated at
+1,024 tokens. Batch size is one without padding, and the predeclared pilot threshold is
+0.5. These choices and membership preceded model outputs. FP32 upcasts the released F16
+checkpoint; it does not reconstruct a more precise original checkpoint. The observed
+parameter/module treatment matches the requested modes: FP32, FP16, and 196 actual
+LLM.int8 transformer projections with a floating FP16 classifier head/residual parameters.
+
+| Treatment | Correct / 128 | Accuracy | Macro-F1 | Injection recall / 64 | False positives / 64 | False negatives / 64 |
+|---|---:|---:|---:|---:|---:|---:|
+| FP32 | 97 | 75.78% | 0.7447 | 53.13% | 1 | 30 |
+| FP16 | 97 | 75.78% | 0.7447 | 53.13% | 1 | 30 |
+| INT8 | 98 | 76.56% | 0.7538 | 54.69% | 1 | 29 |
+
+FP16 made identical classifications to FP32, although scores and AUC were not identical.
+INT8 differed on one example, correcting an FP32 false negative without introducing another
+error in this sample. The changed example is original training row 3949, 288 tokens with no
+truncation: its injection score moved from 0.49147448 to 0.51865286 across the fixed 0.5 threshold.
+This is a concrete threshold-boundary observation; one example does not establish INT8
+superiority. Higher precision is not ground truth, and these pilot outcomes provide no
+observed example of a lower-precision error that FP32 would correct. They do not establish
+learned-gate headroom or justify dropping the committed gate investigation.
+
+Most errors were shared missed injections. FP32's 30 false negatives include 27 untruncated
+and three truncated examples; therefore truncation is not a complete explanation for the
+observed misses. This is descriptive error accounting, not causal evidence about the cap.
+The preliminary operating point needs the planned validation-only threshold procedure;
+we did not tune the threshold on this pilot to improve its reported result. Source-text
+interpretation, annotation ambiguities and broader failure-case analysis remain later work.
+
+#### Pilot resource observations
+
+| Treatment | Median forward time (ms) | p95 forward time (ms) | Peak PyTorch allocated memory (MiB) |
+|---|---:|---:|---:|
+| FP32 | 25.51 | 59.68 | 2482.78 |
+| FP16 | 26.27 | 27.00 | 1321.42 |
+| INT8 | 87.49 | 93.48 | 932.56 |
+
+These are raw descriptive observations from one forward sample per selected example,
+three warm-up inputs, fresh processes and fixed FP32/FP16/INT8 order in the same allocation.
+Timing covers pretokenized device-resident input through synchronized raw logits; it
+excludes tokenization, transfers, score conversion, file writes and process imports.
+PyTorch memory peaks were reset after warmup; they are not total device/host/residency
+costs. [Per-treatment feasibility files](evidence/p1b-pilot-20261117/runs/int8/feasibility.json)
+retain every raw sample, loading scope, memory baseline and limits.
+
+INT8 showed lower measured allocated memory and a slower median forward time in this
+pilot. No latency improvement is observed here; this is not a final speed ranking or a
+reasoned diagnosis of the slowdown. Repeated, shape-aware, order-controlled profiling and
+end-to-end boundaries remain required before broader cost claims. Shared-cluster conditions
+and the deliberately unusual length mix further limit interpretation.
+
+**Limits/next evidence:** Training-only, small class/length-stratified sample; no uncertainty
+claim or representative prevalence; provisional threshold and cap; unknown pretrained
+contamination and near-duplicate dependence. No official-test predictions were produced.
+The main comparison requires P1-C decisions and FP32 validation threshold selection before
+Test-A. Complete Part 1 before substantive learned-gate development and eventual frozen
+Test-B comparison. Existing P1-A inputs/partitions remain unchanged and valid within their
+recorded limits.

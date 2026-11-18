@@ -7,14 +7,14 @@ Pinned sources and the approved D-008 population construction are recorded below
 Review-ready eligibility/A/B memberships now exist. D-009 authorizes independent development
 continuation without teammate attestations; performance releases still follow the protocol. Authenticated pinned tokenizer files and the classifier tensor header are verified;
 native tokenization/configuration and all-source lengths now pass V-034 through V-038.
-Full model/precision execution remains P1-B work.
+Full checkpoint identity and same-GPU FP32/FP16/LLM.int8 execution are verified for the bounded batch-one P1-B pilot (V-041); the main study and padded-equivalence policy remain unfrozen.
 
 ## Selected sources and verification state
 
 | Asset | Selected source | Immutable revision / verified identity | Verified scope / remaining work |
 |---|---|---|---|
-| Classifier | `rogue-security/prompt-injection-jailbreak-sentinel-v2` | Candidate audited revision `05ff9bfd1f28c5228e53121d5ee4427bb5205212`; ASSET-002 | Authenticated config plus header verified: 0=benign/1=jailbreak, score.weight F16 [2,1024], no bias (V-022); runtime loading/effective precision pending |
-| Tokenizer | Tokenizer accompanying the selected Sentinel v2 checkpoint | Same audited repository revision; ASSET-002 | Native wrapper/configuration and all-source token lengths verified on Explorer (V-034 through V-038); model pooling/precision checks remain P1-B |
+| Classifier | `rogue-security/prompt-injection-jailbreak-sentinel-v2` | Audited/executed revision `05ff9bfd1f28c5228e53121d5ee4427bb5205212`; ASSET-002 | Full payload/hash, actual loading/head orientation and three effective precision treatments verified in batch-one pilot (V-039/V-041); source score.weight F16 [2,1024], no bias |
+| Tokenizer | Tokenizer accompanying the selected Sentinel v2 checkpoint | Same audited repository revision; ASSET-002 | Native wrapper/configuration/all-source lengths verified (V-034 through V-038); actual final-token/EOS pooling verified (V-041). Padded equivalence is unsupported, not assumed |
 | Dataset | `hendzh/PromptShield` | `a5234cb1f5cdb256600cab64b8c961195b5e8404`; ASSET-001 | D-008 construction and all-source lengths checked; P1-A complete, unknown-history/near-duplicate limitations retained |
 
 The recorded revisions identify audited sources, not a complete experimental freeze. Provider descriptions are
@@ -26,7 +26,7 @@ here; raw prompt collections and credentials do not.
 
 | Partition | Membership record / artifact | Parent revision | Effective row / class / group counts | Freeze and verification | Exposure state |
 |---|---|---|---|---|---|
-| Eligible training | SPLIT-001; `eligible-training.jsonl` in current partition directory | ASSET-001 | 18,909 rows/groups; 9,457 benign / 9,452 injection | D-008/V-021; D-009 development-access amendment | Native development tokenization, EXP-005/006; earlier training snippets EXP-002; no model outcome |
+| Eligible training | SPLIT-001; `eligible-training.jsonl` in current partition directory | ASSET-001 | 18,909 rows/groups; 9,457 benign / 9,452 injection | D-008/V-021; D-009 development-access amendment | Native tokenization EXP-005/006; selected 128-row model pilot and score/error inspection EXP-008; earlier training snippets EXP-002 |
 | Eligible validation | SPLIT-002; `eligible-validation.jsonl` | ASSET-001 | 1,000 rows/groups; 497 benign / 503 injection | D-008/V-021; D-009 development-access amendment | Native development tokenization, EXP-005/006; no model outcome |
 | Test-A | SPLIT-003; `test-a.jsonl` | ASSET-001 official test | 11,758 rows; 8,515 benign / 3,243 injection; 11,657 groups | D-008; performance release pending P1-C | No project model performance; prior team history incompletely declared |
 | Test-B | SPLIT-004; `test-b.jsonl` | ASSET-001 official test | 11,758 rows; 8,515 benign / 3,243 injection; 11,702 groups | D-008; performance release pending P2-D/P2-E | Administrative only; no claim of cryptographic or universal historical sealing |
@@ -253,3 +253,39 @@ real token vectors, cap/A-B comparisons, scores or model performance were displa
 The existing inference input guards remain unchanged. The aggregate information must not
 guide development choices; RES-003's pilot proposal preceded this access. Unknown external
 history is still not a claim of universal non-exposure.
+
+### ASSET-002 full checkpoint payload - P1-B verification
+
+D-012 authorized full payload retrieval after the earlier header-only audit. The pinned
+`model.safetensors` is now retained under `outputs/pilot-20261117/checkpoint-01/` with
+`receipt.json`: 1,192,138,968 bytes and SHA256
+`19701022d11e38d39bd77aed7263d2e9ce3a45ae29305248ef3de585f947511c`, exactly matching
+ASSET-002's previously retained LFS metadata. The copied config is byte-identical to the
+seven-file audit. The same full hash and config hash were independently recomputed after
+transfer to private Explorer storage `pilot-checkpoint-20261117-01`. No credential was
+transferred; weights are ignored, not published. This establishes payload identity, not
+successful loading or effective precision, which remain the actual pilot's checks.
+
+### PILOT-001 - D-012 training diagnostic membership
+
+Prepared before any classifier outputs: `outputs/pilot-20261117/preparation-01/manifest.json`
+SHA256 `405f6ccac8c923abf33d951e2ac4e31c7d2bae6e87fc5441912b8e0cd3c906e4`, with
+`examples.jsonl` SHA256 `828cf651e2ccbeace777eb8936ab91fcbb888f7e903f22825b6c87163c222089`.
+All 128 IDs come from the verified18,909-row eligible training population and prior native
+length evidence. D-012 specifies deterministic quotas/order:64/class,48 short/eight mid/eight
+long per class;16 selected rows truncate at1024. Labels remain separate from model inputs.
+The manifest records source hashes, full coverage checks, membership/order/schedule hashes,
+selection namespace and provisional preprocessing/threshold. It contains no prompts/tokens.
+This deliberate class/tail enrichment is not representative sampling or a test result.
+No earlier population is changed; all protected memberships/release conditions remain intact.
+
+### EXP-008 - Authorized training pilot and result inspection
+
+November 17, P1-B, D-012. The input loader revalidated the complete eligible training source
+without displaying raw prompts. Only the preselected 128 training examples were passed to
+the frozen detector in FP32/FP16/INT8; reference labels remained outside model calls. Agents
+inspected saved logits/scores, reference labels, IDs, lengths and aggregate/paired errors
+for that development sample. Synthetic pooling diagnostics used invented strings only.
+No actual dataset prompt was displayed in this task's result review, and no official-test
+source or model output was opened by the pilot. The earlier EXP-002 exposure and unknown
+external/team history remain unchanged; no universal no-exposure claim is made.

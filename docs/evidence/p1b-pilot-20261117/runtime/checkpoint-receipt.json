@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "revision": "05ff9bfd1f28c5228e53121d5ee4427bb5205212",
+  "source_url": "https://huggingface.co/rogue-security/prompt-injection-jailbreak-sentinel-v2/resolve/05ff9bfd1f28c5228e53121d5ee4427bb5205212/model.safetensors",
+  "bytes": 1192138968,
+  "sha256": "19701022d11e38d39bd77aed7263d2e9ce3a45ae29305248ef3de585f947511c",
+  "redirects": 1,
+  "retrieved_utc": "2026-11-18T01:01:53.146336+00:00",
+  "credentials_retained": false
+}

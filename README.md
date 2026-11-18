@@ -120,8 +120,8 @@ Detailed methods and experimental settings are maintained in the protocol and
 
 ## Quickstart
 
-The runnable package provides asset audits, data/input validation, tokenizer diagnostics
-and offline analysis of saved predictions. The example below runs the **offline evaluator**;
+The runnable package provides asset audits, data/input validation, tokenizer diagnostics,
+development GPU inference and offline analysis of saved predictions. The example below runs the **offline evaluator**;
 it does not execute the detector or estimate Sentinel's performance.
 
 Use Python 3.10 or newer. From the repository root:

@@ -516,3 +516,108 @@ coordinating review accepts that recommendation in PHASE_RECORDS: all 43,425 sou
 now have complete source-length accounting; identities, labels/head contract, eligibility,
 partitions, exposure rules and component contracts are established. This closes P1-A only,
 not model loading, any precision treatment, pilot/main freeze, test performance or the gate.
+
+### V-039 - Full checkpoint identity, safe transport and pilot stage checks
+
+November 17,P1-B,D-012. Local streaming retrieval checked exactsize1192138968 bytes and full
+SHA256 19701022d11e38d39bd77aed7263d2e9ce3a45ae29305248ef3de585f947511c against the pinned
+LFS metadata before renaming the complete artifact. Explorer independently recomputed that
+hash and pinnedconfig hash after transfer. No credential/provider URL/error body was logged.
+Independent review found a future failed-stream credential-reflection retention gap; a
+boundary-aware guard now retains the final credential-length window until safe content is
+established. Five network-free tests exercise same/cross-chunk reflection, interrupted
+streams and size/hash failures;19 combined fetch/header-transport tests passed. The complete
+verified model was not redownloaded and is unaffected by this hardening.
+
+Two stage-integrity tests pass normally and under `python -O`; checks reject changed bytes,
+protected source filenames and unlisted members. The GPU driver was reviewed for a fresh
+package, unchanged environment and three sequential processes in one GPU allocation.
+Actual device/native compatibility and prediction completeness are not established by these
+checks. Source/targeted tests and subsequent full-suite evidence accompany the pilot stage.
+
+### V-040 - Fixed pilot membership and pre-execution implementation review
+
+PILOT-001's actual membership was independently reconstructed from all 18,909 text-free
+training identities and native length records. Full source/hash lineage, six strata,
+all 128 selected IDs, original ordering,64/class,16 truncations, schedule/preprocessing
+identities and the inference-loader interface match. Review retained at
+`outputs/pilot-20261117/review/preparation-review.md`; no raw/test prompts or model outputs
+were read for selection or review.
+
+The final reviewed implementation passed 107 local tests and107 tests on GPU job 11959388
+before model execution. Tests include source/coverage rejection, finite scores and failure
+preservation; native model calls are mocked there. Independent source review additionally
+examined exact conversion/head/pooling/runtime checks and the same-allocation driver.
+Final inference source SHA256 is 2b82e32e4ccaae83e5079523bf076873ec38ceb723070072e74b8145165b179d.
+The exact 50-file stage 02 package and both prior stage snapshots are preserved. Actual native
+forward results are separate subsequent evidence, not established by this software review.
+
+### V-041 - Native three-treatment loading, pooling and precision validation
+
+GPU job 11959388 completed on Explorer d4046 / NVIDIA L40S with exit 0:0 in 11m59s.
+The complete [run bundle](evidence/p1b-pilot-20261117/comparison.json) retains 128 outputs
+per treatment, all run manifests, source/checkpoint identities, actual device/runtime flags,
+synthetic checks and named parameter/buffer/module evidence. Independent review found no
+blocking validity defect in this bounded batch-one scope.
+
+Checks independently verified all intended IDs, labels kept outside model calls, finite
+logits/scores, full prediction/artifact hashes and identical actual token/mask schedules,
+code and environment identities. Reference softmax calculations for injection index 1 agreed
+within the review's 2e-7 tolerance (maximum observed absolute error 5.96e-8); this tolerance
+accounts for FP32 score conversion versus the independent reference, not an acceptance
+threshold for changing predictions. Saved decisions exactly match score >= 0.5.
+
+All 311 parameter tensors / 596,051,968 elements match the pinned header contract. FP32 and
+FP16 parameters have their requested dtypes; INT8 has exactly 196 converted transformer
+projections, with FP16 residual parameters and classifier head. All parameters are frozen,
+modules are in evaluation mode, and device placement/strict flags match. FP32 buffers/scales
+and synthetic module input/output dtypes are retained rather than pretending every operation
+uses the nominal precision. Installed Qwen3/configuration/pooling source hashes match the
+previously retrieved official Transformers 4.57.1 bytes; that source explicitly retains FP32
+RMSNorm/rotary/attention-softmax work where specified.
+
+Actual synthetic forward/head hooks agree exactly at the final token for plain, interior-EOS,
+terminal-EOS and EOS-only cases. The original PAD=None model rejects a padded batch of two
+as expected; normal empty/all-masked/malformed inputs are rejected before model calls.
+Padded equivalence is not claimed and larger batching is not enabled. All 384 pilot outputs
+are complete, with no failed/missing examples silently dropped. Logs passed 107 tests in the
+allocated environment; no native correctness issue was observed, not a proof of perfection.
+
+The independent native review and portable artifact references retain scope and limitations.
+Timing/memory values are single-pass feasibility measurements; official-test performance,
+final threshold selection, deployment safety and gate effectiveness are not validated here.
+
+### V-042 - Independent preliminary analysis and reproducible offline assembly
+
+Independent arithmetic from the128 text-free reference labels and384 predictions reproduced
+confusion counts, every quality field, all 4,096 positive/negative AUC pairs per mode,
+calibration bins/ECE, paired outcomes, score deltas, CSV values and rounded report tables.
+FP32/FP16 each have97 correct; INT8 has 98, with one correction and no introduced error
+relative to FP32. The sole changed classification is the untruncated 288-token training
+row 3949 near the provisional threshold. This does not make either precision ground truth.
+
+The original evaluator and new `pilot_compare` convenience command both regenerate valid
+analyses from the complete runs. Four added offline assembler tests cover mismatched pilot
+bindings, incomplete/tampered artifacts and CLI execution; the final local suite has 111
+passes. These four tests do not change model execution or metric formulas and do not require
+a GPU rerun. The exact executed107-test source package is retained separately from the final
+repository source. Portable bundle relocation regenerates comparison/provenance paths while
+preserving all prediction and native-evidence bytes. Independent review notes are included
+with the bundle; no raw/test prompts were needed for these calculations.
+
+### Final portable-bundle and publication checks for S-20261117-09
+
+The final 47-file text-free bundle inventories 1,363,042 retained bytes (excluding its own
+inventory file) and includes the exact 50-file executed source package. All referenced
+native/output hashes, the source ZIP member inventory and local Markdown file links verify.
+All 47 bundle files in Git's index match the checked working bytes exactly; no configured
+Hub credential or forbidden raw-data/weight/environment path is staged. The source archive
+was also scanned internally. Raw installation/provider logs remain ignored.
+
+The initial Git whitespace check interpreted retained CRLF line endings as trailing
+whitespace. The original diagnostic is preserved under `outputs/pilot-20261117/`.
+A bundle-specific `cr-at-eol` whitespace setting now recognizes those intentional endings
+while retaining blank-at-EOL, blank-at-EOF and space-before-tab checks. `-text` preserves
+all inventoried bytes on every checkout. No evidence was normalized to make a hash pass;
+the staged-byte checks and final whitespace check succeed. These are packaging checks,
+not additional model experiments or evidence of universal software correctness.

@@ -98,3 +98,13 @@ was checked on November 17: its NVIDIA LLM.int8 support requirement is compute c
 (Turing or newer), distinct from the lower requirement for some other 8-bit/4-bit features.
 Select/check a compatible allocated GPU and exact package build before loading treatments;
 the CPU audit does not establish compatibility or authorize an unsupported fallback.
+
+### P1-B runtime source checks - November 17
+
+Official [Transformers 4.57.1 bitsandbytes documentation](https://huggingface.co/docs/transformers/v4.57.1/en/quantization/bitsandbytes)
+and [bitsandbytes 0.48.2 installation table](https://huggingface.co/docs/bitsandbytes/v0.48.2/en/installation)
+identify LLM.int8 NVIDIA support at compute capability 7.5+ and describe retained floating
+modules/skipped conversion. [PyTorch previous-version installation instructions](https://pytorch.org/get-started/previous-versions/)
+list torch 2.9.1 with official CUDA 12.6 wheels. These support the bounded runtime candidate,
+not proof that the actual allocated device/installed native kernels work; executed checks
+and package reports must establish that. No latest-version or performance assertion follows.

@@ -1,0 +1,25 @@
+{
+  "data_role": "eligible_training",
+  "population_id": "pilot-128:sha256:29c3acc60ec3ab635668ba80b1607e77c31ad1d20e3ae04068f13b044d9d4bfe",
+  "threshold": 0.5,
+  "threshold_source": "provisional-p1b-fixed-0.5-not-validation-selected",
+  "schema_version": 1,
+  "examples": {
+    "path": "pilot/examples.jsonl",
+    "sha256": "828cf651e2ccbeace777eb8936ab91fcbb888f7e903f22825b6c87163c222089"
+  },
+  "runs": [
+    {
+      "path": "runs/fp32/run.json",
+      "sha256": "74d887efe9950333bdbee0997c7dec55440379c00df53f6b4a9b6cc9b0cf21a9"
+    },
+    {
+      "path": "runs/fp16/run.json",
+      "sha256": "8ab299832a3e826414c2a7de94bdb51f79f1c495ce930b04619b1d6d833af00e"
+    },
+    {
+      "path": "runs/int8/run.json",
+      "sha256": "04faf391c05ffcbe1dc915c844d3b190b72bb34ac579078b900404872a75cd5a"
+    }
+  ]
+}

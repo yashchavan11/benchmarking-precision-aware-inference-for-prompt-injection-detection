@@ -7,13 +7,13 @@ session state and the next task are summarized in [STATUS.md](STATUS.md).
 
 ## Completion ledger
 
-P1-A is complete as recorded below. A blank closeout reference for later phases means
+P1-A and the bounded batch-one P1-B pilot are complete as recorded below. A blank closeout reference for later phases means
 no completion evidence is recorded, not that their requirements have passed.
 
 | Phase and authoritative plan | Status | Closeout / evidence reference |
 |---|---|---|
-| [P1-A - Asset and data audit](ROADMAP.md#p1-a--asset-data-and-evaluation-design-audit) | Complete, 2026-11-17 | P1-A closeout below; V-008 through V-038 within their stated scopes; no model/benchmark completion |
-| [P1-B - Components and pilot](ROADMAP.md#p1-b--reusable-components-and-a-small-real-pilot) | Current next phase; model execution not started | P1-A closeout supplies inputs; evaluator/input/audit components reusable; pilot proposal pending |
+| [P1-A - Asset and data audit](ROADMAP.md#p1-a--asset-data-and-evaluation-design-audit) | Complete, 2026-11-17 | P1-A closeout below; V-008 through V-038 establish asset/data/input scope |
+| [P1-B - Components and pilot](ROADMAP.md#p1-b--reusable-components-and-a-small-real-pilot) | Complete for unpadded batch-one pilot, 2026-11-17 | P1-B closeout below; D-012, V-039 through V-042, RES-004 and complete three-treatment bundle |
 | [P1-C — Main-protocol freeze](ROADMAP.md#p1-c--analysis-implementation-and-main-protocol-freeze) | Empirical phase/freeze not started; independent evaluator preparation | V-001–V-005; no phase closeout |
 | [P1-D — Main benchmark](ROADMAP.md#p1-d--main-benchmark-and-analysis) | Not started | None recorded |
 | [P1-E — Part 1 closeout](ROADMAP.md#p1-e--part-1-closeout-and-knowledge-transfer) | Not started | None recorded |
@@ -105,3 +105,41 @@ required approval for this model/GPU task; the proposal is not a main-study free
 pilot must verify actual model loading, finite complete outputs and effective precision,
 not assume quality or speed benefits. Read this closeout, RES-003, ARCHITECTURE, Q-004/Q-014
 and the common protocol before P1-B. No prerequisite to wait for a teammate is introduced.
+
+## P1-B closeout - Reproducible three-precision development pilot
+
+**Disposition:** Complete for the original unpadded batch-one feasibility configuration,
+November 17,2026. D-012 authorized the bounded work; V-039 through V-042 and RES-004 provide
+actual checks/results. Independent automated reviews are labeled as such, not human review.
+No main-protocol freeze or final quality/cost claim follows from this closeout.
+
+| ROADMAP completion requirement | Observed evidence |
+|---|---|
+| Same semantic classifier task in all three intended treatments | Full pinned checkpoint checksum; same 128 training IDs and actual token/mask schedule; complete finite FP32/FP16/LLM.int8 runs on one L40S allocation. |
+| Effective precision, labels, head and device verified | Actual311-tensor inventory; two-logit benign/jailbreak orientation;196 executed INT8 projections with floating head/residuals; strict FP32 flags, eval/frozen state, common eager attention and device. |
+| Relevant input/pooling/correctness checks | Exact capped-prefix/length checks; final-token hooks including EOS cases; empty/mask rejection; original padded-batch rejection; checked scoring and stable ID alignment. Padded equivalence remains unsupported, not silently assumed. |
+| Deterministic pilot and initial feasibility observations | PILOT-001 membership precedes outputs;128/128 predictions in each mode; raw synchronized forward/loading/memory records. Resource limitations and unfavorable observations retained in RES-004. |
+| Reproducible, independently checked outputs | Portable text-free bundle with exact executed source archive, run/artifact hashes, package lock/provenance, usage commands, offline assembly/reanalysis and independent arithmetic/native reviews.107 GPU-job tests; 111 final local tests including four new offline-only checks. |
+
+**Retained inputs/outputs:** ASSET-001/002 and all P1-A populations remain unchanged.
+The [portable bundle](evidence/p1b-pilot-20261117/comparison.json) supplies predictions and
+analysis without requiring raw assets or GPU access. Registered ignored raw sources, model
+weights, setup logs and prior failed/superseded audit evidence remain preserved. GPU job
+11959388 and CPU setup 11959175 are complete; no pilot job remains active.
+
+**Findings/limits transferred:** RES-004 records identical FP32/FP16 classifications,
+one INT8 correction, shared false negatives, lower observed INT8 memory and slower pilot
+median forward latency. No statistical superiority, end-to-end speedup or escalation
+benefit is established. Cap1024/threshold 0.5/INT8 threshold 6/head policy are pilot settings;
+main choices are not automatically frozen. Larger batches need a checked pooling policy
+if selected. Near-duplicates, annotation truth, pretrained contamination, unknown external
+exposure and small enriched-sample limits remain disclosed.
+
+**Next bounded phase:** P1-C. Prepare a concrete decision packet for the main endpoint,
+FP32-validation threshold objective/search/tie rule, common preprocessing/batch/quantization
+policy, paired uncertainty and repeated profiling plan/budget. Ask Yash before these major
+choices and further substantive experiments. After approval, perform the eligible validation
+selection and required analysis/measurement checks, then freeze the complete Part 1 plan
+before Test-A. Test-B remains reserved for the later frozen learned-gate study. The current
+progress-report inference deliverable is complete; report assembly/presentation can proceed
+without waiting for an unprovided teammate artifact.

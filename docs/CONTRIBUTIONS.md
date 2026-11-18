@@ -101,3 +101,15 @@ Yash identified the README's drift into internal milestone/work notes and reques
 public-facing project introduction. Codex performed the editorial cleanup and separate
 usage-guide organization, with independent automated review (S-20261117-08). No scientific
 implementation, experiment or human code review is attributed to this documentation work.
+
+## November 17 - Progress-report pilot and course requirements
+
+Yash supplied the actual course guidelines, directed completion of the inference/report
+contribution and retained authorization to publish properly completed milestones. Automated
+implementation, execution, failure-path hardening and independent reviews produced the
+P1-B pilot, artifact bundle, preliminary analysis and reproducibility/report guidance.
+Actual run/source/review evidence is registered in S-20261117-09/V-039 through V-042.
+Configured Git authorship is Yash's required project identity, not proof that he personally
+implemented or independently reviewed every line. No new implementation/review by Viraj,
+Shreyas or Hareeshwar is inferred; earlier verified contributions remain credited. The final
+coordination text is a draft for Yash to convey, not an agent-sent teammate message.

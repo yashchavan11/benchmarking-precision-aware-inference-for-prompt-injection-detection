@@ -235,3 +235,47 @@ no active job remains. Latest final publication receipt is retained locally at
 - **Durable instruction:** Updated AGENTS to keep README public-facing and route operational state, milestone history and detailed usage to their appropriate locations. No scientific requirement, selected asset, membership, threshold, method or phase status changed.
 - **Review/checks:** Independent read-only review found the fixed scope, full learned-gate commitment, cost/quality baselines, holdout separation and honest available-software description preserved. Relative file links and code fences were checked; all eight documented CLI help entry points succeeded without network/model/data execution. No unit or research experiments were rerun for this prose-only change. Review notes are under `outputs/readme-review-20261117/`.
 - **Handoff/publication:** P1-B continuation is unchanged. Documentation is included in the reviewed cleanup commit under the standing publication authorization; final Git state is verified after publication, with a local receipt at `outputs/readme-review-20261117/publication.json`. No new research job or teammate message was created.
+
+### S-20261117-09 - Progress-report requirements and bounded inference work (active)
+
+Yash supplied the actual CS5130 Fall2026 guideline screenshot and requested completion of
+his near-term inference/quantization responsibilities plus a final teammate message draft.
+REPORTING now records the source identity and correct proposal/progress/final page limits,
+required progress content and final deadline. The screenshot does not mandate public hosting;
+the private repository remains unchanged. D-012 makes the already proposed development
+pilot concrete without releasing test performance or selecting the main-study threshold.
+
+Work is separated into inference implementation, deterministic text-free sample preparation,
+and independent requirements/code review. The coordinating agent owns secure full-weight
+retrieval, CPU/GPU orchestration, records and integration. A matching full checkpoint was
+retrieved using existing local authentication; no credential was sent to the cluster or Git.
+A fresh CUDA environment setup is running as job 11959175; complete prior CPU/native evidence
+is preserved. A100 queue preflight is late, so compatible alternatives are being investigated.
+Actual completion, failures, reviews and publication will be appended after observed outcomes.
+
+### S-20261117-09 completed pilot, analysis and report handoff
+
+The full pinned checkpoint was verified locally and again after private transfer. Fresh
+CPU setup 11959175 completed in 10m24s, preserving the earlier audit environment. A100/T4/H200
+GPU-partition scheduler estimates were late; the compatible sharing/L40S route was selected
+before any model outcomes, within the same approved one-GPU 20-minute scope. Reviewed stage 02
+preserves a small pre-execution diagnostic improvement over stage 01. Actual GPU job 11959388
+completed in 11m59s with all 384 predictions,107 native-job tests and complete precision/pooling
+checks. No model setting was changed in response to quality outcomes.
+
+Independent reviewers reconstructed actual population selection, native output/precision
+validity and every preliminary metric from retained artifacts. The offline assembly command
+adds four checks without changing the executed inference or metric formulas; 111 final local
+tests pass. RES-004 records the mixed/unfavorable findings: shared false negatives, one INT8
+correction, lower observed INT8 memory but slower pilot forward latency, and no observed
+higher-precision error recovery in this sample. The results do not establish a final ranking
+or gate benefit. P1-B closes in its bounded batch-one scope; P1-C remains to be designed and
+approved before further substantive experiments and held-out evaluation.
+
+The complete text-free evidence bundle and exact executed source package are prepared for
+the standing authorized publication. USAGE documents secure acquisition, setup, all-three
+execution and offline assembly/reanalysis. REPORTING contains verified course requirements,
+report-ready inference prose and truthful remaining team/research tasks; README received
+only a public capability-description update, with no milestone dump. No report, teammate
+message, GitHub comment/PR/issue or visibility change was made. Final checks/publication
+follow this record; actual Git state and receipt will be verified rather than assumed.

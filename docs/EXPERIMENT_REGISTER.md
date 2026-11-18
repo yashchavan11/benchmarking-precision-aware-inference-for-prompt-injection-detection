@@ -1,7 +1,8 @@
 # Experiment register
 
 This register is the index of planned and executed experiments and administrative audit runs.
-Administrative runs are recorded below; no model-performance or resource experiment has run.
+Administrative audits and the completed P1-B training-only three-precision pilot are recorded
+below. Main held-out evaluations, repeated profiling and learned-gate experiments remain unrun.
 Each entry links the machine-readable run manifest and raw outputs described in
 [ARCHITECTURE.md](ARCHITECTURE.md), rather than copying prediction tables or prompts here.
 The [research protocol](RESEARCH_PROTOCOL.md) governs run comparability;
@@ -166,3 +167,69 @@ statistics from the histogram and verifies all identity/runtime/scope bindings. 
 outputs/logs are `outputs/holdout-prep-20261117/attempt-01/`; execution/retrieval receipts
 and reviews are retained beside them. No active job remains. No model performance was
 released, no cap selected, and no Test-A/Test-B membership or inference guard changed.
+
+### R-P1-B-20261117-01 - Progress-report inference pilot (preparing)
+
+D-012 authorizes the concrete 128-example eligible-training three-treatment pilot. Purpose:
+verify actual checkpoint loading, scoring, pooling and precision handling, then supply
+saved predictions and preliminary comparison for the progress report. Same inputs and
+runtime, cap 1024/unpadded batch 1/provisional threshold 0.5; no test performance. Exact pilot
+membership is being built before inference. Full checkpoint retrieval completed at
+`outputs/pilot-20261117/checkpoint-01/`: 1,192,138,968 bytes, SHA256
+`19701022d11e38d39bd77aed7263d2e9ce3a45ae29305248ef3de585f947511c`, matching the
+previously pinned LFS identity. Receipt preserves safe source/revision facts only; existing
+Hub credentials remained outside the repository. CPU environment preparation and GPU
+execution are not yet submitted. This planned record will gain actual job IDs and outcomes;
+submission alone will not establish completion.
+
+CPU setup job **11959175** was submitted to Explorer/courses from the hash-verified fresh
+`/scratch/chavan.yas/precision-aware-inference/pilot-env-20261117-01` directory. Two CPUs,
+16 GiB,20 minute maximum; separate CUDA environment, no model/data/GPU in the setup job.
+Exact setup inputs are retained at `outputs/pilot-20261117/setup-stage-01/`.
+A100 `sbatch --test-only` estimated November19; this was a scheduler preflight, not a
+submitted GPU job. Other documented LLM.int8-compatible devices are being checked within
+the same pilot scope/budget. No prediction exists at this checkpoint.
+
+Preparation completed as job 11959175, exit 0:0 in 10m24s on c0584. Package import check
+matches the declared Torch 2.9.1+cu126/Transformers 4.57.1/tokenizers 0.22.2/bitsandbytes 0.48.2/
+accelerate 1.11.0; pipcheck succeeds. Full logs/install reports/lock are retained locally in
+`outputs/pilot-20261117/environment-01/setup-evidence/` (raw provider/proxy logs remain
+ignored). The completed old audit environment is unchanged.
+
+Reviewed code passed 107 local tests. Stage01 was preserved when a small fixed-message
+failure diagnostic was improved before execution; stage 02 contains the final reviewed
+snapshot. Its130082-byte archive SHA256
+`eda1261b459b25390bbe562e7e9155aebc8946cc038460f8246386f8e6c778b4` and all 50members/411256 bytes
+were verified locally and after safe extraction to `pilot-run-20261117-01/project` on
+Explorer. It contains code/syntheticfixtures/text-free pilot only and references previously
+verified training/tokenizer/checkpoint files. The sharing partition's L40S preflight offers
+an available compatibledevice; choosing it is an availability/runtime choice before any
+model results, with all three treatments on one GPU and the same 20 min bound. Earlier A100/T4/
+H200 scheduler test-only estimates created no GPU jobs. Native correctness is still pending.
+
+After independent actual membership reconstruction and final source review, GPU job
+**11959388** was submitted from the verified stage 02 package: sharing/L40S,one GPU,
+4 CPUs,32 GiB,20 min maximum, sequential FP32/FP16/INT8 fresh processes. Native results are
+pending; monitor11959388 and retain parent `pilot-11959388.out/.err` plus project/run-output.
+
+### R-P1-B-20261117-01 completion and retained results
+
+GPU job 11959388 completed with exit 0:0 in 11m59s on d4046, one NVIDIA L40S, within the
+20-minute limit. All three modes produced128/128 finite predictions and passed native
+synthetic/scoring/precision checks. There was one submitted GPU attempt and no failed or
+omitted example. Environment setup 11959175 completed separately; no job remains active.
+V-041 independently reviews native evidence, and V-042 independently reconstructs the
+analysis. RES-004 reports observed quality/resource limitations without assuming benefits.
+
+Local original retrieval is `outputs/pilot-20261117/attempt-01/`; preparation, both stages,
+setup reports, full checkpoint, source hashes and reviews remain beside it. The durable
+team bundle is [docs/evidence/p1b-pilot-20261117](evidence/p1b-pilot-20261117/comparison.json):
+complete text-free predictions, manifests, native evidence, raw feasibility samples,
+reproducible offline analysis, package provenance and exact executed source archive.
+Raw data, weights, credentials and private installation/proxy logs are excluded from Git.
+
+The original evaluator and offline `pilot_compare` command both completed reanalysis.
+Final local software suite 111 passed; the job's exact executed source suite had 107 passes
+before the four offline-only assembly checks were added. No inference implementation or
+metric formula changed after execution. P1-B is closed for the verified batch-one pilot;
+P1-C decisions/main freeze and protected evaluations remain future work.

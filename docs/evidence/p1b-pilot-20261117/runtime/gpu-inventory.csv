@@ -1,0 +1,2 @@
+name, uuid, driver_version, memory.total [MiB], compute_mode
+NVIDIA L40S, GPU-89c465de-94fe-63ac-d64d-3314c559b8d9, 545.23.08, 46068 MiB, Default
