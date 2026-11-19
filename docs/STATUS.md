@@ -1,39 +1,26 @@
 # Current project state and handoff
 
-PR #1 follow-up (November 18): preparation source inventory now includes the shared
-preprocessing module, with a fail-before/pass-after regression check. See VALIDATION_LOG's
-PR-1 entry and Git history for publication state. Scientific pilot status below is unchanged.
+S-20261118-03 is complete. V-045 records the verified resource-summary fix, independent review and report checks. All 134 tests passed. There are no active reservations or research jobs.
 
-## Current snapshot - P1-B complete; progress-report inference deliverable ready
+## Current snapshot - November 18 progress report
 
-| Field | Current value |
+The team assembled `CS5130_Progress_Report_Updated_v3.pdf` for the November 18 deadline.
+The three-page report covers the four requested sections. Its classification results,
+resource table, qualitative cases and plotted data agree with the registered pilot.
+Yash handles submission. The repository records the review but has no submission receipt.
+
+| Work | Evidence and handoff |
 |---|---|
-| Provenance/phase | November 17, 2026, America/New_York; S-20261117-10 recheck. P1-A and bounded batch-one P1-B remain closed; next P1-C. |
-| Completion evidence | PHASE_RECORDS P1-B closeout; D-012; PILOT-001; V-039 through V-042; RES-004. Complete finite FP32/FP16/INT8 predictions for the same 128 training IDs. |
-| Ownership/jobs | S-20261117-10 complete. Fresh arithmetic, source/code/measurement and report-gap assessments are incorporated in V-043. No active reservations, new GPU job, data selection, threshold change or teammate dependency. |
-| Repository | Reviewed P1-B milestone `3f20b824aec92d60cf43a28aa9446a9830f48872` was pushed to origin/main and its remote SHA verified, using configured Yash author/committer identity. See Git history for the latest handoff tip and `outputs/pilot-20261117/publication.json` for the final local receipt. No comments, PRs, issues, teammate messages, submissions or visibility changes were made. |
-| Inputs | Pinned dataset/model revisions and D-008 populations unchanged. Full checkpoint now retrieved and hashed. D-012 uses original unpadded batch 1, cap 1024, provisional threshold 0.5; these are not a main-study freeze. |
-| Native evidence | CPU setup 11959175 completed 0:0 in 10m24s. GPU 11959388 completed 0:0 in 11m59s on one L40S/d4046. 107 software tests passed on the GPU node before execution; 111 final local tests include four later offline-only assembly checks. |
-| Observed findings | FP32/FP16 each 97/128 correct; INT8 98/128 with one corrected error and none introduced. Shared false negatives remain; INT8 AUC is lower despite its one-example accuracy gain. INT8 used less measured allocated memory and had a slower pilot median forward time. V-043 confirms the values and identifies short-only warmups/spikes; see RES-004 for scope. |
-| Scientific boundaries | Training-only enriched pilot, provisional operating point and single-pass resource observations. No representative/generalization, statistical superiority, final speedup or learned-gate benefit claim. No Test-A/Test-B predictions or performance release. |
-| Runtime | Verified Explorer CUDA environment and full checkpoint are reusable; preserve the separate audit environment and Windows security policy. Exact package lock, source archive and hardware evidence are retained. |
-| Reporting | Actual guideline screenshot recorded in REPORTING: November 18 progress report <=4 pages; implementation, pipeline/baseline, preliminary evaluation, lessons/risks. Ready-to-use inference prose/tables and remaining team actions are linked there. No submission made. |
+| Data and preprocessing | P1-A closed. [Viraj's handoff](DATASET_PREPROCESSING_HANDOFF.md) collects audit and split evidence. The shared preprocessing helper and Shreyas's provenance fix follow the native pilot in Git history. |
+| Inference | P1-B closed for the verified unpadded batch-one pilot. D-012, PILOT-001 and V-039 through V-043 document all 384 predictions and their scope. |
+| Evaluation | RES-004 records the quality results. RES-005 and EXP-009 document the three development error examples included in the report. |
+| Resources | RES-006 and V-044 document Hareeshwar's offline analysis and length breakdown using the same native timings. V-045 records the follow-up checks. |
+| Repository | The five team commits through `46ee768` were integrated by fast-forward. Git history identifies the subsequent review-fix commit. |
+| Next research phase | P1-C decisions on the main protocol are pending. The threshold of 0.5 and the cap of 1,024 belong to the development pilot. Both test populations remain protected. |
 
 ## Required continuation and reusable artifacts
 
-**November 18 resource section (S-20261118-02):** Hareeshwar's runtime/resource section is ready
-in REPORTING's first section, with evidence in `docs/evidence/p1b-resource-20261118/` (V-044,
-RES-006). Shreyas can insert it into the assembled report. Repeated, warmed, order-controlled
-and end-to-end profiling remains P1-C work.
-
-**November 18 report follow-up (S-20261118-01):** Shreyas's fillable PDF sections are prepared
-at `../output/pdf/CS5130_Progress_Report_Shreyas_Filled.pdf`. Three source-checked qualitative
-development cases are now recorded in RES-005/EXP-009; human review remains pending.
-This completes a bounded investigation, not all possible failure analysis. The prior
-November 17 handoff below is historical where it says no prompt-level investigation exists.
-Team sections and final report assembly remain unfinished. No inference setting changed.
-
-Read the P1-B closeout, D-012, PILOT-001, RES-004 including its recheck follow-up, V-039 through V-043 and REPORTING before
+Read the P1-B closeout, D-012, PILOT-001, RES-004 including its recheck follow-up, V-039 through V-045 and REPORTING before
 continuing. The [portable team bundle](evidence/p1b-pilot-20261117/comparison.json) includes
 all 384 predictions, reference IDs/labels/lengths, native precision/pooling evidence, package
 provenance, raw feasibility samples, complete analysis and the exact executed code package.
@@ -58,17 +45,14 @@ Reusable Explorer references (not the sole durable evidence):
 
 | Order | Next bounded task | Recognizable completion condition |
 |---|---|---|
-| 1 | Use the corrected report-gap assessment: add bounded qualitative development-error investigation and explicitly scoped resource reporting, then assemble the progress report. | At most four pages covering the rubric and actual contributions. Existing samples permit a narrow derived forward-service rate; sustained/end-to-end throughput and shape-aware repeated profiling require additional approved measurements. No new GPU experiment is mandated merely by the progress-report wording. Submission still needs explicit instruction. |
-| 2 | Prepare P1-C main-study decision packet. | Concrete endpoint, validation-threshold objective/search/tie rule, preprocessing/batch/quantization policy, paired uncertainty, profiling matrix/repetitions and budget for Yash's approval before substantive execution. |
-| 3 | After those choices, implement/check analysis and perform approved validation selection; freeze the Part 1 plan before Test-A. | Full traceable freeze and compatible development evidence. Complete Part 1 before the committed learned-gate study and final Test-B release. |
+| 1 | Use the reviewed v3 progress report for the course handoff. | Yash can submit the reviewed PDF. Record a submission only if confirmed. |
+| 2 | Prepare the P1-C decision packet from the development evidence. | Present the proposed endpoint, validation threshold rule, preprocessing, uncertainty plan, profiling design and budget for Yash's approval. |
+| 3 | Carry out approved validation work, then freeze Part 1 before Test-A. | A traceable freeze and compatible validation outputs are required before the Test-A benchmark. Complete Part 1 before the learned-gate study and Test-B release. |
 
-The fresh recheck is [V-043 evidence](evidence/p1b-recheck-20261117.json), with an independent
-verifier retained beside it. Original bundle bytes and predictions remain unchanged; no
-arithmetic/hash mismatch was found. The prior handoff understated throughput scope and
-prompt-level qualitative analysis: these are substantive unfinished tasks, not only table
-assembly. Forward timer exclusions do not define the wider post-warm-up memory window.
-The final threshold, Test-A study and learned gate remain later work, not automatically
-required to finish the November 18 preliminary report.
+[V-043](evidence/p1b-recheck-20261117.json) rechecks the original pilot. V-045 covers the
+report-era test counts and the resource validator. Repeated, shape-aware profiling and
+end-to-end throughput remain future experiments. The pilot's forward timer and GPU memory
+peak have different boundaries, as documented in RES-004 and RES-006.
 
 No further scientific experiment is silently authorized by completing the report pilot.
 Unknown prior external exposure, annotation truth, near-duplicates and pretrained

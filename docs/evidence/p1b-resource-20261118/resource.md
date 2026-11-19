@@ -2,7 +2,7 @@
 
 Scope: Offline regeneration of single-pass pilot resource observations; no model run. Development feasibility only, not a final or controlled speed/memory benchmark.
 
-Workload: 128 matched training examples, batch size 1, effective tokens 9-1024 (median 83.0); order fp32, fp16, int8 (fixed, separate fresh processes, same allocation). Hardware: NVIDIA L40S, CUDA 12.6.
+Workload: 128 matched training examples, batch size 1, effective tokens 9-1024 (median 83.0); order not established by measurement manifests; consult native execution records. Hardware: NVIDIA L40S, CUDA 12.6.
 
 | Treatment | Median forward (ms) | p95 forward (ms) | Max forward (ms) | Peak allocated (MiB) | Parameter storage (MiB) | Derived forward-only rate (ex/s) |
 |---|---:|---:|---:|---:|---:|---:|

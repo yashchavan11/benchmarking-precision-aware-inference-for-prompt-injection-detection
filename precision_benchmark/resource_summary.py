@@ -23,7 +23,7 @@ from pathlib import Path
 import statistics
 import sys
 
-from . import pilot_inference
+from . import artifacts, pilot_compare, pilot_inference
 
 PRECISIONS = ("fp32", "fp16", "int8")
 MIB = 2 ** 20
@@ -33,6 +33,16 @@ RATE_DEFINITION = ("Derived forward-only rate = number of samples / sum of their
                    "durations. Not a measured wall-clock, sustained or end-to-end throughput; "
                    "not 1 / median latency.")
 P95_DEFINITION = "Nearest rank: sorted[ceil(0.95 * n) - 1]; median is the conventional median."
+FORWARD_BOUNDARY = ("Pretokenized device-resident tensors to raw logits, synchronized before/after; "
+                    "excludes transfers/tokenization/score conversion")
+LOADING_SCOPE = "Populated local checkpoint to device; no download/hash verification"
+WARMUP = {"batches": 3, "schedule": "first three planned IDs in order"}
+FLAGS = {"attention": "eager", "autocast_enabled_outside_forward": False,
+         "bf16_reduced_precision_reduction": False, "cudnn_benchmark": False,
+         "deterministic_algorithms": False, "float32_matmul_precision": "highest",
+         "fp16_reduced_precision_reduction": False, "tf32_cudnn": False, "tf32_matmul": False}
+# PILOT-001 / D-012: scope authorization is independent of a caller's rehashed manifest.
+APPROVED_EXAMPLES = "828cf651e2ccbeace777eb8936ab91fcbb888f7e903f22825b6c87163c222089"
 
 
 def require(condition, message):
@@ -49,7 +59,10 @@ def nearest_rank(values, fraction):
 def _load_json(path):
     def bad_constant(_):
         raise ValueError("Nonfinite JSON constant")
-    return json.loads(Path(path).read_bytes(), parse_constant=bad_constant)
+    value = json.loads(Path(path).read_bytes(), parse_constant=bad_constant,
+                       object_pairs_hook=artifacts.unique_object)
+    require(isinstance(value, dict), "Expected a JSON object")
+    return value
 
 
 def _verified(path, expected_sha256, label):
@@ -63,52 +76,175 @@ def _finite_positive(value):
     return type(value) in (int, float) and math.isfinite(value) and value > 0
 
 
+def _identity(value):
+    return "sha256:" + pilot_inference.digest(pilot_inference.canonical(value))
+
+
+def _relative(base, entry):
+    require(isinstance(entry, dict) and isinstance(entry.get("path"), str), "Missing relative file reference")
+    relative = Path(entry["path"])
+    # pilot_compare intentionally emits sibling-relative references in a new analysis directory.
+    require(not relative.is_absolute(), "File references must be relative")
+    return base / relative
+
+
 def load_bundle(manifest_path):
-    """Return {precision: {run, feasibility, environment, precision_evidence}} after hash checks."""
+    """Load only the D-012 training pilot, including its linked population and predictions.
+
+    This is not a generic profiler or a held-out evaluation reader. Hashes establish
+    retained evidence consistency, not independent proof of native execution.
+    """
     manifest_path = Path(manifest_path)
     manifest = _load_json(manifest_path)
+    require(type(manifest.get("schema_version")) is int and manifest["schema_version"] == 1,
+            "Unsupported comparison schema")
+    require(manifest.get("data_role") == pilot_inference.ROLE,
+            "Resource summary supports only the D-012 eligible_training pilot")
     base = manifest_path.parent
     runs = manifest.get("runs")
     require(isinstance(runs, list) and len(runs) == len(PRECISIONS), "Manifest must reference exactly three runs")
     bundle = {}
     for entry in runs:
-        require(isinstance(entry, dict) and not Path(entry.get("path", "/")).is_absolute(),
-                "Run references must be relative")
-        run_path = base / entry["path"]
+        run_path = _relative(base, entry)
         run = _verified(run_path, entry.get("sha256"), "run.json")
         precision = run.get("precision")
         require(precision in PRECISIONS and precision not in bundle, "Unexpected or duplicate precision")
         require(run.get("status") == "complete", f"{precision} run is not complete")
-        hashes = run.get("artifact_sha256", {})
-        loaded = {"run": run}
+        bundle[precision] = {"run": run, "directory": run_path.parent}
+    require(set(bundle) == set(PRECISIONS), "Bundle lacks one of fp32/fp16/int8")
+    pilot_path = _relative(base, manifest["examples"]).parent / "manifest.json"
+    pilot_sha = bundle["fp32"]["run"].get("pilot_manifest_sha256")
+    pilot, rows = pilot_inference.load_pilot(pilot_path, pilot_sha)
+    require(pilot["examples"]["sha256"] == APPROVED_EXAMPLES,
+            "Pilot membership is not the approved D-012 population")
+    require(manifest["examples"]["sha256"] == pilot["examples"]["sha256"]
+            and manifest.get("population_id") == pilot["population_id"], "Comparison population differs from pilot")
+    require(pilot.get("rows") == len(rows)
+            and pilot["population_id"] == "pilot-128:sha256:" + pilot["membership_sha256"]
+            and _identity(pilot.get("preprocessing_contract")) == pilot["preprocessing_id"]
+            and _identity(pilot.get("input_schedule")) == pilot["input_schedule_id"],
+            "Pilot population/preprocessing/planned schedule identities disagree")
+    for precision, loaded in bundle.items():
+        run = loaded["run"]
+        pilot_compare.bind_run(run, pilot, pilot_sha, precision)
+        require(type(run.get("expected_rows")) is int and run["expected_rows"] == len(rows)
+                and type(run.get("observed_rows")) is int and run["observed_rows"] == len(rows)
+                and run.get("test_performance_released") is False, "Incomplete or unsupported run coverage/release")
+        require(run.get("checkpoint") == {"bytes": pilot_inference.WEIGHT_BYTES, "filename": "model.safetensors",
+                "full_payload_hash_verified": True, "sha256": pilot_inference.WEIGHT_SHA256}, "Checkpoint contract differs")
+        sources = run.get("source_sha256")
+        require(isinstance(sources, dict) and sources
+                and all(pilot_inference.input_data.valid_sha(v) for v in sources.values())
+                and run["code_revision"] == _identity(sources), "Executed source digest differs")
+        loaded["examples"] = rows
+    # Only after authorizing the linked training membership do we open predictions.
+    # The shared reader validates their hashes, complete IDs, thresholds and common identities.
+    _, examples, checked_runs, _, _ = artifacts.load_comparison(manifest_path)
+    require(list(examples.values()) == rows, "Comparison examples differ from linked pilot examples")
+    for precision, loaded in bundle.items():
+        require(loaded["run"] == checked_runs[precision], "Run changed during comparison validation")
+        hashes = loaded["run"].get("artifact_sha256", {})
         for name, key in (("feasibility.json", "feasibility"), ("environment.json", "environment"),
                           ("precision-evidence.json", "precision_evidence")):
-            loaded[key] = _verified(run_path.parent / name, hashes.get(name), f"{precision} {name}")
-        bundle[precision] = loaded
-    require(set(bundle) == set(PRECISIONS), "Bundle lacks one of fp32/fp16/int8")
+            loaded[key] = _verified(loaded["directory"] / name, hashes.get(name), f"{precision} {name}")
     return bundle
 
 
 def _check_matched(bundle):
     """All treatments must time the same examples, token lengths and order on one device."""
-    reference = None
+    reference = [(row["example_id"], row["effective_tokens"]) for row in bundle["fp32"]["examples"]]
     for precision in PRECISIONS:
-        samples = bundle[precision]["feasibility"].get("samples")
+        loaded = bundle[precision]
+        feasibility, environment, run = loaded["feasibility"], loaded["environment"], loaded["run"]
+        samples = feasibility.get("samples")
         require(isinstance(samples, list) and samples, f"{precision} has no raw samples")
         for row in samples:
-            require(row.get("batch_size") == 1, "Only batch-size-one samples are supported")
-            require(type(row.get("effective_tokens")) is int and row["effective_tokens"] > 0,
+            require(type(row.get("batch_size")) is int and row["batch_size"] == 1
+                    and type(row.get("repetition")) is int and row["repetition"] == 0,
+                    "Only the single-pass batch-size-one pilot is supported")
+            require(type(row.get("effective_tokens")) is int and 0 < row["effective_tokens"] <= pilot_inference.CAP,
                     "Invalid effective token count")
             require(_finite_positive(row.get("forward_seconds")), "Invalid forward duration")
         schedule = [(row["example_id"], row["effective_tokens"]) for row in samples]
-        require(len({sid for sid, _ in schedule}) == len(schedule), f"{precision} repeats an example ID")
-        if reference is None:
-            reference = schedule
-        require(schedule == reference, "Treatments did not time the same examples/lengths in the same order")
-    devices = {(bundle[p]["environment"].get("gpu_uuid"), bundle[p]["environment"].get("allocation_id"))
-               for p in PRECISIONS}
-    require(len(devices) == 1, "Treatments ran on different devices or allocations")
+        require(schedule == reference,
+                "Timing coverage/order/lengths differ from the expected pilot examples")
+        require(feasibility.get("forward_boundary") == FORWARD_BOUNDARY
+                and feasibility.get("loading_scope") == LOADING_SCOPE
+                and pilot_inference.canonical(feasibility.get("warmup")) == pilot_inference.canonical(WARMUP),
+                "Unsupported measurement boundary or warmup schedule")
+        require(_finite_positive(feasibility.get("loading_seconds")), "Invalid loading duration")
+        memory, baseline = feasibility.get("memory", {}), feasibility.get("memory_baseline_after_warmup", {})
+        for values, keys in ((memory, ("peak_allocated_bytes", "peak_reserved_bytes")),
+                             (baseline, ("allocated_bytes", "reserved_bytes"))):
+            require(all(type(values.get(k)) is int and values[k] > 0 for k in keys), "Invalid memory measurement")
+        require(memory["peak_reserved_bytes"] >= memory["peak_allocated_bytes"] >= baseline["allocated_bytes"]
+                and memory["peak_reserved_bytes"] >= baseline["reserved_bytes"] >= baseline["allocated_bytes"],
+                "Inconsistent memory baseline/peak")
+        for field in ("gpu_uuid", "allocation_id", "gpu_name", "device", "python", "platform", "cuda_runtime"):
+            value = environment.get(field)
+            require(isinstance(value, str) and value.strip() and value not in ("unavailable", "local"),
+                    f"Missing execution environment {field}")
+        require(pilot_inference.canonical(environment.get("flags")) == pilot_inference.canonical(FLAGS)
+                and run["environment_id"] == _identity(environment),
+                "Environment digest or supported execution flags differ")
+        versions = environment.get("versions", {})
+        require(all(isinstance(versions.get(k), str) and versions[k] for k in
+                    ("torch", "transformers", "tokenizers", "accelerate", "bitsandbytes", "safetensors")),
+                "Missing dependency evidence")
+        require(environment == bundle["fp32"]["environment"], "Treatments ran in different environments/devices")
+        for key in ("token_schedule_sha256", "checkpoint", "source_sha256", "tokenizer_runtime"):
+            require(run.get(key) == bundle["fp32"]["run"].get(key) and run.get(key), f"Incompatible or missing {key}")
+        _check_precision(precision, loaded)
     return reference
+
+
+def _check_precision(precision, loaded):
+    """Validate the recorded storage used by the table; this does not rerun the model."""
+    evidence, environment = loaded["precision_evidence"], loaded["environment"]
+    dtype = "torch.float32" if precision == "fp32" else "torch.float16"
+    require(evidence.get("precision") == precision and evidence.get("flags") == environment["flags"]
+            and evidence.get("head_shape") == [2, 1024] and evidence.get("head_dtype") == dtype
+            and evidence.get("observed_logits_dtype") == dtype and evidence.get("head_quantized") is False
+            and evidence.get("all_parameters_frozen") is True and evidence.get("all_modules_eval") is True,
+            "Precision/head/execution evidence differs")
+    parameters = evidence.get("parameters")
+    require(isinstance(parameters, list) and len(parameters) == 311, "Incomplete parameter storage evidence")
+    names = {p.get("name") for p in parameters}
+    require(len(names) == len(parameters) and all(isinstance(n, str) and n for n in names), "Duplicate/missing parameter names")
+    quantized = evidence.get("quantized_linear_modules")
+    expected = {f"model.layers.{i}.{layer}" for i in range(28) for layer in
+                ("self_attn.q_proj", "self_attn.k_proj", "self_attn.v_proj", "self_attn.o_proj",
+                 "mlp.gate_proj", "mlp.up_proj", "mlp.down_proj")} if precision == "int8" else set()
+    require(isinstance(quantized, list) and len(quantized) == len(expected)
+            and {q.get("name") for q in quantized} == expected, "Quantized projection evidence differs")
+    by_name = {p["name"]: p for p in parameters}
+    for parameter in parameters:
+        wanted = "torch.int8" if parameter["name"].removesuffix(".weight") in expected else dtype
+        _check_tensor(parameter, wanted, environment["device"])
+    require(sum(p["elements"] for p in parameters) == 596051968, "Parameter element coverage differs")
+    require(by_name.get("score.weight", {}).get("shape") == [2, 1024], "Classifier parameter evidence differs")
+    for module in quantized:
+        require(module.get("threshold") == 6.0 and module.get("has_fp16_weights") is False
+                and module.get("weight_dtype") == "torch.int8", "INT8 treatment settings differ")
+        states = module.get("state_tensors", [])
+        require(len(states) == 2 and {s.get("name") for s in states} == {"state.CB", "state.SCB"},
+                "Missing INT8 state storage evidence")
+        weight = by_name.get(module["name"] + ".weight", {})
+        for state in states:
+            _check_tensor(state, "torch.int8" if state["name"] == "state.CB" else "torch.float32", environment["device"])
+            require(state["shape"] == (weight.get("shape") if state["name"] == "state.CB" else weight.get("shape", [])[:1]),
+                    "INT8 state shape differs from weight")
+
+
+def _check_tensor(tensor, dtype, device):
+    shape = tensor.get("shape")
+    require(isinstance(shape, list) and shape and all(type(n) is int and n > 0 for n in shape), "Invalid tensor shape")
+    elements = math.prod(shape)
+    require(tensor.get("dtype") == dtype and tensor.get("device") == device and tensor.get("requires_grad") is False
+            and type(tensor.get("elements")) is int and tensor["elements"] == elements
+            and type(tensor.get("storage_bytes")) is int
+            and tensor["storage_bytes"] == elements * {"torch.int8": 1, "torch.float16": 2, "torch.float32": 4}[dtype],
+            "Invalid tensor storage/dtype/device evidence")
 
 
 def _quantization_state_bytes(evidence):
@@ -185,7 +321,7 @@ def summarize(manifest_path):
                      "effective_tokens_min": min(t for _, t in schedule),
                      "effective_tokens_median": statistics.median(t for _, t in schedule),
                      "effective_tokens_max": max(t for _, t in schedule),
-                     "treatment_order": "fp32, fp16, int8 (fixed, separate fresh processes, same allocation)"},
+                      "treatment_order": "not established by measurement manifests; consult native execution records"},
         "hardware": {"gpu": environment.get("gpu_name"), "allocation_id": environment.get("allocation_id"),
                      "cuda_runtime": environment.get("cuda_runtime"), "versions": environment.get("versions"),
                      "flags": environment.get("flags")},
@@ -314,8 +450,11 @@ def write_figure(summary, directory):
                 color="#0b0b0b", va="center", ha="left")
     ax.set_xscale("log")
     ax.set_yscale("log")
-    ax.set_xlim(7, 1100)
-    ax.set_ylim(15, 600)
+    points = [row for rows in summary["samples"].values() for row in rows]
+    ax.set_xlim(min(7, min(r["effective_tokens"] for r in points) * 0.8),
+                max(1100, max(r["effective_tokens"] for r in points) * 1.05))
+    ax.set_ylim(min(15, min(r["forward_ms"] for r in points) * 0.8),
+                max(600, max(r["forward_ms"] for r in points) * 1.1))
     ax.yaxis.set_major_locator(FixedLocator([20, 50, 100, 200, 500]))
     ax.yaxis.set_minor_locator(NullLocator())
     ax.xaxis.set_major_locator(FixedLocator([10, 30, 100, 300, 1024]))
@@ -333,7 +472,9 @@ def write_figure(summary, directory):
         ax.spines[side].set_color("#c3c2b7")
     ax.legend(loc="lower left", bbox_to_anchor=(0, 1.0), fontsize=7, frameon=False, ncol=3,
               handletextpad=0.3, columnspacing=1.2, borderaxespad=0.2)
-    fig.suptitle("Per-example forward time, 128 matched pilot inputs, batch 1, one L40S", fontsize=8.5,
+    gpu = summary["hardware"]["gpu"].removeprefix("NVIDIA ")
+    fig.suptitle(f"Per-example forward time, {summary['workload']['examples']} matched pilot inputs, "
+                 f"batch {summary['workload']['batch_size']}, one {gpu}", fontsize=8.5,
                  x=0.1, ha="left", color="#0b0b0b")
     fig.subplots_adjust(left=0.1, right=0.76, top=0.84, bottom=0.14)
     paths = []

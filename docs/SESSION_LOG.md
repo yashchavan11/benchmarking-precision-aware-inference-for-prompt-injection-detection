@@ -1,5 +1,20 @@
 # Session history
 
+## S-20261118-03 - Report review and resource comparison fixes
+
+Yash authorized integration and publication after reviewing the team's five commits and
+the assembled report. Local `main` fast-forwarded from `2fcb6c5` to the reviewed `46ee768`.
+V-045 distinguishes the two reproducible software-test outcomes at the report revision
+from verification of the corrected validator. REPORTING identifies the v3 PDF that Yash
+provided for review. Yash handles the course submission.
+
+Codex implemented the resource compatibility corrections and regression tests, with
+independent automated review. RESULTS now reports the observed pilot bands and ratios.
+REPORTING, STATUS and CONTRIBUTIONS record the completed qualitative work, resource
+analysis, assistance and the later refactor's relation to the original native run.
+The next scientific task remains the P1-C decision packet. This session used the saved
+pilot outputs for all empirical checks.
+
 ## S-20261118-02 - Hareeshwar's runtime/resource report section
 
 Hareeshwar asked for his progress-report part: the runtime/resource section assigned in the team
@@ -48,7 +63,7 @@ submission, commit or push was performed. The PDF is a partial team draft, not a
 
 Chronological record of substantive implementation, investigation, experiments and analysis.
 The latest resumable state is in [STATUS.md](STATUS.md); this file preserves how that state
-was reached. Implementation sessions are recorded below; no model experiments have run.
+was reached. The entries below preserve the evidence and project state at the time of each session.
 
 ## S-20261111-01 — Shreyas evaluation and integration implementation
 

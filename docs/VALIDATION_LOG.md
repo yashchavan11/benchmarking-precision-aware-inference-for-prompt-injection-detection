@@ -1,5 +1,41 @@
 # Correctness and validity evidence
 
+### V-045 - November 18 report review and resource comparison regression
+
+**Report revision.** At `46ee768`, Windows Python 3.11.9 ran 118 tests successfully with
+the optional `requests` package available. Running the same suite with `python -B -S`
+disabled site packages and yielded 117 passes and one skip. The skipped test exercises
+real `requests` proxy/CA preparation. Both counts are reproducible for that revision.
+V-044 gives the original team's Windows Python 3.13 result. The report author's exact
+environment for the separate 117-plus-one run is unknown.
+
+**Report artifacts.** The review used the v3 PDF identified in REPORTING, the original
+training-only prediction bundle, EXP-009 and the native resource samples. The independent
+V-043 verifier ran again and passed all 3,811 checks across 384 predictions. A separate
+resource check reconstructed all 384 SVG points from the measured durations and effective
+lengths. At the report revision, Matplotlib 3.11.2 on Python 3.11.9 regenerated the two
+CSVs, JSON and Markdown byte for byte. The PNG had identical pixel values with different
+compression, and SVG text matched after normalizing line endings. This result supports
+the numerical and visible contents of the report.
+
+**Validator defect and repair.** The previous summarizer accepted rehashed inputs with
+incompatible token or timing contracts, missing allocation/device identities, or an
+unsupported data role. It also inferred treatment order from a list of runs. Four tests
+first reproduced these failures. The corrected loader now checks the D-012 comparison
+role, the approved examples digest and expected run coverage before reading predictions.
+It validates the linked population and predictions, token-schedule and environment digests,
+precision/storage evidence, matching GPU and allocation, and consistent per-example timing,
+warm-up and memory records. The figure uses validated hardware and sample metadata.
+
+**Post-fix checks.** All 23 resource tests and all 134 repository tests passed. An independent
+automated review checked rejection of a fully rehashed reference-label change before reading
+predictions, normal sibling-relative paths from `pilot_compare`, and numerical equivalence.
+Both the portable comparison and a freshly assembled comparison regenerated the resource
+statistics. Against V-044, the CSV bytes, numerical JSON, decoded RGBA pixels and SVG text
+(apart from line endings) match. The derived JSON and Markdown now refer readers to native
+execution records for treatment order. Git revision `46ee768` retains the report-era wording.
+The archived pilot evidence remains intact. No new GPU measurements were required.
+
 ## PR-1 preparation source-inventory regression - November 18, 2026
 
 Codex reproduced the missing `precision_benchmark/preprocessing.py` hash in the

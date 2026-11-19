@@ -1,21 +1,22 @@
 # Team contribution record
 
-Evidence of substantive human design, implementation, execution, analysis, review and
-writing work, supporting the final contribution statement. Version-control changes can be
-linked as evidence; discussions, experiments and reviews may require other records.
+Record of team direction and delivered design, implementation, execution, analysis, review
+and writing work, distinguishing documented assistance from human work. Version-control
+changes can be linked as evidence; discussions, experiments and reviews may require other records.
 Contribution-recording instructions are in [AGENTS.md](../AGENTS.md).
 
 ## Contribution index
 
 | Contributor | Completed work / evidence | Review contribution |
 |---|---|---|
-| Shreyas Shukla | Requested evaluation/integration implementation; Codex-produced deliverables in S-20261111-01, V-001. Human implementation/review not asserted. | Pending |
-| Viraj Paradkar | None recorded | None recorded |
-| Yash Chavan | Requested verification, approved local integration and inference/data audit scope; S-20261117-01/02. Automated execution is distinguished from human implementation. | Human scientific review not yet recorded |
+| Shreyas Shukla | Directed the Codex-assisted evaluator/integration work, PR-1 source-hash correction, source-checked qualitative cases and report preparation; S-20261111-01, S-20261118-01, RES-005/EXP-009 and the PR-1 regression record. | Automated integration/case checks are recorded; human scientific signoff is not inferred. |
+| Viraj Paradkar | Delivered the merged dataset/preprocessing handoff and shared preprocessing refactor (PR-1); DATASET_PREPROCESSING_HANDOFF and the ownership-handoff session link the retained evidence and focused checks. | Reuse and software checks are documented; no independent human re-audit or native rerun is claimed. |
+| Yash Chavan | Directed pinned-asset/data audits, integration and Explorer execution; Codex-assisted implementation/execution produced P1-A/P1-B, the 384 predictions, setup guidance and rechecks (S-20261117-01 through -10, V-039–V-043). | Independent automated reviews are documented; human scientific signoff is not inferred. |
 | Hareeshwar Muthu Kumaran | Runtime/resource report section, offline resource-summary module and tests (S-20261118-02, V-044, RES-006); Claude Code-assisted. | Human review of the section pending |
 
-These entries establish team membership, not completed work or authorship credit. Current
-active task ownership belongs in [STATUS.md](STATUS.md).
+These entries credit the evidenced workstreams and direction, not personal implementation
+of every line or review inferred from Git authorship. Current active ownership belongs in
+[STATUS.md](STATUS.md). Dated entries below retain their original session scope.
 
 ## 2026-11-11 — Evaluation workstream assistance
 
@@ -130,3 +131,34 @@ the regenerated resource evidence in `docs/evidence/p1b-resource-20261118/`, RES
 report-ready section in REPORTING. The Explorer environment, timing/memory instrumentation and
 native pilot execution came from the earlier P1-B work (S-20261117-09) and are not credited to
 Hareeshwar here. Hareeshwar's human review of the section and its commit are his to record.
+
+## November 18 - Dataset/preprocessing handoff and integration correction
+
+Viraj's merged work adds the dataset/preprocessing handoff and shared preprocessing module,
+consolidating existing audits, population and tokenizer evidence. The ownership-handoff
+session records 55 focused checks and offline reanalysis; it explicitly reused retained
+source evidence rather than performing a new native audit. The module refactor postdates
+the November 17 GPU run: current preparation/inference code uses the shared module, while
+the portable executed-source archive identifies the implementation that produced the
+unchanged saved predictions. Credit for the earlier asset audits and native execution
+remains with their documented shared workstream.
+
+At Shreyas's request, Codex corrected the preparation manifest's missing shared-source
+hash and exercised the PR-1 regression. This is assisted integration review, not evidence
+that Shreyas personally performed an independent human scientific review. No further
+human authorship or assistance detail is inferred merely from the merged commit identity.
+
+## November 18 - Qualitative report contribution and assembled PDF review
+
+At Shreyas's request, Codex checked three permitted training texts against their pinned
+source hashes, labels and saved predictions, then prepared qualitative cases and his
+report sections (S-20261118-01, EXP-009, RES-005). The original partial fillable PDF and
+its then-unfinished team sections remain historical artifacts. The assembled three-page
+v3 PDF was subsequently reviewed as recorded in REPORTING/V-045; that review does not
+establish who personally assembled every section or that submission occurred.
+
+The report's workstream summaries are supported by the delivered artifacts. Codex assistance
+for evaluation, audit/inference, integration and qualitative/report work, and Claude Code
+assistance for the resource section, remain explicitly documented here. Human annotation
+adjudication and scientific signoff are not claimed. No new course disclosure policy is
+inferred, and these record corrections do not require rewriting the reviewed v3 PDF.

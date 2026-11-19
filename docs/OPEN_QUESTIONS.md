@@ -31,7 +31,7 @@ tracks whether questions have been resolved; it does not establish a competing m
 - **Raised/date/phase:** 2026-11-17, P1-A; local access audit requested by Yash.
 - **Type/evidence:** Verified access blocker: public pinned model API/card/license return 200; configuration/tokenizer files return HTTP 401 without authentication (V-009).
 - **Historical local state (S-20261117-03):** Yash now reports accepting model access. A new local check still found no configured Hub credential; the unauthenticated pinned config request returned 401 (V-010). Account acceptance and authenticated local retrieval are separate conditions. No token was displayed or saved to project artifacts.
-- **Current state (S-20261117-05):** Resolved for authenticated asset access. Yash privately configured a read token using an explicitly authorized Python login alternative after Windows blocked the hf.exe launcher. All seven selected files and bounded header ranges were retrieved and verified (V-022), with no token in chat/project/Git. Full weight download remains unperformed by design.
+- **Historical access check (S-20261117-05):** Resolved for authenticated asset access. Yash privately configured a read token using an explicitly authorized Python login alternative after Windows blocked the hf.exe launcher. All seven selected files and bounded header ranges were retrieved and verified (V-022), with no token in chat/project/Git. That check covered metadata and the header. V-039 records the later full-weight download.
 - **Next action:** Reuse retained pinned assets and the fully verified checkpoint. Native Explorer tokenizer and three-treatment GPU execution are now verified (V-034/V-041); Windows policy remains unchanged. Do not repeat access acceptance or confuse historical unauthenticated 401s with authenticated access.
 - **Independent work:** Administrative data audit and evaluator integration completed; environment inventory is retained. No substitution of a different classifier or silent relaxation of the access requirement.
 
@@ -41,7 +41,7 @@ tracks whether questions have been resolved; it does not establish a competing m
 - **Known at the P1-A administrative checkpoint:** That work processed all splits administratively and viewed aggregate statistics; an incidental source-page view showed training snippets (EXP-002). No model performance or test prompts were displayed. Exact training/test overlap is zero; near-duplicate relationships and prior team access remain unknown.
 - **Next action under D-009:** Continue from verified D-008 memberships and inspect incoming work/artifacts when pushed. Do not wait for or routinely solicit separate exposure attestations. Preserve unknown history; assess actual leakage if discovered and bound affected claims. No invented sealed-history claim or silent allocation change.
 - **Earlier candidate evidence (now followed by approved D-008):** V-011 and `docs/evidence/p1a-partition-candidates-20261117.json` provide reproducible group-preserving 50/50 and 60/40 support proposals. Automated recommendation is 50/50 for equal support across both committed studies; no selection/freeze or power claim. Final eligibility, ratio/algorithm/seed and exposure controls require the requested team/user decision.
-- **Status:** Yash reports no prior test inspection to his knowledge; this is not an independently verified history for every teammate. Authenticated asset access now succeeds (V-022/Q-012 resolved); runtime execution is the separate Q-015 blocker. D-008 now selects the design and V-021 constructs review-ready memberships; human review remains unperformed but is not a continuation gate under D-009; test releases and empirical phase prerequisites remain unchanged.
+- **Status:** Yash reports no prior test inspection to his knowledge; this is not an independently verified history for every teammate. Authenticated asset access now succeeds (V-022/Q-012 resolved); Q-015 documents the Windows native-runtime block and the subsequently verified Explorer route. D-008 now selects the design and V-021 constructs review-ready memberships; human review remains unperformed but is not a continuation gate under D-009; test releases and empirical phase prerequisites remain unchanged.
 
 ## Question record schema
 
@@ -63,7 +63,7 @@ tracks whether questions have been resolved; it does not establish a competing m
 
 ### Q-014 — Explicit tokenizer and pooling semantics
 
-V-016/V-022/RES-002 establish the source-level PAD mismatch and EOS-sensitive pooling
+Original P1-A question (see the P1-B resolution below): V-016/V-022/RES-002 establish the source-level PAD mismatch and EOS-sensitive pooling
 choice. Verify actual wrapper behavior, NFC/special-token handling, explicit cap and
 single-versus-padded agreement in an approved runtime. Proposed first reference is original
 unpadded batch one; standard PAD=EOS or a mask-based adapter are unselected alternatives.

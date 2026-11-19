@@ -15,7 +15,8 @@ and the gate's separate quality/cost claims belong to [EXTENSION.md](EXTENSION.m
 | RES-002 | Part 1 / P1-A | Padding/pooling policies require explicit checks | Static source and synthetic index cases | R-P1-A-20261117-04; V-016/V-022 | Source-level observation; original batch-one runtime checks later verified by V-041; padded equivalence unsupported |
 | RES-003 | P1-A | Native development lengths and tokenizer controls | Complete administrative development observation | R-P1-A-20261117-07; V-034/V-035 | Independently checked; no model/cap freeze |
 | RES-004 | Part 1 / P1-B | Three precision treatments execute with mixed quality/resource observations | Class/length-enriched 128-row training pilot, provisional threshold | R-P1-B-20261117-01; V-041/V-042 | Native and arithmetic evidence independently checked; no final ranking or gate benefit |
-| RES-006 | Part 1 / P1-B | Pilot memory saving is weight storage; INT8 latency overhead is length-independent | Offline reanalysis of RES-004's retained single-pass samples | R-P1-B-20261117-01; V-044 | Observed; mechanisms are hypotheses; human review pending |
+| RES-005 | Part 1 / P1-B | Three source-checked development error illustrations | Selected training cases with original text/label identities and retained predictions | PILOT-001; EXP-009; V-045 | Assistant analysis and independent automated recheck; no annotation adjudication or human signoff |
+| RES-006 | Part 1 / P1-B | Observed parameter/peak-memory ratios and latency band medians | Offline reanalysis of RES-004's retained single-pass samples | R-P1-B-20261117-01; V-044/V-045 | Descriptive values checked; mechanisms and deployment ranking unestablished |
 
 ### RES-001 — Source audit establishes exact-group constraints, not model performance
 
@@ -77,8 +78,10 @@ Evidence: source SHA/label checks in EXP-009 and portable pilot
 `analysis/error_analysis.csv`, `pilot/examples.jsonl`, and saved predictions. Offline
 regeneration completed with `python3 -m precision_benchmark --manifest
 docs/evidence/p1b-pilot-20261117/comparison.json --output outputs/shreyas-report-20261118`.
-No native run or full software suite was repeated. Review status: assistant analysis;
-human review pending. Use these as bounded examples, not prevalence estimates or causal findings.
+No native run or full software suite was repeated in S-20261118-01. V-045 subsequently
+rechecked the original training text/label hashes and saved outcomes independently. Review
+status remains automated analysis, not human annotation adjudication. Use these as bounded
+examples, not prevalence estimates or causal findings.
 
 A synthesis can link several result records without repeating their measurements. For Part 1,
 link the completed evidence package specified in REPORTING. For Part 2, keep separate
@@ -88,7 +91,7 @@ memory/loading feasibility. Their common policy and evaluation population must b
 This permits a useful tradeoff to be described without treating success in one dimension as
 proof of success in the others.
 
-### RES-006 - Pilot resource interpretation: memory follows weight storage, INT8 adds constant latency
+### RES-006 - Pilot resource observations: memory ratios and latency band medians
 
 November 18, 2026; Hareeshwar's runtime/resource workstream, Claude Code-assisted. Offline
 regeneration from RES-004's retained raw samples (V-044); no new native execution.
@@ -105,17 +108,21 @@ Evidence: [resource summary](evidence/p1b-resource-20261118/resource_summary.jso
   scale state (SCB).
 - **Latency by effective-token band (median ms, n = 80/16/32 for 1-128/129-512/513-1024):**
   FP32 25.45/25.26/56.01; FP16 26.26/26.42/26.16; INT8 86.68/88.67/91.92. INT8's median is
-  3.43x FP32's. Its excess over FP16 is roughly constant across bands.
+  3.43x FP32's overall. Differences between the INT8 and FP16 band medians are
+  60.42/62.25/65.76 ms. These three summaries do not establish length-independent cost.
 - **Derived forward-only rate** (n / sum of durations, not measured throughput): 31.62 / 31.20 /
   11.18 examples per forward-second, which is 0.99x and 0.35x of FP32.
-- **Hypotheses, not established:** fixed per-call overhead dominates batch-one latency for this
-  0.6B model; LLM.int8 activation quantization and outlier decomposition add per-projection
-  overhead; FP32 grows on long inputs because TF32 is disabled (`float32_matmul_precision="highest"`).
-  Kernel-level profiling, warmed shapes and repetitions would be needed to test them.
+- **Possible follow-up questions:** how much per-call work, LLM.int8 activation quantization/
+  outlier handling and matmul settings contribute to the observed timings. Neither dominance
+  of fixed costs nor the cause of the band differences was measured. Controlled profiling,
+  warmed shapes and repetitions would be needed to investigate those mechanisms.
 - **Limits:** All of RES-004's limits apply (single pass, fixed order, short-only warm-up, batch 1,
   shared node, enriched sample). Loading times (6.70 / 0.87 / 32.26 s) are order- and cache-confounded
-  and are not compared. No final speed ranking or deployment recommendation beyond this pilot.
+  and are not compared. No final speed ranking or deployment recommendation follows.
 - **Report destination:** November 18 progress-report resource section (REPORTING).
+- **Interpretation correction (V-045):** The earlier constant-overhead/length-independence
+  wording and deployment preference are superseded by the descriptive scope above. Raw
+  samples, arithmetic, tables and the reviewed v3 PDF are unchanged; no new native run occurred.
 
 ## Invalidation record
 
@@ -188,8 +195,9 @@ Most errors were shared missed injections. FP32's 30 false negatives include 27 
 and three truncated examples; therefore truncation is not a complete explanation for the
 observed misses. This is descriptive error accounting, not causal evidence about the cap.
 The preliminary operating point needs the planned validation-only threshold procedure;
-we did not tune the threshold on this pilot to improve its reported result. Source-text
-interpretation, annotation ambiguities and broader failure-case analysis remain later work.
+we did not tune the threshold on this pilot to improve its reported result. RES-005 later
+adds three bounded source-text illustrations. Annotation adjudication, causal explanations
+and broader failure-case analysis remain unfinished.
 
 #### Pilot resource observations
 
@@ -246,5 +254,6 @@ by the sum of the 128 recorded forward durations: 31.6177 FP32, 31.1950 FP16 and
 examples per forward-second. This is not a measured continuous wall-window or end-to-end
 pipeline throughput. The calculation uses the sum of durations, not the median; it adds
 no new native execution or proof of a sustained rate. The compact recheck evidence retains
-source hashes and the formula. Qualitative prompt-level failure investigation and fuller
-profiling remain unfinished; final threshold and protected evaluations remain unchanged.
+source hashes and the formula. RES-005 and RES-006 subsequently provide bounded qualitative
+cases and the resource report; broader failure investigation and fuller profiling remain
+unfinished. The final threshold and protected evaluations remain unchanged.

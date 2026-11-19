@@ -1,14 +1,36 @@
 # Research outputs and course deliverables
 
+## Current progress-report status - November 18
+
+The assembled three-page `CS5130_Progress_Report_Updated_v3.pdf` was reviewed against
+report revision `46ee7687a569288caba1cc7fba40c1f48b03c740` and its retained evidence (V-045).
+Its SHA-256 is `d91fff27e183a9c703ab84dd1969a4e319652b1a6c7e43297468da3f481c560f`.
+It covers the required progress sections and is submission-ready; this documentation
+correction does not require changing that PDF. Actual submission status is unknown.
+The earlier partial-template and unfinished qualitative-work descriptions below are
+historical: RES-005/EXP-009 now record three source-checked training cases, and the v3
+report includes them. This is bounded analysis, not human annotation adjudication.
+
+V-045 reconciles the test counts at the report revision: Python 3.11.9 with ordinary
+`python` reproduced 118/118 passes; `python -S` reproduced 117 passes and one optional-
+dependency skip among 118 tests. This explains how both counts can occur, without proving
+the exact environment of the separate original PDF verification. Subsequent regression
+counts are recorded separately in V-045. Contribution and assistance attribution is in
+[CONTRIBUTIONS](CONTRIBUTIONS.md); no unperformed human signoff is implied.
+
+At the report revision, independent regeneration reproduced both CSVs, the JSON summary
+and the Markdown table byte for byte. Matplotlib 3.11.2 reproduced the same visible PNG
+pixels and SVG content. PNG compression and SVG line endings can vary between environments.
+
 ## November 18 progress report - runtime/resource section (Hareeshwar)
 
-Completed resource section for Shreyas to place in the assembled progress report. The values are
+The resource section is represented in the reviewed v3 report. Its supporting values are
 regenerated from the retained raw samples by `precision_benchmark.resource_summary` (V-044, RES-006),
 not typed by hand. Evidence: [resource table](evidence/p1b-resource-20261118/resource.csv),
 [length breakdown](evidence/p1b-resource-20261118/resource_by_length.csv),
 [figure](evidence/p1b-resource-20261118/latency_vs_tokens.png) and the
-[full summary](evidence/p1b-resource-20261118/resource_summary.json). Text between the rules is
-ready to paste; trim the figure or the length sentence first if space is short.
+[full summary](evidence/p1b-resource-20261118/resource_summary.json). The corrected reusable
+text below limits interpretation to the observed pilot values.
 
 ---
 
@@ -27,24 +49,24 @@ PyTorch's maximum allocated GPU memory after a reset that follows warm-up.
 | INT8 (LLM.int8) | 87.49 | 93.48 | 932.56 | 716.88 | 11.18 |
 
 \*128 examples divided by the sum of their 128 forward durations. This is a derived forward-only
-service rate, not a measured wall-clock, sustained or end-to-end throughput, and not 1 / median latency.
+service rate, not a measured continuous wall-window, sustained or end-to-end throughput, and not 1 / median latency.
 p95 uses the nearest-rank rule.
 
-**Memory versus latency trade-off.** Lower precision reduced memory: peak allocated memory was 53%
-(FP16) and 38% (INT8) of FP32. Almost all of the saving is weight storage; the post-warm-up workload
-on top of the resident model was similar in every mode (about 150-180 MiB). INT8 did not reach a
-quarter of FP32 because LLM.int8 quantizes only the 196 transformer linear projections. The
-151,936 x 1,024 token-embedding table (296.75 MiB) and the classifier head stay in FP16. INT8 was
-**slower**, not faster: its median forward time was 3.4x FP32's and its derived rate about one third.
-FP16 matched FP32's median on short inputs. Above 512 tokens FP32's median rose to 56.0 ms while
-FP16 stayed at 26.2 ms (n=32). INT8 was about 87-92 ms in every length band. The flat FP16/INT8
-curves suggest that per-call fixed costs dominate at batch size 1 for this 0.6B model. LLM.int8's
-extra per-projection quantization and outlier handling are a plausible source of INT8's constant
-overhead, and FP32 with TF32 disabled is a plausible reason for its long-input growth. These are
-hypotheses; we did not profile kernels to confirm them. Lower bit width therefore reduced memory
-but did not reduce latency on this GPU. On this evidence, INT8 is better suited to memory-limited
-deployment than to latency-critical deployment. FP16 showed the most favorable latency/memory
-combination observed in this pilot, with one unexplained 493 ms spike.
+**Observed memory and latency.** Peak allocated memory was 53% (FP16) and 38% (INT8) of FP32,
+alongside the smaller parameter-storage values above. The post-warm-up workload increments
+above the resident baseline were 177.0/152.5/153.8 MiB. INT8 retains the 151,936 x 1,024
+token-embedding table (296.75 MiB) and classifier head in FP16; only the 196 transformer
+projections are quantized. Its overall median forward time was 3.43x FP32's and its derived
+rate 0.35x FP32's.
+
+For the 1-128/129-512/513-1024-token bands (n=80/16/32), median times were
+25.45/25.26/56.01 ms for FP32, 26.26/26.42/26.16 ms for FP16 and 86.68/88.67/91.92 ms for
+INT8. These three band summaries do not establish length-independent latency or a constant
+overhead mechanism. Per-call costs, quantization/outlier handling and matmul settings are
+possible subjects for controlled investigation; their causal effects were not measured.
+The lower measured memory and higher INT8 median describe this pilot, not a deployment
+recommendation. The unexplained FP16 493 ms spike and incomplete warmup coverage also
+preclude a stable deployment ranking.
 
 **Measurement limits.** (1) Batch size 1 only; no batching or concurrency. (2) Warm-up used only the
 first three inputs (63, 92 and 12 tokens), so 59 of the 128 timed inputs were longer than any
@@ -65,22 +87,22 @@ The command checks the hash chain from the comparison manifest to each run's mea
 It also confirms that all three treatments timed identical examples and token lengths on one
 device, and that the recomputed median and p95 equal the values recorded during the run.
 
-**Next profiling work (final report).** Warm up every measured shape. Repeat measurements under a
-rotated treatment order. Run batch-size and length sweeps. Measure sustained wall-clock and
-end-to-end throughput, including tokenization and transfer. Report model size on disk, loading
-time under a cold cache, and kernel-level profiles to test the INT8 overhead hypothesis.
+**Candidate profiling work for P1-C.** Select warmup coverage, repetitions, treatment-order
+control and a batch/length matrix before further measurements. Sustained wall-window and
+end-to-end throughput need explicit boundaries including tokenization and transfer. Separate
+model storage and cache-conditioned loading; kernel profiling may investigate the untested
+timing mechanisms. These suggestions are not an already selected experiment budget.
 
 *Figure (optional):* `docs/evidence/p1b-resource-20261118/latency_vs_tokens.png`. Caption: Per-example
 synchronized forward time against input length (log-log), 128 matched development inputs, batch 1,
 one L40S; dashed lines show medians, and the shaded band marks lengths up to the longest warm-up input.
 
-**Contribution (Hareeshwar Muthu Kumaran).** Verified the retained runtime evidence against the raw
-per-example samples. Implemented and tested the offline resource-summary module
-(`precision_benchmark/resource_summary.py`, 7 tests). Produced the resource table, the length
-breakdown and the figure. Wrote the resource analysis, measurement limits and reproduction
-instructions. The Explorer GPU environment, the timing/memory instrumentation and the native
-pilot run were prepared earlier in the shared pilot (P1-B) and are not claimed here. Claude Code
-(an AI assistant) helped with implementation and drafting.
+**Contribution (Hareeshwar Muthu Kumaran).** His Claude Code-assisted workstream checked the
+retained runtime evidence against raw samples and produced the offline resource-summary
+module (`precision_benchmark/resource_summary.py`, 7 tests), table, length breakdown, figure,
+analysis and reproduction guidance. The Explorer GPU environment, timing/memory
+instrumentation and native pilot execution came from the earlier shared P1-B work.
+Assisted implementation and drafting do not establish independent human scientific review.
 
 ---
 
@@ -89,7 +111,7 @@ pilot run were prepared earlier in the shared pilot (P1-B) and are not claimed h
 Yash supplied the actual course guidelines: the progress report is **at most four pages**,
 due November 18, covering implementation status, the data pipeline and baseline results,
 preliminary evaluation, and lessons learned/remaining risks. Verified requirement/source
-identity is below. This record supplies evidence and reusable prose; no report was submitted.
+identity is below. The assembled v3 review and unknown submission status are recorded above.
 
 The inference contribution is complete for the agreed progress-report pilot: a working
 FP32/FP16/LLM.int8 command, verified checkpoint/label/pooling/precision treatment, 384 saved
@@ -132,8 +154,9 @@ shape-aware profiling and end-to-end costs remain to be established.
 For a compact report, use the [quality table](evidence/p1b-pilot-20261117/analysis/quality.csv)
 and RES-004's resource table with their denominators and scope. The complete results include
 AUC, calibration, score shifts and truncation groups; select only what fits the four-page
-progress format without hiding unfavorable outcomes. Software evidence is 107 tests passed
-on the actual GPU job and 111 local tests after adding the offline comparison command.
+progress format without hiding unfavorable outcomes. The original evidence checkpoints are
+107 tests passed on the GPU job and 111 local tests after adding the offline comparison
+command; V-045 separates the later report-revision and regression checks.
 
 ### Lessons, remaining risks and team assembly
 
@@ -147,16 +170,17 @@ on the actual GPU job and 111 local tests after adding the offline comparison co
   held-out data or describe raw scores as calibrated probabilities.
 - Keep source contamination/near-duplicate uncertainty, limited pilot support and unknown
   external exposure explicit. Detection is one control, not a guarantee against injection.
-- Shreyas's remaining work includes source-based qualitative investigation of permitted
-  development failures, in addition to report assembly/integration. Descriptive error counts,
-  truncation groups and the single threshold-crossing case already exist; prompt-level
-  explanations and annotation interpretation have not been performed.
+- Shreyas's Codex-assisted qualitative investigation is recorded in RES-005/EXP-009 and
+  appears in the assembled v3 report. Three source-checked illustrations complement the
+  descriptive error counts; causal explanations, annotation adjudication and a broader
+  failure taxonomy remain unestablished.
 - Hareeshwar can use the newly recorded, explicitly scoped derived forward-only rate.
   Sustained wall-window/end-to-end throughput is still unmeasured. Fully warmed, repeated and order-controlled profiling remains substantive
   technical work before strong performance claims; it is not merely formatting a table.
-- Viraj can reuse the verified data/manifests and coordinate/document preprocessing. No
-  missing Viraj implementation blocks the current pilot. Actual contribution/review must
-  be credited from evidence, rather than inferred from the responsibility assignment.
+- Viraj's merged data/preprocessing handoff and shared preprocessing refactor consolidate
+  existing evidence. The refactor postdates the native pilot: the archived executed source,
+  not the later module layout, produced the retained predictions. Shreyas's Codex-assisted
+  PR-1 correction added the shared source hash. No native rerun or changed input is inferred.
 
 The full project still needs the main protocol freeze, validation threshold selection,
 Test-A benchmark/error analysis and Part 1 closeout, followed by the substantive learned-gate
@@ -172,10 +196,11 @@ threshold, a held-out benchmark, repeated profiling or a trained gate by that da
 honest preliminary report can use the current evidence and disclose unfinished work; this
 is not a guarantee of a grade or a claim that every weekly item is complete.
 
-The earlier handoff understated the remaining throughput definition/measurement and
-qualitative error investigation. These are substantive analysis/measurement tasks. A new
-GPU experiment is not automatically required by the progress-report wording: the existing
-samples can yield a narrowly labeled forward-service rate. A claim about continuous-window
+The November 17 handoff understated throughput scope and qualitative error investigation.
+Since then, RES-005 records the bounded source-based cases and RES-006 supplies the scoped
+resource summary/figure. The assembled v3 has been reviewed; those report items are no
+longer pending. A new GPU experiment is not automatically required by the progress-report
+wording. A claim about continuous-window
 or end-to-end throughput, stable hardware performance, or warmed long-input latency needs
 new instrumentation/controlled measurements and its approved scope. Do not substitute the
 inverse median latency for measured throughput.
@@ -553,6 +578,11 @@ by actual work and review evidence rather than inferred from membership or commi
 References come from [SOURCES.md](SOURCES.md). Applicable course requirements for citations
 and disclosure of tools or assistance govern the final submission; no additional policy
 is assumed here.
+
+For exact dataset attribution, the retained source is the [pinned PromptShield dataset
+card](https://huggingface.co/datasets/hendzh/PromptShield/blob/a5234cb1f5cdb256600cab64b8c961195b5e8404/README.md),
+in addition to the PromptShield paper. Adding that card to a future report version improves
+asset traceability; it is not a required rewrite of the reviewed v3 PDF.
 
 ## Final delivery evidence
 

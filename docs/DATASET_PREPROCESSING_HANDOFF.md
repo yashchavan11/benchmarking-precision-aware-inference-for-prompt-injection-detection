@@ -1,8 +1,10 @@
 # Dataset and preprocessing handoff
 
-The dataset audit, protected partition design, and shared preprocessing for the
-development pilot are complete. This handoff maps the dataset and preprocessing
-owner's deliverables to the existing evidence.
+Viraj's handoff consolidates the existing P1-A audit and P1-B pilot evidence. The current
+preparation and inference code use the shared preprocessing helper introduced after the
+native run. The portable pilot bundle retains the exact earlier source that produced the
+reported predictions. Shreyas subsequently added the shared helper to the preparation
+manifest's source inventory.
 
 ## Dataset summary
 

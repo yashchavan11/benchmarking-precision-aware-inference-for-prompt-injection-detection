@@ -329,10 +329,16 @@ not supply a Test-A result or the final threshold freeze.
 python -m precision_benchmark.resource_summary --manifest docs/evidence/p1b-pilot-20261117/comparison.json --output outputs/resource-new
 ```
 
-The command verifies the bundle's hash chain and matched workload, recomputes median/p95 from the
-raw samples, and writes `resource.csv`, `resource_by_length.csv`, `resource.md`,
-`resource_summary.json` and an optional figure. The figure needs matplotlib; pass `--no-figure` to
-skip it. The derived forward-only rate is n / sum of forward durations, not measured throughput.
+Use the retained D-012 training bundle or a comparison manifest assembled for the same pilot.
+Keep the prepared `manifest.json` beside `examples.jsonl`. The command verifies the approved
+examples, full measurement coverage, matching token schedules, device, execution flags,
+timing boundaries and warm-up policy. It reads the hardware and sample count from the
+validated evidence. For chronological treatment order, consult the native execution records.
+
+Outputs include `resource.csv`, `resource_by_length.csv`, `resource.md`, `resource_summary.json`
+and an optional figure. Use `--no-figure` for a standard-library-only run. The report figure
+used Matplotlib 3.11.2. The forward-only rate divides the example count by the sum of the
+synchronized forward durations. End-to-end throughput requires a separate wall-clock measurement.
 
 ## Software checks
 
